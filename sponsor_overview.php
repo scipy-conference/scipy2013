@@ -61,7 +61,7 @@ $thisSub="Prospectus";
 
 <p>Sponsorships enable the registration fee to remain extremely affordable compared to many other meetings.</p>
 
-<p>For SciPy 2012, these aspects of the conference were made possible through the generous support of sponsors including Google, Los Alamos National Lab, Continuum Analytics, Github, Microsoft, NUMFocus, Schrodinger, Python Software Foundation, SIG Susquehanna, WingWare, Media Sponsor Computing Science & Engineering, and Institutional Sponsor Enthought.</p>
+<p>For SciPy 2012, these aspects of the conference were made possible through the generous support of sponsors including Google, Los Alamos National Lab, Continuum Analytics, GitHub, Microsoft, NumFOCUS, Schrödinger, Python Software Foundation, SIG Susquehanna, WingWare, Media Sponsor Computing Science & Engineering, and Institutional Sponsor Enthought.</p>
 
 <p><b>Please email <a href="mailto:scipy-organizers@scipy.org">scipy-organizers@scipy.org</a> to become a sponsor today.</b>
 
