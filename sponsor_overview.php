@@ -24,7 +24,7 @@ $thisSub="Prospectus";
 <div id="main-content">
 
 <h1>Sponsor Prospectus </h1>
-<h4><a href="SciPy2013 Sponsor Prospectus.pdf"><img src="img/pdficon_large.png" /> PDF</a></h4><br />
+<h4><a href="pdf/SciPy2013 Sponsor Prospectus.pdf"><img src="img/pdficon_large.png" /> PDF</a></h4><br />
 <h2>Why sponsor SciPy 2013?</h2>
 
 <p>As a community, SciPy advances scientific and analytic computing through the development and promotion of open source Python software. The annual SciPy Conference brings together academic and industry users to present their latest advances, learn from skilled users and developers, and collaborate on advancing the ecosystem. Python usage continues to grow significantly in scientific and analytic computing thanks to the efforts of this community.</p>
