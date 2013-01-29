@@ -14,11 +14,11 @@
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("inc/sponsors.php"); ?>
-</div>
+
+<?php include('inc/page_headers.php') ?>
+
 <div id="main-content">
 
 <h1>SciPy 2013</h1>
@@ -99,7 +99,7 @@ box-shadow: 2px 2px 2px #888;" alt="Austin, TX" /><p>SciPy 2013, the twelfth ann
 </div>
 
 </div>
-
+<div style="clear: both;"></div>
 <div id="footer">
 
 </div>
