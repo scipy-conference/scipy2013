@@ -61,8 +61,7 @@ box-shadow: 2px 2px 2px #888;" alt="Austin, TX" /><p>SciPy 2013, the twelfth ann
 
 <h2>Anticipated Session Pricing</h2>
 
-<div  style="width: 455px; margin: 10px auto;">
-<table id="schedule">
+<table>
   <tr>
     <th>Session </th>
     <th>Dates</th>
@@ -96,7 +95,6 @@ box-shadow: 2px 2px 2px #888;" alt="Austin, TX" /><p>SciPy 2013, the twelfth ann
   </tr>
 </table>
 
-</div>
 
 </div>
 <div style="clear: both;"></div>

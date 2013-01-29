@@ -1,6 +1,4 @@
 <?php
-$thisPage="Sponsors";
-$thisSub="Prospectus";
 
 ?>
 
@@ -16,12 +14,13 @@ $thisSub="Prospectus";
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("inc/sponsors.php"); ?>
-</div>
+
+<?php include('inc/page_headers.php') ?>
+
 <div id="main-content">
+
 
 <h1>Sponsorship Packages Available</h1>
 
