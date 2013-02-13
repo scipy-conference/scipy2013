@@ -1,0 +1,334 @@
+/* =Reset default browser CSS. Based on work by Eric Meyer
+-------------------------------------------------------------- */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Site-Specific CSS
+-------------------------------------------------------------- */
+
+body {
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+  line-height: 1.4em;
+  color: #333;
+  }
+
+#container {
+  width: 80%;
+  min-width: 950px;
+  margin: 1% auto;
+  padding: 25px;
+  text-align: left;
+  background: #fff;
+  min-height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  }
+
+#page_header {
+  float: left;
+  width: 100%;
+  }
+
+.header_tagline {
+  font-family: Michroma;
+  text-align: right;
+  line-height: 1.5em;
+  float: right;
+  margin-top: -80px;
+  }
+
+/* Menu CSS
+-------------------------------------------------------------- */
+#nav {
+  margin: 0 0 4em 0;
+  }
+
+#nav a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  }
+
+#nav, #nav ul {
+  float: left;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  text-align: left;
+  font-family: Michroma;
+  font-size: .9em;
+  font-weight: bold;
+  clear: both;
+
+  }
+
+
+
+#nav ul li {
+  float: left;
+  position: relative;
+  width: 13%;
+  margin: 0 0.75em;
+  padding: 0.25em;
+
+ }
+
+#nav li ul {
+  display: none;
+  position: absolute; 
+  top: 20px; /*positions the drop down box vertically relative to its container, so padding + button height to get to align at bottom - my code*/
+  padding-top: 10px; /*moves nav boxes down but preserves the block element so the hover is not lost*/
+  left: 0;
+  font-size: .75em;
+    
+
+  }
+
+#nav ul li ul li {
+  width: 14.6em;
+  text-align: left;
+  margin: 0;
+  padding: 0.5em;
+  background: #fff;
+
+ }
+
+#nav li:hover ul { 
+  display: block;
+  border: 0px 1px 1px 1px solid #ddd;
+  box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  -webkit-box-shadow: 0px 10px 10px 5px rgba(202, 219, 232, .75);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  }
+
+/*------------------------------------------------------------ */
+
+
+#sidebar {
+  width: 30%;
+  float: left;
+  padding-right: 1em;
+  border-right: 1px dotted #9E9A74;
+  /*border: 1px solid red;*/
+  clear: both;
+  }
+
+#main-content {
+  width: 65%;
+  float: left;
+  padding-left: 20px;
+  border-left: 1px dotted #9E9A74;
+  margin-left: -1px;
+  /*border: 1px solid green;*/
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Michroma;
+  font-weight: bold;
+  margin: 0 0 1em 0;
+  line-height: 1.4em;
+  }
+
+h1 {
+  font-size: 1.6em;
+  }
+
+h2 {
+  font-size: 1.2em;
+  }
+
+p {
+  font-size: 1em;
+  margin: 0 0 1em 0;
+  }
+
+
+
+.callout {
+  float: right;
+  width: 180px;
+  border: 1px solid #2B5DA6;
+  margin: 10px 0 10px 10px;
+  font-size: .85em;
+  clear: both;
+  }
+
+.callout h1 {
+  background: #2B5DA6;
+  color: #fff;
+  font-size: .85em;
+  margin-bottom: 5px;
+  }
+
+.callout p {
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 4px;
+  font-size: .85em;
+  margin: 0 0 0 4px;
+  }
+
+.callout li {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .85em;
+  margin: 0 0 0 0;
+  }
+
+.callout_row {
+  float: left;
+  width: 100%;
+  margin: .25em 0;
+  border-top: 1px solid #ddd;
+  }
+
+.callout_date {
+  float: left;
+  margin: 2px 4px;
+  }
+
+.callout_description {
+  float: left;
+  width: 120px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .85em;
+  padding: 4px 0 0 0;
+  }
+
+td {
+  font-size: .9em;
+  vertical-align: top;
+  padding: 0 0.4em;
+  border: 1px solid #ddd;
+  }
+
+th{
+  text-align: left;
+  font-size: .9em;
+  font-weight: bold;
+  color: #fff;
+  padding: 4px;
+  background-color: #2b5da6;
+  border-bottom-style: solid;
+  }
+
+td.time{
+  width: 70px;
+  font-weight: bold;
+  }
+
+img.right {
+  float: right; 
+  margin: 0 0 .5em 1em; 
+  border: 1px solid #000; 
+  -moz-box-shadow: 2px 2px 2px #888; 
+  -webkit-box-shadow: 2px 2px 2px #888; 
+  box-shadow: 2px 2px 2px #888;
+  clear: both;
+  }
+
+.row {
+  float: left;
+  width: 600px;
+  margin: 5px 0;
+  }
+
+/* organizers styles */
+
+.organizers_cell_left {
+  float: left;
+  width: 220px;
+  margin: 0 0 0 20px;
+  }
+
+.organizers_cell_right {
+  float: right;
+  width: 220px;
+  margin: 0 20px 0 0;
+  }
+
+.chairs {
+  font-style: italic;
+  margin: 2em 0 1em;
+  color:  #2B5DA6;
+  }
+
+.chairs_sub {
+  font-style: italic;
+  font-size: .85em;
+  margin: 2em 0 0.5em;
+  color:  #000;
+  }
+
+.person {
+  font-size: .85em;
+  line-height: 1em;
+  font-weight: bold;
+  margin: 0.5em 0;
+  }
+
+.affiliation {
+  font-size: .85em;
+  line-height: 1em;
+  text-align: right;
+  margin: 3px 0 0 0;
+  }
+
+.asterisk_text {
+  font-size: .9em;
+  line-height: 1em;
+  margin: .75em;
+  }
+
+

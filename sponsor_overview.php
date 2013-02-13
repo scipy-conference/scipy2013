@@ -3,8 +3,8 @@
 ?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html >
+<html>
 <?php $thisPage="Home"; ?>
 <head>
 
@@ -19,7 +19,12 @@
 
 <?php include('inc/page_headers.php') ?>
 
-<div id="main-content">
+<section id="sidebar">
+  <?php include("inc/sponsors.php") ?>
+</section>
+
+
+<section id="main-content">
 
 <h1>Sponsor Prospectus </h1>
 <h4><a href="pdf/SciPy2013 Sponsor Prospectus.pdf"><img src="img/pdficon_large.png" /> PDF</a></h4><br />
@@ -65,9 +70,11 @@
 
 <p><a href="sponsor_levels.php">See more information on sponsor levels.</a></p>
 
-</div>
+</section>
 <div style="clear:both;"></div>
-
+<footer id="page_footer">
+<?php include('inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 

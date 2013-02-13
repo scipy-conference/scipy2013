@@ -3,8 +3,8 @@
 ?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html >
+<html>
 <?php $thisPage="Home"; ?>
 <head>
 
@@ -19,17 +19,15 @@
 
 <?php include('inc/page_headers.php') ?>
 
-<div id="main-content">
+<section id="sidebar">
+  <?php include("inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
 
 <h1>SciPy 2013</h1>
 
-<img src="img/atxmuralsm.jpg" width= "270" height="171" style="
-float: right; 
-margin: 0 0 .5em 1em; 
-border: 1px solid #000; 
--moz-box-shadow: 2px 2px 2px #888; 
--webkit-box-shadow: 2px 2px 2px #888; 
-box-shadow: 2px 2px 2px #888;" alt="Austin, TX" /><p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
+<img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right"/><p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
 
 <p>SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering.</p>
 <div class="clearer"></div>
@@ -96,12 +94,15 @@ box-shadow: 2px 2px 2px #888;" alt="Austin, TX" /><p>SciPy 2013, the twelfth ann
 </table>
 
 
-</div>
+</section>
+
+
+
 <div style="clear: both;"></div>
-<div id="footer">
-
+<footer id="page_footer">
+<?php include('inc/page_footer.php') ?>
+</footer>
 </div>
-
 </body>
 
 </html>
