@@ -10,7 +10,7 @@ $domain = "http://conference.scipy.org";
 <link rel="stylesheet" href="inc/reset.css" type="text/css"/>
 <link rel="stylesheet" href="inc/pyper.css" type="text/css"/> -->
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="inc/2013.css" type="text/css"/>
 <link rel="shortcut icon" href="favicon.ico"/>

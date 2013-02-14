@@ -284,14 +284,14 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 
 ?>
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <?php $thisPage="Home"; ?>
 <head>
 
 <?php @ require_once ("../inc/second_level_header.php"); ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>

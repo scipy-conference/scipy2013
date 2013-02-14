@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html>
+<html>
 <?php $thisPage="Register"; ?>
-<?php $thisSub="Registration"; ?>
+
 <head>
 
 <?php
@@ -24,10 +24,10 @@
             });
         </script>
 
-<?php @ require_once ("inc/header.php"); ?>
+<?php include('inc/header.php') ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
-
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
+<?php $thisPage="Register"; ?>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
 <p>Your order number is  <span class="bold"><?php echo $_GET['OrderNumber']; ?></span>. You will receive an email shortly that can serve as your receipt.</p>
 
 <h2>Lodging</h2>
-<p>AT&amp;T Executive Conference Center Hotel rooms are available at a conference rate of $104 a night plus tax, which is 30% less than other downtown Austin hotels at that time. Use this link - <a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=3427421">AT&amp;T Executive Conference Center Hotel</a> - for SciPy2013 lodging reservations. </p>
+<p>AT&amp;T Executive Conference Center Hotel rooms are available at a conference rate of $104 a night plus tax, which is 30% less than other downtown Austin hotels at that time. Use this link - <a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=3427421">AT&amp;T Executive Conference Center Hotel</a> - for SciPy 2013 lodging reservations. </p>
 
 </section>
 <div style="clear:both;"></div>

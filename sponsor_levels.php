@@ -3,14 +3,14 @@
 ?>
 
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
-<?php $thisPage="Home"; ?>
+<?php $thisPage="Sponsor"; ?>
 <head>
 
-<?php @ require_once ("inc/header.php"); ?>
+<?php include('inc/header.php') ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>

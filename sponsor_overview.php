@@ -3,14 +3,14 @@
 ?>
 
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
-<?php $thisPage="Home"; ?>
+<?php $thisPage="Sponsor"; ?>
 <head>
 
-<?php @ require_once ("inc/header.php"); ?>
+<?php include('inc/header.php') ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 <section id="main-content">
 
 <h1>Sponsor Prospectus </h1>
-<h4><a href="pdf/SciPy2013 Sponsor Prospectus.pdf"><img src="img/pdficon_large.png" /> PDF</a></h4><br />
+<p><a href="pdf/SciPy2013 Sponsor Prospectus.pdf"><img src="img/pdficon_large.png" /> PDF</a></p><br />
 <h2>Why sponsor SciPy 2013?</h2>
 
 <p>As a community, SciPy advances scientific and analytic computing through the development and promotion of open source Python software. The annual SciPy Conference brings together academic and industry users to present their latest advances, learn from skilled users and developers, and collaborate on advancing the ecosystem. Python usage continues to grow significantly in scientific and analytic computing thanks to the efforts of this community.</p>

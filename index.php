@@ -3,14 +3,14 @@
 ?>
 
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <?php $thisPage="Home"; ?>
 <head>
 
-<?php @ require_once ("inc/header.php"); ?>
+<?php include('inc/header.php') ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
@@ -28,6 +28,17 @@
 <h1>SciPy 2013</h1>
 
 <img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right"/><p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
+
+<p>SciPy 2013 is about four months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>.</p>
+
+<p>Like last year, there will also be 4 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
+
+<ul>
+  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
+  <li>Astronomy & astrophysics</li>
+  <li>Bio-informatics</li>
+  <li>Medical imaging</li>
+</ul>
 
 <p>SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering.</p>
 <div class="clearer"></div>
