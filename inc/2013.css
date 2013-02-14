@@ -48,6 +48,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin: 0 0 1em 0;
 }
 
 /* Site-Specific CSS
@@ -55,7 +56,7 @@ table {
 
 body {
   background: #f2f2f2;
-  font-family: Arial, sans-serif;
+  font-family: lato, sans-serif;
   line-height: 1.4em;
   color: #333;
   }
@@ -90,10 +91,19 @@ body {
   margin-top: -80px;
   }
 
+footer {
+  text-align: center;
+  margin: 2em 0 0;
+  padding: 1em;
+  border-top: 1px solid #cadbeb;
+  }
+
+
 /* Menu CSS
 -------------------------------------------------------------- */
 #nav {
   margin: 0 0 4em 0;
+  border-bottom: 1px solid #2b5da6;
   }
 
 #nav a {
@@ -120,25 +130,35 @@ body {
 #nav ul li {
   float: left;
   position: relative;
-  width: 13%;
+  width: 13.5%;  /*sets the box for the submenu item*/
   margin: 0 0.75em;
   padding: 0.25em;
 
  }
 
+#nav ul li:hover { /* hover state for top button*/
+   text-decoration: underline;
+
+/*
+  border: 1px 1px 0px 1px solid #ddd;
+  box-shadow:         0px 0px 15px 5px rgba(202, 219, 232, .75);
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(202, 219, 232, .75);
+  -moz-box-shadow:    0px 0px 15px 5px rgba(202, 219, 232, .75);
+*/
+}
+
 #nav li ul {
   display: none;
   position: absolute; 
-  top: 20px; /*positions the drop down box vertically relative to its container, so padding + button height to get to align at bottom - my code*/
-  padding-top: 10px; /*moves nav boxes down but preserves the block element so the hover is not lost*/
+  top: 2.5em; /*positions the drop down box vertically relative to its container, so padding + button height to get to align at bottom - my code*/
+  padding-top: 0.5em; /*moves nav boxes down but preserves the block element so the hover is not lost*/
   left: 0;
   font-size: .75em;
-    
-
+background: #fff;
   }
 
 #nav ul li ul li {
-  width: 14.6em;
+  width: 93%; /*sets the box for the submenu item*/
   text-align: left;
   margin: 0;
   padding: 0.5em;
@@ -148,10 +168,17 @@ body {
 
 #nav li:hover ul { 
   display: block;
+  
   border: 0px 1px 1px 1px solid #ddd;
   box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
   -webkit-box-shadow: 0px 10px 10px 5px rgba(202, 219, 232, .75);
   -moz-box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
+  }
+
+#nav li ul li:hover { 
+  text-decoration: underline;
+  color: #003399;
+  background: #e9f0fb;
   }
 
 /*------------------------------------------------------------ */
@@ -178,7 +205,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: Michroma;
   font-weight: bold;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.85em 0;
   line-height: 1.4em;
   }
 
@@ -195,7 +222,9 @@ p {
   margin: 0 0 1em 0;
   }
 
-
+.indent {
+  margin-left: 2em;
+  }
 
 .callout {
   float: right;
@@ -253,6 +282,10 @@ td {
   border: 1px solid #ddd;
   }
 
+.no_brder {
+  border: none;
+  }
+
 th{
   text-align: left;
   font-size: .9em;
@@ -280,8 +313,19 @@ img.right {
 
 .row {
   float: left;
-  width: 600px;
-  margin: 5px 0;
+  width: 100%;
+  margin: 0.35em 0;
+  }
+
+.cell {
+  width: 50%;
+  float: left;
+  }
+
+input {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   }
 
 /* organizers styles */

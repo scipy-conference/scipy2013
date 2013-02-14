@@ -225,9 +225,9 @@ else
 
 
 <section id="main-content">
-
+<h1>Registration Cont.</h1>
 <hr />
-
+<p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
 <p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong></p>
 
@@ -275,31 +275,31 @@ else
 <input type="hidden" name="tshirt_size_id" value="<?php echo $tshirt_size; ?>">
 
 <div id="instructions">
-<p>Please confirm these prices and submit your payment information below.<br />* Indicates a required field.</p>
+<p>* Indicates a required field.</p>
 </div>
 <div style="clear:both; height: 20px;"></div>
 <h2>Contact Information</h2>
-<table>
 
+<table class="indent">
     <tr>
-    <td colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='FirstName' name='shipTo_firstName' value=''></td>
-    <td colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='LastName' name='shipTo_lastName' value=''></td>
-    <td colspan='2'><label for="">Affiliation</label><br /><input type='text' size='24' name='affiliation' value=''></td>
+    <td class="no_brder" colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='FirstName' name='shipTo_firstName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='LastName' name='shipTo_lastName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">Affiliation</label><br /><input type='text' size='24' name='affiliation' value=''></td>
     </tr>
     <tr>
-      <td colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' size='24' id='email' name='billTo_email' value=''></td>
-      <td colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' size='24' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' size='24' id='email' name='billTo_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' size='24' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
     </tr>
     <tr>
-      <td colspan='3'><label for="">Address 1</label><br /><input type='text' size='40' id='Addr1'  name='shipTo_street1' value=''></td>
-      <td colspan='3'><label for="">Address 2</label><br /><input type='text' size='40' id='Addr2' name='shipTo_street2' value=''></td>
+      <td class="no_brder" colspan='3'><label for="">Address 1</label><br /><input type='text' size='40' id='Addr1'  name='shipTo_street1' value=''></td>
+      <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text' size='40' id='Addr2' name='shipTo_street2' value=''></td>
     </tr>
     <tr>
-    <td colspan='2'><label for="">City</label><br /><input type='text' size='15' id='City' name='shipTo_city' value=''></td>
-    <td><label for="">State</label><br /><input type='text' size='3' id='State' name='shipTo_state' value=''></td>
-    <td><label for="">Zip</label><br /><input type='text' size='11' id='ZipCode' name='shipTo_postalCode' value=''></td>
-    <td> </td>
-      <td><label for="">Country</label><br />
+    <td class="no_brder" colspan='2'><label for="">City</label><br /><input type='text' size='15' id='City' name='shipTo_city' value=''></td>
+    <td class="no_brder"><label for="">State</label><br /><input type='text' size='3' id='State' name='shipTo_state' value=''></td>
+    <td class="no_brder"><label for="">Zip</label><br /><input type='text' size='11' id='ZipCode' name='shipTo_postalCode' value=''></td>
+    <td class="no_brder"> </td>
+      <td class="no_brder"><label for="">Country</label><br />
 
         <select id='Country' name="shipTo_country" size="1" style="width:150px">
             <?php foreach ($countries as $key => $shipTo_country) {
@@ -311,16 +311,16 @@ else
 
 <h2>Payment Information</h2>
 
-<table>
+<table class="indent">
     <tr>
-        <td ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' size='24' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
-        <td ><label for="">* Card Type:</label><br />
+        <td class="no_brder" ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' size='24' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
+        <td class="no_brder" ><label for="">* Card Type:</label><br />
             <select class="validate[required]" id="card_cardType" name='card_cardType'>
             <?php foreach ($ccards as $key => $card_cardType) {
             echo "<option value='$key'>$card_cardType</option>";
             } ?></select>
         </td>
-        <td><label for="">* Expiration Date</label><br />
+        <td class="no_brder"><label for="">* Expiration Date</label><br />
         <select class="validate[required]" id='ecom_payment_card_expdate_month' name='card_expirationMonth'>
            <?php foreach ($months as $key =>  $card_expirationMonth) {
             echo "<option value='$key'>$card_expirationMonth</option>";
@@ -335,22 +335,22 @@ else
 
 <h2>Credit Card Billing Information</h2>
 
-<table class="form">
+<table class="form indent">
 
-    <tr><td colspan='6'>Same as contact information <input type="checkbox" name="SameBillAsShip" id="SameBillAsShip""/></td></tr>
+    <tr><td class="no_brder" colspan='6'>Same as contact information <input type="checkbox" name="SameBillAsShip" id="SameBillAsShip""/></td></tr>
     <tr>
-      <td colspan='3'><label for="">* First Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_first' name='billTo_firstName' value=''></td>
-        <td colspan='3'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_last' name='billTo_lastName' value=''></td>
+      <td class="no_brder" colspan='3'><label for="">* First Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_first' name='billTo_firstName' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_last' name='billTo_lastName' value=''></td>
     </tr>
     <tr>
-        <td colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  size='40' id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
-        <td colspan='3'><label for="">Address 2</label><br /><input type='text'  size='40' id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  size='40' id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text'  size='40' id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
     </tr>
     <tr>
-        <td colspan='2'><label for="">* City</label><br /><input class="validate[required] text-input" type='text' size="15" id='ecom_billto_postal_city' name='billTo_city' value=''></td>
-        <td><label for="">* State</label><br /><input class="validate[required] text-input" type='text' size="3" id='ecom_billto_postal_stateprov' name='billTo_state' value=''></td>
-        <td><label for="">* Zip</label><br /><input class="validate[required] text-input" type='text' size="11" id='ecom_billto_postal_postalcode' name='billTo_postalCode' value=''></td>
-        <td><label for="">* Country</label><br />
+        <td class="no_brder" colspan='2'><label for="">* City</label><br /><input class="validate[required] text-input" type='text' size="15" id='ecom_billto_postal_city' name='billTo_city' value=''></td>
+        <td class="no_brder"><label for="">* State</label><br /><input class="validate[required] text-input" type='text' size="3" id='ecom_billto_postal_stateprov' name='billTo_state' value=''></td>
+        <td class="no_brder"><label for="">* Zip</label><br /><input class="validate[required] text-input" type='text' size="11" id='ecom_billto_postal_postalcode' name='billTo_postalCode' value=''></td>
+        <td class="no_brder"><label for="">* Country</label><br />
           <select  class="validate[required]" id='ecom_billto_postal_countrycode' name="billTo_country" size="1" style="width:150px;">
           <?php foreach ($countries as $key => $billTo_country) {
             echo "<option value=\"$key\">$billTo_country</option>";
@@ -358,7 +358,7 @@ else
     </td>
     </tr>
     <tr>
-      <td colspan='6'><label for="">* Phone</label><br /><input class="validate[required,custom[phone]]" type='text' id='phone' name='billTo_phoneNumber' value=''></td>
+      <td class="no_brder" colspan='6'><label for="">* Phone</label><br /><input class="validate[required,custom[phone]]" type='text' id='phone' name='billTo_phoneNumber' value=''></td>
     </tr>
 </table>
 <input type="submit" name="SubmitOrder" value="Submit Order">

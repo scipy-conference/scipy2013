@@ -140,7 +140,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <?php @ require_once ("inc/header.php"); ?>
 
-<link rel="shortcut icon" href="http://conference.scipy.org/scipy2012/favicon.ico" />
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 
 </head>
 
@@ -160,7 +160,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <p class="left">Register online using the form below. You may also register via phone at (512)536-1057. </p>
 
-<p><strong>Please note:</strong> Early-Bird registration will close <span class="highlight">Monday, June 18th</span>. Registrations after that date will add $50 to the Tutorial and Conference prices listed below.</p>
+<p><strong>Please note:</strong> Early-Bird registration will close <span class="highlight">Monday, May 6th</span>. Registrations after that date will add $50 to the Tutorial and Conference prices listed below.</p>
 
 <!--
 <form id="formID" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>"> 
@@ -169,8 +169,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <div class="form_row">
 <h2> Session Selection </h2>
-<br />
-<table id="schedule" width="600">
+<table id="schedule">
   <tr>
     <th colspan="2">Session </th>
     <th>Dates</th>
@@ -178,24 +177,22 @@ while($row = mysql_fetch_array($total_result_sizes));
     <th><div align="right">Academic<br />Price</div></th>
     <th><div align="right">Student<br />Price</div></th>
   </tr><?php echo $display_sessions ?>
+  <tr>
+    <td colspan="6"><span class="asterisk_text">*SciPy 2013 Sprints will be free of cost to everyone. However, for catering purposes, we would like to know whether you plan on attending.</span></td>
 </table>
 </div>
-<p class="asterisk_text">*SciPy 2013 Sprints will be free of cost to everyone. However, for catering purposes, we would like to know whether you plan on attending.</p>
 
-<div class="form_row">
-<div class="form_cell">
+
+<div class="row">
+<div class="cell">
 <h2> Participant Level </h2>
-<br />
-
 <table align="center" width="200">
     <?php echo $display_participants ?>
 </table>
 </div>
-<div class="form_cell">
+<div class="cell">
 
 <h2> T-Shirt Size </h2>
-<br />
-
 <table align="center" width="200">
     <?php echo $display_sizes ?>
 </table>

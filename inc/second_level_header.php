@@ -12,6 +12,6 @@ $domain = "http://conference.scipy.org";
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="inc/2013.css" type="text/css"/>
+<link rel="stylesheet" href="../inc/2013.css" type="text/css"/>
 <link rel="shortcut icon" href="favicon.ico"/>
 
