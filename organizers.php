@@ -36,19 +36,20 @@
 <span class="person">Jonathan Rocher</span>, <span class="affiliation">Enthought, Inc.</span>
 
 <div class="chairs">Program Committee Co-chairs:</div>
-<span class="person">Katy Huff</span> <span class="affiliation"></span><br />
+<span class="person">Katy Huff</span>, <span class="affiliation">University of Wisconsin and Argonne National Laboratory</span><br />
 <span class="person">Matt McCormick</span>, <span class="affiliation">Kitware Inc.</span>
 
 <div class="chairs">Tutorial Co-chairs:</div>
 <span class="person">Dharhas Pothina</span>, <span class="affiliation">Texas Water Development Board</span><br />
-<span class="person">Francesc Alted</span> <span class="affiliation"></span>
+<span class="person">Francesc Alted</span>, <span class="affiliation">Continuum Analytics</span>
 
 <div class="chairs">Sprint Co-chairs:</div>
 <span class="person">Corran Webster</span>, <span class="affiliation">Enthought, Inc.</span><br />
 <span class="person">Peter Wang</span>, <span class="affiliation">Continuum Analytics</span>
 
-<div class="chairs">BoF Chair:</div>
-<span class="person">Matthew Turk</span> <span class="affiliation"></span>
+<div class="chairs">BoF Co-chairs:</div>
+<span class="person">Kyle Mandkli</span>, <span class="affiliation">University of Texas</span><br />
+<span class="person">Matthew Turk</span>, <span class="affiliation">Columbia Univiersity</span>
 
 </div>
 <div class="cell">

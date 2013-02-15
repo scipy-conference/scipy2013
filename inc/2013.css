@@ -38,7 +38,8 @@ ol, ul {
   list-style-position: inside;
   padding-left:1em;
   margin: 0 0 1em 0;
-}
+  }
+
 blockquote, q {
   quotes: none;
 }
@@ -52,10 +53,11 @@ table {
   border-spacing: 0;
   margin: 0 0 1em 0;
 }
-strong {
-  font-weight: 700;
-  }
 
+a:visited {
+  color: #0033cc;
+  }
+  
 /* Site-Specific CSS
 -------------------------------------------------------------- */
 
@@ -130,13 +132,11 @@ footer {
 
   }
 
-
-
 #nav ul li {
   float: left;
   position: relative;
-  width: 14.5%;  /*sets the box for the submenu item*/
-  margin: 0 0.5em;
+  width: 13.5%;  /*sets the box for the submenu item*/
+  margin: 0 0.75em;
   padding: 0.25em;
 
  }
@@ -319,7 +319,7 @@ img.right {
 .row {
   float: left;
   width: 100%;
-  margin: 0.75em 0 1em 0;
+  margin: 0.35em 0;
   }
 
 .cell {
@@ -349,7 +349,7 @@ input {
 
 .chairs {
   font-style: italic;
-  margin: 1em 0 0;
+  margin: 2em 0 1em;
   color:  #2B5DA6;
   }
 
@@ -380,9 +380,4 @@ input {
   margin: .75em;
   }
 
-.image_right {
-  float: right; 
-  border: 1px solid #000; 
-  margin: 0 0 1em 1em;
-  }
 
