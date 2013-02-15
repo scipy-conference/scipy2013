@@ -156,7 +156,7 @@ $result_billing = @mysql_query($sql_billing, $connection) or die("Error #". mysq
 //=======================================
 
 $participant_type_id  = $_POST['participant_type_id'];
-$conference_id = 1;
+$conference_id = 2;
 $tshirt_size_id  = $_POST['tshirt_size_id'];
 $ordernumber = $_POST['orderNumber'];
 
