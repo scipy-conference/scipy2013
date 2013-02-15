@@ -52,7 +52,7 @@
 
 <div class="callout_row">
   <img src="img/twitter-bird-light-bgs.png" width="32" height="32" alt="twitter" class="callout_date" />
-  <span class="callout_description">Follow <a href="https://twitter.com/SciPy2013">@SciPy2013</a></span>
+  <span class="callout_description">Follow <a href="https://twitter.com/SciPyConf">@SciPyConf</a></span>
 </div>
 
 <div class="callout_row">

@@ -36,7 +36,7 @@
 
 <h3>Reproducible Science</h3>
 
-<p>Over recent years, the Open Science movement has stoked a renewed acknowledgement of the importance of reproducible research. The goals of this movement include improving the dissemination of progress, prevent fraud through transparency, and enable deeper/wider development and collaboration. This track is to discuss the tools and methods used to achieve reproducible scientific computing.</p>
+<p>Over recent years, the Open Science movement has stoked a renewed acknowledgement of the importance of reproducible research. The goals of this movement include improving the dissemination of progress, preventing fraud through transparency, and enabling deeper/wider development and collaboration. This track is to discuss the tools and methods used to achieve reproducible scientific computing.</p>
 
 <h2>Domain-specific Mini-symposia</h2>
 
@@ -87,6 +87,7 @@
   <li>Francesc Alted, Tutorial co-chair</li>
   <li>Corran Webster, Sprint co-chair</li>
   <li>Peter Wang, Sprint co-chair</li>
+  <li>Kyle Mandli, BoF co-chair</li>
   <li>Matthew Turk, BoF co-chair</li>
   <li>Jarrod Millman, Proceeding co-chair</li>
   <li>Stéfan van der Walt, Proceeding co-chair</li>
