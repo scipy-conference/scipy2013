@@ -245,16 +245,16 @@ by the program committee.</p>
 
 <div class="row">
 <p>Optional: Indicate your preference for a specialized main track::</p>
-<input class="rb" name="main_track" type="radio" value="hpc" <?php if ($defaults['main_track'] == 'hpc') { echo "checked"; } ?> /> High Performance Computing with Python<br />
-<input class="rb" name="main_track" type="radio" value="viz" <?php if ($defaults['main_track'] == 'viz') { echo "checked"; } ?> /> Visualization
+<input class="rb" name="main_track" type="radio" value="hpc" <?php if ($defaults['main_track'] == 'ml') { echo "checked"; } ?> /> Machine Learning<br />
+<input class="rb" name="main_track" type="radio" value="viz" <?php if ($defaults['main_track'] == 'rs') { echo "checked"; } ?> /> Reproducible Science
 </div>
 
 <div class="row">
 <p>Or for one of the smaller domain-specific sessions::</p>
-<input class="rb" name="specific_session" type="radio" value="bioinfo" <?php if ($defaults['specific_session'] == 'bioinfo') { echo "checked"; } ?> /> Computational bioinformatics<br />
-<input class="rb" name="specific_session" type="radio" value="meteorology" <?php if ($defaults['specific_session'] == 'meteorology') { echo "checked"; } ?> /> Meteorology and climatology<br />
+<input class="rb" name="specific_session" type="radio" value="meteorology" <?php if ($defaults['specific_session'] == 'meteorology') { echo "checked"; } ?> /> Meteorology, climatology and oceanic science<br />
 <input class="rb" name="specific_session" type="radio" value="astronomy" <?php if ($defaults['specific_session'] == 'astronomy') { echo "checked"; } ?> /> Astronomy and astrophysics<br />
-<input class="rb" name="specific_session" type="radio" value="geophysics" <?php if ($defaults['specific_session'] == 'geophysics') { echo "checked"; } ?> /> Geophysics
+<input class="rb" name="specific_session" type="radio" value="medical_imaging" <?php if ($defaults['specific_session'] == 'bioinfo') { echo "checked"; } ?> /> Medical imaging<br />
+<input class="rb" name="specific_session" type="radio" value="bioinformatics" <?php if ($defaults['specific_session'] == 'geophysics') { echo "checked"; } ?> /> Bioinformatics
 </div>
 
 <p>Please note that this selection is simply a guideline for the program committee, and that talks may be scheduled in a different session than indicated.</p>
