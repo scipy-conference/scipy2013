@@ -54,6 +54,7 @@ $sql_registrants .= "LEFT JOIN registered_sessions ";
 $sql_registrants .= "ON registration_id = registrations.id ";
 $sql_registrants .= "LEFT JOIN sessions ";
 $sql_registrants .= "ON session_id = sessions.id ";
+$sql_registrants .= "WHERE registrations.conference_id = 2 ";
 $sql_registrants .= "GROUP BY participants.id ";
 $sql_registrants .= "ORDER BY registrations.created_at ASC";
 
@@ -112,24 +113,27 @@ while($row = mysql_fetch_array($total_registrants));
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html>
+<html>
 <?php $thisPage="Admin"; ?>
-<?php $thisSub="Registrants"; ?>
-
-
 <head>
-<?php @ require_once ("../inc/header.php"); ?>	
+
+<?php @ require_once ("../inc/second_level_header.php"); ?>
+
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("../inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("subs.php"); ?>
-<?php @ require_once ("../inc/sponsors.php"); ?>
-</div>
-<div id="main-content">
+
+<?php include('../inc/admin_page_headers.php') ?>
+
+<section id="sidebar">
+  <?php include("../inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
 
 <h1>Admin</h1>
 
@@ -162,9 +166,14 @@ while($row = mysql_fetch_array($total_registrants));
 </table>
 
 
-</div>
-<div style="clear:both;"></div>
+</section>
 
+
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 

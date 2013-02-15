@@ -17,24 +17,28 @@ session_destroy();
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html>
+<html>
 <?php $thisPage="Admin"; ?>
-<?php $thisSub="Logout"; ?>
-
-
 <head>
-<?php @ require_once ("../inc/header.php"); ?>	
+
+<?php @ require_once ("../inc/second_level_header.php"); ?>
+
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("../inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("subs.php"); ?>
-<?php @ require_once ("../inc/sponsors.php"); ?>
-</div>
-<div id="main-content">
+
+<?php include('../inc/page_headers.php') ?>
+
+<section id="sidebar">
+  <?php include("../inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
+
 
 <h1>Admin</h1>
 
@@ -63,10 +67,14 @@ session_destroy();
         </table>
     </form>
 
+</section>
 
-</div>
-<div style="clear:both;"></div>
 
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 

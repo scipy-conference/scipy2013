@@ -286,7 +286,7 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Home"; ?>
+<?php $thisPage="Admin"; ?>
 <head>
 
 <?php @ require_once ("../inc/second_level_header.php"); ?>
@@ -298,7 +298,7 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 
 <div id="container">
 
-<?php include('../inc/page_headers.php') ?>
+<?php include('../inc/admin_page_headers.php') ?>
 
 <section id="sidebar">
   <?php include("../inc/sponsors.php") ?>
@@ -331,7 +331,7 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 <p>Total Paid: <span class="bold">$ <?php echo $registered_amt_paid ?></span></p>
 
 <div align="center">
-<table id="registrants_table" width="350">
+<table id="registrants_table" width="450">
 <tr>
   <th>Participant Type<br />[$]</th>
   <th><div align="right">Conference</div></th>

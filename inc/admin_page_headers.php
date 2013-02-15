@@ -1,6 +1,6 @@
 <header id="page_header">
   <div class="header_logo">
-    <a href="index.php"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/scipysticker.png" id="Python" alt="SciPy2013" width="359" height="99" /></a>
+    <a href="index.php"><img src="../img/scipysticker.png" id="Python" alt="SciPy2013" width="359" height="99" /></a>
   </div>
 
   <div class="header_tagline">
@@ -11,5 +11,5 @@
 <div style="clear:both;"></div>
 
 <div id="nav">
-  <?php include("menu.php") ?>
+  <?php include("admin_menu.php") ?>
 </div>

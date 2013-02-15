@@ -40,7 +40,7 @@ $sql_registrants .= "ON participant_type_id = participant_types.id ";
 $sql_registrants .= "LEFT JOIN billings ";
 $sql_registrants .= "ON registrations.participant_id = participants.id ";
 $sql_registrants .= "WHERE registrations.participant_id = \"$participant_id\" ";
-$sql_registrants .= "AND registrations.conference_id = 1";
+$sql_registrants .= "AND registrations.conference_id = 2";
 
 
 $total_registrants = @mysql_query($sql_registrants, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -74,7 +74,7 @@ $sql_sessions .= "ON session_id = sessions.id ";
 $sql_sessions .= "LEFT JOIN registrations ";
 $sql_sessions .= "ON registration_id = registrations.id ";
 $sql_sessions .= "WHERE participant_id = $participant_id ";
-$sql_sessions .= "AND registrations.conference_id = 1";
+$sql_sessions .= "AND registrations.conference_id = 2";
 
 $total_sessions = @mysql_query($sql_sessions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_sessions = @mysql_num_rows($total_sessions);
@@ -93,24 +93,27 @@ while($row = mysql_fetch_array($total_sessions));
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<!DOCTYPE html>
+<html>
 <?php $thisPage="Admin"; ?>
-<?php $thisSub="Registrants"; ?>
-
-
 <head>
-<?php @ require_once ("../inc/header.php"); ?>	
+
+<?php @ require_once ("../inc/second_level_header.php"); ?>
+
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("../inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("subs.php"); ?>
-<?php @ require_once ("../inc/sponsors.php"); ?>
-</div>
-<div id="main-content">
+
+<?php include('../inc/admin_page_headers.php') ?>
+
+<section id="sidebar">
+  <?php include("../inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
 
 <h1>Admin</h1>
 
@@ -135,10 +138,14 @@ while($row = mysql_fetch_array($total_sessions));
 <?php echo $display_sessions ?>
 </div>
 </div>
+</section>
 
-</div>
-<div style="clear:both;"></div>
 
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 

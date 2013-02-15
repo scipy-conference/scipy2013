@@ -141,10 +141,14 @@ start_time: $start_time<br />
 end_time: $end_time<br />";
 ?>
 
-presenters id <?php echo $presenter_id ?>
-</div>
-<div style="clear:both;"></div>
+presenters id <?php echo $presenter_id ?></section>
 
+
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 

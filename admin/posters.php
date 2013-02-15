@@ -31,7 +31,7 @@ $sql_posters .= "ON presenter_id = presenters.id ";
 $sql_posters .= "LEFT JOIN license_types ";
 $sql_posters .= "ON license_type_id = license_types.id ";
 
-$sql_posters .= "WHERE talks.conference_id = 1 ";
+$sql_posters .= "WHERE talks.conference_id = 2 ";
 $sql_posters .= "AND track = 'poster' ";
 $sql_posters .= "ORDER BY title";
 
@@ -78,33 +78,43 @@ while ($row = mysql_fetch_array($total_posters));
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
-<?php $thisPage="Schedule"; ?>
-<?php $thisSub="Posters"; ?>
+<!DOCTYPE html>
+<html>
+<?php $thisPage="Admin"; ?>
 <head>
-<?php @ require_once ("../inc/header.php"); ?>	
+
+<?php @ require_once ("../inc/second_level_header.php"); ?>
+
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
 <body>
+
 <div id="container">
-<?php @ require_once ("../inc/menu.php"); ?>
-<div id="side-content">
-<?php @ require_once ("subs.php"); ?>
-<?php @ require_once ("../inc/sponsors.php"); ?>
-</div>
-<div id="main-content">
+
+<?php include('../inc/admin_page_headers.php') ?>
+
+<section id="sidebar">
+  <?php include("../inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
+
 <div align="right"><img src="../img/jul_19.png" /></div>
 <h2>Posters: </h2>
 
-<p>The following posters are scheduled for display. The poster session will be held Thursday - July 19th, 10:45 - 11:45 AM.</p>
+<p>The following posters are scheduled for display. The poster session will be held .</p>
 
 <?php echo $display_block ?>
 
+</section>
 
-</div>
-<div style="clear:both;"></div>
 
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
 </div>
 </body>
 
