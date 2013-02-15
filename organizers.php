@@ -49,7 +49,7 @@
 
 <div class="chairs">BoF Co-chairs:</div>
 <span class="person">Kyle Mandkli</span>, <span class="affiliation">University of Texas</span><br />
-<span class="person">Matthew Turk</span>, <span class="affiliation">Columbia Univiersity</span>
+<span class="person">Matthew Turk</span>, <span class="affiliation">Columbia University</span>
 
 </div>
 <div class="cell">
