@@ -213,15 +213,15 @@ $sprints = $_POST['sprints'];
 
 if ($tutorials == "on")
   {
-    $sessions[1] = $tutorialamount;
+    $sessions[4] = $tutorialamount;
   }
 if ($conference == "on")
   {
-    $sessions[2] = $conferenceamount;
+    $sessions[5] = $conferenceamount;
   }
 if ($sprints == "on")
   {
-    $sessions[3] = $sprintamount;
+    $sessions[6] = $sprintamount;
   }
 
 //=======================================
