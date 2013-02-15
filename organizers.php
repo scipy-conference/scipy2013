@@ -48,7 +48,7 @@
 <span class="person">Peter Wang</span>, <span class="affiliation">Continuum Analytics</span>
 
 <div class="chairs">BoF Co-chairs:</div>
-<span class="person">Kyle Mandkli</span>, <span class="affiliation">University of Texas</span><br />
+<span class="person">Kyle Mandli</span>, <span class="affiliation">University of Texas</span><br />
 <span class="person">Matthew Turk</span>, <span class="affiliation">Columbia University</span>
 
 </div>
