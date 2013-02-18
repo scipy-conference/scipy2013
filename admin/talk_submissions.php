@@ -26,13 +26,12 @@ $sql_submissions = "SELECT ";
 $sql_submissions .= "title, ";
 $sql_submissions .= "author, ";
 $sql_submissions .= "email, ";
-$sql_submissions .= "affiliation, ";
 $sql_submissions .= "description, ";
 $sql_submissions .= "presentation_preference, ";
 $sql_submissions .= "prepare_paper, ";
 $sql_submissions .= "main_track, ";
 $sql_submissions .= "specific_session, ";
-$sql_submissions .= "DATE_FORMAT(date_submitted, '%b %d') ";
+$sql_submissions .= "DATE_FORMAT(date_submitted, '%b %d') AS date_submitted_f ";
 $sql_submissions .= "FROM talk_submissions";
 
 $total_submissions = @mysql_query($sql_submissions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -45,30 +44,20 @@ do {
 
 $display_submissions .="
   <tr class=$row_color>    
-    <td>" . $row['author'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
-    <td>" . $row['affiliation'] . "</td>
-    <td align=\"center\">" . ucfirst($row['presentation_preference']) . "</td>
-    <td align=\"center\">";
-    if ( $row['prepare_paper'] == 0)
-      {
-        $display_submissions .="No";
-      }
-    if ( $row['prepare_paper'] == 1)
-      {
-        $display_submissions .="Yes";
-      }
-$display_submissions .="</td>
-    <td align=\"center\">" . $row['main_track'] . "</td>
-    <td align=\"center\">" . $row['specific_session'] . "</td>
+    <td colspan=\"6\"><strong>" . $row['title'] . "</strong></td>
   </tr>
-<tr class=$row_color>
-    <td colspan=\"6\"><span class=\"bold\">" . $row['title'] . "</span></td>
+  <tr class=$row_color>
+    <td>" . $row['author'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
+    <td align=\"center\">Type: " . ucfirst($row['presentation_preference']) . "</td>
+    <td align=\"center\">Track: " . $row['main_track'] . "</td>
+    <td align=\"center\">Symposia: " . $row['specific_session'] . "</td>
+    <td align=\"center\">submitted: " . $row['date_submitted_f'] . "</td>
   </tr>
   <tr class=$row_color>
     <td colspan=\"6\">" . nl2br($row['description']) . "</td>
   </tr>
   <tr class=$row_color>
-    <td colspan=\"6\">&nbsp;</td>
+    <td colspan=\"6\"><hr /></td>
   </tr>";
   }
 
@@ -111,15 +100,7 @@ while($row = mysql_fetch_array($total_submissions));
 <p><a href="submissions_csv.php">Export to CSV (for Excel)</a></p>
 </div>
 
-<table id="registrants_table" width="600">
-<tr>
-  <th width="150">Author<br />Email</th>
-  <th>Affiliation</th>
-  <th width="70">Presentation</th>
-  <th width="70">Paper</th>
-  <th>Main Track</th>
-  <th>Session</th>
-</tr>
+<table id="registrants_table">
 <?php echo $display_submissions ?>
 </table>
 
