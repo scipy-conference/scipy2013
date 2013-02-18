@@ -115,9 +115,7 @@ while($row = mysql_fetch_array($total_sessions));
 
 <section id="main-content">
 
-<h1>Admin</h1>
-
-<p>Registrant Info:</p>
+<h1>Registrant Info:</h1>
 
 <div class="form_row">
 <div class="form_cell">
@@ -138,6 +136,9 @@ while($row = mysql_fetch_array($total_sessions));
 <?php echo $display_sessions ?>
 </div>
 </div>
+
+<p><a href="registrant_edit.php?id=<?php echo $participant_id ?> ">Edit</a></p>
+
 </section>
 
 
