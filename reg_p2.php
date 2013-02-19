@@ -189,7 +189,7 @@ else
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
@@ -282,22 +282,22 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <table class="indent">
     <tr>
-    <td class="no_brder" colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='FirstName' name='shipTo_firstName' value=''></td>
-    <td class="no_brder" colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='LastName' name='shipTo_lastName' value=''></td>
-    <td class="no_brder" colspan='2'><label for="">Affiliation</label><br /><input type='text' size='24' name='affiliation' value=''></td>
+    <td class="no_brder" colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' id='FirstName' name='shipTo_firstName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' id='LastName' name='shipTo_lastName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">Affiliation</label><br /><input type='text' name='affiliation' value=''></td>
     </tr>
     <tr>
-      <td class="no_brder" colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' size='24' id='email' name='billTo_email' value=''></td>
-      <td class="no_brder" colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' size='24' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' id='email' name='billTo_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
     </tr>
     <tr>
-      <td class="no_brder" colspan='3'><label for="">Address 1</label><br /><input type='text' size='40' id='Addr1'  name='shipTo_street1' value=''></td>
-      <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text' size='40' id='Addr2' name='shipTo_street2' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">Address 1</label><br /><input type='text' id='Addr1'  name='shipTo_street1' value=''></td>
+      <td class="no_brder" colspan='4'><label for="">Address 2</label><br /><input type='text' id='Addr2' name='shipTo_street2' value=''></td>
     </tr>
     <tr>
-    <td class="no_brder" colspan='2'><label for="">City</label><br /><input type='text' size='15' id='City' name='shipTo_city' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">City</label><br /><input type='text' id='City' name='shipTo_city' value=''></td>
     <td class="no_brder"><label for="">State</label><br /><input type='text' size='3' id='State' name='shipTo_state' value=''></td>
-    <td class="no_brder"><label for="">Zip</label><br /><input type='text' size='11' id='ZipCode' name='shipTo_postalCode' value=''></td>
+    <td class="no_brder"><label for="">Zip</label><br /><input type='text' size='10' id='ZipCode' name='shipTo_postalCode' value=''></td>
     <td class="no_brder"> </td>
       <td class="no_brder"><label for="">Country</label><br />
 
@@ -313,7 +313,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <table class="indent">
     <tr>
-        <td class="no_brder" ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' size='24' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
+        <td class="no_brder" ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
         <td class="no_brder" ><label for="">* Card Type:</label><br />
             <select class="validate[required]" id="card_cardType" name='card_cardType'>
             <?php foreach ($ccards as $key => $card_cardType) {
@@ -343,8 +343,8 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
         <td class="no_brder" colspan='3'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_last' name='billTo_lastName' value=''></td>
     </tr>
     <tr>
-        <td class="no_brder" colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  size='40' id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
-        <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text'  size='40' id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text'  id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
     </tr>
     <tr>
         <td class="no_brder" colspan='2'><label for="">* City</label><br /><input class="validate[required] text-input" type='text' size="15" id='ecom_billto_postal_city' name='billTo_city' value=''></td>
