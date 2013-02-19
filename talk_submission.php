@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 $title = htmlentities($_POST['title']);
 $author = htmlentities($_POST['author']);
-$affiliation = htmlentities($_POST['affiliation']);
+$bio = htmlentities($_POST['bio']);
 $email = htmlentities($_POST['email']);
 $description = htmlentities($_POST['word_count']);
 $presentation_preference = htmlentities($_POST['presentation_preference']);
-$prepare_paper = htmlentities($_POST['prepare_paper']);
+$submission_references = htmlentities($_POST['submission_references']);
 $main_track = htmlentities($_POST['main_track']);
 $specific_session = htmlentities($_POST['specific_session']);
 
@@ -27,22 +27,22 @@ include('inc/db_conn.php');
 $sql ="INSERT INTO talk_submissions ";
 $sql .="(title, ";
 $sql .="author, ";
-$sql .="affiliation, ";
+$sql .="bio, ";
 $sql .="email, ";
-$sql .="description, ";
 $sql .="presentation_preference, ";
-$sql .="prepare_paper, ";
+$sql .="description, ";
+$sql .="submission_references, ";
 $sql .="main_track, ";
 $sql .="specific_session, ";
 $sql .="date_submitted) ";
 $sql .="VALUES ";
 $sql .="(\"$title\", ";
 $sql .="\"$author\", ";
-$sql .="\"$affiliation\", ";
+$sql .="\"$bio\", ";
 $sql .="\"$email\", ";
-$sql .="\"$description\", ";
 $sql .="\"$presentation_preference\", ";
-$sql .="\"$prepare_paper\", ";
+$sql .="\"$description\", ";
+$sql .="\"$submission_references\", ";
 $sql .="\"$main_track\", ";
 $sql .="\"$specific_session\", ";
 $sql .="NOW())";
@@ -50,16 +50,17 @@ $sql .="NOW())";
 $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
 if ($presentation_preference == 'both') {$presentation_preference = "Talk and Poster";}
-if ($main_track == 'hpc') {$main_track = "High Performance Computing with Python";}
-if ($main_track == 'viz') {$main_track = "Visualization";}
+if ($main_track == 'general') {$main_track = "General";}
+if ($main_track == 'ml') {$main_track = "Machine Learning";}
+if ($main_track == 'tfr') {$main_track = "Tools for reproducibility";}
+if ($main_track == 'none') {$main_track = "None, only to a domain symposia";}
 
-if ($specific_session == 'bioinfo') {$specific_session = "Computational bioinformatics";}
-if ($specific_session == 'meteorology') {$specific_session = "Meteorology and climatology";}
+if ($specific_session == 'none') {$specific_session = "None only submit to tracks";}
+if ($specific_session == 'bioinfo') {$specific_session = "Bioinformatics";}
+if ($specific_session == 'meteorology') {$specific_session = "Meteorology, climatology and oceanic science";}
 if ($specific_session == 'astronomy') {$specific_session = "Astronomy and astrophysics";}
-if ($specific_session == 'geophysics') {$specific_session = "Geophysics";}
+if ($specific_session == 'geophysics') {$specific_session = "GeoMedical imagingphysics";}
 
-if ($prepare_paper == '1') {$prepare_paper = "Yes";}
-if ($prepare_paper == '0') {$prepare_paper = "No";}
 
 ?>
 
@@ -90,11 +91,11 @@ if ($prepare_paper == '0') {$prepare_paper = "No";}
 
 <p>Title: <span class="bold"><?php echo $title ?></span></p>
 <p>Author: <span class="bold"><?php echo $author ?></span></p>
-<p>Affiliation: <span class="bold"><?php echo $affiliation ?></span></p>
+<p>Bio: <span class="bold"><?php echo $bio ?></span></p>
 <p>email: <span class="bold"><?php echo $email ?></span></p>
 <p>Description: <span class="bold"><?php echo $description ?></span></p>
 <p>Consider for: <span class="bold"><?php echo ucfirst($presentation_preference) ?></span></p>
-<p>Prepare paper?: <span class="bold"><?php echo $prepare_paper ?></span></p>
+<p>submission_references?: <span class="bold"><?php echo $submission_references ?></span></p>
 <p>Main Track: <span class="bold"><?php echo ucfirst($main_track) ?></span></p>
 <p>Specific Session: <span class="bold"><?php echo $specific_session ?></span></p>
 
@@ -118,10 +119,9 @@ function display_form($errors) {
   $defaults['title'] = isset($_POST['title']) ? htmlentities($_POST['title']) : '';
   $defaults['author'] = isset($_POST['author']) ? htmlentities($_POST['author']) : '';
   $defaults['email'] = isset($_POST['email']) ? htmlentities($_POST['email']) : '';
-  $defaults['affiliation'] = isset($_POST['affiliation']) ? htmlentities($_POST['affiliation']) : '';
+  $defaults['bio'] = isset($_POST['bio']) ? htmlentities($_POST['bio']) : '';
   $defaults['word_count'] = isset($_POST['word_count']) ? htmlentities($_POST['word_count']) : '';
-  $defaults['presentation_preference'] = isset($_POST['presentation_preference']) ? htmlentities($_POST['presentation_preference']) : '';
-  $defaults['prepare_paper'] = isset($_POST['prepare_paper']) ? htmlentities($_POST['prepare_paper']) : '';
+  $defaults['submission_references'] = isset($_POST['submission_references']) ? htmlentities($_POST['submission_references']) : '';
   $defaults['main_track'] = isset($_POST['main_track']) ? htmlentities($_POST['main_track']) : '';
   $defaults['specific_session'] = isset($_POST['specific_session']) ? htmlentities($_POST['specific_session']) : '';
 
@@ -190,7 +190,7 @@ $(document).ready(function()
 
 
 <section id="main-content">
-<h1>Talk Submission Form</h1>
+<h1>Talk / Poster Submission Form</h1>
 
 <form method="post" name="PaymentInfo" action="<?php echo $SERVER['SCRIPT_NAME'] ?>">
 
@@ -201,60 +201,100 @@ $(document).ready(function()
 </div>
 
 <div class="row">
-  <label for="title">Presentation Title:<?php print_error('title', $errors) ?></label> 
-  <input type="text" name="title" id="title" size="80" value="<?php echo $defaults['title'] ?>" />
+  <div class="cell" style="width: 25%;">
+    <label for="title">Presentation Title:<?php print_error('title', $errors) ?></label> 
+  </div>
+  <div class="cell" style="width: 74%;">
+    <input type="text" name="title" id="title" value="<?php echo $defaults['title'] ?>" style="width: 100%;"/>
+  </div>
 </div>
 
 <div class="row">
-  <label for="author">Author:<?php print_error('author', $errors) ?></label>
-  <input type="text" name="author" id="author" size="30" value="<?php echo $defaults['author'] ?>" />
+  <div class="cell" style="width: 25%;">
+    <label for="author">Author(s):<?php print_error('author', $errors) ?></label>
+  </div>
+  <div class="cell" style="width: 74%;">
+    <input type="text" name="author" id="author" placeholder="last name, first name, organization" value="<?php echo $defaults['author'] ?>" style="width: 100%;"/>
+  </div>
 </div>
 
 <div class="row">
-  <label for="affiliation">Affiliation:</label>
-  <input type="text" name="affiliation" id="affiliation" size="30" value="<?php echo $defaults['affiliation'] ?>" />
+  <div class="cell" style="width: 25%;">
+    <span class="form_tips"><label for="description">Bio(s):<?php print_error('bio', $errors) ?></label></span> 
+  </div>
+  <div class="cell" style="width: 74%;">
+    <textarea id="bio" name="bio" rows="5"><?php echo $defaults['bio'] ?></textarea>
+  </div>
 </div>
 
 <div class="row">
-  <label for="author">Email:<?php print_error('email', $errors) ?></label>
-  <input type="text" name="email" id="email" size="30" value="<?php echo $defaults['email'] ?>" />
+  <div class="cell" style="width: 25%;">
+    <label for="author">Contact Email(s):<?php print_error('email', $errors) ?></label>
+  </div>
+  <div class="cell" style="width: 74%;">
+    <input type="text" name="email" id="email" value="<?php echo $defaults['email'] ?>" style="width: 100%;"/>
+  </div>
+</div>
+
+
+<div class="row">
+<p>Below, include a 150-300 word abstract that concisely describes software
+of interest to the SciPy community or how scientific Python was applied to solve a research
+problem.</p>
+
+<div class="row">
+  <div class="cell" style="width: 25%;">
+    <span class="form_tips"><label for="description">Talk Summary:<?php print_error('word_count', $errors) ?></label></span> 
+  </div>
+  <div class="cell" style="width: 74%;">
+    <textarea id="word_count" name="word_count" rows="5"><?php echo $defaults['word_count'] ?></textarea>
+    <p><span class="other_form_tips">Word Count : <span id="display_count">0</span></span></p>
+  </div>
 </div>
 
 <div class="row">
-<p>Here, include a talk summary of no longer than 500 words. Aspects such as
-relevance to Python in science, applicability, and novelty will be considered
-by the program committee.</p>
-
-  <span class="form_tips"><label for="description">Talk Summary:<?php print_error('word_count', $errors) ?></label></span> 
-  <textarea id="word_count" name="word_count" cols="80" rows="10"><?php echo $defaults['word_count'] ?></textarea>
-<p><span class="other_form_tips">Word Count : <span id="display_count">0</span></span></p>
+  <div class="cell" style="width: 25%;">
+    <span class="form_tips"><label for="description">submission_references:<?php print_error('submission_references', $errors) ?></label></span> 
+  </div>
+  <div class="cell" style="width: 74%;">
+    <textarea id="submission_references" name="submission_references" rows="5" placeholder="Links to project websites, source code repositories, figures, and evidence of public speaking ability" ><?php echo $defaults['submission_references'] ?></textarea>
+  </div>
 </div>
 
-<div class="row">
-<p>Please indicate your preference::<?php print_error('presentation_preference', $errors) ?></p>
-<input class="rb" name="presentation_preference" type="radio" value="talk" <?php if ($defaults['presentation_preference'] == 'talk') { echo "checked"; } ?> /> Only consider this presentation for a talk.<br />
-<input class="rb" name="presentation_preference" type="radio" value="poster" <?php if ($defaults['presentation_preference'] == 'poster') { echo "checked"; } ?> /> Only consider this presentation for a poster.<br />
-<input class="rb" name="presentation_preference" type="radio" value="both" <?php if ($defaults['presentation_preference'] == 'both') { echo "checked"; } ?> /> Consider this presentation for either a talk or a poster.<br />
+<div class="row" style="margin-bottom: 2em;">
+  <div class="cell" style="width: 25%;">
+    <p>Submission Type:<?php print_error('presentation_preference', $errors) ?></p>
+  </div>
+  <div class="cell" style="width: 74%;">
+    <input class="rb" name="presentation_preference" type="radio" value="both" <?php if ($defaults['presentation_preference'] == 'both') { echo "checked"; } ?> /> Talk or Poster.<br />
+    <input class="rb" name="presentation_preference" type="radio" value="talk" <?php if ($defaults['presentation_preference'] == 'talk') { echo "checked"; } ?> /> Talk Only.<br />
+    <input class="rb" name="presentation_preference" type="radio" value="poster" <?php if ($defaults['presentation_preference'] == 'poster') { echo "checked"; } ?> /> Poster Only.<br />
+  </div>
 </div>
 
-<div class="row">
-<p>Please indicate whether you are willing to prepare an accompanying paper::<?php print_error('prepare_paper', $errors) ?></p>
-<input class="rb" name="prepare_paper" type="radio" value="1" <?php if ($defaults['prepare_paper'] == '1') { echo "checked"; } ?> /> Yes<br />
-<input class="rb" name="prepare_paper" type="radio" value="0" <?php if ($defaults['prepare_paper'] == '0') { echo "checked"; } ?> /> No
+<div class="row" style="margin-bottom: 2em;">
+  <div class="cell" style="width: 25%;">
+    <p>If talk would you like to submit to a Topic Track:<?php print_error('main_track', $errors) ?></p>
+  </div>
+  <div class="cell" style="width: 65%;">
+    <input class="rb" name="main_track" type="radio" value="general" <?php if ($defaults['main_track'] == 'general') { echo "checked"; } ?> /> General<br />
+    <input class="rb" name="main_track" type="radio" value="ml" <?php if ($defaults['main_track'] == 'ml') { echo "checked"; } ?> /> Machine Learning<br />
+    <input class="rb" name="main_track" type="radio" value="tfr" <?php if ($defaults['main_track'] == 'tfr') { echo "checked"; } ?> /> Tools for reproducibility<br />
+    <input class="rb" name="main_track" type="radio" value="none" <?php if ($defaults['main_track'] == 'none') { echo "checked"; } ?> /> None, only to a domain symposia<br />
+  </div>
 </div>
 
-<div class="row">
-<p>Optional: Indicate your preference for a specialized main track::</p>
-<input class="rb" name="main_track" type="radio" value="hpc" <?php if ($defaults['main_track'] == 'ml') { echo "checked"; } ?> /> Machine Learning<br />
-<input class="rb" name="main_track" type="radio" value="viz" <?php if ($defaults['main_track'] == 'rs') { echo "checked"; } ?> /> Reproducible Science
-</div>
-
-<div class="row">
-<p>Or for one of the smaller domain-specific sessions::</p>
-<input class="rb" name="specific_session" type="radio" value="meteorology" <?php if ($defaults['specific_session'] == 'meteorology') { echo "checked"; } ?> /> Meteorology, climatology and oceanic science<br />
-<input class="rb" name="specific_session" type="radio" value="astronomy" <?php if ($defaults['specific_session'] == 'astronomy') { echo "checked"; } ?> /> Astronomy and astrophysics<br />
-<input class="rb" name="specific_session" type="radio" value="medical_imaging" <?php if ($defaults['specific_session'] == 'bioinfo') { echo "checked"; } ?> /> Medical imaging<br />
-<input class="rb" name="specific_session" type="radio" value="bioinformatics" <?php if ($defaults['specific_session'] == 'geophysics') { echo "checked"; } ?> /> Bioinformatics
+<div class="row" style="margin-bottom: 2em;">
+  <div class="cell" style="width: 25%;">
+    <p>Consider for one of the following domain symposia:<?php print_error('specific_session', $errors) ?></p>
+  </div>
+  <div class="cell" style="width: 65%;">
+    <input class="rb" name="specific_session" type="radio" value="none" <?php if ($defaults['specific_session'] == 'none') { echo "checked"; } ?> /> None only submit to tracks<br />
+    <input class="rb" name="specific_session" type="radio" value="medical_imaging" <?php if ($defaults['specific_session'] == 'medical_imaging') { echo "checked"; } ?> /> Medical imaging<br />
+    <input class="rb" name="specific_session" type="radio" value="meteorology" <?php if ($defaults['specific_session'] == 'meteorology') { echo "checked"; } ?> /> Meteorology, climatology and oceanic science<br />
+    <input class="rb" name="specific_session" type="radio" value="astronomy" <?php if ($defaults['specific_session'] == 'astronomy') { echo "checked"; } ?> /> Astronomy and astrophysics<br />
+    <input class="rb" name="specific_session" type="radio" value="bioinformatics" <?php if ($defaults['specific_session'] == 'bioinformatics') { echo "checked"; } ?> /> Bioinformatics
+  </div>
 </div>
 
 <p>Please note that this selection is simply a guideline for the program committee, and that talks may be scheduled in a different session than indicated.</p>
@@ -300,9 +340,19 @@ function validate_form() {
         $errors['author'] = '<< Enter Name >>';
     }
 
+    // bio is required and must be at least 2 characters
+    if (! (isset($_POST['bio']) && (strlen($_POST['bio']) > 1))) {
+        $errors['bio'] = '<< Enter Bio >>';
+    }
+
     // description is required and must be at least 2 characters
     if (! (isset($_POST['word_count']) && (strlen($_POST['word_count']) > 1))) {
         $errors['word_count'] = '<< Enter Summary >>';
+    }
+
+    // submission_references is required and must be at least 2 characters
+    if (! (isset($_POST['submission_references']) && (strlen($_POST['submission_references']) > 1))) {
+        $errors['submission_references'] = '<< Enter References >>';
     }
 
     // email is required and must be at least 2 characters
@@ -318,11 +368,23 @@ function validate_form() {
         $errors['presentation_preference'] = '<< Please check one >>';
     }
 
-    // prepare_paper is required
-    if (! (isset($_POST['prepare_paper']) 
-          && ($_POST['prepare_paper']) == '1' 
-          || ($_POST['prepare_paper']) == '0')) {
-        $errors['prepare_paper'] = '<< Please check one >>';
+    // specific_session is required
+    if (! (isset($_POST['main_track']) 
+          && ($_POST['main_track']) == 'general' 
+          || ($_POST['main_track']) == 'ml' 
+          || ($_POST['main_track']) == 'tfr' 
+          || ($_POST['main_track']) == 'none')) {
+        $errors['main_track'] = '<< Please check one >>';
+    }
+
+    // specific_session is required
+    if (! (isset($_POST['specific_session']) 
+          && ($_POST['specific_session']) == 'none' 
+          || ($_POST['specific_session']) == 'medical_imaging' 
+          || ($_POST['specific_session']) == 'meteorology' 
+          || ($_POST['specific_session']) == 'astronomy' 
+          || ($_POST['specific_session']) == 'bioinformatics')) {
+        $errors['specific_session'] = '<< Please check one >>';
     }
 
     return $errors;

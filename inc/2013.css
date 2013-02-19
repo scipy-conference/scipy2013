@@ -57,7 +57,11 @@ table {
 a:visited {
   color: #0033cc;
   }
-  
+
+strong {
+  font-weight: bold;
+  }
+ 
 /* Site-Specific CSS
 -------------------------------------------------------------- */
 
@@ -96,6 +100,15 @@ body {
   line-height: 1.5em;
   float: right;
   margin-top: -80px;
+  }
+
+.sponsor_level {
+  margin: 1.5em 0 0 0;
+  }
+
+.sponsor_logo {
+  display: block;
+  margin: 1em auto;
   }
 
 footer {
@@ -306,6 +319,15 @@ td.time{
   font-weight: bold;
   }
 
+.odd {
+  background: #fff;
+  }
+
+.even {
+  background: #e0eeff;;  
+  }
+
+
 img.right {
   float: right; 
   margin: 0 0 .5em 1em; 
@@ -328,6 +350,21 @@ img.right {
   }
 
 input {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  background: #e0eeff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  }
+
+textarea {
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  background: #e0eeff;
+  border: 1px solid #ccc;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -374,10 +411,19 @@ input {
   margin: 3px 0 0 0;
   }
 
+.other_form_tips {
+  font-size: 0.85em;
+  color: #666;
+  }
+
 .asterisk_text {
   font-size: .9em;
   line-height: 1em;
   margin: .75em;
   }
 
+.error {
+  font-size: .8em;
+  color: #cc0000;
+  }
 
