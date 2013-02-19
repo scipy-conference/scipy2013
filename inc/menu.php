@@ -4,9 +4,14 @@
      <li><a href="about.php">About</a>
     <li><a href="organizers.php">Organizers</a></li>
   </ul></li>
+  <li><a href="speaking_overview.php">Speaking</a>
+  <ul>
+    <li><a href="speaking_overview.php">Proposal Call</a></li>
+    <li><a href="speaking_submission.php">Submission Form</a></li>
+  </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
   <ul>
-    <li><a href="sponsor_overview.php">Sponsors</a>
+    <li><a href="sponsor_overview.php">Sponsors</a><li>
     <li><a href="sponsor_levels.php">Sponsor Levels</a></li>
   </ul></li>
   <li><a href="location.php">Venue</a>
@@ -19,6 +24,6 @@
   </ul></li>
   <li><a href="registration.php">Registration</a>
   <ul>
-    <li><a href="registration.php">Registration</a>
+    <li><a href="registration.php">Registration</a></li>
   </ul></li>
 </ul>
