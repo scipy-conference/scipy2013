@@ -66,6 +66,7 @@
 <h2>Important Dates</h2>
 
 <ul>
+  <li>March 20th: Presentation abstracts, poster, tutorial submission deadline. Application for sponsorship deadline.</li>
   <li>April 15th: Speakers selected</li>
   <li>April 22nd: Sponsorship acceptance deadline</li>
   <li>May 1st: Speaker schedule announced</li>
