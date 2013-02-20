@@ -106,7 +106,7 @@ but not required.  Links to project websites, source code repositories, figures,
 full papers, and evidence of public speaking ability are encouraged.</p>
 
 <p>Each abstract will be peer-reviewed by multiple members of the Program Committee
-Board.  Please submit your abstract at the SciPy 2013 website [2] <a href="http://www.polarbeardesign.net/clients/enthought/scipy2013/speaking_submission.php">abstract submission
+Board.  Please submit your abstract at the SciPy 2013 website [2] <a href="speaking_submission.php">abstract submission
 form</a>.  Abstracts will be accepted for posters or presentations.
 Optional papers to be published in the conference proceedings will be requested
 following abstract submission.  This year the proceedings will be made available
