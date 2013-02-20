@@ -28,7 +28,7 @@
 
 <h2>Specialized Tracks</h2>
 
-<p>This year we are happy to announce two specialized tracks run in parallel to the general conference:</p>
+<p>This year we are happy to announce two specialized tracks run in parallel in the general conference:</p>
 
 <h3>Machine Learning</h3>
 
