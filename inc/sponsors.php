@@ -17,3 +17,19 @@
 <div class="sponsor_cell">
   <a href="http://www.google.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/Google.png" alt="Google" width="184" class="sponsor_logo" /></a>
 </div>
+
+<h3 class="sponsor_level">Silver Sponsor</h3>
+<div class="sponsor_cell">
+  <a href="http://continuum.io/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/continuum_logo.jpg" alt="Continuum" width="178" class="sponsor_logo" /></a>
+</div>
+
+<h3 class="sponsor_level">Sprint Sponsor</h3>
+<div class="sponsor_cell">
+  <a href="http://wingware.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/wingware.png" alt="Wingware" width="181" class="sponsor_logo" /></a>
+</div>
+
+
+<h3 class="sponsor_level">Media Sponsor</h3>
+<div class="sponsor_cell">
+  <a href="http://www.oreilly.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/oralogo_cmyk.jpg" alt="O'Reilly" width="189" class="sponsor_logo" /></a>
+</div>
