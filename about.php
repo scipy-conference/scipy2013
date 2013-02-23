@@ -24,7 +24,7 @@
 
 <p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held this June 24th-29th in Austin, Texas. SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering. The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
 
-<p>The conference consists of two days of tutorials by followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
+<p>The conference consists of two days of tutorials followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
 
 <h2>Specialized Tracks</h2>
 
