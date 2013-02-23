@@ -7,9 +7,9 @@
   <li><a href="speaking_overview.php">Speaking</a>
   <ul>
     <li><a href="speaking_overview.php">Proposal Call</a></li>
-    <li><a href="speaking_submission.php">Submission Form</a></li>
+    <li><a href="speaking_submission.php">--Submission Form</a></li>
     <li><a href="speaking_tutorial_overview.php">Tutorial Call</a></li>
-    <li><a href="speaking_tutorial_submission.php">Tutorial Form</a></li>
+    <li><a href="speaking_tutorial_submission.php">--Submission Form</a></li>
   </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
   <ul>

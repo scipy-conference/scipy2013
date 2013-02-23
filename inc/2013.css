@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
 }
+
 ol, ul {
   list-style-position: inside;
   text-indent: -1em;
@@ -136,6 +137,7 @@ footer {
 #nav, #nav ul {
   float: left;
   padding: 0;
+  text-indent: 0;
   list-style: none;
   width: 100%;
   text-align: left;
@@ -149,7 +151,7 @@ footer {
 #nav ul li {
   float: left;
   position: relative;
-  width: 13.5%;  /*sets the box for the submenu item*/
+  width: 14.5%;  /*sets the box for the submenu item*/
   margin: 0 0.75em;
   padding: 0.25em;
 
