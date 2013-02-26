@@ -27,7 +27,8 @@ $row_count=1;
 $sql_requestors = "SELECT ";
 $sql_requestors .= "last_name, ";
 $sql_requestors .= "first_name, ";
-$sql_requestors .= "university, ";
+$sql_requestors .= "org_type, ";
+$sql_requestors .= "org_name, ";
 $sql_requestors .= "email, ";
 $sql_requestors .= "residence_country, ";
 $sql_requestors .= "citizenship_country, ";
@@ -35,8 +36,10 @@ $sql_requestors .= "nomination_type, ";
 $sql_requestors .= "nominators_name, ";
 $sql_requestors .= "nominators_email, ";
 $sql_requestors .= "contributions, ";
+$sql_requestors .= "level_of_need, ";
 $sql_requestors .= "DATE_FORMAT(date_submitted, '%b %D') AS date_submitted ";
-$sql_requestors .= "FROM sponsorship_requests";
+$sql_requestors .= "FROM sponsorship_requests ";
+$sql_requestors .= "WHERE conference_id = 2";
 
 $total_requestors = @mysql_query($sql_requestors, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_requestors = @mysql_num_rows($total_requestors);
@@ -48,7 +51,7 @@ do {
 
 $display_requestors .="<tr class=$row_color>
     <td>" . $row['last_name'] . ", " . $row['first_name'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
-    <td>" . $row['university'] . "</td>
+    <td><span class=\"other_form_tips\">Org Name:</span>" . $row['org_name'] . "<br /><span class=\"other_form_tips\">Org Type:</span>" . $row['org_type'] . "</td>
     <td align=\"center\">" . $row['residence_country'] . "</td>
     <td align=\"center\">" . $row['citizenship_country'] . "</td>
     <td>" . $row['nomination_type'] . "";
@@ -65,10 +68,16 @@ $display_requestors .="<tr class=$row_color>
 $display_requestors .="    </td>
   </tr>
   <tr class=$row_color>
-    <td colspan=\"6\">" . nl2br($row['contributions']) . "</td>
+    <td colspan=\"6\"><span class=\"other_form_tips\">Contributions:</span><br />" . nl2br($row['contributions']) . "</td>
+  </tr>
+  <tr class=$row_color>
+    <td colspan=\"6\"><span class=\"other_form_tips\">Description of Need:</span><br />" . nl2br($row['level_of_need']) . "</td>
   </tr>
   <tr class=$row_color>
     <td colspan=\"6\" align=\"right\"><em>date submitted: " . $row['date_submitted'] . "</em></td>
+  </tr>
+  <tr class=$row_color>
+    <td colspan=\"6\"><hr /></td>
   </tr>";
   }
 
