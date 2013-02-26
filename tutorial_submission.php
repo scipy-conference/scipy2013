@@ -289,7 +289,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Documentation:</label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">If available, the tutorial notes, slides, exercise files, ipython notebooks, that you already have, even if they are preliminary.</p>
+    <p class="other_form_tips">If available, URL links to tutorial notes, slides, exercise files, ipython notebooks, that you already have, even if they are preliminary.</p>
     <textarea id="documentation" name="documentation" rows="5" placeholder="tutorial notes, slides, exercise files, ipython notebooks, etc." ><?php echo $defaults['documentation'] ?></textarea>
   </div>
 </div>
