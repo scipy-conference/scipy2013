@@ -52,19 +52,6 @@ $sql .="NOW())";
 
 $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
-if ($presentation_preference == 'both') {$presentation_preference = "Talk and Poster";}
-if ($main_track == 'general') {$main_track = "General";}
-if ($main_track == 'ml') {$main_track = "Machine Learning";}
-if ($main_track == 'tfr') {$main_track = "Tools for reproducibility";}
-if ($main_track == 'none') {$main_track = "None, only to a domain symposia";}
-
-if ($specific_session == 'none') {$specific_session = "None only submit to tracks";}
-if ($specific_session == 'bioinfo') {$specific_session = "Bioinformatics";}
-if ($specific_session == 'meteorology') {$specific_session = "Meteorology, climatology and oceanic science";}
-if ($specific_session == 'astronomy') {$specific_session = "Astronomy and astrophysics";}
-if ($specific_session == 'geophysics') {$specific_session = "GeoMedical imagingphysics";}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -201,6 +188,8 @@ $(document).ready(function()
 <p>Tutorial submission template for SciPy 2013: The 12th Python in Science Conference, to be held in Austin, TX, June 24 - 29 2013.</p>
 
 <p>Program chairs: Francesc Alted &amp; Dharhas Pothina.</p>
+
+<p>For any questions, or to submit a proposal directly contact us at  <a href="mailto: tutorials@scipy.org">tutorials@scipy.org</a></p>
 </div>
 
 <div class="row">
@@ -245,11 +234,15 @@ $(document).ready(function()
   <div class="cell" style="width: 25%;">
     <p>Which track:<?php print_error('track', $errors) ?></p>
   </div>
-  <div class="cell" style="width: 65%;">
-    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory') { echo "checked"; } ?> /> Introductory<br />
+  <div class="cell" style="width: 74%;">
+    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_basics') { echo "checked"; } ?> /> Introduction Scientific Python Basics (Numpy and IPython)<br />
+    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_matplotlib') { echo "checked"; } ?> /> Introduction to plotting with Matplotlib<br />
+    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_scipy') { echo "checked"; } ?> /> Intro: Overview of Scipy<br />
+    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_sw_carpentry') { echo "checked"; } ?> /> Intro: Software Carpentry<br />
     <input class="rb" name="track" type="radio" value="intermediate" <?php if ($defaults['track'] == 'intermediate') { echo "checked"; } ?> /> Intermediate<br />
     <input class="rb" name="track" type="radio" value="advanced" <?php if ($defaults['track'] == 'advanced') { echo "checked"; } ?> /> Advanced
   </div>
+
 </div>
 
 <div class="row">
@@ -260,7 +253,6 @@ $(document).ready(function()
   <div class="cell" style="width: 74%;">
     <p class="other_form_tips">A (~15 lines) description of the tutorial, suitable for posting on the SciPy website for attendees to view. It should include the target audience, the expected level of knowledge prior to the class, and the goals of the class.</p>
     <textarea id="word_count" name="word_count" rows="5"><?php echo $defaults['word_count'] ?></textarea>
-    <p><span class="other_form_tips">Word Count : <span id="display_count">0</span></span></p>
   </div>
 </div>
 
@@ -269,7 +261,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Outline:<?php print_error('outline', $errors) ?></label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">A more detailed outline of the tutorial content, including the duration of each part, and exercise sessions for the review process.</p>
+    <p class="other_form_tips">A more detailed outline of the tutorial content, including the duration of each part, and exercise sessions.</p>
     <textarea id="outline" name="outline" rows="5" placeholder="detailed outline of the tutorial content" ><?php echo $defaults['outline'] ?></textarea>
   </div>
 </div>
@@ -279,7 +271,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Package List:</label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">A list of Python packages that attendees will need to have installed prior to the class to follow along. Please mention if any packages are not cross platform. Installation instructions or links to installation documentation should be provided for packages that are not available through easy_install, pip, EPD, Anaconda CE etc., or that require third party libraries.</p>
+    <p class="other_form_tips">If available, URL links to tutorial notes, slides, exercise files, ipython notebooks, that you already have, even if they are preliminary.</p>
     <textarea id="package_list" name="package_list" rows="5" placeholder="list of Python packages" ><?php echo $defaults['package_list'] ?></textarea>
   </div>
 </div>
