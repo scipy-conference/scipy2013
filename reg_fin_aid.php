@@ -242,10 +242,16 @@ $(document).ready(function()
 
 <h1>Financial Assistance</h1>
 
-<p>We anticipate the availability of funding to assist with the travel expenses of some students and other members of the scientific python community who otherwise might not be able to attend the conference.</p>
+<p>SciPy 2013 will continue the tradition of offering sponsorships to attend the conference.  These sponsorships provide funding for airfare, lodging, and conference registration.  Unlike in previous years, these sponsorships will be open to community members rather than just students.</p>
 
-<p>Use the form below to apply for a sponsorship to the Scipy 2013 Conference in Austin, TX.  The sponsorship can cover the costs of airfare, lodging, and registration or a subset thereof.  A sponsorship request can be made for any member of the SciPy community who would otherwise not be able to attend the conference without financial assistance.</p>
+<p>This year, applications will be judged both on merit as well as need.  Although all attendees are eligible for sponsorships, we encourage applicants to consider their level of need before applying, such as whether their institution is covering some or all of their travel costs.  As funds are limited, our goal is to bring together as many SciPy community members as possible.  If only partial sponsorship is required, please indicate this in the application and we may be able to accommodate additional applicants due to such reasonable requests.</p>
 
+<p>If you would like to apply for yourself or a worthy candidate, please note our application due date of Monday, March 25th.  Winners will be announced on April 22nd.</p>
+
+<p>Good luck!</p>
+
+<p>The SciPy 2013 Team</p>
+<hr />
 <p>* = Required</p>
 <form id="formID" class="formular" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>">
 
