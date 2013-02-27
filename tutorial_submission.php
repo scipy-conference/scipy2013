@@ -235,10 +235,10 @@ $(document).ready(function()
     <p>Which track:<?php print_error('track', $errors) ?></p>
   </div>
   <div class="cell" style="width: 74%;">
-    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_basics') { echo "checked"; } ?> /> Introduction Scientific Python Basics (Numpy and IPython)<br />
-    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_matplotlib') { echo "checked"; } ?> /> Introduction to plotting with Matplotlib<br />
-    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_scipy') { echo "checked"; } ?> /> Intro: Overview of Scipy<br />
-    <input class="rb" name="track" type="radio" value="introductory" <?php if ($defaults['track'] == 'introductory_sw_carpentry') { echo "checked"; } ?> /> Intro: Software Carpentry<br />
+    <input class="rb" name="track" type="radio" value="introductory_basics" <?php if ($defaults['track'] == 'introductory_basics') { echo "checked"; } ?> /> Introduction Scientific Python Basics (Numpy and IPython)<br />
+    <input class="rb" name="track" type="radio" value="introductory_matplotlib" <?php if ($defaults['track'] == 'introductory_matplotlib') { echo "checked"; } ?> /> Introduction to plotting with Matplotlib<br />
+    <input class="rb" name="track" type="radio" value="introductory_scipy" <?php if ($defaults['track'] == 'introductory_scipy') { echo "checked"; } ?> /> Intro: Overview of Scipy<br />
+    <input class="rb" name="track" type="radio" value="introductory_sw_carpentry" <?php if ($defaults['track'] == 'introductory_sw_carpentry') { echo "checked"; } ?> /> Intro: Software Carpentry<br />
     <input class="rb" name="track" type="radio" value="intermediate" <?php if ($defaults['track'] == 'intermediate') { echo "checked"; } ?> /> Intermediate<br />
     <input class="rb" name="track" type="radio" value="advanced" <?php if ($defaults['track'] == 'advanced') { echo "checked"; } ?> /> Advanced
   </div>
