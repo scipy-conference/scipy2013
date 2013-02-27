@@ -129,7 +129,7 @@ Proposal Submission
 -------------------
 
 To submit your tutorial proposal, please go to:
-http://conference.scipy.org/scipy2013/tutorial_submission.php and fill
+[http://conference.scipy.org/scipy2013/tutorial_submission.php] and fill
 the form, or in case you prefer so, send the materials to
 tutorials@scipy.org.  You will need the next:
 
@@ -189,7 +189,8 @@ The SciPy 2013 Tutorial Chairs
 
 [SciPy2012]: http://conference.scipy.org/scipy2012/tutorials.php
 [SciPy2011]: http://conference.scipy.org/scipy2011/tutorials.php
-[SciPy2010]: http://conference.scipy.org/scipy2010/tutorials.html") ?>
+[SciPy2010]: http://conference.scipy.org/scipy2010/tutorials.html
+[http://conference.scipy.org/scipy2013/tutorial_submission.php]: http://conference.scipy.org/scipy2013/tutorial_submission.php") ?>
 
 </section>
 

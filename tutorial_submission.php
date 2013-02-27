@@ -251,7 +251,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Tutorial Description:<?php print_error('word_count', $errors) ?></label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">A (~15 lines) description of the tutorial, suitable for posting on the SciPy website for attendees to view. It should include the target audience, the expected level of knowledge prior to the class, and the goals of the class.</p>
+    <p class="other_form_tips">A description of the tutorial, suitable for posting on the SciPy website for attendees to view. It should include the target audience, the expected level of knowledge prior to the class, and the goals of the class.</p>
     <textarea id="word_count" name="word_count" rows="5"><?php echo $defaults['word_count'] ?></textarea>
   </div>
 </div>
@@ -261,7 +261,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Outline:<?php print_error('outline', $errors) ?></label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">A more detailed outline of the tutorial content, including the duration of each part, and exercise sessions.</p>
+    <p class="other_form_tips">A more detailed outline of the tutorial content, including the duration of each part, and exercise sessions. Please include a description of how you plan to make the tutorial hands-on.</p>
     <textarea id="outline" name="outline" rows="5" placeholder="detailed outline of the tutorial content" ><?php echo $defaults['outline'] ?></textarea>
   </div>
 </div>
@@ -271,7 +271,7 @@ $(document).ready(function()
     <span class="form_tips"><label for="description">Package List:</label></span> 
   </div>
   <div class="cell" style="width: 74%;">
-    <p class="other_form_tips">A list of Python packages that attendees will need to have installed prior to the class to follow along. Please mention if any packages are not cross platform. Installation instructions or links to installation documentation should be provided for packages that are not available through easy_install, pip, EPD, Anaconda CE etc., or that require third party libraries.</p>
+    <p class="other_form_tips">A list of Python packages that attendees will need to have installed prior to the class to follow along. Please mention if any packages are not cross platform. Installation instructions or links to installation documentation should be provided for packages that are not available through easy_install, pip, EPD, Anaconda, etc., or that require third party libraries.</p>
     <textarea id="package_list" name="package_list" rows="5" placeholder="list of Python packages" ><?php echo $defaults['package_list'] ?></textarea>
   </div>
 </div>
