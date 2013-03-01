@@ -242,6 +242,32 @@ $(document).ready(function()
 
 <h1>Financial Assistance</h1>
 
+<div class="callout">
+<h1>Spread the news...</h1>
+
+<div class="callout_row">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://conference.scipy.org/scipy2013/reg_fin_aid.php" data-text="SciPy 2013 call for tutorials..." data-via="SciPyConf" data-size="large">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div class="callout_row">
+<div class="g-plusone" data-annotation="inline" data-width="140" data-href="http://conference.scipy.org/scipy2013/reg_fin_aid.php"></div>
+</div>
+
+<div class="callout_row">
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/Share" data-url="http://conference.scipy.org/scipy2013/reg_fin_aid.php" data-counter="right"></script>
+</div>
+
+<div class="callout_row">
+<div class="fb-like" data-href="http://conference.scipy.org/scipy2013/reg_fin_aid.php" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div></div>
+
+<div class="callout_row">
+<a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=http://conference.scipy.org/scipy2013/reg_fin_aid.php' + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /> </a>
+</div>
+
+</div>
+
 <p>SciPy 2013 will continue the tradition of offering sponsorships to attend the conference.  These sponsorships provide funding for airfare, lodging, and conference registration.  Unlike in previous years, these sponsorships will be open to community members rather than just students.</p>
 
 <p>This year, applications will be judged both on merit as well as need.  Although all attendees are eligible for sponsorships, we encourage applicants to consider their level of need before applying, such as whether their institution is covering some or all of their travel costs.  As funds are limited, our goal is to bring together as many SciPy community members as possible.  If only partial sponsorship is required, please indicate this in the application and we may be able to accommodate additional applicants due to such reasonable requests.</p>
