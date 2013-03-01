@@ -29,7 +29,7 @@
 
 <h1>Sponsorship Packages Available</h1>
 
-<h2>Platinum &nbsp;&nbsp;|&nbsp;&nbsp;one available&nbsp;&nbsp;|&nbsp;&nbsp; $12,000</h2>
+<h2>Platinum &nbsp;&nbsp;|&nbsp;&nbsp; $12,000</h2>
 <ul class="dense">
   <li>Benefits: Platinum Sponsor link with logo on SciPy 2013 website</li>
   <li>12' x 2' banner (sponsor provided) in main session auditorium</li>
