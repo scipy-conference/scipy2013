@@ -67,7 +67,7 @@ while($row = mysql_fetch_array($total_dates));
 <h1>Spread the news...</h1>
 
 <div class="callout_row">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://conference.scipy.org/scipy2013/tutorial_overview.php" data-text="SciPy 2013 call for tutorials..." data-via="SciPyConf" data-size="large">Tweet</a>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://conference.scipy.org/scipy2013/speaking_tutorial_overview.php" data-text="SciPy 2013 call for tutorials..." data-via="SciPyConf" data-size="large">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
@@ -77,14 +77,14 @@ while($row = mysql_fetch_array($total_dates));
 
 <div class="callout_row">
 <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-<script type="IN/Share" data-url="http://conference.scipy.org/scipy2013/tutorial_overview.php" data-counter="right"></script>
+<script type="IN/Share" data-url="http://conference.scipy.org/scipy2013/speaking_tutorial_overview.php" data-counter="right"></script>
 </div>
 
 <div class="callout_row">
-<div class="fb-like" data-href="http://conference.scipy.org/scipy2013/tutorial_overview.php" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div></div>
+<div class="fb-like" data-href="http://conference.scipy.org/scipy2013/speaking_tutorial_overview.php" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div></div>
 
 <div class="callout_row">
-<a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=http://conference.scipy.org/scipy2013/tutorial_overview.php' + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /> </a>
+<a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=http://conference.scipy.org/scipy2013/speaking_tutorial_overview.php' + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /> </a>
 </div>
 
 </div>
