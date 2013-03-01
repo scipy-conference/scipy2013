@@ -160,15 +160,16 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <p class="left">Register online using the form below. You may also register via phone at (512)536-1057. </p>
 
-<p><strong>Please note:</strong> Early-Bird registration will close <span class="highlight">Monday, May 6th</span>. Registrations after that date will add $50 to the Tutorial and Conference prices listed below.</p>
-
 <!--
 <form id="formID" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>"> 
 -->
 <form id="formID" class="formular" method="post" action="reg_p2.php">
 
 <div class="form_row">
-<h2> Session Selection </h2>
+<h2> Session Selection (Early-Bird pricing)</h2>
+<p class="indent">Early-Bird registration will close <span class="highlight">Monday, May 6th</span>.<br />
+Pricing for each item will increase $50 after Early-Bird registration, so REGISTER NOW!!.</p>
+
 <table id="schedule">
   <tr>
     <th colspan="2">Session </th>

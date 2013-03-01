@@ -1,5 +1,37 @@
 <?php
+include('inc/db_conn.php');
 
+//===========================
+//  pull sessions
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%b') as date_m, ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%d') as date_d, ";
+$sql_dates .= "`description`  ";
+$sql_dates .= "FROM `important_dates`  ";
+//$sql_dates .= "WHERE impt_date > ";
+$sql_dates .= "WHERE conference_id = 2 ";
+$sql_dates .= "AND display = \"public\" ";
+$sql_dates .= "LIMIT 4";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_dates_found = @mysql_num_rows($total_dates);
+$row_color=($row_count%2)?$row_1:$row_2;
+
+do {
+  if ($row['description'] != '')
+  {
+
+$display_dates .="
+<tr>
+  <td><div class=\"icon_date\">" . $row['date_m'] . "<br /><span class=\"icon_date_day\">" . $row['date_d'] . "</span></div></td>
+  <td style=\"font-size: 0.75em;\">" . $row['description'] . "</td>
+</tr>";
+}}
+while($row = mysql_fetch_array($total_dates));
 ?>
 
 
@@ -25,8 +57,16 @@
 
 <section id="main-content">
 
+<img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" />
 
-<img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" /><p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
+<p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
+
+<table width="30%" style="float: right; clear: both;">
+<tr>
+  <th colspan="2">Upcoming Important Dates</th>
+</tr>
+<?php echo $display_dates ?>
+</table>
 
 <p>SciPy 2013 is about four months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>. <a href="about.php">Read more...</a></p>
 
@@ -65,43 +105,6 @@
 
 <p>To see the program from past years, <a href="http://conference.scipy.org/past.html">go to http://conference.scipy.org/past.html</a></p>
 
-<p>&nbsp;</p>
-
-<h2>Anticipated Session Pricing</h2>
-
-<table>
-  <tr>
-    <th>Session </th>
-    <th>Dates</th>
-    <th><div align="right">Std Price</div></th>
-    <th><div align="right">Academic<br />Price</div></th>
-    <th><div align="right">Student<br />Price</div></th>
-  </tr>
-  <tr>
-    <td>Tutorials</td>
-    <td><img src="img/jun_24.gif"  width= "44" height="44"  alt="June 24, 2013" /> - 
-        <img src="img/jun_25.gif"  width= "44" height="44"  alt="June 25, 2013" /></td>
-    <td align="right"> $ 450</td>
-    <td align="right"> $ 350</td>
-    <td align="right"> $ 250</td>
-  </tr>
-  <tr>
-    <td>Conference</td>
-    <td><img src="img/jun_26.gif"  width= "44" height="44"  alt="June 26, 2013" /> - 
-        <img src="img/jun_27.gif"  width= "44" height="44"  alt="June 27, 2013" /></td>
-    <td align="right"> $ 400</td>
-    <td align="right"> $ 300</td>
-    <td align="right"> $ 250</td>
-  </tr>
-  <tr>
-    <td>Sprints</td>
-    <td><img src="img/jun_28.gif"  width= "44" height="44"  alt="June 28, 2013" /> - 
-        <img src="img/jun_29.gif"  width= "44" height="44"  alt="June 29, 2013" /></td>
-    <td align="right"> $ 0 </td>
-    <td align="right"> $ 0 </td>
-    <td align="right"> $ 0 </td>
-  </tr>
-</table>
 
 
 </section>

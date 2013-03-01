@@ -290,6 +290,23 @@ p {
   margin: 2px 4px;
   }
 
+.icon_date {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.4em;
+  color: #fff;
+  width: 3em;
+  height: 3em;
+  /*margin: 0.25em;*/
+  background: url('../img/cal_icon.gif') no-repeat;
+  }
+
+.icon_date_day {
+  font-size: 1.4em;
+  color: #333;
+  }
+
 .callout_description {
   float: left;
   width: 120px;
