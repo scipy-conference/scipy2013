@@ -2,7 +2,7 @@
 include('inc/db_conn.php');
 
 //===========================
-//  pull sessions
+//  pull important dates
 //===========================
 
 //$today = date("Y")."-".date("m")."-".date("d");
@@ -15,6 +15,7 @@ $sql_dates .= "FROM `important_dates`  ";
 //$sql_dates .= "WHERE impt_date > ";
 $sql_dates .= "WHERE conference_id = 2 ";
 $sql_dates .= "AND display = \"public\" ";
+$sql_dates .= "ORDER BY impt_date ";
 $sql_dates .= "LIMIT 4";
 
 $total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());

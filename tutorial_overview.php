@@ -1,5 +1,32 @@
 <?php
 include_once "inc/markdown.php";
+include('inc/db_conn.php');
+
+//===========================
+//  pull important dates
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%b %D') as date_f, ";
+$sql_dates .= "`description`  ";
+$sql_dates .= "FROM `important_dates`  ";
+$sql_dates .= "WHERE conference_id = 2 ";
+$sql_dates .= "AND display = \"public\" ";
+$sql_dates .= "ORDER BY impt_date";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_dates_found = @mysql_num_rows($total_dates);
+$row_color=($row_count%2)?$row_1:$row_2;
+
+do {
+  if ($row['description'] != '')
+  {
+
+$display_dates .="  <li>" . $row['date_f'] . ": " . $row['description'] . "</li>";
+}}
+while($row = mysql_fetch_array($total_dates));
 ?>
 
 
@@ -166,7 +193,6 @@ sufficient time to prepare their laptops before the conference.
 
 Important dates:
 ----------------
-
 * Feb 27th:	Calls for tutorial submissions
 * Apr  1st:	Tutorial submissions due 
 * Apr 15th:	Accepted tutorials announced
@@ -174,7 +200,6 @@ Important dates:
 * May  6th:	Early registration ends
 * May 24th: Final submission of tutorial materials, software version 
   numbers and test scripts.
-
 * Monday-Tuesday, June 24 - 25: SciPy 2013 Tutorials, Austin TX
 * Wednesday-Thursday, June 26 - 27: SciPy 2013 Conference, Austin TX
 * Friday-Saturday, June 27 - 28: SciPy 2013 Sprints, Austin TX & remote

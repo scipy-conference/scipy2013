@@ -1,3 +1,33 @@
+<?php
+include('inc/db_conn.php');
+
+//===========================
+//  pull important dates
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%b %D') as date_f, ";
+$sql_dates .= "`description`  ";
+$sql_dates .= "FROM `important_dates`  ";
+$sql_dates .= "WHERE conference_id = 2 ";
+$sql_dates .= "AND display = \"public\" ";
+$sql_dates .= "ORDER BY impt_date";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_dates_found = @mysql_num_rows($total_dates);
+$row_color=($row_count%2)?$row_1:$row_2;
+
+do {
+  if ($row['description'] != '')
+  {
+
+$display_dates .="  <li>" . $row['date_f'] . ": " . $row['description'] . "</li>";
+}}
+while($row = mysql_fetch_array($total_dates));
+?>
+
 <!DOCTYPE html>
 <html>
 <?php $thisPage="Venue"; ?>
@@ -66,12 +96,7 @@
 <h2>Important Dates</h2>
 
 <ul>
-  <li>March 20th: Presentation abstracts, poster, tutorial submission deadline. Application for sponsorship deadline.</li>
-  <li>April 15th: Speakers selected</li>
-  <li>April 22nd: Sponsorship acceptance deadline</li>
-  <li>May 1st: Speaker schedule announced</li>
-  <li>May 5th: Paper submission deadline</li>
-  <li>May 6th: Early-bird registration ends</li>
+  <?php echo $display_dates ?>
   <li>June 24th-29th: 2 days of tutorials, 2 days of conference, 2 days of sprints</li>
 </ul>
 
