@@ -1,8 +1,10 @@
 <ul>
   <li><a href="about.php">About</a>
   <ul>
-     <li><a href="about.php">About</a>
-    <li><a href="organizers.php">Organizers</a></li>
+     <li><a href="about.php">About</a></li>
+     <li><a href="organizers.php">Organizers</a></li>
+     <li><a href="diversity.php">Diversity</a></li>
+     <li><a href="code_of_conduct.php">Code of Conduct</a></li>
   </ul></li>
   <li><a href="speaking_overview.php">Speaking</a>
   <ul>
