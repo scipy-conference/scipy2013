@@ -29,7 +29,13 @@
 </div>
 
 
-<h3 class="sponsor_level">Media Sponsor</h3>
+<h3 class="sponsor_level">Community and Media Sponsors</h3>
+<div class="sponsor_cell">
+  <a href="http://www.computer.org/portal/web/computingnow/cise"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/CiSE.png" alt="CiSE" width="189" class="sponsor_logo" /></a>
+</div>
 <div class="sponsor_cell">
   <a href="http://www.oreilly.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/oralogo_cmyk.jpg" alt="O'Reilly" width="189" class="sponsor_logo" /></a>
+</div>
+<div class="sponsor_cell">
+  <a href="http://www.pyladies.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/pyladies_logo.png" alt="pyladies" width="185" class="sponsor_logo" /></a>
 </div>
