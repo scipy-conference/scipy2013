@@ -18,9 +18,12 @@
   <a href="http://www.google.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/Google.png" alt="Google" width="184" class="sponsor_logo" /></a>
 </div>
 
-<h3 class="sponsor_level">Silver Sponsor</h3>
+<h3 class="sponsor_level">Silver Sponsors</h3>
 <div class="sponsor_cell">
   <a href="http://continuum.io/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/continuum_logo.jpg" alt="Continuum" width="178" class="sponsor_logo" /></a>
+</div>
+<div class="sponsor_cell">
+  <a href="http://numfocus.org/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/NumFOCUSfdtn.jpg" alt="NumFOCUS" width="170" class="sponsor_logo" /></a>
 </div>
 
 <h3 class="sponsor_level">Sprint Sponsor</h3>

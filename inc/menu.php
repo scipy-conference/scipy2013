@@ -2,6 +2,7 @@
   <li><a href="about.php">About</a>
   <ul>
      <li><a href="about.php">About</a></li>
+     <li><a href="john_hunter_plotting_contest.php">Plotting Contest</a></li>
      <li><a href="organizers.php">Organizers</a></li>
      <li><a href="diversity.php">Diversity</a></li>
      <li><a href="code_of_conduct.php">Code of Conduct</a></li>
