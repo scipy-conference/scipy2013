@@ -51,6 +51,17 @@
 <span class="person">Kyle Mandli</span>, <span class="affiliation">University of Texas</span><br />
 <span class="person">Matthew Turk</span>, <span class="affiliation">Columbia University</span>
 
+
+<div class="chairs">Mini-symposium Chairs</div>
+<div class="chairs_sub">Astronomy and Astrophysics</div>
+<span class="person">Tom Aldcroft</span>, <span class="affiliation">Harvard/Smithsonian Center for Astrophysics</span><br />
+<div class="chairs_sub">Bioinformatics</div>
+<span class="person">Brad Chapman</span>, <span class="affiliation">Bioinformatics Core, Harvard School of Public Health</span><br />
+<div class="chairs_sub">Medical Imaging</div>
+<span class="person">Gael Varoquaux</span>, <span class="affiliation">INRIA</span><br />
+<div class="chairs_sub">Meteorology</div>
+<span class="person">Chris Barker</span>, <span class="affiliation">National Oceanic and Atmospheric Administration</span>
+
 </div>
 <div class="cell">
 
