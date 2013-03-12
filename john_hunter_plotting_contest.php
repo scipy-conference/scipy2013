@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Venue"; ?>
+<?php $thisPage="John Hunter Excellence in Plotting Contest"; ?>
 <head>
 
 <?php include('inc/header.php') ?>

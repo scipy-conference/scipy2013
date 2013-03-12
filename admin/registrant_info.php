@@ -21,6 +21,7 @@ $participant_id = $_GET['id'];
 //===========================
 
 $sql_registrants = "SELECT ";
+$sql_registrants .= "registrations.id, ";
 $sql_registrants .= "participants.last_name, ";
 $sql_registrants .= "participants.first_name, ";
 $sql_registrants .= "affiliation, ";
@@ -47,6 +48,7 @@ $total_registrants = @mysql_query($sql_registrants, $connection) or die("Error #
 while($row = mysql_fetch_array($total_registrants))
 {
 
+$registration_id = $row['id'];
 $last_name = $row['last_name'];
 $first_name = $row['first_name'];
 $affiliation = $row['affiliation'];
@@ -91,6 +93,7 @@ $display_sessions .="<ul>
 }
 while($row = mysql_fetch_array($total_sessions));
 
+
 ?>
 
 <!DOCTYPE html>
@@ -101,6 +104,22 @@ while($row = mysql_fetch_array($total_sessions));
 <?php @ require_once ("../inc/second_level_header.php"); ?>
 
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
+
+<script src="../inc/jquery-1.6.min.js" type="text/javascript">
+        </script>
+
+<script>
+$(".delete").click(function (){
+   var answer = confirm("Are you sure?");
+      if (answer) {
+         return true;
+      }else{
+         return false;
+      }
+});
+</script>
+
+
 </head>
 
 <body>
@@ -138,6 +157,12 @@ while($row = mysql_fetch_array($total_sessions));
 <?php echo $display_sessions ?>
 </div>
 </div>
+
+<form name="form1" method="post" action="registrant_delete.php">
+<input type="hidden" name="participant_id" value="<?php echo $participant_id ?>" />
+<input type="hidden" name="registration_id" value="<?php echo $registration_id ?>" />
+<input type="submit" class="delete" value="delete registrant">
+</form>
 </section>
 
 

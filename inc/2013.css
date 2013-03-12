@@ -63,7 +63,11 @@ a:visited {
 strong {
   font-weight: bold;
   }
- 
+
+em {
+  font-style: italic;
+  }
+
 /* Site-Specific CSS
 -------------------------------------------------------------- */
 
@@ -123,12 +127,12 @@ footer {
 
 /* Menu CSS
 -------------------------------------------------------------- */
-#nav {
+#nav { /* element containing all the top level nav */
   margin: 0 0 4em 0;
   border-bottom: 1px solid #2b5da6;
   }
 
-#nav a {
+#nav a { /* box elements for individual top level nav */
   display: block;
   text-decoration: none;
   color: #000;
@@ -152,7 +156,7 @@ footer {
   float: left;
   position: relative;
   width: 15%;  /*sets the box for the submenu item*/
-  margin: 0 0.75em;
+  margin: 0 0.4em;
   padding: 0.25em;
 
  }
@@ -449,3 +453,7 @@ textarea {
   color: #cc0000;
   }
 
+img.sideslung {
+	float: left;
+	margin-right: 15px;
+	}

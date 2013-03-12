@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Venue"; ?>
+<?php $thisPage="Privacy Policy"; ?>
 <head>
 
 <?php include('inc/header.php') ?>

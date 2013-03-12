@@ -7,6 +7,7 @@
      <li><a href="diversity.php">Diversity</a></li>
      <li><a href="code_of_conduct.php">Code of Conduct</a></li>
   </ul></li>
+  <li><a href="keynotes.php">Keynotes</a></li>
   <li><a href="speaking_overview.php">Speaking</a>
   <ul>
     <li><a href="speaking_overview.php">Proposal Call</a></li>
