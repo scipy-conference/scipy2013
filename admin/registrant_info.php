@@ -158,11 +158,13 @@ $(".delete").click(function (){
 </div>
 </div>
 
+<!--
 <form name="form1" method="post" action="registrant_delete.php">
 <input type="hidden" name="participant_id" value="<?php echo $participant_id ?>" />
 <input type="hidden" name="registration_id" value="<?php echo $registration_id ?>" />
 <input type="submit" class="delete" value="delete registrant">
 </form>
+-->
 </section>
 
 
