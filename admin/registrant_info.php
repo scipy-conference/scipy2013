@@ -8,6 +8,116 @@ if(!isset($_SESSION['formusername'])){
 header("location:login.php");
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // Just display the form if the request is a GET
+    display_form(array());
+} else {
+    // The request is a POST, so validate the form
+    $errors = validate_form();
+    if (count($errors)) {
+        // If there were errors, redisplay the form with the errors
+        display_form($errors);
+    } else {
+        // The form data was valid, so update database and display success page
+
+$participant_id = $_POST['participant_id'];
+$registration_id = $_POST['registration_id'];
+
+include('../inc/db_conn.php');
+
+//===============================================
+//  DELETE REGISTRATION                       //
+//===============================================
+
+$sql_registrations = "DELETE ";
+$sql_registrations .= "FROM registrations ";
+$sql_registrations .= "WHERE participant_id = \"$participant_id\"";
+
+$total_registrations = @mysql_query($sql_registrations, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+//===============================================
+//  DELETE PARTICIPANT                         //
+//===============================================
+
+$sql_participants = "DELETE ";
+$sql_participants .= "FROM participants ";
+$sql_participants .= "WHERE id = \"$participant_id\"";
+
+$total_participants = @mysql_query($sql_participants, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+//===============================================
+//  DELETE BILLING                             //
+//===============================================
+
+$sql_billings = "DELETE ";
+$sql_billings .= "FROM billings ";
+$sql_billings .= "WHERE participant_id = \"$participant_id\"";
+
+$total_billings = @mysql_query($sql_billings, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+//===============================================
+//  DELETE REGISTED SESSIONS                   //
+//===============================================
+
+$sql_reg_sessions = "DELETE ";
+$sql_reg_sessions .= "FROM registered_sessions ";
+$sql_reg_sessions .= "WHERE registration_id = \"$registration_id\"";
+
+$total_reg_sessions = @mysql_query($sql_reg_sessions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<?php $thisPage="Admin"; ?>
+<head>
+
+<?php @ require_once ("../inc/second_level_header.php"); ?>
+
+<link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
+</head>
+
+<body>
+
+<div id="container">
+
+<?php include('../inc/admin_page_headers.php') ?>
+
+<section id="sidebar">
+  <?php include("../inc/sponsors.php") ?>
+</section>
+
+<section id="main-content">
+
+<h1>Admin</h1>
+
+<p>Registrant Deleted</p>
+
+
+participant_id: <?php echo $participant_id ?><br />
+registration_id: <?php echo $registration_id ?>
+
+</section>
+
+
+
+<div style="clear: both;"></div>
+<footer id="page_footer">
+<?php include('../inc/page_footer.php') ?>
+</footer>
+</div>
+</body>
+
+</html>
+
+<?php
+            }
+}
+
+function display_form($errors) {
+
+
 //===============================================
 // IF SUCCESSFUL PAGE CONTENT                  //
 //===============================================
@@ -109,16 +219,12 @@ while($row = mysql_fetch_array($total_sessions));
         </script>
 
 <script>
-$(".delete").click(function (){
-   var answer = confirm("Are you sure?");
-      if (answer) {
-         return true;
-      }else{
-         return false;
-      }
+$(document).ready(function(){
+    $('.delete').click(function(){
+        return confirm('Are you sure you want to delete registrant?');
+    });
 });
 </script>
-
 
 </head>
 
@@ -158,13 +264,14 @@ $(".delete").click(function (){
 </div>
 </div>
 
-<!--
-<form name="form1" method="post" action="registrant_delete.php">
+
+<form name="form1" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>">
 <input type="hidden" name="participant_id" value="<?php echo $participant_id ?>" />
 <input type="hidden" name="registration_id" value="<?php echo $registration_id ?>" />
+
 <input type="submit" class="delete" value="delete registrant">
 </form>
--->
+
 </section>
 
 
@@ -177,3 +284,27 @@ $(".delete").click(function (){
 </body>
 
 </html>
+
+<?php }
+
+// A helper function to make generating the HTML for an error message easier
+function print_error($key, $errors) {
+    if (isset($errors[$key])) {
+        print "<br /><span class='error'>{$errors[$key]}</span>";
+    }
+}
+
+function validate_form() {
+    
+    // Start out with no errors
+    $errors = array();
+
+
+
+    return $errors;
+
+
+}
+
+
+?>
