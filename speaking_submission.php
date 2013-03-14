@@ -68,7 +68,7 @@ if ($specific_session == 'geophysics') {$specific_session = "GeoMedical imagingp
 <html>
 <?php $thisPage="Speaking"; ?>
 <head>
-
+<?php include_once "inc/markdown.php"; ?>
 <?php include('inc/header.php') ?>
 
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
@@ -89,15 +89,15 @@ if ($specific_session == 'geophysics') {$specific_session = "GeoMedical imagingp
 
 <p>Thank you for your submission. The following information has been recorded.</p>
 
-<p>Title: <span class="bold"><?php echo $title ?></span></p>
-<p>Author: <span class="bold"><?php echo $author ?></span></p>
-<p>Bio: <span class="bold"><?php echo $bio ?></span></p>
-<p>email: <span class="bold"><?php echo $email ?></span></p>
-<p>Description: <span class="bold"><?php echo $description ?></span></p>
-<p>Consider for: <span class="bold"><?php echo ucfirst($presentation_preference) ?></span></p>
-<p>submission_references?: <span class="bold"><?php echo $submission_references ?></span></p>
-<p>Main Track: <span class="bold"><?php echo ucfirst($main_track) ?></span></p>
-<p>Specific Session: <span class="bold"><?php echo $specific_session ?></span></p>
+<p><span class="data_field">Title:</span> <?php echo $title ?></p>
+<p><span class="data_field">Author:</span> <?php echo $author ?></p>
+<p><span class="data_field">Bio:</span> <?php echo Markdown($bio) ?></p>
+<p><span class="data_field">email:</span> <?php echo $email ?></p>
+<p><span class="data_field">Description:</span> <?php echo Markdown($description) ?></p>
+<p><span class="data_field">Consider for:</span> <?php echo ucfirst($presentation_preference) ?></p>
+<p><span class="data_field">submission_references?:</span> <?php echo Markdown($submission_references) ?></p>
+<p><span class="data_field">Main Track:</span> <?php echo ucfirst($main_track) ?></p>
+<p><span class="data_field">Specific Session:</span> <?php echo $specific_session ?></p>
 
 
 </section>

@@ -457,3 +457,8 @@ img.sideslung {
 	float: left;
 	margin-right: 15px;
 	}
+
+.data_field {
+  color: #0033cc;
+  font-size: 0.85em;
+  }

@@ -27,6 +27,7 @@
     <li><a href="location_directions_.php">Directions</a></li>
     <li><a href="location_food.php">Restaurants</a></li>
     <li><a href="location_entertain_.php">Entertainment</a></li>
+    <li><a href="location_childcare.php">Childcare</a></li>
   </ul></li>
   <li><a href="registration.php">Registration</a>
   <ul>

@@ -58,7 +58,7 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 <html>
 <?php $thisPage="Speaking"; ?>
 <head>
-
+<?php include_once "inc/markdown.php"; ?>
 <?php include('inc/header.php') ?>
 
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
@@ -79,15 +79,15 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 
 <p>Thank you for your submission. The following information has been recorded.</p>
 
-<p>Title: <span class="bold"><?php echo $title ?></span></p>
-<p>Author: <span class="bold"><?php echo $author ?></span></p>
-<p>Bio: <span class="bold"><?php echo $bio ?></span></p>
-<p>email: <span class="bold"><?php echo $email ?></span></p>
-<p>Track: <span class="bold"><?php echo $track ?></span></p>
-<p>Description: <span class="bold"><?php echo $description ?></span></p>
-<p>Outline: <span class="bold"><?php echo ucfirst($outline) ?></span></p>
-<p>Package List?: <span class="bold"><?php echo $package_list ?></span></p>
-<p>Documentation: <span class="bold"><?php echo ucfirst($documentation) ?></span></p>
+<p><span class="data_field">Title:</span> <?php echo $title ?></p>
+<p><span class="data_field">Author:</span> <?php echo $author ?></p>
+<p><span class="data_field">Bio:</span> <?php echo Markdown($bio) ?></p>
+<p><span class="data_field">email:</span> <?php echo $email ?></p>
+<p><span class="data_field">Track:</span> <?php echo $track ?></p>
+<p><span class="data_field">Description:</span> <?php echo Markdown($description) ?></p>
+<p><span class="data_field">Outline:</span> <?php echo Markdown($outline) ?></p>
+<p><span class="data_field">Package List?:</span> <?php echo Markdown($package_list) ?></p>
+<p><span class="data_field">Documentation:</span> <?php echo Markdown($documentation) ?></p>
 
 </section>
 <div style="clear:both;"></div>
@@ -350,11 +350,15 @@ function validate_form() {
 
     // specific_session is required
     if (! (isset($_POST['track']) 
-          && ($_POST['track']) == 'introductory' 
+          && ($_POST['track']) == 'introductory_basics' 
+          || ($_POST['track']) == 'introductory_matplotlib' 
+          || ($_POST['track']) == 'introductory_scipy' 
+          || ($_POST['track']) == 'introductory_sw_carpentry' 
           || ($_POST['track']) == 'intermediate' 
           || ($_POST['track']) == 'advanced')) {
         $errors['track'] = '<< Please check one >>';
     }
+
 
     return $errors;
 
