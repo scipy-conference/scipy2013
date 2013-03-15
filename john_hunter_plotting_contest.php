@@ -71,7 +71,7 @@
 <h2>Instructions</h2>
 
 <ul>
-  <li>Entries must be submitted by April 3 via e-mail.</li>
+  <li>Entries must be submitted by April 3  via e-mail to <a href="mailto:plotting-contest@scipy.org">plotting-contest@scipy.org</a></li>
   <li>Plots may be produced with any combination of Python-based tools (it is not required that they use matplotlib, for example).</li>
   <li>Source code for the plot must be provided, along with a rendering of the plot in a vector format (PDF, PS, etc.). If the data can not be shared for reasons of size or licensing, "fake" data may be substituted, along with an image of the plot using real data.</li>
   <li>Entries will be judged on their clarity, innovation and aesthetics, but most importantly for their effectiveness in illuminating real scientific work. Entrants are encouraged to submit plots that were used during the course of research, rather than merely being hypothetical.</li>
