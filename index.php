@@ -58,9 +58,13 @@ while($row = mysql_fetch_array($total_dates));
 
 <section id="main-content">
 
+
+
+<p class="highlight">Deadline for submissions extended to April 3rd. Visit the <a href="speaking_submission.php">submission page</a> to add your presentation abstract.</p>
+
 <img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" />
 
-<p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
+<p >SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
 
 <table width="30%" style="float: right; clear: both;">
 <tr>

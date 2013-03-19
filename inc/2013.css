@@ -462,3 +462,10 @@ img.sideslung {
   color: #0033cc;
   font-size: 0.85em;
   }
+
+.highlight {
+  background: #F2F191;
+  border-top: 1px solid #8C8B35;
+  border-bottom: 1px solid #8C8B35;
+  padding: 1px 4px;
+  }
