@@ -59,7 +59,7 @@ $display_submissions .="
     <td colspan=\"2\"><a name=\"anchor_" . $row['id'] . "\"></a><hr /><a href=\"#top\" class=\"intra_page_nav\">Back to top</a></td>
   </tr>
   <tr class=$row_color>    
-    <td colspan=\"2\"><strong>" . $row['title'] . "</strong></td>
+    <td colspan=\"2\"><h2>" . $row['title'] . "</h2></td>
   </tr>
   <tr class=$row_color>
     <td>" . $row['author'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
