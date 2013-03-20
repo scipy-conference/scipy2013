@@ -32,7 +32,8 @@ $sql_submissions .= "prepare_paper, ";
 $sql_submissions .= "main_track, ";
 $sql_submissions .= "specific_session, ";
 $sql_submissions .= "DATE_FORMAT(date_submitted, '%b %d') AS date_submitted_f ";
-$sql_submissions .= "FROM talk_submissions";
+$sql_submissions .= "FROM talk_submissions ";
+$sql_submissions .= "ORDER BY main_track, title";
 
 $total_submissions = @mysql_query($sql_submissions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_submissions = @mysql_num_rows($sql_submissions);
@@ -41,6 +42,12 @@ $row_color=($row_count%2)?$row_1:$row_2;
 do {
   if ($row['author'] != '')
   {
+
+if ($presentation_preference == 'both') {$presentation_preference = "Talk and Poster";}
+if ($main_track == 'general') {$main_track = "General";}
+if ($main_track == 'ml') {$main_track = "Machine Learning";}
+if ($main_track == 'tfr') {$main_track = "Tools for reproducibility";}
+if ($main_track == 'none') {$main_track = "None, only to a domain symposia";}
 
 $display_summary .="
 <tr class=$row_color>
