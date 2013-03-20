@@ -1,5 +1,26 @@
 <?php
 
+include('inc/db_conn.php');
+
+//===========================
+//  pull important dates
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%M %D, %Y') as date_m ";
+$sql_dates .= "FROM `important_dates`  ";
+$sql_dates .= "WHERE id = 1";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_dates))
+{
+
+$date_m = $row['date_m'];
+
+}
+
 ?>
 
 
@@ -72,7 +93,7 @@ participants from academic, commercial, and governmental organizations to showca
 their latest projects, learn from skilled users and developers, and collaborate on
 code development.</p>
 
-<p>The deadline for abstract submissions is <em>March 20th, 2013</em>.  Submissions are
+<p>The deadline for abstract submissions is <em><?php echo $date_m ?></em>.  Submissions are
 welcome that address general scientific computing with Python, or one of the two
 special themes for this years conference, or the domain-specific mini-symposia
 held during the conference.  Examples talks from previous years are available
