@@ -469,3 +469,7 @@ img.sideslung {
   border-bottom: 1px solid #8C8B35;
   padding: 1px 4px;
   }
+
+.intra_page_nav {
+  font-size: 0.65em;
+  }

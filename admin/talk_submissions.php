@@ -42,7 +42,18 @@ do {
   if ($row['author'] != '')
   {
 
+$display_summary .="
+<tr class=$row_color>
+  <td>" . $row['main_track'] . "</td>
+  <td>" . $row['presentation_preference'] . "</td>
+  <td><strong><a href=\"#anchor_" . $row['id'] . "\">" . $row['title'] . "</a></strong></td>
+  <td>" . $row['author'] . "</td>
+</tr>";
+
 $display_submissions .="
+  <tr class=$row_color>
+    <td colspan=\"6\"><a name=\"anchor_" . $row['id'] . "\"></a><hr /><a href=\"#top\" class=\"intra_page_nav\">Back to top</a></td>
+  </tr>
   <tr class=$row_color>    
     <td colspan=\"6\"><strong>" . $row['title'] . "</strong></td>
   </tr>
@@ -55,9 +66,6 @@ $display_submissions .="
   </tr>
   <tr class=$row_color>
     <td colspan=\"6\">" . nl2br($row['description']) . "</td>
-  </tr>
-  <tr class=$row_color>
-    <td colspan=\"6\"><hr /></td>
   </tr>";
   }
 
@@ -96,13 +104,25 @@ while($row = mysql_fetch_array($total_submissions));
 
 <p>Talk Submissions:</p>
 
+<table width="100%">
+<tr>
+  <th>Track</th>
+  <th>Preference</th>
+  <th>Title</th>
+  <th>Author(s)</th>
+</tr>
+<?php echo $display_summary ?>
+</table>
+
 <div align="right">
 <p><a href="submissions_csv.php">Export to CSV (for Excel)</a></p>
 </div>
 
-<table id="registrants_table">
+<h3>Details</h3>
+<table width="100%">
 <?php echo $display_submissions ?>
 </table>
+
 
 </section>
 

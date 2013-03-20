@@ -23,6 +23,7 @@ $row_count=1;
 //===========================
 
 $sql_submissions = "SELECT ";
+$sql_submissions .= "id, ";
 $sql_submissions .= "title, ";
 $sql_submissions .= "author, ";
 $sql_submissions .= "email, ";
@@ -33,7 +34,8 @@ $sql_submissions .= "outline, ";
 $sql_submissions .= "package_list, ";
 $sql_submissions .= "documentation, ";
 $sql_submissions .= "DATE_FORMAT(date_submitted, '%b %d') AS date_submitted_f ";
-$sql_submissions .= "FROM talk_tutorial_submissions";
+$sql_submissions .= "FROM talk_tutorial_submissions ";
+$sql_submissions .= "ORDER BY track, title";
 
 $total_submissions = @mysql_query($sql_submissions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_submissions = @mysql_num_rows($sql_submissions);
@@ -43,7 +45,19 @@ do {
   if ($row['author'] != '')
   {
 
+
+$display_summary .="
+<tr class=$row_color>
+  <td>" . $row['track'] . "</td>
+  <td><strong><a href=\"#anchor_" . $row['id'] . "\">" . $row['title'] . "</a></strong></td>
+  <td>" . $row['author'] . "</td>
+</tr>";
+
+
 $display_submissions .="
+  <tr class=$row_color>
+    <td colspan=\"2\"><a name=\"anchor_" . $row['id'] . "\"></a><hr /><a href=\"#top\" class=\"intra_page_nav\">Back to top</a></td>
+  </tr>
   <tr class=$row_color>    
     <td colspan=\"2\"><strong>" . $row['title'] . "</strong></td>
   </tr>
@@ -65,9 +79,6 @@ $display_submissions .="
   </tr>
   <tr class=$row_color>
     <td colspan=\"2\"><span class=\"other_form_tips\">Documentation:<br /></span>" . nl2br($row['documentation']) . "</td>
-  </tr>
-  <tr class=$row_color>
-    <td colspan=\"2\"><hr /></td>
   </tr>";
   }
 
@@ -101,11 +112,21 @@ while($row = mysql_fetch_array($total_submissions));
 </section>
 
 <section id="main-content">
-
+<a name="top"></a>
 <h1>Admin</h1>
 
 <h2>Tutorial Submissions:</h2>
 
+<table width="100%">
+<tr>
+  <th>Track</th>
+  <th>Title</th>
+  <th>Author(s)</th>
+</tr>
+<?php echo $display_summary ?>
+</table>
+
+<h3>Details</h3>
 <table width="100%">
 <?php echo $display_submissions ?>
 </table>
