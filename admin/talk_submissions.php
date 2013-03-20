@@ -23,6 +23,7 @@ $row_count=1;
 //===========================
 
 $sql_submissions = "SELECT ";
+$sql_submissions .= "id, ";
 $sql_submissions .= "title, ";
 $sql_submissions .= "author, ";
 $sql_submissions .= "email, ";
