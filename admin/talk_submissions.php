@@ -43,11 +43,11 @@ do {
   if ($row['author'] != '')
   {
 
-if ($presentation_preference == 'both') {$presentation_preference = "Talk and Poster";}
-if ($main_track == 'general') {$main_track = "General";}
-if ($main_track == 'ml') {$main_track = "Machine Learning";}
-if ($main_track == 'tfr') {$main_track = "Tools for reproducibility";}
-if ($main_track == 'none') {$main_track = "None, only to a domain symposia";}
+if ($row[presentation_preference] == 'both') {$row[presentation_preference] = "Talk and Poster";}
+if ($row['main_track'] == 'general') {$row['main_track'] = "General";}
+if ($row['main_track'] == 'ml') {$row['main_track'] = "Machine Learning";}
+if ($row['main_track'] == 'tfr') {$row['main_track'] = "Tools for reproducibility";}
+if ($$row['main_track'] == 'none') {$row['main_track'] = "None, only to a domain symposia";}
 
 $display_summary .="
 <tr class=$row_color>
