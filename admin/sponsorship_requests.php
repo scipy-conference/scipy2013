@@ -49,7 +49,8 @@ $row_color=($row_count%2)?$row_1:$row_2;
 do {
   if ($row['last_name'] != '')
   {
-$submission_count++
+$submission_count++;
+
 $display_requestors .="<tr class=$row_color>
     <td>" . $row['last_name'] . ", " . $row['first_name'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
     <td><span class=\"other_form_tips\">Org Name:</span>" . $row['org_name'] . "<br /><span class=\"other_form_tips\">Org Type:</span>" . $row['org_type'] . "</td>

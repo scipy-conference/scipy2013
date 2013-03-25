@@ -17,7 +17,7 @@ include('../inc/db_conn.php');
 //  pull total registered
 //===========================
 
-$sql_requestors = "SELECT last_name, first_name, org_type, org_name, email, residence_country, citizenship_country, nomination_type, nominators_name, nominators_email, contributions, level_of_need, date_submitted FROM sponsorship_requests";
+$sql_requestors = "SELECT last_name, first_name, org_type, org_name, email, residence_country, citizenship_country, nomination_type, nominators_name, nominators_email, contributions, level_of_need, date_submitted FROM sponsorship_requests WHERE conference_id = 2";
 
 $result = @mysql_query($sql_requestors, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
