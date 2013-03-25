@@ -19,6 +19,7 @@ include('../inc/db_conn.php');
 $row_1="odd";
 $row_2="even";
 $row_count=1;
+$submission_count = 0;
 
 //===========================
 //  pull sponsorship requests
@@ -48,7 +49,7 @@ $row_color=($row_count%2)?$row_1:$row_2;
 do {
   if ($row['last_name'] != '')
   {
-
+$submission_count++
 $display_requestors .="<tr class=$row_color>
     <td>" . $row['last_name'] . ", " . $row['first_name'] . "<br /><a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</td>
     <td><span class=\"other_form_tips\">Org Name:</span>" . $row['org_name'] . "<br /><span class=\"other_form_tips\">Org Type:</span>" . $row['org_type'] . "</td>
@@ -114,7 +115,7 @@ while($row = mysql_fetch_array($total_requestors));
 
 <h1>Admin</h1>
 
-<p>Sponsorship Requests:</p>
+<p>Sponsorship Requests:  <?php echo $submission_count ?></p>
 
 <div align="right">
 <p><a href="requests_csv.php">Export to CSV (for Excel)</a></p>
