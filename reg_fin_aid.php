@@ -1,3 +1,29 @@
+<?php
+
+include('inc/db_conn.php');
+
+//===========================
+//  pull important dates : sponsorship acceptance, id = 6
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%M %D, %Y') as date_m ";
+$sql_dates .= "FROM `important_dates`  ";
+$sql_dates .= "WHERE id = 6";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_dates))
+{
+
+$date_m = $row['date_m'];
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <?php $thisPage="Financial Aid"; ?>
@@ -25,7 +51,7 @@
 
 <h1>Financial Assistance</h1>
 
-<p>The period of application for financial assistance is now closed. Thank you to all that have applied. We are in the process of reviewing the applications and will announce the recipients on Apr 29th, 2013.</p>
+<p>The period of application for financial assistance is now closed. Thank you to all that have applied. We are in the process of reviewing the applications and will announce the recipients on <?php echo $date_m ?>.</p>
 
 <p>The SciPy 2013 Team</p>
 <hr />
