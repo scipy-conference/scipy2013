@@ -30,6 +30,7 @@
     <li><a href="location_childcare.php">Childcare</a></li>
   </ul></li>
   <li><a href="registration.php">Registration</a>
+  <li><a href="reg_fin_aid.php">Fin. Assistance</a></li>
   <ul>
     <li><a href="registration.php">Registration</a></li>
   </ul></li>
