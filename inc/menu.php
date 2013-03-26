@@ -32,6 +32,5 @@
   <li><a href="registration.php">Registration</a>
   <ul>
     <li><a href="registration.php">Registration</a></li>
-    <li><a href="reg_fin_aid.php">Fin. Assistance</a></li>
   </ul></li>
 </ul>
