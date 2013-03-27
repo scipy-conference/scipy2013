@@ -155,7 +155,7 @@ footer {
 #nav ul li {
   float: left;
   position: relative;
-  width: 15%;  /*sets the box for the submenu item*/
+  width: 14%;  /*sets the box for the top menu item*/
   margin: 0 0.4em;
   padding: 0.25em;
 

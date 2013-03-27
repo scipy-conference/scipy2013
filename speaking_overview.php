@@ -128,12 +128,15 @@ full papers, and evidence of public speaking ability are encouraged.</p>
 
 <p>Each abstract will be peer-reviewed by multiple members of the Program Committee
 Board.  Please submit your abstract at the SciPy 2013 website [2] <a href="speaking_submission.php">abstract submission
-form</a>.  Abstracts will be accepted for posters or presentations.
-Optional papers to be published in the conference proceedings will be requested
-following abstract submission.  This year the proceedings will be made available
-prior to the conference to help attendees navigate the conference.</p>
-<p>We look forward to an exciting and interesting set of talks, posters, and
-discussions and hope to see you at the conference.</p>
+form</a>.  Abstracts will be accepted for posters or presentations.</p>
+
+<h2>Publications</h2>
+
+<p>Optional papers to be published in the conference proceedings will be requested following abstract submission. This year the proceedings will be made available prior to the conference to help attendees navigate the conference.  These papers will be reviewed and posted in webform via the SciPy Proceedings guidelines at <a href="https://github.com/scipy/scipy_proceedings">https://github.com/scipy/scipy_proceedings</a>.</p>
+
+<p>Additionally,  SciPy 2013 participants will be invited to submit full and original research papers to be reviewed for a focus issue on Scientific Computing with Python in Computational Science & Discovery (CSD), IOP Publishing's electronic-only, multidisciplinary journal for the computational science community.  Further details (guest editors, issue scope, submission details, etc) will be announced soon.  More information about CSD can be found at the journal's website: <a href="http://www.iopscience.org/csd">http://www.iopscience.org/csd</a></p>
+
+<hr />
 
 <p>The SciPy 2013 Program Committee Chairs</p>
 
