@@ -26,6 +26,9 @@
   <a href="http://github.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/github.gif" alt="github" width="180" class="sponsor_logo" /></a>
 </div>
 <div class="sponsor_cell">
+  <a href="http://www.kitware.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/kitware.png" alt="Kitware" width="189" class="sponsor_logo" /></a>
+</div>
+<div class="sponsor_cell">
   <a href="http://numfocus.org/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/NumFOCUSfdtn.jpg" alt="NumFOCUS" width="170" class="sponsor_logo" /></a>
 </div>
 
