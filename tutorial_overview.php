@@ -194,8 +194,7 @@ sufficient time to prepare their laptops before the conference.
 Important dates:
 ----------------
 * Feb 27th:	Calls for tutorial submissions
-* Apr  1st:	Tutorial submissions due 
-* Apr 15th:	Accepted tutorials announced
+* Apr  8th:	Tutorial submissions due 
 * May  1st:	Speaker and Schedule announced
 * May  6th:	Early registration ends
 * May 24th: Final submission of tutorial materials, software version 
