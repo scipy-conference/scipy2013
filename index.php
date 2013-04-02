@@ -5,15 +5,15 @@ include('inc/db_conn.php');
 //  pull important dates list
 //===========================
 
-//$today = date("Y")."-".date("m")."-".date("d");
+$today = date("Y")."-".date("m")."-".date("d");
 
 $sql_dates = "SELECT ";
 $sql_dates .= "DATE_FORMAT(`impt_date`, '%b') as date_m, ";
 $sql_dates .= "DATE_FORMAT(`impt_date`, '%d') as date_d, ";
 $sql_dates .= "`description`  ";
 $sql_dates .= "FROM `important_dates`  ";
-//$sql_dates .= "WHERE impt_date > \"$today\" ";
-$sql_dates .= "WHERE conference_id = 2 ";
+$sql_dates .= "WHERE impt_date > \"$today\" ";
+$sql_dates .= "AND conference_id = 2 ";
 $sql_dates .= "AND display = \"public\" ";
 $sql_dates .= "ORDER BY impt_date ";
 $sql_dates .= "LIMIT 4";
@@ -33,6 +33,32 @@ $display_dates .="
 </tr>";
 }}
 while($row = mysql_fetch_array($total_dates));
+
+//===========================
+//  pull individual important dates
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates_2 = "SELECT id, ";
+$sql_dates_2 .= "DATE_FORMAT(`impt_date`, '%b %D') as date_m ";
+$sql_dates_2 .= "FROM `important_dates`  ";
+$sql_dates_2 .= "WHERE conference_id = 2 ";
+$sql_dates_2 .= "AND display = \"public\"";
+
+$total_dates_2 = @mysql_query($sql_dates_2, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_dates_found_2 = @mysql_num_rows($total_dates_2);
+while ($row = mysql_fetch_array($total_dates_2)) {
+if ($row['id'] == 1) 
+  {
+    $abstracts_deadline=$row['date_m'];
+  }
+elseif ($row['id'] == 4) 
+  {
+    $tutorial_deadline=$row['date_m'];
+  }
+
+}
 
 
 ?>
@@ -62,7 +88,7 @@ while($row = mysql_fetch_array($total_dates));
 
 
 
-<p class="highlight">Deadline for submissions extended to Apr 3rd. Visit the <a href="speaking_submission.php">submission page</a> to add your presentation abstract.</p>
+<ul class="highlight"><li>Deadline for submissions extended to <strong><?php echo $abstracts_deadline ?></strong>. Visit the <a href="speaking_submission.php">submission page</a> to add your presentation abstract.</li><li>Deadline for tutorial submissions has been extended to <strong><?php echo $tutorial_deadline ?></strong>. Visit the <a href="tutorial_submission.php">submission page</a> to add your proposal.</li></ul>
 
 <img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" />
 
