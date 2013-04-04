@@ -88,7 +88,7 @@ elseif ($row['id'] == 4)
 
 
 
-<ul class="highlight"><li>Deadline for submissions extended to <strong><?php echo $abstracts_deadline ?></strong>. Visit the <a href="speaking_submission.php">submission page</a> to add your presentation abstract.</li><li>Deadline for tutorial submissions has been extended to <strong><?php echo $tutorial_deadline ?></strong>. Visit the <a href="tutorial_submission.php">submission page</a> to add your proposal.</li></ul>
+<p class="highlight">Deadline for tutorial submissions has been extended to <strong><?php echo $tutorial_deadline ?></strong>. Visit the <a href="tutorial_submission.php">submission page</a> to add your proposal.</p>
 
 <img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" />
 
@@ -101,7 +101,7 @@ elseif ($row['id'] == 4)
 <?php echo $display_dates ?>
 </table>
 
-<p>SciPy 2013 is about four months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>. <a href="about.php">Read more...</a></p>
+<p>SciPy 2013 is about three months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>. <a href="about.php">Read more...</a></p>
 
 <p>Like last year, there will also be 4 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
 
