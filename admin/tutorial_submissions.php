@@ -115,7 +115,7 @@ while($row = mysql_fetch_array($total_submissions));
 <a name="top"></a>
 <h1>Admin</h1>
 
-<h2>Tutorial Submissions:</h2>
+<h2>Tutorial Submissions: <?php echo $row_count ?></h2>
 
 <table width="100%">
 <tr>

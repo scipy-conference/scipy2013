@@ -110,7 +110,7 @@ while($row = mysql_fetch_array($total_submissions));
 
 <h1>Admin</h1>
 
-<p>Talk Submissions:</p>
+<p>Talk Submissions: <?php echo $row_count ?></p>
 
 <table width="100%">
 <tr>
