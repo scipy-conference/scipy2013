@@ -75,10 +75,11 @@ $display_submissions .="
   <tr class=$row_color>
     <td colspan=\"6\">" . nl2br($row['description']) . "</td>
   </tr>";
-  }
-
 $row_color=($row_count%2)?$row_1:$row_2;
 $row_count++;
+  }
+
+
 
 }
 while($row = mysql_fetch_array($total_submissions));
@@ -110,7 +111,7 @@ while($row = mysql_fetch_array($total_submissions));
 
 <h1>Admin</h1>
 
-<p>Talk Submissions: <?php echo $row_count ?></p>
+<p>Talk Submissions: <?php echo $row_count -1 ?></p>
 
 <table width="100%">
 <tr>

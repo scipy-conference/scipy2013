@@ -80,10 +80,12 @@ $display_submissions .="
   <tr class=$row_color>
     <td colspan=\"2\"><span class=\"other_form_tips\">Documentation:<br /></span>" . nl2br($row['documentation']) . "</td>
   </tr>";
-  }
 
 $row_color=($row_count%2)?$row_1:$row_2;
 $row_count++;
+  }
+
+
 
 }
 while($row = mysql_fetch_array($total_submissions));
@@ -115,7 +117,7 @@ while($row = mysql_fetch_array($total_submissions));
 <a name="top"></a>
 <h1>Admin</h1>
 
-<h2>Tutorial Submissions: <?php echo $row_count ?></h2>
+<p>Tutorial Submissions: <?php echo $row_count-1 ?></p>
 
 <table width="100%">
 <tr>
