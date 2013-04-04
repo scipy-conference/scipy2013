@@ -89,6 +89,49 @@
 </div>
 </div>
 
+<h2>The SciPy 2013 Program Committee</h2>
+
+<div class="row">
+<div class="cell">
+<p>Aron Ahmadia<br />
+Tom Aldcroft<br />
+Chris Barker<br />
+Nathan Bell<br />
+Joshua Bloom<br />
+Matthew Brett<br />
+Brad Chapman<br />
+Matt Davis<br />
+Daniel Dye<br />
+Satrajit Ghosh<br />
+Perry Greenfield<br />
+Matthew Knepley<br />
+Jessica Lu<br />
+Hilary Mason<br />
+Mike McKerns<br />
+Zain Memon</br>
+Aronne Merrelli</p>
+</div>
+<div class="cell">
+<p>Shelia Miguez<br />
+August Muench<br />
+Cait Pickens<br />
+Serge Rey<br />
+Tom Robitaille<br />
+Dan Schult<br />
+Rich Signell<br />
+William Spotz<br />
+Matt Terry<br />
+Erik Tollerud <br />
+Erik Tollerud<br />
+James Turner<br />
+Geraldine van der Auwera<br />
+Jake van der Plas<br />
+Gael Varoquax<br />
+Peter Wang<br />
+Andrew Wilson</p>
+</div></div>
+
+
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">
