@@ -14,7 +14,7 @@ $error = $_SESSION['errormessage'];
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
-<body>
+<body OnLoad="document.form1.username.focus();">
 
 <div id="container">
 
