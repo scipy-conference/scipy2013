@@ -43,7 +43,7 @@
   <a href="http://www.computer.org/portal/web/computingnow/cise"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/CiSE.png" alt="CiSE" width="170" height="51" class="sponsor_logo" /></a>
 </div>
 <div class="sponsor_cell">
-  <a href="http://nostarch.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/nsp_logo_black.png" alt="No Starch Press" width="187" height="29" class="sponsor_logo" /></a>
+  <a href="http://nostarch.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/nsp_logo_black2.png" alt="No Starch Press" width="187" height="29" class="sponsor_logo" /></a>
 </div>
 <div class="sponsor_cell">
   <a href="http://www.oreilly.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/oralogo_cmyk.jpg" alt="O'Reilly" width="189" height="36" class="sponsor_logo" /></a>
