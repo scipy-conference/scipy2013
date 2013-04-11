@@ -205,10 +205,6 @@ Pricing for each item will increase $50 after Early-Bird registration, so REGIST
 <div style="clear:both;"></div>
 <br />
 
-<div align="center">
-  <input type="submit" name="submit" value="next >>"/>
-</div>
-
 </form>
 </section>
 <div style="clear:both;"></div>
