@@ -458,8 +458,13 @@ textarea {
 
 img.sideslung {
 	float: left;
-	margin-right: 15px;
+	margin: 0 15px 3em 0;
 	}
+
+.biobox {
+  clear: both;
+  margin: 0 0 3em 0;
+  }
 
 .data_field {
   color: #0033cc;
