@@ -90,7 +90,7 @@ elseif ($row['id'] == 4)
 
 <p >SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
 
-<table width="30%" style="float: right; clear: both;">
+<table style="float: right; clear: both; width: 30%; ">
 <tr>
   <th colspan="2">Upcoming Important Dates</th>
 </tr>
