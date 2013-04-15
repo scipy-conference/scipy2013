@@ -157,8 +157,6 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <section id="main-content">
 
-<p class="highlight">The registration process is currently unavailable due to infrastructure updates. Please check back soon, or call in your registration at (512)536-1057.</p>
-
 <h1>2013 Conference Registration</h1>
 
 <p class="left">Register online using the form below. You may also register via phone at (512)536-1057. </p>
