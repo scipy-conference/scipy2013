@@ -241,7 +241,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <hr />
 <p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
-<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_type; ?></strong> (<?php echo $display_gender; ?>)</p>
+<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong> (<?php echo $display_type; ?>)</p>
 
 <table id="schedule" width="350">
   <tr>
