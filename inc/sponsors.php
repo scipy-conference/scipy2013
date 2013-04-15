@@ -31,6 +31,9 @@
 <div class="sponsor_cell">
   <a href="http://numfocus.org/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/NumFOCUSfdtn.jpg" alt="NumFOCUS" width="170" height="85" class="align_center" /></a>
 </div>
+<div class="sponsor_cell">
+  <a href="http://http://www.python.org/psf/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/psf_logo.png" alt="Python Software Foundation" width="190" height="72" class="align_center" /></a>
+</div>
 
 <h3 class="sponsor_level">Sprint Sponsor</h3>
 <div class="sponsor_cell">

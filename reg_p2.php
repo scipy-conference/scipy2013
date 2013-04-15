@@ -89,11 +89,11 @@ $tshirt_type = $_POST['tshirt_type'];
 
 if ($tshirt_type == 1)
   {
-    $display_type = "female";
+    $display_type = "womens/fitted";
   }
 if ($tshirt_type == 2)
   {
-    $display_type = "male";
+    $display_type = "mens/unisex";
   }
 
 
