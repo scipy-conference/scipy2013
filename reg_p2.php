@@ -85,6 +85,18 @@ if ($tshirt_size == 5)
     $display_size = "Small";
   }
 
+$tshirt_type = $_POST['tshirt_type'];
+
+if ($tshirt_type == 1)
+  {
+    $display_type = "female";
+  }
+if ($tshirt_type == 2)
+  {
+    $display_type = "male";
+  }
+
+
 
 $total_price = 0;
 
@@ -229,7 +241,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <hr />
 <p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
-<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong></p>
+<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong> (<?php echo $display_gender; ?>)</p>
 
 <table id="schedule" width="350">
   <tr>
@@ -271,8 +283,11 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <input type="hidden" name="conference" value="<?php echo $conference; ?>">
 <input type="hidden" name="sprints" value="<?php echo $sprints; ?>">
 <input type="hidden" name="tutorials" value="<?php echo $tutorials; ?>">
-<input type="hidden" name="tshirt" value="<?php echo $display_size; ?>">
+<input type="hidden" name="tshirt" value="<?php echo $display_size; ?> (<?php echo $display_type; ?>)">
 <input type="hidden" name="tshirt_size_id" value="<?php echo $tshirt_size; ?>">
+<input type="hidden" name="tshirt_type" value="<?php echo $display_type; ?>">
+<input type="hidden" name="tshirt_type_id" value="<?php echo $tshirt_type; ?>">
+
 
 <div id="instructions">
 <p>* Indicates a required field.</p>

@@ -80,6 +80,38 @@ $display_participants .="/></span></td>
 while($row = mysql_fetch_array($total_result_participants));
 
 //===========================
+//  pull tshirt type
+//===========================
+
+$sql_types = "SELECT ";
+$sql_types .= "id, ";
+$sql_types .= "description ";
+$sql_types .= "FROM tshirt_types ";
+$sql_types .= "ORDER BY id ASC";
+
+$total_result_types = @mysql_query($sql_types, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_types = @mysql_num_rows($total_result_types);
+
+do {
+  if ($row['description'] != '')
+  {
+
+$display_types .=    "
+
+    <td><input class=\"validate[required] radio\" name=\"tshirt_type\" id=\"tshirt_type\" type=\"radio\" value=\"" . $row[id] . "\"  ";
+      if ($_POST['tshirt_type'] == $row[description])
+        {
+          $display_types .="checked ";
+        }
+        
+$display_types .="/>" . $row['description'] . "</td>
+";
+  }
+}
+while($row = mysql_fetch_array($total_result_types));
+
+
+//===========================
 //  pull tshirt sizes
 //===========================
 
@@ -194,8 +226,15 @@ Pricing for each item will increase $50 after Early-Bird registration, so REGIST
 </div>
 <div class="cell">
 
-<h2> T-Shirt Size </h2>
+<h2>T-Shirt Preference</h2>
+
 <table align="center" width="200">
+<tr><th colspan="2">Type:</th></tr>
+    <?php echo $display_types ?>
+</table>
+
+<table align="center" width="200">
+<tr><th colspan="2">Size:</th></tr>
     <?php echo $display_sizes ?>
 </table>
 </div>
