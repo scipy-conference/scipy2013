@@ -124,6 +124,7 @@ $total_result_discount = @mysql_query($sql_discount, $connection) or die("Error 
 while($row = mysql_fetch_array($total_result_discount))
 {
 
+$promotion_id = $row['id'];
 $promotion_name = $row['promotion_name'];
 $discount = $row['discount'];
 
