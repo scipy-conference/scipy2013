@@ -18,7 +18,7 @@ $error = $_SESSION['errormessage'];
 
 <div id="container">
 
-<?php include('../inc/page_headers.php') ?>
+<?php include('../inc/admin_page_headers.php') ?>
 
 <section id="sidebar">
   <?php include("../inc/sponsors.php") ?>
