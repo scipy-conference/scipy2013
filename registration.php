@@ -250,7 +250,7 @@ Pricing for each item will increase $50 after Early-Bird registration, so REGIST
 <?php 
   if ($promotion_name != "" && $promotion_id != "")
     {
-      echo "<p class=\"highlight\">Conference pricing below reflects your $advtzd_discount $promotion_name promotional discount.</p>";
+      echo "<p class=\"highlight\">Conference pricing below reflects your $advtzd_discount% - $promotion_name promotional discount.</p>";
     }
   elseif ($promotion_name == "" && $promotion_id != "")
     {
