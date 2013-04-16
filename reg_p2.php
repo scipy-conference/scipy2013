@@ -89,19 +89,11 @@ $tshirt_type = $_POST['tshirt_type'];
 
 if ($tshirt_type == 1)
   {
-<<<<<<< HEAD
     $display_type = "womens/fitted";
   }
 if ($tshirt_type == 2)
   {
     $display_type = "mens/unisex";
-=======
-    $display_type = "womens";
-  }
-if ($tshirt_type == 2)
-  {
-    $display_type = "mens";
->>>>>>> added infrastructure for accepting discount URLS
   }
 
 
@@ -334,6 +326,7 @@ else
 <?php InsertSignature( $TOTALAMT, 'usd' ) ?>
 
 <input type="hidden" id="totalamount" name="totalamount" value="<?php echo $total_price ?>">
+<input type="hidden" id="promotion_id" name="promotion_id" value="<?php echo $promotion_id ?>">
 <input type="hidden" name="conferenceamount" value="<?php echo $conference_value ?>">
 <input type="hidden" name="sprintamount" value="<?php echo $sprint_value ?>">
 <input type="hidden" name="tutorialamount" value="<?php echo $tutorial_value ?>">

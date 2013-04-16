@@ -213,6 +213,7 @@ while ($row = mysql_fetch_array($result_registration_id))
 $tutorials = $_POST['tutorials'];
 $conference = $_POST['conference'];
 $sprints = $_POST['sprints'];
+$promotion_id = $_POST['promotion_id'];
 
 if ($tutorials == "on")
   {
@@ -238,16 +239,43 @@ $sql_rs = "INSERT INTO registered_sessions ";
 $sql_rs .= "(registration_id, ";
 $sql_rs .= "session_id, ";
 $sql_rs .= "amt_paid, ";
+$sql_rs .= "promotion_id, ";
 $sql_rs .= "created_at, ";
 $sql_rs .= "updated_at) ";
 $sql_rs .= "VALUES ";;
 $sql_rs .= "(\"$registration_id\", ";
 $sql_rs .= "\"$key\", ";
 $sql_rs .= "\"$value\", ";
+$sql_rs .= "\"$promotion_id\", ";
 $sql_rs .= "NOW(), ";
 $sql_rs .= "NOW())";
 
 $result_rs = @mysql_query($sql_rs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+}
+
+$promotion_id = $_POST['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
+
+//===========================
+//  pull discount
+//===========================
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
 
 }
 
@@ -281,11 +309,21 @@ do {
 $display_receipt .=    "
   <tr>
     <td>" . $row['session'] . "</td>
-    <td>" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['price'] . "</td>
-  </tr>";
-  }
+    <td align=\"center\">" . $row['Dates'] . "</td>";
+    
+    if ($row['session'] == "Conference" & $discount != "")
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price']*$discount . "</td>";
+    $row['price'] = $row['price']*$discount;
+        }
+    else
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price'] . "</td>";
+        }
+
+    $display_sessions .=   "</tr>";
 $total_price = $total_price + $row['price'];
+  }
 }
 while($row = mysql_fetch_array($total_result_receipt));
 
