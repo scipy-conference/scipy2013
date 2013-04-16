@@ -1,6 +1,33 @@
 <?php
 
+$promotion_id = $_GET['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
+
 include('inc/db_conn.php');
+
+//===========================
+//  pull discount
+//===========================
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
+
+}
+
+
 
 //===========================
 //  pull sessions
@@ -43,11 +70,20 @@ $display_sessions .=" /></td>
         $display_sessions .="*";
         }
 $display_sessions .="</td>
-    <td>" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['Standard'] . "</td>
+    <td>" . $row['Dates'] . "</td>";
+      if ($row['session'] == "Conference" && $discount != "")
+        {
+          $display_sessions .="    <td align=\"right\"> $ " . $row['Standard']*$discount . "</td>
+    <td align=\"right\"> $ " . $row['Academic']*$discount . "</td>
+    <td align=\"right\"> $ " . $row['Student']*$discount . "</td>";
+        }
+    else 
+            {
+          $display_sessions .="    <td align=\"right\"> $ " . $row['Standard'] . "</td>
     <td align=\"right\"> $ " . $row['Academic'] . "</td>
-    <td align=\"right\"> $ " . $row['Student'] . "</td>
-  </tr>";
+    <td align=\"right\"> $ " . $row['Student'] . "</td>";
+        }
+$display_sessions .=" </tr>";
   }
 }
 while($row = mysql_fetch_array($total_result_sessions));
@@ -152,7 +188,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
@@ -202,6 +238,17 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <h2> Session Selection (Early-Bird pricing)</h2>
 <p class="indent">Early-Bird registration will close <span class="highlight">Monday, May 6th</span>.<br />
 Pricing for each item will increase $50 after Early-Bird registration, so REGISTER NOW!!.</p>
+<?php 
+  if ($promotion_name != "" && $promotion_id != "")
+    {
+      echo "<p class=\"highlight\">Conference pricing below reflects your $promotion_name promotional discount.</p>";
+    }
+  elseif ($promotion_name == "" && $promotion_id != "")
+    {
+      echo "<p class=\"highlight\">The discount code `$promotion_id` has expired.</p>";
+    }
+
+?>
 
 <table id="schedule">
   <tr>
@@ -237,6 +284,12 @@ Pricing for each item will increase $50 after Early-Bird registration, so REGIST
 <tr><th colspan="2">Size:</th></tr>
     <?php echo $display_sizes ?>
 </table>
+<?php 
+  if ($promotion_id != "")
+    {
+      echo "<input type=\"hidden\" name=\"promotion_id\" value=\"$promotion_id\" />";
+    }
+?>
 </div>
 </div>
 <div style="clear:both;"></div>

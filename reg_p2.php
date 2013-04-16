@@ -89,11 +89,19 @@ $tshirt_type = $_POST['tshirt_type'];
 
 if ($tshirt_type == 1)
   {
+<<<<<<< HEAD
     $display_type = "womens/fitted";
   }
 if ($tshirt_type == 2)
   {
     $display_type = "mens/unisex";
+=======
+    $display_type = "womens";
+  }
+if ($tshirt_type == 2)
+  {
+    $display_type = "mens";
+>>>>>>> added infrastructure for accepting discount URLS
   }
 
 
@@ -101,6 +109,33 @@ if ($tshirt_type == 2)
 $total_price = 0;
 
 include('inc/db_conn.php');
+
+$promotion_id = $_POST['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
+
+include('inc/db_conn.php');
+
+//===========================
+//  pull discount
+//===========================
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
+
+}
 
 //===========================
 //  pull sessions
@@ -128,17 +163,35 @@ $total_found_sessions = @mysql_num_rows($total_result_sessions);
 do {
   if ($row['session'] != '')
   {
-
 $display_sessions .=    "
   <tr>
     <td>" . $row['session'] . "</td>
-    <td align=\"center\">" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['price'] . "</td>
-  </tr>";
+    <td align=\"center\">" . $row['Dates'] . "</td>";
+    
+    if ($row['session'] == "Conference" & $discount != "")
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price']*$discount . "</td>";
+    $row['price'] = $row['price']*$discount;
+        }
+    else
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price'] . "</td>";
+        }
+
+    $display_sessions .=   "</tr>";
 $total_price = $total_price + $row['price'];
   }
 }
 while($row = mysql_fetch_array($total_result_sessions));
+
+
+
+      if ($row['session'] == "Conference")
+        {
+        $display_sessions .="checked";
+        }
+
+
 
 //===========================
 //  hidden field values
@@ -173,7 +226,15 @@ else
 if (array_key_exists('Conference', $hv))
   {
     $conference = "on";
-    $conference_value = $hv[Conference];
+    
+    if ($discount != "") 
+      {
+        $conference_value = $hv[Conference]*$discount;
+      }
+    else 
+      {
+        $conference_value = $hv[Conference];
+      }
   }
 else
   {
@@ -201,7 +262,7 @@ else
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
