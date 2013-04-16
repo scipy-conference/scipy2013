@@ -132,6 +132,15 @@ do {
   if ($row['description'] != '')
   {
 
+if ($row['id'] == 1)
+  {
+    $display_type = "womens/fitted";
+  }
+if ($row['id'] == 2)
+  {
+    $display_type = "mens/unisex";
+  }
+
 $display_types .=    "
 
     <td><input class=\"validate[required] radio\" name=\"tshirt_type\" id=\"tshirt_type\" type=\"radio\" value=\"" . $row[id] . "\"  ";
@@ -140,7 +149,7 @@ $display_types .=    "
           $display_types .="checked ";
         }
         
-$display_types .="/>" . $row['description'] . "</td>
+$display_types .="/>  $display_type  </td>
 ";
   }
 }
@@ -275,12 +284,12 @@ Pricing for each item will increase $50 after Early-Bird registration, so REGIST
 
 <h2>T-Shirt Preference</h2>
 
-<table align="center" width="200">
+<table align="center" width="250">
 <tr><th colspan="2">Type:</th></tr>
     <?php echo $display_types ?>
 </table>
 
-<table align="center" width="200">
+<table align="center" width="250">
 <tr><th colspan="2">Size:</th></tr>
     <?php echo $display_sizes ?>
 </table>
