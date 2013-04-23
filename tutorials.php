@@ -80,14 +80,14 @@ include_once "inc/markdown.php";
 <tr>
   <td>Morning</td>
   <td><strong>Version Control & Unit Testing for Scientific Software</strong><br /> - Matt Davis, Katy Huff</td>
-  <td><strong>An Introduction to scikits-learn (I)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
+  <td><strong>An Introduction to scikit-learn (I)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
   <td><strong>Diving into NumPy code</strong><br /> - David Cournapeau, Stefan Van der Walt</td>
 </tr>
 <tr>
   <td>Afternoon</td>
   <td><strong>Statistical Data Analysis in Python (Pandas)</strong><br /> - Christopher Fonnesbeck</td>
   <td><strong>Using geospatial data</strong><br /> - Kelsey Jordahl</td>
-  <td><strong>An Introduction to scikits-learn (II)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
+  <td><strong>An Introduction to scikit-learn (II)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
 </tr>
 </table>
 
