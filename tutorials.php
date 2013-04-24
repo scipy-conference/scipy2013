@@ -55,14 +55,14 @@ include_once "inc/markdown.php";
 
 <tr>
   <td>Morning</td>
-  <td><strong>NumPy and Ipython</strong><br /> - Valentin Haenel</td>
+  <td><strong>NumPy and IPython</strong><br /> - Valentin Haenel</td>
   <td><strong>Guide to Symbolic Computing with SymPy</strong><br /> - Ondrej Certik, Mateusz Paprocki, Aaron Meurer</td>
   <td><strong>Data Processing with Python</strong><br /> - Ben Zaitlen, Hugo Shi</td>
 </tr>
 <tr>
   <td>Afternoon</td>
-  <td><strong>Anatomy of Matplotlib</strong><br /> - Benjamin Root</td>
-  <td><strong>Ipython in depth</strong><br /> - Brian Granger, Fernando Perez</td>
+  <td><strong>Anatomy of matplotlib</strong><br /> - Benjamin Root</td>
+  <td><strong>IPython in depth</strong><br /> - Brian Granger, Fernando Perez</td>
   <td><strong>Cython: Speed up Python and NumPy, Pythonize C, C++, and Fortran</strong><br /> - Kurt Smith</td>
 </tr>
 </table>
@@ -85,9 +85,9 @@ include_once "inc/markdown.php";
 </tr>
 <tr>
   <td>Afternoon</td>
-  <td><strong>Statistical Data Analysis in Python (Pandas)</strong><br /> - Christopher Fonnesbeck</td>
+  <td><strong>Statistical Data Analysis in Python (pandas)</strong><br /> - Christopher Fonnesbeck</td>
   <td><strong>Using geospatial data</strong><br /> - Kelsey Jordahl</td>
-  <td><strong>An Introduction to scikit-learn (II)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
+  <td><strong>An Introduction to scikit-learn (II)</strong><br /> - Gaël Varoquaux, Jake Vanderplas, Olivier Grisel</td>
 </tr>
 </table>
 

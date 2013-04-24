@@ -99,7 +99,7 @@ elseif ($row['id'] == 4)
 
 <p>SciPy 2013 is about three months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>. <a href="about.php">Read more...</a></p>
 
-<p>Like last year, there will also be 4 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
+<p>Like last year, there will also be 5 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
 
 <ul>
   <li>Astronomy & astrophysics</li>
