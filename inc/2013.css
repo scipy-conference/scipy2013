@@ -316,7 +316,7 @@ p {
 
 .callout_description {
   float: left;
-  width: 120px;
+  /*width: 120px;*/
   font-family: Helvetica, Arial, sans-serif;
   font-size: .85em;
   padding: 4px 0 0 0;

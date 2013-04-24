@@ -110,13 +110,35 @@ elseif ($row['id'] == 4)
 
 <p>SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering.</p>
 <div class="clearer"></div>
-<div class="callout">
+<div class="callout" style="width: 265px;">
 <h1>More</h1>
 <p>To receive updates on conference specifics:</p>
 
 <div class="callout_row">
   <img src="img/newsletter_icon.png" width="32" height="32"  alt="newsletter" class="callout_date" />
-  <span class="callout_description"><a href="http://eepurl.com/dyoeL">Subscribe to the SciPy 2013 newsletter</a></span>
+  <span class="callout_description">Subscribe to the SciPy 2013 newsletter</span>
+  <style type="text/css">
+.link,
+.link a,
+#SignUp .signupframe {
+	color: #226699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	}
+	.link,
+	.link a {
+		text-decoration: none;
+		}
+	#SignUp .signupframe {
+		border: 1px solid #000000;
+		background: #ffffff;
+		}
+#SignUp .signupframe .required {
+	font-size: 10px;
+	}
+</style>
+<script type="text/javascript" src="http://app.icontact.com/icp/loadsignup.php/form.js?c=1254645&l=7470&f=2197"></script>
+
 </div>
 
 <div class="callout_row">
