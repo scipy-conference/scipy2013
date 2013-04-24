@@ -374,8 +374,9 @@ img.right {
   }
 
 .cell {
-  width: 50%;
+  width: 45%;
   float: left;
+  padding: 1em;
   }
 
 input {
@@ -421,9 +422,10 @@ textarea {
 
 .chairs_sub {
   font-style: italic;
+  font-weight: bold;
   font-size: .85em;
   margin: 2em 0 0.5em;
-  color:  #000;
+  color:  #2B5DA6;
   }
 
 .person {

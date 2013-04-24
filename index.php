@@ -102,10 +102,11 @@ elseif ($row['id'] == 4)
 <p>Like last year, there will also be 4 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
 
 <ul>
-  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
   <li>Astronomy & astrophysics</li>
   <li>Bio-informatics</li>
+  <li>GIS - Geospatial Data Analysis</li>
   <li>Medical imaging</li>
+  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
 </ul>
 
 <p>SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering.</p>
