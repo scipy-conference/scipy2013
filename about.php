@@ -79,6 +79,7 @@ while($row = mysql_fetch_array($total_dates));
   <li>Astronomy and astrophysics</li>
   <li>Medical imaging</li>
   <li>Bio-informatics</li>
+  <li>GIS - Geospatial Data Analysis</li>
 </ul>
 
 <h2>Tutorials</h2>
