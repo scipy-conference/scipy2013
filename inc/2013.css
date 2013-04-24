@@ -481,3 +481,7 @@ img.sideslung {
 .intra_page_nav {
   font-size: 0.65em;
   }
+
+.clearer {
+  clear: both;
+  }

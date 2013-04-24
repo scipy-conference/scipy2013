@@ -117,6 +117,7 @@ elseif ($row['id'] == 4)
 <div class="callout_row">
   <img src="img/newsletter_icon.png" width="32" height="32"  alt="newsletter" class="callout_date" />
   <span class="callout_description">Subscribe to the SciPy 2013 newsletter</span>
+  <div class="clearer"></div>
   <style type="text/css">
 .link,
 .link a,
