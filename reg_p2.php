@@ -255,7 +255,7 @@ else
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
@@ -315,6 +315,13 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <hr />
 
 <form id="formID" method="post" name="PaymentInfo" action="https://orderpage.ic3.com/hop/ProcessOrder.do">
+
+<?php if ($tutorials == "on") 
+  {
+    echo "Please choose your desired tutorials";
+  }
+
+?>
 
 <!-- #### Summary Table  -->
 
