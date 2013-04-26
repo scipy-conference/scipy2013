@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include('inc/db_conn.php');
 
 //===========================

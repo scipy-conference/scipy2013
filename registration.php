@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $promotion_id = $_GET['promotion_id'];
 $today = date("Y")."-".date("m")."-".date("d");
