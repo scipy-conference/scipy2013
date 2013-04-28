@@ -8,7 +8,7 @@
 if(!isset($_SESSION['formregusername'])){
 
 echo "<div id=\"account_nav\">
-<a href=\"registered_login.php\">Sign in</a> | <a href=\"create_acount.php\">Create Account</a>
+<a href=\"registered_login.php\">Sign in</a> | <a href=\"create_account.php\">Create Account</a>
   </div>";
 }
 else
