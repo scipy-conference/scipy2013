@@ -3,6 +3,134 @@ session_start();
 
 include_once "inc/markdown.php";
 
+include('inc/db_conn.php');
+
+$participant_id = $_GET['id'];
+
+//===========================
+//  pull presenters DAY 1
+//===========================
+
+$sql_presenters = "SELECT ";
+$sql_presenters .= "presenters.id AS presenter_id, ";
+$sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_presenters .= "talks.presenter_id AS pi, ";
+$sql_presenters .= "last_name, ";
+$sql_presenters .= "first_name, ";
+$sql_presenters .= "affiliation, ";
+$sql_presenters .= "bio, ";
+$sql_presenters .= "title, ";
+$sql_presenters .= "track, ";
+$sql_presenters .= "authors, ";
+$sql_presenters .= "talks.description, ";
+$sql_presenters .= "location_id, ";
+$sql_presenters .= "start_time, ";
+$sql_presenters .= "name, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day ";
+
+
+$sql_presenters .= "FROM schedules ";
+
+$sql_presenters .= "LEFT JOIN talks ";
+$sql_presenters .= "ON schedules.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON schedules.location_id = locations.id ";
+
+$sql_presenters .= "LEFT JOIN presenters ";
+$sql_presenters .= "ON presenter_id = presenters.id ";
+
+$sql_presenters .= "LEFT JOIN license_types ";
+$sql_presenters .= "ON license_type_id = license_types.id ";
+
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
+$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_presenters .= "ORDER BY start_time, location_id";
+
+
+$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$last_start_time = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['schedule_day'] != $last_schedule_day) 
+{
+$display_block .="
+<tr>
+  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+</tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+//
+
+  if ($row['start_time'] != $last_start_time) 
+     {
+       $display_block .="  <tr>
+        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+     }
+
+    if ($row['location_id'] == '1')
+      { 
+       $display_block .="
+        <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
+        $last_start_time = $row['start_time'];
+      }
+   elseif ($row['location_id'] == '2')
+     { 
+$display_block .="
+<td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+ elseif ($row['location_id'] == '3')
+   { 
+$display_block .="
+<td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+  else 
+   {
+$display_block .="
+<td>---</td>";
+
+   }
+}
+}
+
+while ($row = mysql_fetch_array($total_presenters));
+
+do {
+
+if ($row['title'] != '')
+  {
+  $display_detail_2 .="<a name=\"ti-" . $row['talk_id'] . "\"></a>
+<p class=\"intra_page_nav\"><a href=\"#top\">[ back to top ]</a></p>
+  <h2 class=\"tutorial\">" . $row['title'] . " - <em>" . $row['first_name'] . " " . $row['last_name'] . "</em></h2>
+
+<h3 class=\"tutorial\">Bio</h3>
+
+" . $row['bio'] . "
+
+<h3 class=\"tutorial\">Description</h3>
+
+" . Markdown($row['description']) . "<hr />" ;
+  }
+}
+while ($row = mysql_fetch_array($total_presenters_2));
+
 ?>
 
 
@@ -45,55 +173,16 @@ include_once "inc/markdown.php";
 
 <p>The Tutorials Schedule (June 24th & 25th) is in its final stages of confirmation. There may be changes made to the schedule between now and the conference.</p>
 
-<h3>Monday - June 24th</h3>
-    
-<table id="registrants_table" width="600">
-  <tr>
-    <th width="80">Time</th>
-    <th width="250">Introductory</th>
-    <th width="250">Intermediate</th>
-    <th width="250">Advanced</th>
-  </tr>
 
-<tr>
-  <td>Morning</td>
-  <td><strong>NumPy and IPython</strong><br /> - Valentin Haenel</td>
-  <td><strong>Guide to Symbolic Computing with SymPy</strong><br /> - Ondrej Certik, Mateusz Paprocki, Aaron Meurer</td>
-  <td><strong>Data Processing with Python</strong><br /> - Ben Zaitlen, Hugo Shi</td>
-</tr>
-<tr>
-  <td>Afternoon</td>
-  <td><strong>Anatomy of matplotlib</strong><br /> - Benjamin Root</td>
-  <td><strong>IPython in depth</strong><br /> - Brian Granger, Fernando Perez</td>
-  <td><strong>Cython: Speed up Python and NumPy, Pythonize C, C++, and Fortran</strong><br /> - Kurt Smith</td>
-</tr>
+<table id="registrants_table">
+<?php echo $display_block ?>
 </table>
 
-<h3>Tuesday - June 25th</h3>
 
-<table id="registrants_table" width="600">
-  <tr>
-    <th width="80">Time</th>
-    <th width="250">Introductory</th>
-    <th width="250">Intermediate</th>
-    <th width="250">Advanced</th>
-  </tr>
-
-<tr>
-  <td>Morning</td>
-  <td><strong>Version Control & Unit Testing for Scientific Software</strong><br /> - Matt Davis, Katy Huff</td>
-  <td><strong>An Introduction to scikit-learn (I)</strong><br /> - Gael Varoquax, Jake Vanderplas, Olivier Grisel</td>
-  <td><strong>Diving into NumPy code</strong><br /> - David Cournapeau, Stefan Van der Walt</td>
-</tr>
-<tr>
-  <td>Afternoon</td>
-  <td><strong>Statistical Data Analysis in Python (pandas)</strong><br /> - Christopher Fonnesbeck</td>
-  <td><strong>Using geospatial data</strong><br /> - Kelsey Jordahl</td>
-  <td><strong>An Introduction to scikit-learn (II)</strong><br /> - Gaël Varoquaux, Jake Vanderplas, Olivier Grisel</td>
-</tr>
-</table>
 
 <p>More detailed descriptions of tutorials coming soon.</p>
+
+<?php echo $display_detail_2 ?>
 
 </section>
 

@@ -294,6 +294,7 @@ else
 <section id="main-content">
 <h1>Registration Cont.</h1>
 <hr />
+
 <p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
 <p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong> (<?php echo $display_type; ?>)</p>
@@ -317,9 +318,67 @@ else
 
 <form id="formID" method="post" name="PaymentInfo" action="https://orderpage.ic3.com/hop/ProcessOrder.do">
 
+<div id="instructions">
+<p>* Indicates a required field.</p>
+</div>
+
 <?php if ($tutorials == "on") 
   {
-    echo "Please choose your desired tutorials";
+?>
+<p>You have elected to attend tutorials, please indicate the tutorials you would like to attend</p>
+
+<h3>Monday - June 24th</h3>
+    
+<table id="registrants_table">
+  <tr>
+    <th width="13%">Time</th>
+    <th width="29%">Introductory</th>
+    <th width="29%">Intermediate</th>
+    <th width="29%">Advanced</th>
+  </tr>
+
+<tr>
+  <td>* Morning</td>
+  <td><label for="1"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="1" />NumPy and IPython</label></td>
+  <td><label for="2"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="2" />Guide to Symbolic Computing with SymPy</label></td>
+  <td><label for="3"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="3" />Data Processing with Python</label></td>
+</tr>
+<tr>
+  <td style="word-wrap: none;">* Afternoon</td>
+  <td><label for="1"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="1" />Anatomy of matplotlib</label></td>
+  <td><label for="2"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="2" />IPython in depth</label></td>
+  <td><label for="3"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="3" />Cython: Speed up Python and NumPy, Pythonize C, C++, and Fortran</label></td>
+</tr>
+</table>
+
+<h3>Tuesday - June 25th</h3>
+
+<table id="registrants_table">
+  <tr>
+    <th width="13%">Time</th>
+    <th width="29%">Introductory</th>
+    <th width="29%">Intermediate</th>
+    <th width="29%">Advanced</th>
+  </tr>
+
+<tr>
+  <td>* Morning</td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="1" />Version Control & Unit Testing for Scientific Software</label></td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="2" />An Introduction to scikit-learn (I)</label></td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="3" />Diving into NumPy code</label></td>
+</tr>
+<tr>
+  <td style="word-wrap: none;">* Afternoon</td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="1" />Statistical Data Analysis in Python (pandas)</label></td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="2" />Using geospatial data</label></td>
+  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="3" />An Introduction to scikit-learn (II)</label></td>
+</tr>
+</table>
+
+
+<?php
+
+
   }
 
 ?>
@@ -352,9 +411,7 @@ else
 <input type="hidden" name="tshirt_type_id" value="<?php echo $tshirt_type; ?>">
 
 
-<div id="instructions">
-<p>* Indicates a required field.</p>
-</div>
+
 <div style="clear:both; height: 20px;"></div>
 <h2>Contact Information</h2>
 
