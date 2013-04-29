@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $countries = array('NONE' => '', 'us' => 'United States', 'af' => 'Afghanistan', 'al' => 'Albania', 'dz' => 'Algeria', 'as' => 'American Samoa (US)', 'ad' => 'Andorra', 'ao' => 'Angola', 'ai' => 'Anguilla (UK)', 'ag' => 'Antigua and Barbuda', 'ar' => 'Argentina', 'am' => 'Armenia', 'aw' => 'Aruba', 'au' => 'Australia', 'at' => 'Austria', 'az' => 'Azerbaijan', 'bs' => 'Bahamas', 'bh' => 'Bahrain', 'bd' => 'Bangladesh', 'bb' => 'Barbados', 'by' => 'Belarus', 'be' => 'Belgium', 'bz' => 'Belize', 'bj' => 'Benin', 'bm' => 'Bermuda (UK)', 'bt' => 'Bhutan', 'bo' => 'Bolivia', 'ba' => 'Bosnia and Herzegovina', 'bw' => 'Botswana', 'br' => 'Brazil', 'vg' => 'British Virgin Islands (UK)', 'bn' => 'Brunei Darussalam', 'bg' => 'Bulgaria', 'bf' => 'Burkina Faso', 'mm' => 'Burma', 'bi' => 'Burundi', 'kh' => 'Cambodia', 'cm' => 'Cameroon', 'ca' => 'Canada', 'cv' => 'Cape Verde', 'ky' => 'Cayman Islands (UK)', 'cf' => 'Central African Republic', 'td' => 'Chad', 'cl' => 'Chile', 'cn' => 'China', 'cx' => 'Christmas Island (AU)', 'cc' => 'Cocos (Keeling) Islands (AU)', 'co' => 'Colombia', 'km' => 'Comoros', 'cd' => 'Congo, Democratic Republic of the', 'cg' => 'Congo, Republic of the', 'ck' => 'Cook Islands (NZ)', 'cr' => 'Costa Rica', 'ci' => 'Cote d\'Ivoire', 'hr' => 'Croatia', 'cu' => 'Cuba', 'cy' => 'Cyprus', 'cz' => 'Czech Republic', 'dk' => 'Denmark', 'dj' => 'Djibouti', 'dm' => 'Dominica', 'do' => 'Dominican Republic', 'tp' => 'East Timor', 'ec' => 'Ecuador', 'eg' => 'Egypt', 'sv' => 'El Salvador', 'gq' => 'Equatorial Guinea', 'er' => 'Eritrea', 'ee' => 'Estonia', 'et' => 'Ethiopia', 'fk' => 'Falkland Islands (UK)', 'fo' => 'Faroe Islands (DK)', 'fj' => 'Fiji', 'fi' => 'Finland', 'fr' => 'France', 'gf' => 'French Guiana (FR)', 'pf' => 'French Polynesia (FR)', 'ga' => 'Gabon', 'gm' => 'Gambia', 'ge' => 'Georgia', 'de' => 'Germany', 'gh' => 'Ghana', 'gi' => 'Gibraltar (UK)', 'gr' => 'Greece', 'gl' => 'Greenland (DK)', 'gd' => 'Grenada', 'gp' => 'Guadeloupe (FR)', 'gu' => 'Guam (US)', 'gt' => 'Guatemala', 'gn' => 'Guinea', 'gw' => 'Guinea-Bissau', 'gy' => 'Guyana', 'ht' => 'Haiti', 'va' => 'Holy See (Vatican City)', 'hn' => 'Honduras', 'hk' => 'Hong Kong (CN)', 'hu' => 'Hungary', 'is' => 'Iceland', 'in' => 'India', 'id' => 'Indonesia', 'ir' => 'Iran', 'iq' => 'Iraq', 'ie' => 'Ireland', 'il' => 'Israel', 'it' => 'Italy', 'jm' => 'Jamaica', 'jp' => 'Japan', 'jo' => 'Jordan', 'kz' => 'Kazakstan', 'ke' => 'Kenya', 'ki' => 'Kiribati', 'kp' => 'Korea, Democratic People\'s Republic (North)', 'kr' => 'Korea, Republic of (South)', 'kw' => 'Kuwait', 'kg' => 'Kyrgyzstan', 'la' => 'Laos', 'lv' => 'Latvia', 'lb' => 'Lebanon', 'ls' => 'Lesotho', 'lr' => 'Liberia', 'ly' => 'Libya', 'li' => 'Liechtenstein', 'lt' => 'Lithuania', 'lu' => 'Luxembourg', 'mo' => 'Macau (CN)', 'mk' => 'Macedonia', 'mg' => 'Madagascar', 'mw' => 'Malawi', 'my' => 'Malaysia', 'mv' => 'Maldives', 'ml' => 'Mali', 'mt' => 'Malta', 'mh' => 'Marshall islands', 'mq' => 'Martinique (FR)', 'mr' => 'Mauritania', 'mu' => 'Mauritius', 'yt' => 'Mayotte (FR)', 'mx' => 'Mexico', 'fm' => 'Micronesia, Federated States of', 'md' => 'Moldova', 'mc' => 'Monaco', 'mn' => 'Mongolia', 'ms' => 'Montserrat (UK)', 'ma' => 'Morocco', 'mz' => 'Mozambique', 'na' => 'Namibia', 'nr' => 'Nauru', 'np' => 'Nepal', 'nl' => 'Netherlands', 'an' => 'Netherlands Antilles (NL)', 'nc' => 'New Caledonia (FR)', 'nz' => 'New Zealand', 'ni' => 'Nicaragua', 'ne' => 'Niger', 'ng' => 'Nigeria', 'nu' => 'Niue', 'nf' => 'Norfolk Island (AU)', 'mp' => 'Northern Mariana Islands (US)', 'no' => 'Norway', 'om' => 'Oman', 'pk' => 'Pakistan', 'pw' => 'Palau', 'pa' => 'Panama', 'pg' => 'Papua New Guinea', 'py' => 'Paraguay', 'pe' => 'Peru', 'ph' => 'Philippines', 'pn' => 'Pitcairn Islands (UK)', 'pl' => 'Poland', 'pt' => 'Portugal', 'pr' => 'Puerto Rico (US)', 'qa' => 'Qatar', 're' => 'Reunion (FR)', 'ro' => 'Romania', 'ru' => 'Russia', 'rw' => 'Rwanda', 'sh' => 'Saint Helena (UK)', 'kn' => 'Saint Kitts and Nevis', 'lc' => 'Saint Lucia', 'pm' => 'Saint Pierre and Miquelon (FR)', 'vc' => 'Saint Vincent and the Grenadines', 'ws' => 'Samoa', 'sm' => 'San Marino', 'st' => 'Sao Tome and Principe', 'sa' => 'Saudi Arabia', 'sn' => 'Senegal', 'yu' => 'Serbia and Montenegro', 'sc' => 'Seychelles', 'sl' => 'Sierra Leone', 'sg' => 'Singapore', 'sk' => 'Slovakia', 'si' => 'Slovenia', 'sb' => 'Solomon Islands', 'so' => 'Somalia', 'za' => 'South Africa', 'gs' => 'South Georgia & South Sandwich Islands (UK)', 'es' => 'Spain', 'lk' => 'Sri Lanka', 'sd' => 'Sudan', 'sr' => 'Suriname', 'sz' => 'Swaziland', 'se' => 'Sweden', 'ch' => 'Switzerland', 'sy' => 'Syria', 'tw' => 'Taiwan', 'tj' => 'Tajikistan', 'tz' => 'Tanzania', 'th' => 'Thailand', 'tg' => 'Togo', 'tk' => 'Tokelau', 'to' => 'Tonga', 'tt' => 'Trinidad and Tobago', 'tn' => 'Tunisia', 'tr' => 'Turkey', 'tm' => 'Turkmenistan', 'tc' => 'Turks and Caicos Islands (UK)', 'tv' => 'Tuvalu', 'ug' => 'Uganda', 'ua' => 'Ukraine', 'ae' => 'United Arab Emirates', 'gb' => 'United Kingdom', 'uy' => 'Uruguay', 'uz' => 'Uzbekistan', 'vu' => 'Vanuatu', 've' => 'Venezuela', 'vn' => 'Vietnam', 'vg' => 'British Virgin Islands (UK)', 'wf' => 'Wallis and Futuna (FR)', 'eh' => 'Western Sahara', 'ye' => 'Yemen', 'zm' => 'Zambia', 'zw' => 'Zimbabwe');
 $ccards = array('' => 'Choose', '002' => 'MasterCard', '001' => 'Visa', '003' => 'American Express', '004' => 'Discover');
@@ -245,6 +246,113 @@ else
   }
 
 
+//===========================
+//  pull presenters DAY 1
+//===========================
+
+$sql_presenters = "SELECT ";
+$sql_presenters .= "presenters.id AS presenter_id, ";
+$sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_presenters .= "talks.presenter_id AS pi, ";
+$sql_presenters .= "last_name, ";
+$sql_presenters .= "first_name, ";
+$sql_presenters .= "affiliation, ";
+$sql_presenters .= "bio, ";
+$sql_presenters .= "title, ";
+$sql_presenters .= "track, ";
+$sql_presenters .= "authors, ";
+$sql_presenters .= "talks.description, ";
+$sql_presenters .= "location_id, ";
+$sql_presenters .= "start_time, ";
+$sql_presenters .= "name, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%m%d_%p') AS radio_attribute ";
+
+$sql_presenters .= "FROM schedules ";
+
+$sql_presenters .= "LEFT JOIN talks ";
+$sql_presenters .= "ON schedules.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON schedules.location_id = locations.id ";
+
+$sql_presenters .= "LEFT JOIN presenters ";
+$sql_presenters .= "ON presenter_id = presenters.id ";
+
+$sql_presenters .= "LEFT JOIN license_types ";
+$sql_presenters .= "ON license_type_id = license_types.id ";
+
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
+$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_presenters .= "ORDER BY start_time, location_id";
+
+
+$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$last_start_time = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['schedule_day'] != $last_schedule_day) 
+{
+$display_block .="
+<tr>
+  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+</tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+//
+
+  if ($row['start_time'] != $last_start_time) 
+     {
+       $display_block .="  <tr>
+        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+     }
+
+    if ($row['location_id'] == '1')
+      { 
+       $display_block .="
+        <td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+        $last_start_time = $row['start_time'];
+      }
+   elseif ($row['location_id'] == '2')
+     { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+ elseif ($row['location_id'] == '3')
+   { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+  else 
+   {
+$display_block .="
+<td>---</td>";
+
+   }
+}
+}
+
+while ($row = mysql_fetch_array($total_presenters));
+
+
+
 ?>
 
 
@@ -255,7 +363,7 @@ else
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
@@ -293,6 +401,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <section id="main-content">
 <h1>Registration Cont.</h1>
 <hr />
+
 <p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
 <p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong> (<?php echo $display_type; ?>)</p>
@@ -315,6 +424,26 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <hr />
 
 <form id="formID" method="post" name="PaymentInfo" action="https://orderpage.ic3.com/hop/ProcessOrder.do">
+
+<div id="instructions">
+<p>* Indicates a required field.</p>
+</div>
+
+<?php if ($tutorials == "on") 
+  {
+?>
+<p>You have elected to attend tutorials, please indicate the tutorials you would like to attend</p>
+
+<table>
+<?php echo $display_block ?>
+</table>
+
+<?php
+
+
+  }
+
+?>
 
 <!-- #### Summary Table  -->
 
@@ -344,9 +473,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <input type="hidden" name="tshirt_type_id" value="<?php echo $tshirt_type; ?>">
 
 
-<div id="instructions">
-<p>* Indicates a required field.</p>
-</div>
+
 <div style="clear:both; height: 20px;"></div>
 <h2>Contact Information</h2>
 

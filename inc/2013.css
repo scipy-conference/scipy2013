@@ -209,6 +209,18 @@ background: #fff;
   background: #e9f0fb;
   }
 
+
+#account_nav {
+  float: right;
+  font-size: .75em;
+  margin-top: -1em;
+  text-decoration: none;
+  } 
+
+#account_nav a {
+  text-decoration: none;
+  } 
+
 /*------------------------------------------------------------ */
 
 

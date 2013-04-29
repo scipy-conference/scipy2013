@@ -12,6 +12,7 @@
   <ul>
     <li><a href="speaking_overview.php">Proposal Call</a></li>
     <li><a href="tutorials.php">Tutorials</a></li>
+    <li><a href="sprints.php">Sprints</a></li>
   </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
   <ul>

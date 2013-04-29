@@ -177,29 +177,53 @@ $phone = $row['phone'];
 //  pull registered sessions
 //===========================
 
+// adding registered tutorials to view
+
 $sql_sessions = "SELECT ";
 $sql_sessions .= "session, ";
-$sql_sessions .= "amt_paid ";
+$sql_sessions .= "amt_paid, ";
+$sql_sessions .= "talk_id, ";
+$sql_sessions .= "title ";
 $sql_sessions .= "FROM registered_sessions ";
 $sql_sessions .= "LEFT JOIN sessions ";
 $sql_sessions .= "ON session_id = sessions.id ";
 $sql_sessions .= "LEFT JOIN registrations ";
 $sql_sessions .= "ON registration_id = registrations.id ";
+$sql_sessions .= "LEFT JOIN registered_tutorials ";
+$sql_sessions .= "ON registered_session_id = registered_sessions.id ";
+$sql_sessions .= "LEFT JOIN talks ";
+$sql_sessions .= "ON talk_id = talks.id ";
 $sql_sessions .= "WHERE participant_id = $participant_id ";
 $sql_sessions .= "AND registrations.conference_id = 2";
 
 $total_sessions = @mysql_query($sql_sessions, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_sessions = @mysql_num_rows($total_sessions);
 
+$last_session = '';
+$counter = 0;
+
 do {
   if ($row['session'] != '')
   {
-
-$display_sessions .="<ul>
-    <li>" . $row['session'] . " - $" . $row['amt_paid'] . "</li>
-
-  </ul>";
+    if ($row['session'] != $last_session) 
+    {
+     $display_sessions .="
+     <li>" . $row['session'] . " - $" . $row['amt_paid'] . "</li>";
+        
+          if ($row['session'] == 'Tutorials')
+  {
+    $display_sessions .="<ul><li>" . $row['title'] . "</li>";
   }
+  }
+   elseif ($row['session'] == 'Tutorials')
+  {
+    $display_sessions .="<li>" . $row['title'] . "</li>";
+  }     
+$display_sessions .="";
+  }
+if ($counter == 4) {$display_sessions .="</ul>";}
+$last_session = $row['session'];
+$counter = $counter + 1;
 }
 while($row = mysql_fetch_array($total_sessions));
 
@@ -260,10 +284,11 @@ $(document).ready(function(){
 <h2>Registered Sessions:</h2>
 
 <p>Registered at <span class="bold"><?php echo "$type" ?></span> level on <span class="bold"><?php echo "$reg_date" ?></span>, for the following sessions:
+<ul>
 <?php echo $display_sessions ?>
+</ul>
 </div>
 </div>
-
 
 <form name="form1" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>">
 <input type="hidden" name="participant_id" value="<?php echo $participant_id ?>" />
@@ -271,6 +296,7 @@ $(document).ready(function(){
 
 <input type="submit" class="delete" value="delete registrant">
 </form>
+
 
 </section>
 
