@@ -56,7 +56,7 @@ $sql_presenters .= "ON license_type_id = license_types.id ";
 $sql_presenters .= "LEFT JOIN locations ";
 $sql_presenters .= "ON location_id = locations.id ";
 
-$sql_presenters .= "WHERE talks.conference_id = 1 ";
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
 $sql_presenters .= "ORDER BY start_time, location_id";
 
 
@@ -79,7 +79,7 @@ $display_block .="
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary')
     {
-      $display_block .="<td colspan=\"2\" class=\"track_atsumaru\"><span class=\"bold\"><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
+      $display_block .="<td colspan=\"2\" class=\"track_atsumaru\"><span class=\"bold\"><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
       if ($row['last_name'] != '')
         {
       $display_block .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "";
@@ -115,7 +115,7 @@ $display_block .="
        $display_block .="<td>";
      }   
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
   if ($row['pi'] > 0)
     {
       $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
@@ -154,7 +154,7 @@ $display_block .="
        $display_block .="<td>";
      } 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
   if ($row['pi'] > 0)
     {
       $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
@@ -189,7 +189,7 @@ $last_start_time = $row['start_time'];
      {
        $display_block .="<td>";
      }   
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
   if ($row['pi'] > 0)
     {
       $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
