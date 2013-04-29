@@ -257,6 +257,14 @@ h2 {
   font-size: 1.2em;
   }
 
+h3 {
+  font-size: 1em;
+  }
+
+h4 {
+  font-size: 0.85em;
+  }
+
 p {
   font-size: 1em;
   margin: 0 0 1em 0;

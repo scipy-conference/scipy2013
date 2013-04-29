@@ -40,8 +40,11 @@ $sql_presenters .= "ON schedules.talk_id = talks.id ";
 $sql_presenters .= "LEFT JOIN locations ";
 $sql_presenters .= "ON schedules.location_id = locations.id ";
 
+$sql_presenters .= "LEFT JOIN presenters_talks ";
+$sql_presenters .= "ON presenters_talks.talk_id = talks.id ";
+
 $sql_presenters .= "LEFT JOIN presenters ";
-$sql_presenters .= "ON presenter_id = presenters.id ";
+$sql_presenters .= "ON presenters_talks.presenter_id = presenters.id ";
 
 $sql_presenters .= "LEFT JOIN license_types ";
 $sql_presenters .= "ON license_type_id = license_types.id ";
@@ -55,18 +58,23 @@ $total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #".
 $total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $last_start_time = '';
 $last_schedule_day = '';
+$last_talk = '';
+$counter = 0;
 
 do {
 
 if ($row['title'] != '')
   {
-//
+
+if ($row['talk_id'] != $last_talk)
+  {
 if ($row['schedule_day'] != $last_schedule_day) 
 {
+
 $display_block .="
-<tr>
-  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
-</tr>
+  <tr>
+    <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+  </tr>
   <tr>
     <th width=\"13%\">Time</th>
     <th width=\"29%\">Introductory</th>
@@ -75,40 +83,56 @@ $display_block .="
   </tr>";
 $last_schedule_day = $row['schedule_day'];
 }
-//
+
 
   if ($row['start_time'] != $last_start_time) 
      {
-       $display_block .="  <tr>
-        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+       $display_block .="
+  <tr>
+    <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
      }
 
-    if ($row['location_id'] == '1')
-      { 
-       $display_block .="
-        <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-        $last_start_time = $row['start_time'];
-      }
-   elseif ($row['location_id'] == '2')
-     { 
-$display_block .="
-<td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-$last_start_time = $row['start_time'];
-   }
- elseif ($row['location_id'] == '3')
-   { 
-$display_block .="
-<td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-$last_start_time = $row['start_time'];
-   }
+  if ($row['location_id'] == '1')
+    { 
+      $display_block .="
+    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
+  elseif ($row['location_id'] == '2')
+    { 
+      $display_block .="
+    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
+  elseif ($row['location_id'] == '3')
+    { 
+      $display_block .="
+    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
   else 
    {
-$display_block .="
-<td>---</td>";
-
+     $display_block .="
+    <td>---</td>";
    }
+  }
+  else
+  {
+    $display_block .=", " . $row['first_name'] . " " . $row['last_name'] . "";
+    $last_talk = $row['talk_id'];
+  }
 }
+$counter = $counter + 1;
 }
+
+//if ($counter > 4)
+//  {
+//  $display_block .="
+//  </tr>";
+//  }
 
 while ($row = mysql_fetch_array($total_presenters));
 
@@ -118,15 +142,9 @@ if ($row['title'] != '')
   {
   $display_detail_2 .="<a name=\"ti-" . $row['talk_id'] . "\"></a>
 <p class=\"intra_page_nav\"><a href=\"#top\">[ back to top ]</a></p>
-  <h2 class=\"tutorial\">" . $row['title'] . " - <em>" . $row['first_name'] . " " . $row['last_name'] . "</em></h2>
+  <h3>" . $row['title'] . "</h3>
 
-<h3 class=\"tutorial\">Bio</h3>
-
-" . $row['bio'] . "
-
-<h3 class=\"tutorial\">Description</h3>
-
-" . Markdown($row['description']) . "<hr />" ;
+" . Markdown($row['description']) . "<p>See <a href=\"tutorial_detail.php?id=" . $row['talk_id'] . " \">complete details</a></p><hr />" ;
   }
 }
 while ($row = mysql_fetch_array($total_presenters_2));
