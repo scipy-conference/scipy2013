@@ -286,26 +286,26 @@ $tutorial_0625_PM = $_POST['tutorial_0625_PM'];
 
 if ($tutorial_0624_AM != "")
   {
-    $tutorials[] = $tutorial_0624_AM;
+    $selected_tutorials[0] = $tutorial_0624_AM;
   }
 if ($tutorial_0624_PM != "")
   {
-    $tutorials[] = $tutorial_0624_PM;
+    $selected_tutorials[1] = $tutorial_0624_PM;
   }
 if ($tutorial_0625_AM != "")
   {
-    $tutorials[] = $tutorial_0625_AM;
+    $selected_tutorials[2] = $tutorial_0625_AM;
   }
 if ($tutorial_0625_PM != "")
   {
-    $tutorials[] = $tutorial_0625_PM;
+    $selected_tutorials[3] = $tutorial_0625_PM;
   }
 
 //=======================================
 // enter info into registered_tutorials
 //=======================================
 
-foreach ($tutorials as $key =>$value)
+foreach ($selected_tutorials as $key =>$value)
 
 {
 $sql_registered_tutorials = "INSERT INTO registered_tutorials ";
