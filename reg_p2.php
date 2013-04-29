@@ -246,6 +246,113 @@ else
   }
 
 
+//===========================
+//  pull presenters DAY 1
+//===========================
+
+$sql_presenters = "SELECT ";
+$sql_presenters .= "presenters.id AS presenter_id, ";
+$sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_presenters .= "talks.presenter_id AS pi, ";
+$sql_presenters .= "last_name, ";
+$sql_presenters .= "first_name, ";
+$sql_presenters .= "affiliation, ";
+$sql_presenters .= "bio, ";
+$sql_presenters .= "title, ";
+$sql_presenters .= "track, ";
+$sql_presenters .= "authors, ";
+$sql_presenters .= "talks.description, ";
+$sql_presenters .= "location_id, ";
+$sql_presenters .= "start_time, ";
+$sql_presenters .= "name, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%m%d_%p') AS radio_attribute ";
+
+$sql_presenters .= "FROM schedules ";
+
+$sql_presenters .= "LEFT JOIN talks ";
+$sql_presenters .= "ON schedules.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON schedules.location_id = locations.id ";
+
+$sql_presenters .= "LEFT JOIN presenters ";
+$sql_presenters .= "ON presenter_id = presenters.id ";
+
+$sql_presenters .= "LEFT JOIN license_types ";
+$sql_presenters .= "ON license_type_id = license_types.id ";
+
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
+$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_presenters .= "ORDER BY start_time, location_id";
+
+
+$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$last_start_time = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['schedule_day'] != $last_schedule_day) 
+{
+$display_block .="
+<tr>
+  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+</tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+//
+
+  if ($row['start_time'] != $last_start_time) 
+     {
+       $display_block .="  <tr>
+        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+     }
+
+    if ($row['location_id'] == '1')
+      { 
+       $display_block .="
+        <td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+        $last_start_time = $row['start_time'];
+      }
+   elseif ($row['location_id'] == '2')
+     { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+ elseif ($row['location_id'] == '3')
+   { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+  else 
+   {
+$display_block .="
+<td>---</td>";
+
+   }
+}
+}
+
+while ($row = mysql_fetch_array($total_presenters));
+
+
+
 ?>
 
 
@@ -327,54 +434,9 @@ else
 ?>
 <p>You have elected to attend tutorials, please indicate the tutorials you would like to attend</p>
 
-<h3>Monday - June 24th</h3>
-    
-<table id="registrants_table">
-  <tr>
-    <th width="13%">Time</th>
-    <th width="29%">Introductory</th>
-    <th width="29%">Intermediate</th>
-    <th width="29%">Advanced</th>
-  </tr>
-
-<tr>
-  <td>* Morning</td>
-  <td><label for="1"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="1" />NumPy and IPython</label></td>
-  <td><label for="2"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="2" />Guide to Symbolic Computing with SymPy</label></td>
-  <td><label for="3"><input class="validate[required] radio" name="tutorial_624_am" id="tutorial_624_am" type="radio" value="3" />Data Processing with Python</label></td>
-</tr>
-<tr>
-  <td style="word-wrap: none;">* Afternoon</td>
-  <td><label for="1"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="1" />Anatomy of matplotlib</label></td>
-  <td><label for="2"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="2" />IPython in depth</label></td>
-  <td><label for="3"><input class="validate[required] radio" name="tutorial_624_pm" id="tutorial_624_pm" type="radio" value="3" />Cython: Speed up Python and NumPy, Pythonize C, C++, and Fortran</label></td>
-</tr>
+<table>
+<?php echo $display_block ?>
 </table>
-
-<h3>Tuesday - June 25th</h3>
-
-<table id="registrants_table">
-  <tr>
-    <th width="13%">Time</th>
-    <th width="29%">Introductory</th>
-    <th width="29%">Intermediate</th>
-    <th width="29%">Advanced</th>
-  </tr>
-
-<tr>
-  <td>* Morning</td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="1" />Version Control & Unit Testing for Scientific Software</label></td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="2" />An Introduction to scikit-learn (I)</label></td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_am" id="tutorial_625_am" type="radio" value="3" />Diving into NumPy code</label></td>
-</tr>
-<tr>
-  <td style="word-wrap: none;">* Afternoon</td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="1" />Statistical Data Analysis in Python (pandas)</label></td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="2" />Using geospatial data</label></td>
-  <td><label><input class="validate[required] radio" name="tutorial_625_pm" id="tutorial_625_pm" type="radio" value="3" />An Introduction to scikit-learn (II)</label></td>
-</tr>
-</table>
-
 
 <?php
 

@@ -254,12 +254,80 @@ $result_rs = @mysql_query($sql_rs, $connection) or die("Error #". mysql_errno() 
 
 }
 
-$promotion_id = $_POST['promotion_id'];
-$today = date("Y")."-".date("m")."-".date("d");
+
+//=======================================
+// registered_tutorials
+//=======================================
+
+//=======================================
+// pull registered_sessions just entered to get registered_sessions.id
+//=======================================
+
+$sql_registered_session_id ="SELECT ";
+$sql_registered_session_id .="id ";
+$sql_registered_session_id .="FROM registered_sessions ";
+$sql_registered_session_id .="WHERE registration_id = \"$registration_id\" ";
+$sql_registered_session_id .="AND session_id = 4";
+
+$result_registered_session_id = @mysql_query($sql_registered_session_id, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_registered_session_id = @mysql_num_rows($result_registered_session_id);
+
+while ($row = mysql_fetch_array($result_registered_session_id))
+{
+  $registered_session_id = $row['id'];
+}
+
+//registation_id
+//session_id //fm form
+$tutorial_0624_AM = $_POST['tutorial_0624_AM'];
+$tutorial_0624_PM = $_POST['tutorial_0624_PM'];
+$tutorial_0625_AM = $_POST['tutorial_0625_AM'];
+$tutorial_0625_PM = $_POST['tutorial_0625_PM'];
+
+if ($tutorial_0624_AM != "")
+  {
+    $tutorials[] = $tutorial_0624_AM;
+  }
+if ($tutorial_0624_PM != "")
+  {
+    $tutorials[] = $tutorial_0624_PM;
+  }
+if ($tutorial_0625_AM != "")
+  {
+    $tutorials[] = $tutorial_0625_AM;
+  }
+if ($tutorial_0625_PM != "")
+  {
+    $tutorials[] = $tutorial_0625_PM;
+  }
+
+//=======================================
+// enter info into registered_tutorials
+//=======================================
+
+foreach ($tutorials as $key =>$value)
+
+{
+$sql_registered_tutorials = "INSERT INTO registered_tutorials ";
+$sql_registered_tutorials .= "(registered_session_id, ";
+$sql_registered_tutorials .= "talk_id, ";
+$sql_registered_tutorials .= "created_at, ";
+$sql_registered_tutorials .= "updated_at) ";
+$sql_registered_tutorials .= "VALUES ";
+$sql_registered_tutorials .= "(\"$registered_session_id\", ";
+$sql_registered_tutorials .= "\"$value\", ";
+$sql_registered_tutorials .= "NOW(), ";
+$sql_registered_tutorials .= "NOW())";
+
+$result_registered_tutorials = @mysql_query($sql_registered_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+}
 
 //===========================
 //  pull discount
 //===========================
+
+$promotion_id = $_POST['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
 
 $sql_discount = "SELECT ";
 $sql_discount .= "id, ";
