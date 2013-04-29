@@ -5,22 +5,6 @@
 //  USER AUTHORIZATION                         //
 //===============================================
 
-if(!isset($_SESSION['formregusername'])){
-
-echo "<div id=\"account_nav\">
-<a href=\"registered_login.php\">Sign in</a> | <a href=\"create_account.php\">Create Account</a>
-  </div>";
-}
-else
-
-{
-
-echo "<div id=\"account_nav\">
-    <a href=\"reg_logout.php\">Log out</a>
-  </div>";
-}
-
-
 ?>
 
 
