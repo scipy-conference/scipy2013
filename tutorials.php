@@ -8,7 +8,7 @@ include('inc/db_conn.php');
 $participant_id = $_GET['id'];
 
 //===========================
-//  pull presenters DAY 1
+//  pull tutorials 
 //===========================
 
 $sql_presenters = "SELECT ";
@@ -136,6 +136,44 @@ $counter = $counter + 1;
 
 while ($row = mysql_fetch_array($total_presenters));
 
+
+//===========================
+//  pull tutorials 
+//===========================
+
+$sql_tutorials = "SELECT ";
+$sql_tutorials .= "talks.id AS talk_id, ";
+$sql_tutorials .= "schedules.id AS schedule_id, ";
+$sql_tutorials .= "title, ";
+$sql_tutorials .= "track, ";
+$sql_tutorials .= "authors, ";
+$sql_tutorials .= "talks.description, ";
+$sql_tutorials .= "location_id, ";
+$sql_tutorials .= "start_time, ";
+$sql_tutorials .= "name, ";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day ";
+
+$sql_tutorials .= "FROM schedules ";
+
+$sql_tutorials .= "LEFT JOIN talks ";
+$sql_tutorials .= "ON schedules.talk_id = talks.id ";
+
+$sql_tutorials .= "LEFT JOIN locations ";
+$sql_tutorials .= "ON schedules.location_id = locations.id ";
+
+$sql_tutorials .= "LEFT JOIN license_types ";
+$sql_tutorials .= "ON license_type_id = license_types.id ";
+
+$sql_tutorials .= "WHERE talks.conference_id = 2 ";
+$sql_tutorials .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_tutorials .= "ORDER BY start_time, location_id";
+
+
+$total_tutorials = @mysql_query($sql_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_tutorials_2 = @mysql_query($sql_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
 do {
 
 if ($row['title'] != '')
@@ -147,7 +185,7 @@ if ($row['title'] != '')
 " . Markdown($row['description']) . "<p>See <a href=\"tutorial_detail.php?id=" . $row['talk_id'] . " \">complete details</a></p><hr />" ;
   }
 }
-while ($row = mysql_fetch_array($total_presenters_2));
+while ($row = mysql_fetch_array($total_tutorials_2));
 
 ?>
 
