@@ -17,53 +17,53 @@ include('../inc/db_conn.php');
 $participant_id = $_GET['id'];
 
 //===========================
-//  pull presenters DAY 1
+//  pull tutorials 
 //===========================
 
-$sql_presenters = "SELECT ";
-$sql_presenters .= "presenters.id AS presenter_id, ";
-$sql_presenters .= "talks.id AS talk_id, ";
-$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_tutorials = "SELECT ";
+$sql_tutorials .= "presenters.id AS presenter_id, ";
+$sql_tutorials .= "talks.id AS talk_id, ";
+$sql_tutorials .= "schedules.id AS schedule_id, ";
 
-$sql_presenters .= "last_name, ";
-$sql_presenters .= "first_name, ";
-$sql_presenters .= "affiliation, ";
-$sql_presenters .= "bio, ";
-$sql_presenters .= "title, ";
-$sql_presenters .= "track, ";
+$sql_tutorials .= "last_name, ";
+$sql_tutorials .= "first_name, ";
+$sql_tutorials .= "affiliation, ";
+$sql_tutorials .= "bio, ";
+$sql_tutorials .= "title, ";
+$sql_tutorials .= "track, ";
 
-$sql_presenters .= "type, ";
-$sql_presenters .= "released, ";
-$sql_presenters .= "tags, ";
+$sql_tutorials .= "type, ";
+$sql_tutorials .= "released, ";
+$sql_tutorials .= "tags, ";
 
-$sql_presenters .= "location_id, ";
-$sql_presenters .= "start_time, ";
+$sql_tutorials .= "location_id, ";
+$sql_tutorials .= "start_time, ";
 
-$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
-$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
-$sql_presenters .= "DATE_FORMAT(start_time, '%b %d') AS schedule_day ";
-
-
-$sql_presenters .= "FROM schedules ";
-
-$sql_presenters .= "LEFT JOIN talks ";
-$sql_presenters .= "ON schedules.talk_id = talks.id ";
-
-$sql_presenters .= "LEFT JOIN locations ";
-$sql_presenters .= "ON schedules.location_id = locations.id ";
-
-$sql_presenters .= "LEFT JOIN presenters ";
-$sql_presenters .= "ON presenter_id = presenters.id ";
-
-$sql_presenters .= "LEFT JOIN license_types ";
-$sql_presenters .= "ON license_type_id = license_types.id ";
-
-$sql_presenters .= "WHERE talks.conference_id = 2 ";
-$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
-$sql_presenters .= "ORDER BY start_time, location_id";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%b %d') AS schedule_day ";
 
 
-$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$sql_tutorials .= "FROM schedules ";
+
+$sql_tutorials .= "LEFT JOIN talks ";
+$sql_tutorials .= "ON schedules.talk_id = talks.id ";
+
+$sql_tutorials .= "LEFT JOIN locations ";
+$sql_tutorials .= "ON schedules.location_id = locations.id ";
+
+$sql_tutorials .= "LEFT JOIN presenters ";
+$sql_tutorials .= "ON presenter_id = presenters.id ";
+
+$sql_tutorials .= "LEFT JOIN license_types ";
+$sql_tutorials .= "ON license_type_id = license_types.id ";
+
+$sql_tutorials .= "WHERE talks.conference_id = 2 ";
+$sql_tutorials .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_tutorials .= "ORDER BY start_time, location_id";
+
+
+$total_tutorials = @mysql_query($sql_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
 $last_start_time = '';
 $last_schedule_day = '';
@@ -124,10 +124,73 @@ $display_block .="
 }
 }
 
+while ($row = mysql_fetch_array($total_tutorials));
 
-while ($row = mysql_fetch_array($total_presenters));
+//===========================
+//  pull talks 
+//===========================
+
+$sql_talks = "SELECT ";
+$sql_talks .= "presenters.id AS presenter_id, ";
+$sql_talks .= "talks.id AS talk_id, ";
+$sql_talks .= "authors, ";
+$sql_talks .= "last_name, ";
+$sql_talks .= "first_name, ";
+$sql_talks .= "affiliation, ";
+$sql_talks .= "bio, ";
+$sql_talks .= "title, ";
+$sql_talks .= "track, ";
+
+$sql_talks .= "type, ";
+$sql_talks .= "released, ";
+$sql_talks .= "tags ";
+
+$sql_talks .= "FROM  talks ";
 
 
+$sql_talks .= "LEFT JOIN presenters ";
+$sql_talks .= "ON presenter_id = presenters.id ";
+
+$sql_talks .= "LEFT JOIN license_types ";
+$sql_talks .= "ON license_type_id = license_types.id ";
+
+$sql_talks .= "WHERE talks.conference_id = 2 ";
+$sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
+$sql_talks .= "ORDER BY FIELD(track,'General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bio-informatics (-f)','Bio-informatics (-s)','GIS - Geospatial Data Analysis','Medical imaging','Meteorology','poster'), title";
+
+
+$total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+$last_track = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['track'] != $last_track) 
+{
+$display_talks .="
+  <tr>
+    <th width=\"29%\" colspan=\"2\">" . $row['track'] . "</th>
+  </tr>
+  <tr>
+    <td><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
+    <td>" . $row['authors'] . "</td>
+  </tr>";
+$last_track = $row['track'];
+}
+else
+$display_talks .="
+  <tr>
+    <td><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
+    <td>" . $row['authors'] . "</td>
+  </tr>";
+}
+}
+
+while ($row = mysql_fetch_array($total_talks));
 
 
 ?>
@@ -156,12 +219,15 @@ while ($row = mysql_fetch_array($total_presenters));
 
 <h1>Admin</h1>
 
-<h2>Talks:</h2>
+<h2>Tutorials:</h2>
 <table id="registrants_table">
 <?php echo $display_block ?>
 </table>
-<br />
-
+<hr />
+<h2>Talks:</h2>
+<table id="registrants_table">
+<?php echo $display_talks ?>
+</table>
 
 </section>
 

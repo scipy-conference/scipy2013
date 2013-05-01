@@ -16,6 +16,7 @@ include('../inc/db_conn.php');
 $talk_id = $_POST['talk_id'];
 $track = $_POST['track'];
 $title = $_POST['title'];
+$authors = $_POST['authors'];
 $abstract = $_POST['abstract'];
 $description = $_POST['description'];
 $outline = $_POST['outline'];

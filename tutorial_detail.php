@@ -151,6 +151,7 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 
 <p><?php echo $display_authors ?></p>
 <hr />
+<section id="tutorial-content">
 <h3>Bio(s)</h3>
 <?php echo $display_bios ?>
 <hr />
@@ -166,7 +167,7 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 <h3>Documentation</h3>
 <?php echo Markdown($documentation) ?>
 </section>
-
+</section>
 
 
 <div style="clear: both;"></div>

@@ -233,6 +233,12 @@ background: #fff;
   clear: both;
   }
 
+#tutorial-content {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 2em;
+  }
+
 #main-content {
   width: 65%;
   float: left;
@@ -373,9 +379,16 @@ td.time{
   }
 
 .even {
-  background: #e0eeff;;  
+  background: #e0eeff;  
   }
 
+/*tbody tr:nth-child(odd) {
+   background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+   background-color: #e0eeff;
+}*/
 
 img.right {
   float: right; 
