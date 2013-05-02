@@ -100,7 +100,7 @@ while ($row = mysql_fetch_array($total_talks));
 
 <p>Listed below are confirmed presentations for SciPy2013. More details and schedule information coming soon.</p>
 
-<div class="intra_page_nav" style="text-align: center; font-size: 0.75em;"><a href="#General">General</a> | <a href="#Machine Learning">Machine Learning</a> | <a href="#Reproducible Science">Reproducible Science</a> <br />
+<div class="intra_page_nav" style="text-align: center; font-size: 0.75em;"><a href="#Keynotes">Keynotes</a><br /><a href="#General">General</a> | <a href="#Machine Learning">Machine Learning</a> | <a href="#Reproducible Science">Reproducible Science</a> <br />
 <a href="#Astronomy and Astrophysics">Astronomy and Astrophysics</a> | <a href="#Bio-informatics">Bio-informatics</a> | <a href="#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a> | <a href="#Medical Imaging">Medical Imaging</a> | <a href="#Meteorology">Meteorology</a><br />
 <a href="#poster">Posters</a></div>
 
