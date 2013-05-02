@@ -34,7 +34,7 @@ $sql_talks .= "ON license_type_id = license_types.id ";
 
 $sql_talks .= "WHERE talks.conference_id = 2 ";
 $sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
-$sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bio-informatics (-f)','Bio-informatics (-s)','GIS - Geospatial Data Analysis','Medical imaging','Meteorology','poster'), title";
+$sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bio-informatics (-f)','Bio-informatics (-s)','GIS - Geospatial Data Analysis','Medical imaging','Meteorology, Climatology and Oceanic Science','poster'), title";
 
 
 $total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
