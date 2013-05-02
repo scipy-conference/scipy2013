@@ -475,6 +475,21 @@ textarea {
   margin: 3px 0 0 0;
   }
 
+.track {
+  font-size: 0.8em;
+  font-style: italic;
+  }
+
+.track_atsumaru {
+  background: #dedede;
+  border-bottom: 1px solid #aaa; 
+  }
+
+.track_break {
+  background: url("../img/break.gif");
+  border-bottom: 1px solid #aaa; 
+  }
+
 .other_form_tips {
   font-size: 0.85em;
   color: #666;
