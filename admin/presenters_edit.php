@@ -79,8 +79,11 @@ $sql_presenters .= "DATE_FORMAT(end_time, '%i') AS end_minute, ";
 $sql_presenters .= "location_id ";
 
 $sql_presenters .= "FROM talks ";
+$sql_presenters .= "LEFT JOIN presenters_talks ";
+$sql_presenters .= "ON talk_id = talks.id ";
+
 $sql_presenters .= "LEFT JOIN presenters ";
-$sql_presenters .= "ON presenter_id = presenters.id ";
+$sql_presenters .= "ON presenters_talks.presenter_id = presenters.id ";
 $sql_presenters .= "LEFT JOIN schedules ";
 $sql_presenters .= "ON schedules.talk_id = talks.id ";
 $sql_presenters .= "WHERE talks.id = \"$talk_id\"";

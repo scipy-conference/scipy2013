@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 ?>
+
 
 
 <!DOCTYPE html>
@@ -77,6 +78,77 @@
 
 </div>
 </div>
+<hr />
+<div class="row">
+
+<div class="chairs" style="margin: 0;">Mini-symposium Chairs</div>
+<div class="cell">
+<div class="chairs_sub">Astronomy and Astrophysics</div>
+<span class="person">Tom Aldcroft</span>, <span class="affiliation">Harvard/Smithsonian Center for Astrophysics</span><br />
+
+<div class="chairs_sub">Bioinformatics</div>
+<span class="person">Brad Chapman</span>, <span class="affiliation">Bioinformatics Core, Harvard School of Public Health</span><br />
+
+<div class="chairs_sub">GIS - Geospatial Data Analysis</div>
+<span class="person">Kelsey Jordahl</span>, <span class="affiliation">Enthought, Inc.</span>
+
+</div>
+
+<div class="cell">
+<div class="chairs_sub">Medical Imaging</div>
+<span class="person">Gael Varoquaux</span>, <span class="affiliation">INRIA</span><br />
+
+<div class="chairs_sub">Meteorology</div>
+<span class="person">Chris Barker</span>, <span class="affiliation">National Oceanic and Atmospheric Administration</span>
+
+</div>
+</div>
+
+<hr />
+
+<h2>The SciPy 2013 Program Committee</h2>
+
+<div class="row">
+<div class="cell">
+<p>Aron Ahmadia<br />
+Tom Aldcroft<br />
+Chris Barker<br />
+Nathan Bell<br />
+Joshua Bloom<br />
+Matthew Brett<br />
+Brad Chapman<br />
+Matt Davis<br />
+Daniel Dye<br />
+Satrajit Ghosh<br />
+Perry Greenfield<br />
+Kelsey Jordahl<br />
+Matthew Knepley<br />
+Jessica Lu<br />
+Hilary Mason<br />
+Mike McKerns<br />
+Zain Memon</br>
+Aronne Merrelli</p>
+</div>
+<div class="cell">
+<p>Shelia Miguez<br />
+August Muench<br />
+Cait Pickens<br />
+Serge Rey<br />
+Tom Robitaille<br />
+Dan Schult<br />
+Rich Signell<br />
+William Spotz<br />
+Matt Terry<br />
+Erik Tollerud <br />
+Erik Tollerud<br />
+James Turner<br />
+Geraldine van der Auwera<br />
+Jake van der Plas<br />
+Gael Varoquax<br />
+Peter Wang<br />
+Andrew Wilson</p>
+</div></div>
+
 
 </section>
 <div style="clear:both;"></div>

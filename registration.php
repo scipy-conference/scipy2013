@@ -1,6 +1,34 @@
 <?php
+session_start();
+
+$promotion_id = $_GET['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
 
 include('inc/db_conn.php');
+
+//===========================
+//  pull discount
+//===========================
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
+$advtzd_discount = 100* (1 - $discount);
+}
+
+
 
 //===========================
 //  pull sessions
@@ -43,11 +71,20 @@ $display_sessions .=" /></td>
         $display_sessions .="*";
         }
 $display_sessions .="</td>
-    <td>" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['Standard'] . "</td>
+    <td>" . $row['Dates'] . "</td>";
+      if ($row['session'] == "Conference" && $discount != "")
+        {
+          $display_sessions .="    <td align=\"right\"> $ " . $row['Standard']*$discount . "</td>
+    <td align=\"right\"> $ " . $row['Academic']*$discount . "</td>
+    <td align=\"right\"> $ " . $row['Student']*$discount . "</td>";
+        }
+    else 
+            {
+          $display_sessions .="    <td align=\"right\"> $ " . $row['Standard'] . "</td>
     <td align=\"right\"> $ " . $row['Academic'] . "</td>
-    <td align=\"right\"> $ " . $row['Student'] . "</td>
-  </tr>";
+    <td align=\"right\"> $ " . $row['Student'] . "</td>";
+        }
+$display_sessions .=" </tr>";
   }
 }
 while($row = mysql_fetch_array($total_result_sessions));
@@ -78,6 +115,47 @@ $display_participants .="/></span></td>
   }
 }
 while($row = mysql_fetch_array($total_result_participants));
+
+//===========================
+//  pull tshirt type
+//===========================
+
+$sql_types = "SELECT ";
+$sql_types .= "id, ";
+$sql_types .= "description ";
+$sql_types .= "FROM tshirt_types ";
+$sql_types .= "ORDER BY id ASC";
+
+$total_result_types = @mysql_query($sql_types, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_types = @mysql_num_rows($total_result_types);
+
+do {
+  if ($row['description'] != '')
+  {
+
+if ($row['id'] == 1)
+  {
+    $display_type = "womens/fitted";
+  }
+if ($row['id'] == 2)
+  {
+    $display_type = "mens/unisex";
+  }
+
+$display_types .=    "
+
+    <td><input class=\"validate[required] radio\" name=\"tshirt_type\" id=\"tshirt_type\" type=\"radio\" value=\"" . $row[id] . "\"  ";
+      if ($_POST['tshirt_type'] == $row[description])
+        {
+          $display_types .="checked ";
+        }
+        
+$display_types .="/>  $display_type  </td>
+";
+  }
+}
+while($row = mysql_fetch_array($total_result_types));
+
 
 //===========================
 //  pull tshirt sizes
@@ -156,11 +234,10 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 
 <section id="main-content">
+
 <h1>2013 Conference Registration</h1>
 
 <p class="left">Register online using the form below. You may also register via phone at (512)536-1057. </p>
-
-<p><strong>Please note:</strong> Early-Bird registration will close <span class="highlight">Monday, May 6th</span>. Registrations after that date will add $50 to the Tutorial and Conference prices listed below.</p>
 
 <!--
 <form id="formID" method="post" action="<?php echo $SERVER['SCRIPT_NAME'] ?>"> 
@@ -168,7 +245,21 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <form id="formID" class="formular" method="post" action="reg_p2.php">
 
 <div class="form_row">
-<h2> Session Selection </h2>
+<h2> Session Selection (Early-Bird pricing)</h2>
+<p class="indent">Early-Bird registration will close <span class="highlight">Monday, May 6th</span>.<br />
+Pricing for each item will increase $50 after Early-Bird registration, so REGISTER NOW!!.</p>
+<?php 
+  if ($promotion_name != "" && $promotion_id != "")
+    {
+      echo "<p class=\"highlight\">Conference pricing below reflects your $advtzd_discount% - $promotion_name promotional discount.</p>";
+    }
+  elseif ($promotion_name == "" && $promotion_id != "")
+    {
+      echo "<p class=\"highlight\">The discount code `$promotion_id` has expired.</p>";
+    }
+
+?>
+
 <table id="schedule">
   <tr>
     <th colspan="2">Session </th>
@@ -192,10 +283,23 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 </div>
 <div class="cell">
 
-<h2> T-Shirt Size </h2>
-<table align="center" width="200">
+<h2>T-Shirt Preference</h2>
+
+<table align="center" width="250">
+<tr><th colspan="2">Type:</th></tr>
+    <?php echo $display_types ?>
+</table>
+
+<table align="center" width="250">
+<tr><th colspan="2">Size:</th></tr>
     <?php echo $display_sizes ?>
 </table>
+<?php 
+  if ($promotion_id != "")
+    {
+      echo "<input type=\"hidden\" name=\"promotion_id\" value=\"$promotion_id\" />";
+    }
+?>
 </div>
 </div>
 <div style="clear:both;"></div>
@@ -204,6 +308,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <div align="center">
   <input type="submit" name="submit" value="next >>"/>
 </div>
+
 
 </form>
 </section>

@@ -14,11 +14,11 @@ $error = $_SESSION['errormessage'];
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
 
-<body>
+<body OnLoad="document.form1.username.focus();">
 
 <div id="container">
 
-<?php include('../inc/page_headers.php') ?>
+<?php include('../inc/admin_page_headers.php') ?>
 
 <section id="sidebar">
   <?php include("../inc/sponsors.php") ?>

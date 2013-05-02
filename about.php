@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+include('inc/db_conn.php');
+
+//===========================
+//  pull important dates
+//===========================
+
+//$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_dates = "SELECT ";
+$sql_dates .= "DATE_FORMAT(`impt_date`, '%b %D') as date_f, ";
+$sql_dates .= "`description`  ";
+$sql_dates .= "FROM `important_dates`  ";
+$sql_dates .= "WHERE conference_id = 2 ";
+$sql_dates .= "AND display = \"public\" ";
+$sql_dates .= "ORDER BY impt_date";
+
+$total_dates = @mysql_query($sql_dates, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_dates_found = @mysql_num_rows($total_dates);
+$row_color=($row_count%2)?$row_1:$row_2;
+
+do {
+  if ($row['description'] != '')
+  {
+
+$display_dates .="  <li>" . $row['date_f'] . ": " . $row['description'] . "</li>";
+}}
+while($row = mysql_fetch_array($total_dates));
+?>
+
 <!DOCTYPE html>
 <html>
 <?php $thisPage="Venue"; ?>
@@ -24,11 +56,11 @@
 
 <p>SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held this June 24th-29th in Austin, Texas. SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering. The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
 
-<p>The conference consists of two days of tutorials by followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
+<p>The conference consists of two days of tutorials followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
 
 <h2>Specialized Tracks</h2>
 
-<p>This year we are happy to announce two specialized tracks run in parallel to the general conference:</p>
+<p>This year we are happy to announce two specialized tracks that run in parallel in the general conference:</p>
 
 <h3>Machine Learning</h3>
 
@@ -49,6 +81,7 @@
   <li>Astronomy and astrophysics</li>
   <li>Medical imaging</li>
   <li>Bio-informatics</li>
+  <li>GIS - Geospatial Data Analysis</li>
 </ul>
 
 <h2>Tutorials</h2>
@@ -66,11 +99,7 @@
 <h2>Important Dates</h2>
 
 <ul>
-  <li>April 15th: Speakers selected</li>
-  <li>April 22nd: Sponsorship acceptance deadline</li>
-  <li>May 1st: Speaker schedule announced</li>
-  <li>May 5th: Paper submission deadline</li>
-  <li>May 6th: Early-bird registration ends</li>
+  <?php echo $display_dates ?>
   <li>June 24th-29th: 2 days of tutorials, 2 days of conference, 2 days of sprints</li>
 </ul>
 

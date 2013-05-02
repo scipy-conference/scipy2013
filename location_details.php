@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <?php $thisPage="Venue"; ?>
@@ -24,7 +27,7 @@
 
 <img src="img/attHotel.jpg" alt="AT&amp;T Executive Conference Center Hotel" height="233" width="350" class="right" />
 
-<p>On-site lodging for SciPy 2013 is available at the <a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=3427421">AT&amp;T Executive Conference Center Hotel</a>. Hotel rooms are available at a conference rate of $115 a night plus tax, which is 30% less than other downtown Austin hotels at that time.  Make your reservations soon because at this rate, availability won't last long!</p>
+<p>On-site lodging for SciPy 2013 is available at the <a href="https://resweb.passkey.com/go/SCIPYM0613">AT&amp;T Executive Conference Center Hotel</a>. Hotel rooms are available at a conference rate of $115 a night plus tax, which is 30% less than other downtown Austin hotels at that time.  Make your reservations soon because at this rate, availability won't last long!</p>
 
 <p>All rooms are equipped with widescreen HD flat-panel TVs, high-speed Internet, and a range of other amenities. Hotel guests also have access to the fitness center and outdoor pool.</p>
 

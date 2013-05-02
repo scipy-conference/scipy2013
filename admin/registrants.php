@@ -41,6 +41,7 @@ $sql_registrants .= "SUM(IF(session = \"Conference\",1,0)) AS conference, ";
 $sql_registrants .= "SUM(IF(session = \"Tutorials\",1,0)) AS tutorials, ";
 $sql_registrants .= "SUM(IF(session = \"Sprints\",1,0)) AS sprints, ";
 $sql_registrants .= "SUM(amt_paid) AS amt_paid, ";
+$sql_registrants .= "type_abbr, ";
 $sql_registrants .= "size, ";
 $sql_registrants .= "DATE_FORMAT(registrations.created_at, '%b %d') AS `order date` ";
 $sql_registrants .= "FROM registrations ";
@@ -48,6 +49,8 @@ $sql_registrants .= "LEFT JOIN participants ";
 $sql_registrants .= "ON participant_id = participants.id ";
 $sql_registrants .= "LEFT JOIN participant_types ";
 $sql_registrants .= "ON participant_type_id = participant_types.id ";
+$sql_registrants .= "LEFT JOIN tshirt_types ";
+$sql_registrants .= "ON tshirt_type_id = tshirt_types.id ";
 $sql_registrants .= "LEFT JOIN tshirt_sizes ";
 $sql_registrants .= "ON tshirt_size_id = tshirt_sizes.id ";
 $sql_registrants .= "LEFT JOIN registered_sessions ";
@@ -94,7 +97,7 @@ $display_registrants .="<tr class=$row_color>
         $display_registrants .="<td align=\"center\">&nbsp;</td>";
       }
 $display_registrants .="    <td align=\"right\">$ " . $row['amt_paid'] . "</td>
-    <td>" . $row['size'] . "</td>
+    <td>" . $row['size'] . " " . $row['type_abbr'] . "</td>
     <td>" . $row['order date'] . "</td>
   </tr>";
   }

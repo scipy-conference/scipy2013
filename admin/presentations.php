@@ -17,205 +17,180 @@ include('../inc/db_conn.php');
 $participant_id = $_GET['id'];
 
 //===========================
-//  pull presenters DAY 1
+//  pull tutorials 
 //===========================
 
-$sql_presenters = "SELECT ";
-$sql_presenters .= "presenters.id AS presenter_id, ";
-$sql_presenters .= "talks.id AS talk_id, ";
-$sql_presenters .= "schedules.id AS schedule_id, ";
-$sql_presenters .= "talks.presenter_id AS pi, ";
-$sql_presenters .= "last_name, ";
-$sql_presenters .= "first_name, ";
-$sql_presenters .= "affiliation, ";
-$sql_presenters .= "bio, ";
-$sql_presenters .= "title, ";
-$sql_presenters .= "track, ";
-$sql_presenters .= "authors, ";
-$sql_presenters .= "location_id, ";
-$sql_presenters .= "start_time, ";
-$sql_presenters .= "name, ";
+$sql_tutorials = "SELECT ";
+$sql_tutorials .= "presenters.id AS presenter_id, ";
+$sql_tutorials .= "talks.id AS talk_id, ";
+$sql_tutorials .= "schedules.id AS schedule_id, ";
 
-$sql_presenters .= "released, ";
-$sql_presenters .= "type, ";
+$sql_tutorials .= "last_name, ";
+$sql_tutorials .= "first_name, ";
+$sql_tutorials .= "affiliation, ";
+$sql_tutorials .= "bio, ";
+$sql_tutorials .= "title, ";
+$sql_tutorials .= "track, ";
 
-$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
-$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f ";
+$sql_tutorials .= "type, ";
+$sql_tutorials .= "released, ";
+$sql_tutorials .= "tags, ";
 
-$sql_presenters .= "FROM schedules ";
+$sql_tutorials .= "location_id, ";
+$sql_tutorials .= "start_time, ";
 
-$sql_presenters .= "LEFT JOIN talks ";
-$sql_presenters .= "ON schedules.talk_id = talks.id ";
-
-$sql_presenters .= "LEFT JOIN presenters ";
-$sql_presenters .= "ON presenter_id = presenters.id ";
-
-$sql_presenters .= "LEFT JOIN license_types ";
-$sql_presenters .= "ON license_type_id = license_types.id ";
-
-$sql_presenters .= "LEFT JOIN locations ";
-$sql_presenters .= "ON location_id = locations.id ";
-
-$sql_presenters .= "WHERE talks.conference_id = 1 ";
-$sql_presenters .= "ORDER BY start_time, location_id";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_tutorials .= "DATE_FORMAT(start_time, '%b %d') AS schedule_day ";
 
 
+$sql_tutorials .= "FROM schedules ";
 
-$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$sql_tutorials .= "LEFT JOIN talks ";
+$sql_tutorials .= "ON schedules.talk_id = talks.id ";
+
+$sql_tutorials .= "LEFT JOIN locations ";
+$sql_tutorials .= "ON schedules.location_id = locations.id ";
+
+$sql_tutorials .= "LEFT JOIN presenters ";
+$sql_tutorials .= "ON presenter_id = presenters.id ";
+
+$sql_tutorials .= "LEFT JOIN license_types ";
+$sql_tutorials .= "ON license_type_id = license_types.id ";
+
+$sql_tutorials .= "WHERE talks.conference_id = 2 ";
+$sql_tutorials .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_tutorials .= "ORDER BY start_time, location_id";
+
+
+$total_tutorials = @mysql_query($sql_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
 $last_start_time = '';
+$last_schedule_day = '';
 
 do {
 
 if ($row['title'] != '')
   {
-  if ($row['start_time'] != $last_start_time) 
-   {
-// if a new start time display new row and the time cell
+//
+if ($row['schedule_day'] != $last_schedule_day) 
+{
 $display_block .="
 <tr>
-  <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+</tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+//
 
-/////////////////
-  if ($row['track'] == '---' || $row['track'] == 'Plenary')
-    {
-      $display_block .="<td colspan=\"2\" class=\"track_atsumaru\"><span class=\"bold\"><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
-      if ($row['last_name'] != '')
-        {
-      $display_block .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "";
-        }
-      $display_block .="<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td></tr>";
-
-      $last_start_time = $row['start_time'];
-    }
-//  else
-//    {
-
-
-
-// if the time resource is for room 1
-  if ($row['location_id'] == '1' && $row['track'] != '---' && $row['track'] != 'Plenary' || $row['location_id'] == '2' && $row['track'] != '---' && $row['track'] != 'Plenary')
-   { 
-
-// pick the appropriate color background by track
-  if ($row['track'] == "HPC")
+  if ($row['start_time'] != $last_start_time) 
      {
-       $display_block .="<td class=\"track_hpc\">";
+       $display_block .="  <tr>
+        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
      }
-  elseif ($row['track'] == "Visualization")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
-       $display_block .="<td>";
-     }   
-// display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
 
-   $last_start_time = $row['start_time'];
-   }
-// if the time resource is for room 2, show dashes for room 1 if no resource for it
-  elseif ($row['location_id'] == '1' && $row['track'] != '---') 
-   {
+    if ($row['location_id'] == '1')
+      { 
+       $display_block .="
+        <td><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />" . $row['start_time_f'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
+        $last_start_time = $row['start_time'];
+      }
+   elseif ($row['location_id'] == '2')
+     { 
 $display_block .="
-<td>---a</td>";
-
-// if the time resource is for room 2
-  if ($row['location_id'] == '2' && $row['track'] != '---')
-   { 
-// pick the appropriate color background by track
-  if ($row['track'] == "HPC")
-     {
-       $display_block .="<td class=\"track_hpc\">";
-     }
-  elseif ($row['track'] == "Visualization")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
-       $display_block .="<td>";
-     } 
-// display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
-      $display_block .= "</tr>";
+<td><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />" . $row['start_time_f'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
 $last_start_time = $row['start_time'];
-  }
    }
-
-    }
-  else
-    {
-  if ($row['location_id'] == '2' || $row['location_id'] == '3')
+ elseif ($row['location_id'] == '3')
    { 
-  if ($row['track'] == "HPC")
-     {
-       $display_block .="<td class=\"track_hpc\">";
-     }
-  elseif ($row['track'] == "Visualization")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
-       $display_block .="<td>";
-     }   
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><strong><a href=\"presenters_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />Time slot: " . $row['start_time_f'] . " - ". $row['end_time_f'] . "<br />location: " . $row['name'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
-      $display_block .= "</tr>";
+$display_block .="
+<td><strong><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['last_name'] . ", " . $row['first_name'] . "<br />" . $row['track'] . "<br />" . $row['start_time_f'] . "<br />presenter_id: " . $row['presenter_id'] . "<br />talk_id: " . $row['talk_id'] . "<br />schedule_id: " . $row['schedule_id'] . "<br />released: " . $row['released'] . "<br />license: " . $row['type'] . "<br />tags: " . $row['tags'] . "</td>";
 $last_start_time = $row['start_time'];
-  }
-  elseif ($row['location_id'] == '2' && $row['track'] != '---')
+   }
+  else 
    {
 $display_block .="
 <td>---</td>";
+
    }
 
-/////////////
-//    }
-
-  }
-}
 
 }
-while ($row = mysql_fetch_array($total_presenters));
+}
 
+while ($row = mysql_fetch_array($total_tutorials));
+
+//===========================
+//  pull talks 
+//===========================
+
+$sql_talks = "SELECT ";
+$sql_talks .= "presenters.id AS presenter_id, ";
+$sql_talks .= "talks.id AS talk_id, ";
+$sql_talks .= "authors, ";
+$sql_talks .= "last_name, ";
+$sql_talks .= "first_name, ";
+$sql_talks .= "affiliation, ";
+$sql_talks .= "bio, ";
+$sql_talks .= "title, ";
+$sql_talks .= "track, ";
+
+$sql_talks .= "type, ";
+$sql_talks .= "released, ";
+$sql_talks .= "tags ";
+
+$sql_talks .= "FROM  talks ";
+
+
+$sql_talks .= "LEFT JOIN presenters ";
+$sql_talks .= "ON presenter_id = presenters.id ";
+
+$sql_talks .= "LEFT JOIN license_types ";
+$sql_talks .= "ON license_type_id = license_types.id ";
+
+$sql_talks .= "WHERE talks.conference_id = 2 ";
+$sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
+$sql_talks .= "ORDER BY FIELD(track,'General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bio-informatics (-f)','Bio-informatics (-s)','GIS - Geospatial Data Analysis','Medical imaging','Meteorology','poster'), title";
+
+
+$total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+$last_track = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['track'] != $last_track) 
+{
+$display_talks .="
+  <tr>
+    <th width=\"29%\" colspan=\"2\">" . $row['track'] . "</th>
+  </tr>
+  <tr>
+    <td><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
+    <td>" . $row['authors'] . "</td>
+  </tr>";
+$last_track = $row['track'];
+}
+else
+$display_talks .="
+  <tr>
+    <td><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
+    <td>" . $row['authors'] . "</td>
+  </tr>";
+}
+}
+
+while ($row = mysql_fetch_array($total_talks));
 
 
 ?>
@@ -244,21 +219,16 @@ while ($row = mysql_fetch_array($total_presenters));
 
 <h1>Admin</h1>
 
-<div align="right">
-<p><a href="schedule_csv.php">Export to CSV (for Excel)</a></p>
-</div>
-
-<h2>Talks:</h2>
-<table id="registrants_table" width="600">
-  <tr>
-    <th width="80">Time</th>
-    <th>Room 1</th>
-    <th>Room 2</th>
-  </tr>
+<h2>Tutorials:</h2>
+<table id="registrants_table">
 <?php echo $display_block ?>
 </table>
-<br />
-<br />
+<hr />
+<h2>Talks:</h2>
+<table id="registrants_table">
+<?php echo $display_talks ?>
+</table>
+
 </section>
 
 

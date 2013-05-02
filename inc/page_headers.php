@@ -1,4 +1,14 @@
 <header id="page_header">
+
+<?php 
+//===============================================
+//  USER AUTHORIZATION                         //
+//===============================================
+
+?>
+
+
+
   <div class="header_logo">
     <a href="index.php"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/scipysticker.png" id="Python" alt="SciPy2013" width="359" height="99" /></a>
   </div>

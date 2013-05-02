@@ -23,6 +23,7 @@ $sql_submissions .= "author, ";
 $sql_submissions .= "email, ";
 $sql_submissions .= "affiliation, ";
 $sql_submissions .= "description, ";
+$sql_submissions .= "submission_references, ";
 $sql_submissions .= "presentation_preference, ";
 $sql_submissions .= "prepare_paper, ";
 $sql_submissions .= "main_track, ";

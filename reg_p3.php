@@ -157,6 +157,7 @@ $result_billing = @mysql_query($sql_billing, $connection) or die("Error #". mysq
 
 $participant_type_id  = $_POST['participant_type_id'];
 $conference_id = 2;
+$tshirt_type_id  = $_POST['tshirt_type_id'];
 $tshirt_size_id  = $_POST['tshirt_size_id'];
 $ordernumber = $_POST['orderNumber'];
 
@@ -168,6 +169,7 @@ $sql_reg = "INSERT INTO registrations ";
 $sql_reg .= "(conference_id, ";
 $sql_reg .= "participant_id, ";
 $sql_reg .= "participant_type_id, ";
+$sql_reg .= "tshirt_type_id, ";
 $sql_reg .= "tshirt_size_id, ";
 $sql_reg .= "ordernumber, ";
 $sql_reg .= "created_at, ";
@@ -176,6 +178,7 @@ $sql_reg .= "VALUES ";
 $sql_reg .= "(\"$conference_id\", ";
 $sql_reg .= "\"$participant_id\", ";
 $sql_reg .= "\"$participant_type_id\", ";
+$sql_reg .= "\"$tshirt_type_id\", ";
 $sql_reg .= "\"$tshirt_size_id\", ";
 $sql_reg .= "\"$ordernumber\", ";
 $sql_reg .= "NOW(), ";
@@ -210,6 +213,7 @@ while ($row = mysql_fetch_array($result_registration_id))
 $tutorials = $_POST['tutorials'];
 $conference = $_POST['conference'];
 $sprints = $_POST['sprints'];
+$promotion_id = $_POST['promotion_id'];
 
 if ($tutorials == "on")
   {
@@ -235,16 +239,111 @@ $sql_rs = "INSERT INTO registered_sessions ";
 $sql_rs .= "(registration_id, ";
 $sql_rs .= "session_id, ";
 $sql_rs .= "amt_paid, ";
+$sql_rs .= "promotion_id, ";
 $sql_rs .= "created_at, ";
 $sql_rs .= "updated_at) ";
 $sql_rs .= "VALUES ";;
 $sql_rs .= "(\"$registration_id\", ";
 $sql_rs .= "\"$key\", ";
 $sql_rs .= "\"$value\", ";
+$sql_rs .= "\"$promotion_id\", ";
 $sql_rs .= "NOW(), ";
 $sql_rs .= "NOW())";
 
 $result_rs = @mysql_query($sql_rs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+}
+
+
+//=======================================
+// registered_tutorials
+//=======================================
+
+//=======================================
+// pull registered_sessions just entered to get registered_sessions.id
+//=======================================
+
+$sql_registered_session_id ="SELECT ";
+$sql_registered_session_id .="id ";
+$sql_registered_session_id .="FROM registered_sessions ";
+$sql_registered_session_id .="WHERE registration_id = \"$registration_id\" ";
+$sql_registered_session_id .="AND session_id = 4";
+
+$result_registered_session_id = @mysql_query($sql_registered_session_id, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_registered_session_id = @mysql_num_rows($result_registered_session_id);
+
+while ($row = mysql_fetch_array($result_registered_session_id))
+{
+  $registered_session_id = $row['id'];
+}
+
+//registation_id
+//session_id //fm form
+$tutorial_0624_AM = $_POST['tutorial_0624_AM'];
+$tutorial_0624_PM = $_POST['tutorial_0624_PM'];
+$tutorial_0625_AM = $_POST['tutorial_0625_AM'];
+$tutorial_0625_PM = $_POST['tutorial_0625_PM'];
+
+if ($tutorial_0624_AM != "")
+  {
+    $selected_tutorials[0] = $tutorial_0624_AM;
+  }
+if ($tutorial_0624_PM != "")
+  {
+    $selected_tutorials[1] = $tutorial_0624_PM;
+  }
+if ($tutorial_0625_AM != "")
+  {
+    $selected_tutorials[2] = $tutorial_0625_AM;
+  }
+if ($tutorial_0625_PM != "")
+  {
+    $selected_tutorials[3] = $tutorial_0625_PM;
+  }
+
+//=======================================
+// enter info into registered_tutorials
+//=======================================
+
+foreach ($selected_tutorials as $key =>$value)
+
+{
+$sql_registered_tutorials = "INSERT INTO registered_tutorials ";
+$sql_registered_tutorials .= "(registered_session_id, ";
+$sql_registered_tutorials .= "talk_id, ";
+$sql_registered_tutorials .= "created_at, ";
+$sql_registered_tutorials .= "updated_at) ";
+$sql_registered_tutorials .= "VALUES ";
+$sql_registered_tutorials .= "(\"$registered_session_id\", ";
+$sql_registered_tutorials .= "\"$value\", ";
+$sql_registered_tutorials .= "NOW(), ";
+$sql_registered_tutorials .= "NOW())";
+
+$result_registered_tutorials = @mysql_query($sql_registered_tutorials, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+}
+
+//===========================
+//  pull discount
+//===========================
+
+$promotion_id = $_POST['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
 
 }
 
@@ -278,11 +377,21 @@ do {
 $display_receipt .=    "
   <tr>
     <td>" . $row['session'] . "</td>
-    <td>" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['price'] . "</td>
-  </tr>";
-  }
+    <td align=\"center\">" . $row['Dates'] . "</td>";
+    
+    if ($row['session'] == "Conference" & $discount != "")
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price']*$discount . "</td>";
+    $row['price'] = $row['price']*$discount;
+        }
+    else
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price'] . "</td>";
+        }
+
+    $display_sessions .=   "</tr>";
 $total_price = $total_price + $row['price'];
+  }
 }
 while($row = mysql_fetch_array($total_result_receipt));
 

@@ -34,9 +34,11 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
 }
+
 ol, ul {
   list-style-position: inside;
-  padding-left:1em;
+  text-indent: -1em;
+  padding-left: 2em;
   margin: 0 0 1em 0;
   }
 
@@ -61,7 +63,11 @@ a:visited {
 strong {
   font-weight: bold;
   }
- 
+
+em {
+  font-style: italic;
+  }
+
 /* Site-Specific CSS
 -------------------------------------------------------------- */
 
@@ -106,7 +112,10 @@ body {
   margin: 1.5em 0 0 0;
   }
 
-.sponsor_logo {
+.sponsor_cell {
+  }
+
+.align_center {
   display: block;
   margin: 1em auto;
   }
@@ -121,12 +130,12 @@ footer {
 
 /* Menu CSS
 -------------------------------------------------------------- */
-#nav {
+#nav { /* element containing all the top level nav */
   margin: 0 0 4em 0;
   border-bottom: 1px solid #2b5da6;
   }
 
-#nav a {
+#nav a { /* box elements for individual top level nav */
   display: block;
   text-decoration: none;
   color: #000;
@@ -135,6 +144,7 @@ footer {
 #nav, #nav ul {
   float: left;
   padding: 0;
+  text-indent: 0;
   list-style: none;
   width: 100%;
   text-align: left;
@@ -148,8 +158,8 @@ footer {
 #nav ul li {
   float: left;
   position: relative;
-  width: 13.5%;  /*sets the box for the submenu item*/
-  margin: 0 0.75em;
+  width: 14%;  /*sets the box for the top menu item*/
+  margin: 0 0.4em;
   padding: 0.25em;
 
  }
@@ -199,6 +209,18 @@ background: #fff;
   background: #e9f0fb;
   }
 
+
+#account_nav {
+  float: right;
+  font-size: .75em;
+  margin-top: -1em;
+  text-decoration: none;
+  } 
+
+#account_nav a {
+  text-decoration: none;
+  } 
+
 /*------------------------------------------------------------ */
 
 
@@ -209,6 +231,12 @@ background: #fff;
   border-right: 1px dotted #9E9A74;
   /*border: 1px solid red;*/
   clear: both;
+  }
+
+#tutorial-content {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 2em;
   }
 
 #main-content {
@@ -235,6 +263,14 @@ h2 {
   font-size: 1.2em;
   }
 
+h3 {
+  font-size: 1em;
+  }
+
+h4 {
+  font-size: 0.85em;
+  }
+
 p {
   font-size: 1em;
   margin: 0 0 1em 0;
@@ -257,6 +293,7 @@ p {
   background: #2B5DA6;
   color: #fff;
   font-size: .85em;
+  padding: 0.25em;
   margin-bottom: 5px;
   }
 
@@ -277,6 +314,7 @@ p {
   float: left;
   width: 100%;
   margin: .25em 0;
+  padding: 0.25em;
   border-top: 1px solid #ddd;
   }
 
@@ -285,9 +323,26 @@ p {
   margin: 2px 4px;
   }
 
+.icon_date {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.4em;
+  color: #fff;
+  width: 3em;
+  height: 3em;
+  /*margin: 0.25em;*/
+  background: url('../img/cal_icon.gif') no-repeat;
+  }
+
+.icon_date_day {
+  font-size: 1.4em;
+  color: #333;
+  }
+
 .callout_description {
   float: left;
-  width: 120px;
+  /*width: 120px;*/
   font-family: Helvetica, Arial, sans-serif;
   font-size: .85em;
   padding: 4px 0 0 0;
@@ -324,9 +379,16 @@ td.time{
   }
 
 .even {
-  background: #e0eeff;;  
+  background: #e0eeff;  
   }
 
+/*tbody tr:nth-child(odd) {
+   background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+   background-color: #e0eeff;
+}*/
 
 img.right {
   float: right; 
@@ -345,8 +407,9 @@ img.right {
   }
 
 .cell {
-  width: 50%;
+  width: 45%;
   float: left;
+  padding: 1em;
   }
 
 input {
@@ -392,9 +455,10 @@ textarea {
 
 .chairs_sub {
   font-style: italic;
+  font-weight: bold;
   font-size: .85em;
   margin: 2em 0 0.5em;
-  color:  #000;
+  color:  #2B5DA6;
   }
 
 .person {
@@ -427,3 +491,32 @@ textarea {
   color: #cc0000;
   }
 
+img.sideslung {
+	float: left;
+	margin: 0 15px 3em 0;
+	}
+
+.biobox {
+  clear: both;
+  margin: 0 0 3em 0;
+  }
+
+.data_field {
+  color: #0033cc;
+  font-size: 0.85em;
+  }
+
+.highlight {
+  background: #F2F191;
+  border-top: 1px solid #8C8B35;
+  border-bottom: 1px solid #8C8B35;
+  padding: 1px 4px;
+  }
+
+.intra_page_nav {
+  font-size: 0.65em;
+  }
+
+.clearer {
+  clear: both;
+  }

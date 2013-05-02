@@ -17,7 +17,7 @@ include('../inc/db_conn.php');
 //  pull total registered
 //===========================
 
-$sql_requestors = "SELECT last_name, first_name, university, email, residence_country, citizenship_country, nomination_type, nominators_name, nominators_email, contributions, date_submitted FROM sponsorship_requests";
+$sql_requestors = "SELECT last_name, first_name, org_type, org_name, email, residence_country, citizenship_country, nomination_type, nominators_name, nominators_email, contributions, level_of_need, date_submitted FROM sponsorship_requests WHERE conference_id = 2";
 
 $result = @mysql_query($sql_requestors, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
@@ -31,7 +31,7 @@ $result = @mysql_query($sql_requestors, $connection) or die("Error #". mysql_err
   // following headers instruct the browser to treat the data as a csv file called export.csv
   //
   header( 'Content-Type: text/csv' );
-  header( 'Content-Disposition: attachment;filename=scipy2012_sponsorship_requests.csv' );
+  header( 'Content-Disposition: attachment;filename=scipy2013_sponsorship_requests.csv' );
   //
   // output header row (if atleast one row exists)
   //

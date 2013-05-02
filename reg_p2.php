@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $countries = array('NONE' => '', 'us' => 'United States', 'af' => 'Afghanistan', 'al' => 'Albania', 'dz' => 'Algeria', 'as' => 'American Samoa (US)', 'ad' => 'Andorra', 'ao' => 'Angola', 'ai' => 'Anguilla (UK)', 'ag' => 'Antigua and Barbuda', 'ar' => 'Argentina', 'am' => 'Armenia', 'aw' => 'Aruba', 'au' => 'Australia', 'at' => 'Austria', 'az' => 'Azerbaijan', 'bs' => 'Bahamas', 'bh' => 'Bahrain', 'bd' => 'Bangladesh', 'bb' => 'Barbados', 'by' => 'Belarus', 'be' => 'Belgium', 'bz' => 'Belize', 'bj' => 'Benin', 'bm' => 'Bermuda (UK)', 'bt' => 'Bhutan', 'bo' => 'Bolivia', 'ba' => 'Bosnia and Herzegovina', 'bw' => 'Botswana', 'br' => 'Brazil', 'vg' => 'British Virgin Islands (UK)', 'bn' => 'Brunei Darussalam', 'bg' => 'Bulgaria', 'bf' => 'Burkina Faso', 'mm' => 'Burma', 'bi' => 'Burundi', 'kh' => 'Cambodia', 'cm' => 'Cameroon', 'ca' => 'Canada', 'cv' => 'Cape Verde', 'ky' => 'Cayman Islands (UK)', 'cf' => 'Central African Republic', 'td' => 'Chad', 'cl' => 'Chile', 'cn' => 'China', 'cx' => 'Christmas Island (AU)', 'cc' => 'Cocos (Keeling) Islands (AU)', 'co' => 'Colombia', 'km' => 'Comoros', 'cd' => 'Congo, Democratic Republic of the', 'cg' => 'Congo, Republic of the', 'ck' => 'Cook Islands (NZ)', 'cr' => 'Costa Rica', 'ci' => 'Cote d\'Ivoire', 'hr' => 'Croatia', 'cu' => 'Cuba', 'cy' => 'Cyprus', 'cz' => 'Czech Republic', 'dk' => 'Denmark', 'dj' => 'Djibouti', 'dm' => 'Dominica', 'do' => 'Dominican Republic', 'tp' => 'East Timor', 'ec' => 'Ecuador', 'eg' => 'Egypt', 'sv' => 'El Salvador', 'gq' => 'Equatorial Guinea', 'er' => 'Eritrea', 'ee' => 'Estonia', 'et' => 'Ethiopia', 'fk' => 'Falkland Islands (UK)', 'fo' => 'Faroe Islands (DK)', 'fj' => 'Fiji', 'fi' => 'Finland', 'fr' => 'France', 'gf' => 'French Guiana (FR)', 'pf' => 'French Polynesia (FR)', 'ga' => 'Gabon', 'gm' => 'Gambia', 'ge' => 'Georgia', 'de' => 'Germany', 'gh' => 'Ghana', 'gi' => 'Gibraltar (UK)', 'gr' => 'Greece', 'gl' => 'Greenland (DK)', 'gd' => 'Grenada', 'gp' => 'Guadeloupe (FR)', 'gu' => 'Guam (US)', 'gt' => 'Guatemala', 'gn' => 'Guinea', 'gw' => 'Guinea-Bissau', 'gy' => 'Guyana', 'ht' => 'Haiti', 'va' => 'Holy See (Vatican City)', 'hn' => 'Honduras', 'hk' => 'Hong Kong (CN)', 'hu' => 'Hungary', 'is' => 'Iceland', 'in' => 'India', 'id' => 'Indonesia', 'ir' => 'Iran', 'iq' => 'Iraq', 'ie' => 'Ireland', 'il' => 'Israel', 'it' => 'Italy', 'jm' => 'Jamaica', 'jp' => 'Japan', 'jo' => 'Jordan', 'kz' => 'Kazakstan', 'ke' => 'Kenya', 'ki' => 'Kiribati', 'kp' => 'Korea, Democratic People\'s Republic (North)', 'kr' => 'Korea, Republic of (South)', 'kw' => 'Kuwait', 'kg' => 'Kyrgyzstan', 'la' => 'Laos', 'lv' => 'Latvia', 'lb' => 'Lebanon', 'ls' => 'Lesotho', 'lr' => 'Liberia', 'ly' => 'Libya', 'li' => 'Liechtenstein', 'lt' => 'Lithuania', 'lu' => 'Luxembourg', 'mo' => 'Macau (CN)', 'mk' => 'Macedonia', 'mg' => 'Madagascar', 'mw' => 'Malawi', 'my' => 'Malaysia', 'mv' => 'Maldives', 'ml' => 'Mali', 'mt' => 'Malta', 'mh' => 'Marshall islands', 'mq' => 'Martinique (FR)', 'mr' => 'Mauritania', 'mu' => 'Mauritius', 'yt' => 'Mayotte (FR)', 'mx' => 'Mexico', 'fm' => 'Micronesia, Federated States of', 'md' => 'Moldova', 'mc' => 'Monaco', 'mn' => 'Mongolia', 'ms' => 'Montserrat (UK)', 'ma' => 'Morocco', 'mz' => 'Mozambique', 'na' => 'Namibia', 'nr' => 'Nauru', 'np' => 'Nepal', 'nl' => 'Netherlands', 'an' => 'Netherlands Antilles (NL)', 'nc' => 'New Caledonia (FR)', 'nz' => 'New Zealand', 'ni' => 'Nicaragua', 'ne' => 'Niger', 'ng' => 'Nigeria', 'nu' => 'Niue', 'nf' => 'Norfolk Island (AU)', 'mp' => 'Northern Mariana Islands (US)', 'no' => 'Norway', 'om' => 'Oman', 'pk' => 'Pakistan', 'pw' => 'Palau', 'pa' => 'Panama', 'pg' => 'Papua New Guinea', 'py' => 'Paraguay', 'pe' => 'Peru', 'ph' => 'Philippines', 'pn' => 'Pitcairn Islands (UK)', 'pl' => 'Poland', 'pt' => 'Portugal', 'pr' => 'Puerto Rico (US)', 'qa' => 'Qatar', 're' => 'Reunion (FR)', 'ro' => 'Romania', 'ru' => 'Russia', 'rw' => 'Rwanda', 'sh' => 'Saint Helena (UK)', 'kn' => 'Saint Kitts and Nevis', 'lc' => 'Saint Lucia', 'pm' => 'Saint Pierre and Miquelon (FR)', 'vc' => 'Saint Vincent and the Grenadines', 'ws' => 'Samoa', 'sm' => 'San Marino', 'st' => 'Sao Tome and Principe', 'sa' => 'Saudi Arabia', 'sn' => 'Senegal', 'yu' => 'Serbia and Montenegro', 'sc' => 'Seychelles', 'sl' => 'Sierra Leone', 'sg' => 'Singapore', 'sk' => 'Slovakia', 'si' => 'Slovenia', 'sb' => 'Solomon Islands', 'so' => 'Somalia', 'za' => 'South Africa', 'gs' => 'South Georgia & South Sandwich Islands (UK)', 'es' => 'Spain', 'lk' => 'Sri Lanka', 'sd' => 'Sudan', 'sr' => 'Suriname', 'sz' => 'Swaziland', 'se' => 'Sweden', 'ch' => 'Switzerland', 'sy' => 'Syria', 'tw' => 'Taiwan', 'tj' => 'Tajikistan', 'tz' => 'Tanzania', 'th' => 'Thailand', 'tg' => 'Togo', 'tk' => 'Tokelau', 'to' => 'Tonga', 'tt' => 'Trinidad and Tobago', 'tn' => 'Tunisia', 'tr' => 'Turkey', 'tm' => 'Turkmenistan', 'tc' => 'Turks and Caicos Islands (UK)', 'tv' => 'Tuvalu', 'ug' => 'Uganda', 'ua' => 'Ukraine', 'ae' => 'United Arab Emirates', 'gb' => 'United Kingdom', 'uy' => 'Uruguay', 'uz' => 'Uzbekistan', 'vu' => 'Vanuatu', 've' => 'Venezuela', 'vn' => 'Vietnam', 'vg' => 'British Virgin Islands (UK)', 'wf' => 'Wallis and Futuna (FR)', 'eh' => 'Western Sahara', 'ye' => 'Yemen', 'zm' => 'Zambia', 'zw' => 'Zimbabwe');
 $ccards = array('' => 'Choose', '002' => 'MasterCard', '001' => 'Visa', '003' => 'American Express', '004' => 'Discover');
@@ -85,10 +86,50 @@ if ($tshirt_size == 5)
     $display_size = "Small";
   }
 
+$tshirt_type = $_POST['tshirt_type'];
+
+if ($tshirt_type == 1)
+  {
+    $display_type = "womens/fitted";
+  }
+if ($tshirt_type == 2)
+  {
+    $display_type = "mens/unisex";
+  }
+
+
 
 $total_price = 0;
 
 include('inc/db_conn.php');
+
+$promotion_id = $_POST['promotion_id'];
+$today = date("Y")."-".date("m")."-".date("d");
+
+include('inc/db_conn.php');
+
+//===========================
+//  pull discount
+//===========================
+
+$sql_discount = "SELECT ";
+$sql_discount .= "id, ";
+$sql_discount .= "discount, ";
+$sql_discount .= "promotion_name ";
+$sql_discount .= "FROM promotion_codes ";
+$sql_discount .= "WHERE code = \"$promotion_id\" ";
+$sql_discount .= "AND active_date <= \"$today\" ";
+$sql_discount .= "AND exp_date >= \"$today\"";
+
+$total_result_discount = @mysql_query($sql_discount, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+while($row = mysql_fetch_array($total_result_discount))
+{
+
+$promotion_id = $row['id'];
+$promotion_name = $row['promotion_name'];
+$discount = $row['discount'];
+
+}
 
 //===========================
 //  pull sessions
@@ -116,17 +157,35 @@ $total_found_sessions = @mysql_num_rows($total_result_sessions);
 do {
   if ($row['session'] != '')
   {
-
 $display_sessions .=    "
   <tr>
     <td>" . $row['session'] . "</td>
-    <td align=\"center\">" . $row['Dates'] . "</td>
-    <td align=\"right\"> $ " . $row['price'] . "</td>
-  </tr>";
+    <td align=\"center\">" . $row['Dates'] . "</td>";
+    
+    if ($row['session'] == "Conference" & $discount != "")
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price']*$discount . "</td>";
+    $row['price'] = $row['price']*$discount;
+        }
+    else
+        {
+    $display_sessions .=   "<td align=\"right\"> $ " . $row['price'] . "</td>";
+        }
+
+    $display_sessions .=   "</tr>";
 $total_price = $total_price + $row['price'];
   }
 }
 while($row = mysql_fetch_array($total_result_sessions));
+
+
+
+      if ($row['session'] == "Conference")
+        {
+        $display_sessions .="checked";
+        }
+
+
 
 //===========================
 //  hidden field values
@@ -161,7 +220,15 @@ else
 if (array_key_exists('Conference', $hv))
   {
     $conference = "on";
-    $conference_value = $hv[Conference];
+    
+    if ($discount != "") 
+      {
+        $conference_value = $hv[Conference]*$discount;
+      }
+    else 
+      {
+        $conference_value = $hv[Conference];
+      }
   }
 else
   {
@@ -177,6 +244,113 @@ else
   {
     $sprint_value = 0;
   }
+
+
+//===========================
+//  pull presenters DAY 1
+//===========================
+
+$sql_presenters = "SELECT ";
+$sql_presenters .= "presenters.id AS presenter_id, ";
+$sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_presenters .= "talks.presenter_id AS pi, ";
+$sql_presenters .= "last_name, ";
+$sql_presenters .= "first_name, ";
+$sql_presenters .= "affiliation, ";
+$sql_presenters .= "bio, ";
+$sql_presenters .= "title, ";
+$sql_presenters .= "track, ";
+$sql_presenters .= "authors, ";
+$sql_presenters .= "talks.description, ";
+$sql_presenters .= "location_id, ";
+$sql_presenters .= "start_time, ";
+$sql_presenters .= "name, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%m%d_%p') AS radio_attribute ";
+
+$sql_presenters .= "FROM schedules ";
+
+$sql_presenters .= "LEFT JOIN talks ";
+$sql_presenters .= "ON schedules.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON schedules.location_id = locations.id ";
+
+$sql_presenters .= "LEFT JOIN presenters ";
+$sql_presenters .= "ON presenter_id = presenters.id ";
+
+$sql_presenters .= "LEFT JOIN license_types ";
+$sql_presenters .= "ON license_type_id = license_types.id ";
+
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
+$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_presenters .= "ORDER BY start_time, location_id";
+
+
+$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$last_start_time = '';
+$last_schedule_day = '';
+
+do {
+
+if ($row['title'] != '')
+  {
+//
+if ($row['schedule_day'] != $last_schedule_day) 
+{
+$display_block .="
+<tr>
+  <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+</tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+//
+
+  if ($row['start_time'] != $last_start_time) 
+     {
+       $display_block .="  <tr>
+        <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+     }
+
+    if ($row['location_id'] == '1')
+      { 
+       $display_block .="
+        <td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+        $last_start_time = $row['start_time'];
+      }
+   elseif ($row['location_id'] == '2')
+     { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+ elseif ($row['location_id'] == '3')
+   { 
+$display_block .="
+<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+$last_start_time = $row['start_time'];
+   }
+  else 
+   {
+$display_block .="
+<td>---</td>";
+
+   }
+}
+}
+
+while ($row = mysql_fetch_array($total_presenters));
+
 
 
 ?>
@@ -227,9 +401,10 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <section id="main-content">
 <h1>Registration Cont.</h1>
 <hr />
+
 <p>Please confirm these prices and submit your payment information below.</p>
 <div align="center">
-<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong></p>
+<p>Participant Level: <b><?php echo $level; ?></b> || T-Shirt size: <strong><?php echo $display_size; ?></strong> (<?php echo $display_type; ?>)</p>
 
 <table id="schedule" width="350">
   <tr>
@@ -250,6 +425,26 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <form id="formID" method="post" name="PaymentInfo" action="https://orderpage.ic3.com/hop/ProcessOrder.do">
 
+<div id="instructions">
+<p>* Indicates a required field.</p>
+</div>
+
+<?php if ($tutorials == "on") 
+  {
+?>
+<p>You have elected to attend tutorials, please indicate the tutorials you would like to attend</p>
+
+<table>
+<?php echo $display_block ?>
+</table>
+
+<?php
+
+
+  }
+
+?>
+
 <!-- #### Summary Table  -->
 
 <!-- #### Payment Form -->
@@ -261,6 +456,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <?php InsertSignature( $TOTALAMT, 'usd' ) ?>
 
 <input type="hidden" id="totalamount" name="totalamount" value="<?php echo $total_price ?>">
+<input type="hidden" id="promotion_id" name="promotion_id" value="<?php echo $promotion_id ?>">
 <input type="hidden" name="conferenceamount" value="<?php echo $conference_value ?>">
 <input type="hidden" name="sprintamount" value="<?php echo $sprint_value ?>">
 <input type="hidden" name="tutorialamount" value="<?php echo $tutorial_value ?>">
@@ -271,33 +467,34 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <input type="hidden" name="conference" value="<?php echo $conference; ?>">
 <input type="hidden" name="sprints" value="<?php echo $sprints; ?>">
 <input type="hidden" name="tutorials" value="<?php echo $tutorials; ?>">
-<input type="hidden" name="tshirt" value="<?php echo $display_size; ?>">
+<input type="hidden" name="tshirt" value="<?php echo $display_size; ?> (<?php echo $display_type; ?>)">
 <input type="hidden" name="tshirt_size_id" value="<?php echo $tshirt_size; ?>">
+<input type="hidden" name="tshirt_type" value="<?php echo $display_type; ?>">
+<input type="hidden" name="tshirt_type_id" value="<?php echo $tshirt_type; ?>">
 
-<div id="instructions">
-<p>* Indicates a required field.</p>
-</div>
+
+
 <div style="clear:both; height: 20px;"></div>
 <h2>Contact Information</h2>
 
 <table class="indent">
     <tr>
-    <td class="no_brder" colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='FirstName' name='shipTo_firstName' value=''></td>
-    <td class="no_brder" colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size='24' id='LastName' name='shipTo_lastName' value=''></td>
-    <td class="no_brder" colspan='2'><label for="">Affiliation</label><br /><input type='text' size='24' name='affiliation' value=''></td>
+    <td class="no_brder" colspan='2'><label for="FirstName">* First Name</label><br /><input class="validate[required] text-input" type='text' id='FirstName' name='shipTo_firstName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' id='LastName' name='shipTo_lastName' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">Affiliation</label><br /><input type='text' name='affiliation' value=''></td>
     </tr>
     <tr>
-      <td class="no_brder" colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' size='24' id='email' name='billTo_email' value=''></td>
-      <td class="no_brder" colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' size='24' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Email</label><br /><input class="validate[required,custom[email]]" type='text' id='email' name='billTo_email' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">* Confirm Email</label><br /><input class="validate[required,equals[email]]" type='text' id='ecom_billto_online_email' name='ecom_billto_online_email' value=''></td>
     </tr>
     <tr>
-      <td class="no_brder" colspan='3'><label for="">Address 1</label><br /><input type='text' size='40' id='Addr1'  name='shipTo_street1' value=''></td>
-      <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text' size='40' id='Addr2' name='shipTo_street2' value=''></td>
+      <td class="no_brder" colspan='2'><label for="">Address 1</label><br /><input type='text' id='Addr1'  name='shipTo_street1' value=''></td>
+      <td class="no_brder" colspan='4'><label for="">Address 2</label><br /><input type='text' id='Addr2' name='shipTo_street2' value=''></td>
     </tr>
     <tr>
-    <td class="no_brder" colspan='2'><label for="">City</label><br /><input type='text' size='15' id='City' name='shipTo_city' value=''></td>
+    <td class="no_brder" colspan='2'><label for="">City</label><br /><input type='text' id='City' name='shipTo_city' value=''></td>
     <td class="no_brder"><label for="">State</label><br /><input type='text' size='3' id='State' name='shipTo_state' value=''></td>
-    <td class="no_brder"><label for="">Zip</label><br /><input type='text' size='11' id='ZipCode' name='shipTo_postalCode' value=''></td>
+    <td class="no_brder"><label for="">Zip</label><br /><input type='text' size='10' id='ZipCode' name='shipTo_postalCode' value=''></td>
     <td class="no_brder"> </td>
       <td class="no_brder"><label for="">Country</label><br />
 
@@ -313,7 +510,7 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 
 <table class="indent">
     <tr>
-        <td class="no_brder" ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' size='24' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
+        <td class="no_brder" ><label for="">* Credit Card Number</label><br /><input  class="validate[required,creditCard] text-input" type='text' id='ecom_payment_card_number' name='card_accountNumber' value=''></td>
         <td class="no_brder" ><label for="">* Card Type:</label><br />
             <select class="validate[required]" id="card_cardType" name='card_cardType'>
             <?php foreach ($ccards as $key => $card_cardType) {
@@ -343,8 +540,8 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
         <td class="no_brder" colspan='3'><label for="">* Last Name</label><br /><input class="validate[required] text-input" type='text' size="24" id='ecom_billto_postal_name_last' name='billTo_lastName' value=''></td>
     </tr>
     <tr>
-        <td class="no_brder" colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  size='40' id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
-        <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text'  size='40' id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">* Address 1</label><br /><input class="validate[required] text-input" type='text'  id='ecom_billto_postal_street_line1' name='billTo_street1' value=''></td>
+        <td class="no_brder" colspan='3'><label for="">Address 2</label><br /><input type='text'  id='ecom_billto_postal_street_line2' name='billTo_street2' value=''></td>
     </tr>
     <tr>
         <td class="no_brder" colspan='2'><label for="">* City</label><br /><input class="validate[required] text-input" type='text' size="15" id='ecom_billto_postal_city' name='billTo_city' value=''></td>
