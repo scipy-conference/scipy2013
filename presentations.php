@@ -54,7 +54,7 @@ $display_talks .="
     <th width=\"29%\" colspan=\"2\"><span class=\"intra_page_nav\" style=\"font-weight: normal;\"><a href=\"#top\" style=\"color: #fff;\">Back to top</a></span><a name=\"" . $row['track'] . "\"></a><br />" . $row['track'] . "</th>
   </tr>
   <tr>
-    <td><a href=\"presentation_edit.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
+    <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
     <td>" . $row['authors'] . "</td>
   </tr>";
 $last_track = $row['track'];
