@@ -53,7 +53,7 @@ $sql_presenters .= "presenters.id AS presenter_id, ";
 $sql_presenters .= "talks.id AS talk_id, ";
 $sql_presenters .= "title, ";
 $sql_presenters .= "abstract, ";
-$sql_presenters .= "description, ";
+$sql_presenters .= "talks.description, ";
 $sql_presenters .= "outline, ";
 $sql_presenters .= "packages, ";
 $sql_presenters .= "documentation, ";
@@ -66,20 +66,19 @@ $sql_presenters .= "tags, ";
 $sql_presenters .= "start_time, ";
 
 $sql_presenters .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
-$sql_presenters .= "DATE_FORMAT(start_time, '%c') AS start_month, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_presenters .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
-$sql_presenters .= "DATE_FORMAT(start_time, '%H') AS start_hour, ";
-$sql_presenters .= "DATE_FORMAT(start_time, '%i') AS start_minute, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
 
 $sql_presenters .= "end_time, ";
 
 $sql_presenters .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
 $sql_presenters .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
 $sql_presenters .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
-$sql_presenters .= "DATE_FORMAT(end_time, '%H') AS end_hour, ";
-$sql_presenters .= "DATE_FORMAT(end_time, '%i') AS end_minute, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time, ";
 
-$sql_presenters .= "location_id ";
+
+$sql_presenters .= "name ";
 
 $sql_presenters .= "FROM talks ";
 $sql_presenters .= "LEFT JOIN presenters_talks ";
@@ -89,6 +88,8 @@ $sql_presenters .= "LEFT JOIN presenters ";
 $sql_presenters .= "ON presenters_talks.presenter_id = presenters.id ";
 $sql_presenters .= "LEFT JOIN schedules ";
 $sql_presenters .= "ON schedules.talk_id = talks.id ";
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON location_id = locations.id ";
 $sql_presenters .= "WHERE talks.id = \"$talk_id\"";
 
 
@@ -127,7 +128,7 @@ $end_month_set = $row['end_month'];
 $end_day_set = $row['end_day'];
 $end_hour = $row['end_hour'];
 $end_minute = $row['end_minute'];
-$location = $row['location'];
+$location = $row['name'];
 }
 
 
@@ -197,6 +198,14 @@ $location = $row['location'];
             } ?></select>
     </td>
   </tr>
+  
+  <tr>
+    <td colspan="4"><label for="">Scheduled</label><br />
+    <div class="icon_date"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>&nbsp;&nbsp;&nbsp; <?php echo "$start_time" ?> - <?php echo "$end_time" ?> @ <?php echo $location ?>
+    
+    </td>
+  </tr>
+
   <tr>
     <td colspan="4"><label for="">Video Link</label><br /><input type='text' size='40' name='video_link' value='<?php echo $video_link ?>'></td>
   </tr>

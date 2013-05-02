@@ -8,9 +8,9 @@
      <li><a href="code_of_conduct.php">Code of Conduct</a></li>
   </ul></li>
   <li><a href="keynotes.php">Keynotes</a></li>
-  <li><a href="speaking_overview.php">Speaking</a>
+  <li><a href="presentations.php">Program</a>
   <ul>
-    <li><a href="speaking_overview.php">Proposal Call</a></li>
+    <li><a href="presentations.php">Presentations</a></li>
     <li><a href="tutorials.php">Tutorials</a></li>
   </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
