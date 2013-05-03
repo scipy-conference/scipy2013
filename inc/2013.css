@@ -233,6 +233,15 @@ background: #fff;
   clear: both;
   }
 
+#slim_sidebar {
+  width: 12%;
+  float: left;
+  padding-right: 1em;
+  border-right: 1px dotted #9E9A74;
+  /*border: 1px solid red;*/
+  clear: both;
+  }
+
 #tutorial-content {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -241,6 +250,15 @@ background: #fff;
 
 #main-content {
   width: 65%;
+  float: left;
+  padding-left: 20px;
+  border-left: 1px dotted #9E9A74;
+  margin-left: -1px;
+  /*border: 1px solid green;*/
+  }
+
+#hp-content {
+  width: 83%;
   float: left;
   padding-left: 20px;
   border-left: 1px dotted #9E9A74;
@@ -269,6 +287,10 @@ h3 {
 
 h4 {
   font-size: 0.85em;
+  }
+
+h5 {
+  font-size: 0.65em;
   }
 
 p {
@@ -327,6 +349,7 @@ p {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-align: center;
+  font-size: 15px;
   line-height: 1.4em;
   color: #fff;
   width: 3em;
@@ -336,6 +359,7 @@ p {
   }
 
 .icon_date_day {
+  font-size: 15px;
   font-size: 1.4em;
   color: #333;
   }
@@ -410,6 +434,23 @@ img.right {
   width: 45%;
   float: left;
   padding: 1em;
+  }
+
+.free_cell {
+  float: left;
+  padding: 0.25em;
+  }
+
+.hp_cell {
+  width: 30%;
+  min-width: 225px;
+  min-height: 330px;
+  float: left;
+  font-size: 0.80em;
+  line-height: 1.4em;
+  padding: 0.5em;
+  border-top: 1px solid #0054a6;
+  /*background: url('../img/line.png') no-repeat;*/
   }
 
 input {
