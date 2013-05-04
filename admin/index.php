@@ -388,17 +388,17 @@ $total_found_uni_pie = @mysql_num_rows($total_result_uni_pie);
 
 while ($row = mysql_fetch_array($total_result_uni_pie)) {
 
-    $size=$row['size'];
-    $qty=$row['qty'];
-    $diff_radius=($qty/$t_shirt_qty);
-    $count_array[] = $diff_radius; 
-    $pie_src_d =implode ("," ,$count_array );
-    $text_array[] = $size." - ".$qty." [" . number_format($diff_radius *100,0) . "%]";
-    $text_array = str_replace (" " ,"%20" ,$text_array );
-    $pie_src_l =implode ("|" ,$text_array );
+    $u_size=$row['size'];
+    $u_qty=$row['qty'];
+    $u_diff_radius=($qty/$t_shirt_qty);
+    $u_count_array[] = $diff_radius; 
+    $u_pie_src_d =implode ("," ,$count_array );
+    $u_text_array[] = $size." - ".$qty." [" . number_format($diff_radius *100,0) . "%]";
+    $u_text_array = str_replace (" " ,"%20" ,$text_array );
+    $u_pie_src_l =implode ("|" ,$text_array );
 }
 
-$chart_uni= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&chs=350x106&chl=$pie_src_l&chco=2b5da6\" width=\"350\" height=\"106\">";
+$chart_uni= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$u_pie_src_d&chs=350x106&chl=$u_pie_src_l&chco=2b5da6\" width=\"350\" height=\"106\">";
 
 
 ?>
