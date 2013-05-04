@@ -91,6 +91,8 @@ elseif ($row['id'] == 4)
     <h2>About</h2>
       <img src="img/about.png" width="251" height="84" alt="about scipy" class="hp_image" />
     <p>The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
+    <p>The conference consists of two days of tutorials followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
+    <p>We look forward to a very exciting conference and hope to see you all at the conference.</p>
   </div>
   <div class="hp_cell" style="margin: 0 5%;">
     <h2>Be Inspired</h2>
@@ -123,7 +125,7 @@ elseif ($row['id'] == 4)
   </div>
   <div class="hp_cell">
     <h2>Announcements</h2>
-    <p>Check out the presentations selected for this year. We just posted the <a href="presentations.php">list of talks, mini-symposia and posters</a>. Schedule coming soon.</p>
+    <p>Check out the <a href="presentations.php">list of talks, mini-symposia and posters</a> selected for this year. Schedule coming soon.</p>
         <?php echo $display_dates ?>
         <div class="row" style="margin: 0;">
           <div class="free_cell">
