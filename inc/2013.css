@@ -80,7 +80,7 @@ body {
 
 #container {
   width: 80%;
-  min-width: 950px;
+  min-width: 1000px;
   margin: 1% auto;
   padding: 25px;
   text-align: left;
@@ -131,7 +131,7 @@ footer {
 /* Menu CSS
 -------------------------------------------------------------- */
 #nav { /* element containing all the top level nav */
-  margin: 0 0 4em 0;
+  margin: 0 0 2em 0;
   border-bottom: 1px solid #2b5da6;
   }
 
@@ -264,6 +264,15 @@ background: #fff;
   border-left: 1px dotted #9E9A74;
   margin-left: -1px;
   /*border: 1px solid green;*/
+  }
+
+.hp_image {
+  display: block; 
+  margin: 0 auto 1em;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 3px #999;
+  -webkit-box-shadow: 1px 1px 3px #999;
+  -moz-box-shadow: 1px 1px 3px #999;
   }
 
 h1, h2, h3, h4, h5, h6 {
@@ -442,8 +451,8 @@ img.right {
   }
 
 .hp_cell {
-  width: 30%;
-  min-width: 225px;
+  width: 28%;
+  min-width: 230px;
   min-height: 330px;
   float: left;
   font-size: 0.80em;
