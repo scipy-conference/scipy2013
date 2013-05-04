@@ -29,11 +29,8 @@ do {
   if ($row['description'] != '')
   {
 
-$display_dates .="
-<tr>
-  <td><div class=\"icon_date\">" . $row['date_m'] . "<br /><span class=\"icon_date_day\">" . $row['date_d'] . "</span></div></td>
-  <td style=\"font-size: 0.75em;\">" . $row['description'] . "</td>
-</tr>";
+$display_dates .="<div class=\"row\" style=\"margin: 0;\"><div class=\"free_cell\">
+<div class=\"icon_date\">" . $row['date_m'] . "<br /><span class=\"icon_date_day\">" . $row['date_d'] . "</span></div></div><div class=\"free_cell\" style=\"max-width: 70%; padding-top: 1em;\">" . $row['description'] . "</div></div>";
 }}
 while($row = mysql_fetch_array($total_dates));
 
@@ -83,86 +80,136 @@ elseif ($row['id'] == 4)
 
 <?php include('inc/page_headers.php') ?>
 
-<section id="sidebar">
-  <?php include("inc/sponsors.php") ?>
+<section id="slim_sidebar">
+  <?php include("inc/sponsors_small.php") ?>
 </section>
 
-<section id="main-content">
+<section id="hp-content">
 
-<img src="img/atxmuralsm.jpg" width= "270" height="171" alt="Austin, TX" class="right" />
-
-<p >SciPy 2013, the twelfth annual Scientific Computing with Python conference, will be held June 24th - 29th in Austin, Texas.</p>
-
-<table style="float: right; clear: both; width: 30%; ">
-<tr>
-  <th colspan="2">Upcoming Important Dates</th>
-</tr>
-<?php echo $display_dates ?>
-</table>
-
-<p>SciPy 2013 is about three months away, and we’ve been working hard to make this the best one yet. We are very excited to announce the themes of this year’s conference. The main conference themes which will be <strong>Machine Learning</strong> & <strong>Tools for Reproducible Science</strong>. <a href="about.php">Read more...</a></p>
-
-<p>Like last year, there will also be 5 mini-symposia, and thanks to your contributions to the poll, the following themes have been selected:</p>
-
-<ul>
-  <li>Astronomy & astrophysics</li>
-  <li>Bio-informatics</li>
-  <li>GIS - Geospatial Data Analysis</li>
-  <li>Medical imaging</li>
-  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
-</ul>
-
-<p>SciPy is a community dedicated to the advancement of scientific computing through open source Python software for mathematics, science, and engineering.</p>
-<div class="clearer"></div>
-<div class="callout" style="width: 265px;">
-<h1>More</h1>
-<p>To receive updates on conference specifics:</p>
-
-<div class="callout_row">
-  <img src="img/newsletter_icon.png" width="32" height="32"  alt="newsletter" class="callout_date" />
-  <span class="callout_description">Subscribe to the SciPy 2013 newsletter</span>
-  <div class="clearer"></div>
-  <style type="text/css">
-.link,
-.link a,
-#SignUp .signupframe {
-	color: #226699;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	}
-	.link,
-	.link a {
-		text-decoration: none;
-		}
-	#SignUp .signupframe {
-		border: 1px solid #000000;
-		background: #ffffff;
-		}
-#SignUp .signupframe .required {
-	font-size: 10px;
-	}
-</style>
-<script type="text/javascript" src="http://app.icontact.com/icp/loadsignup.php/form.js?c=1254645&l=7470&f=2197"></script>
-
+<div class="row">
+  <div class="hp_cell">
+    <h2>About</h2>
+      <img src="img/about.png" width="251" height="84" alt="about scipy" class="hp_image" />
+    <p>The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
+    <p>The conference consists of two days of tutorials followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
+    <p>We look forward to a very exciting conference and hope to see you all at the conference.</p>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>Be Inspired</h2>
+    <p>We are excited to feature these keynote presentations.</p>
+      <div class="row" style="border-top: 1px solid #cadbeb;">
+        <div class="free_cell">
+          <img src="img/hs_fp.jpg" widht="40" height="38" alt="Fernando Perez" />
+        </div>
+        <div class="free_cell" style="max-width: 75%;">
+          <p style="margin-bottom: 0;"><em>IPython: from the shell to a book with a single tool; the method behind the madness</em> - Fernando Perez<br /></p>
+        </div>
+      </div>
+      <div class="row" style="border-top: 1px solid #cadbeb;">
+        <div class="free_cell">
+          <img src="img/hs_ws.jpg" widht="40" height="38" alt="William Schroeder" />
+        </div>
+        <div class="free_cell" style="max-width: 75%;">
+          <p><em>The New Scientific Publishers</em><br />- William Schroeder</p>
+        </div>
+      </div>
+      <div class="row" style="border-top: 1px solid #cadbeb;">
+        <div class="free_cell">
+          <img src="img/hs_og.jpg" widht="40" height="38" alt="William Schroeder" />
+        </div>
+        <div class="free_cell" style="max-width: 75%;">
+          <p><em>Trends in Machine Learning and the SciPy community</em> - Olivier Grisel</p>
+        </div>
+        <p class="clearer">View their bios on the <a href="keynotes.php">Keynotes page</a> and descriptions of their talks on the <a href="presentations.php#Keynotes">Presentations page</a>.</p>
+      </div>
+  </div>
+  <div class="hp_cell">
+    <h2>Announcements</h2>
+    <p>Check out the <a href="presentations.php">list of talks, mini-symposia and posters</a> selected for this year. Schedule coming soon.</p>
+        <?php echo $display_dates ?>
+        <div class="row" style="margin: 0;">
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">24</span></div>
+          </div>
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">25</span></div>
+          </div>
+          <div class="free_cell" style="max-width: 20%; padding-top: 1em;">
+            Tutorials
+          </div>
+        </div>
+        <div class="row" style="margin: 0;">
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">26</span></div>
+          </div>
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">27</span></div>
+          </div>
+          <div class="free_cell" style="max-width: 20%; padding-top: 1em;">
+            Conference
+          </div>
+        </div>
+        <div class="row" style="margin: 0;">
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">28</span></div>
+          </div>
+          <div class="free_cell">
+            <div class="icon_date">Jun<br /><span class="icon_date_day">29</span></div>
+          </div>
+          <div class="free_cell" style="max-width: 20%; padding-top: 1em;">
+            Sprints
+          </div>
+        </div>
+  </div>
 </div>
 
-<div class="callout_row">
-  <img src="img/twitter-bird-light-bgs.png" width="32" height="32" alt="twitter" class="callout_date" />
-  <span class="callout_description">Follow <a href="https://twitter.com/SciPyConf">@SciPyConf</a></span>
+<div class="row">
+  <div class="hp_cell">
+    <h2>Specialized Tracks</h2>
+        <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
+    <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
+    <ul>
+      <li><strong>Machine Learning</strong> - Python makes machine learning algorithms more accessible. Learn about machine learning libraries and how they have been used as effective tools. <span class="other_form_tips"><a href="presentations.php#Machine Learning">View the Machine Learning topics</a></span>.</li>
+      <li><strong>Reproducible Science</strong> - The Open Science movement has stoked renewed interest in reproducible research. Hear how python is used to achieve reproducible scientific computing. <span class="other_form_tips"><a href="presentations.php#Reproducible Science">View the Reproducible Science topics</a>.</span></li>
+    </ul>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>Learn Something New</h2>
+    <img src="img/tutorials.png" width="251" height="84" alt="tutorials"  class="hp_image" />
+    <p>This year we are expanding the tutorial session to include three parallel tracks:</p> 
+    <ul>
+      <li>introductory</li>
+      <li>intermediate</li>
+      <li>advanced</li>
+    </ul>
+    <p>Go to the <a href="tutorials.php">tutorials page</a> to see the schedule and links to descriptions.</p>
+  </div>
+  <div class="hp_cell">
+    <h2>Participate</h2>
+    <img src="img/sprint.png" width="251" height="84" alt="participate"  class="hp_image" />
+    <p>A hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects. The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
+  </div>
 </div>
 
-<div class="callout_row">
-  <img src="img/gplus-32.png" width="32" height="32"  alt="g-plus" class="callout_date" />
-  <span class="callout_description"><a href="https://plus.google.com/u/0/100948873231627513165/posts">ScipyConference google+ page</a></span>
+<div class="row">
+  <div class="hp_cell">
+    <h2>Gather</h2>
+    <img src="img/hall.png" width="251" height="84" alt="BoFs"  class="hp_image" />
+    <p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference. The BOFs sessions cover primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>Plotting Contest</h2>
+    <p>In memory of John Hunter, we are pleased to announce the first</p>
+    <p>SciPy John Hunter Excellence in Plotting Competition.</p>
+    <p>This open competition aims to highlight the importance of quality plotting to scientific progress and showcase the capabilities of the current generation of plotting software.</p>
+    <p>Winners will be announced during the conference days.</p>
+  </div>
+  <div class="hp_cell">
+    <h2>What's it like?</h2>
+    <p>Watch the video highlighting last years conference.</p>
+    <iframe src="https://docs.google.com/a/enthought.com/file/d/0B60st7W8G6ojNGdGNGNmemc3aEU/preview" width="250" height="150" style="display: block; margin: 0 auto;" ></iframe>
+  </div>
 </div>
-</div>
-
-<p>The annual SciPy Conference allows participants from both academic and commercial organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
-
-<p>To see the program from past years, <a href="http://conference.scipy.org/past.html">go to http://conference.scipy.org/past.html</a></p>
-
-
-
 </section>
 
 
