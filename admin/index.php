@@ -390,12 +390,12 @@ while ($row = mysql_fetch_array($total_result_uni_pie)) {
 
     $u_size=$row['size'];
     $u_qty=$row['qty'];
-    $u_diff_radius=($qty/$t_shirt_qty);
-    $u_count_array[] = $diff_radius; 
-    $u_pie_src_d =implode ("," ,$count_array );
-    $u_text_array[] = $size." - ".$qty." [" . number_format($diff_radius *100,0) . "%]";
-    $u_text_array = str_replace (" " ,"%20" ,$text_array );
-    $u_pie_src_l =implode ("|" ,$text_array );
+    $u_diff_radius=($u_qty/$uni_t_shirt_qty);
+    $u_count_array[] = $u_diff_radius; 
+    $u_pie_src_d =implode ("," ,$u_count_array );
+    $u_text_array[] = $u_size." - ".$u_qty." [" . number_format($u_diff_radius *100,0) . "%]";
+    $u_text_array = str_replace (" " ,"%20" ,$u_text_array );
+    $u_pie_src_l =implode ("|" ,$u_text_array );
 }
 
 $chart_uni= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$u_pie_src_d&chs=350x106&chl=$u_pie_src_l&chco=2b5da6\" width=\"350\" height=\"106\">";
@@ -467,24 +467,24 @@ $chart_uni= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$u_pie_sr
 <h2>Tutorials</h2>
 
 <div class="row">
-<div class="cell" style="width: 25%;">
-<table id="registrants_table" width="150" style="margin: 0 auto;">
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
 <tr>
     <th colspan="2">Introductory</th>
   </tr>
 <?php echo "$display_intro" ?>
 </table>
 </div>
-<div class="cell" style="width: 25%;">
-<table id="registrants_table" width="150" style="margin: 0 auto;">
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
 <tr>
     <th colspan="2">Intermediate</th>
   </tr>
 <?php echo "$display_inter" ?>
 </table>
 </div>
-<div class="cell" style="width: 25%;">
-<table id="registrants_table" width="150" style="margin: 0 auto;">
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
 <tr>
     <th colspan="2">Advanced</th>
   </tr>
