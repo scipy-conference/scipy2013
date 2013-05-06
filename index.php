@@ -15,7 +15,7 @@ $sql_dates .= "DATE_FORMAT(`impt_date`, '%b') as date_m, ";
 $sql_dates .= "DATE_FORMAT(`impt_date`, '%d') as date_d, ";
 $sql_dates .= "`description`  ";
 $sql_dates .= "FROM `important_dates`  ";
-$sql_dates .= "WHERE impt_date > \"$today\" ";
+$sql_dates .= "WHERE impt_date >= \"$today\" ";
 $sql_dates .= "AND conference_id = 2 ";
 $sql_dates .= "AND display = \"public\" ";
 $sql_dates .= "ORDER BY impt_date ";
@@ -157,7 +157,7 @@ elseif ($row['id'] == 4)
             <div class="icon_date">Jun<br /><span class="icon_date_day">29</span></div>
           </div>
           <div class="free_cell" style="max-width: 20%; padding-top: 1em;">
-            Sprints
+            Sprints &amp; BoFs
           </div>
         </div>
   </div>
@@ -174,7 +174,7 @@ elseif ($row['id'] == 4)
     </ul>
   </div>
   <div class="hp_cell" style="margin: 0 5%;">
-    <h2>Learn Something New</h2>
+    <h2>Learn</h2>
     <img src="img/tutorials.png" width="251" height="84" alt="tutorials"  class="hp_image" />
     <p>This year we are expanding the tutorial session to include three parallel tracks:</p> 
     <ul>
@@ -210,6 +210,66 @@ elseif ($row['id'] == 4)
     <iframe src="https://docs.google.com/a/enthought.com/file/d/0B60st7W8G6ojNGdGNGNmemc3aEU/preview" width="250" height="150" style="display: block; margin: 0 auto;" ></iframe>
   </div>
 </div>
+<div class="row">
+  <div class="hp_cell">
+    <h2>Mini-Symposia</h2>
+    <img src="img/bof.png" width="251" height="84" alt="BoFs"  class="hp_image" />
+    <p>Introduced in 2012, mini-symposia are held to discuss scientific computing applied to a specific scientific domain/ industry during a half afternoon after the general conference. Their goal is to promote industry specific libraries and tools, and gather people with similar interests for discussions.</p>
+
+<p>Mini-symposia on the following topics will take place this year:</p>
+
+<ul>
+  <li>Astronomy and astrophysics</li>
+  <li>Bioinformatics</li>
+  <li>GIS - Geospatial Data Analysis</li>
+  <li>Medical imaging</li>
+  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
+</ul>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>More</h2>
+    <p>To receive updates on conference specifics:</p>
+
+  <img src="img/newsletter_icon.png" width="32" height="32"  alt="newsletter" class="callout_date" />
+  <span class="callout_description">Subscribe to the SciPy 2013 newsletter</span>
+  <style type="text/css">
+.link,
+.link a,
+#SignUp .signupframe {
+	color: #226699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	}
+	.link,
+	.link a {
+		text-decoration: none;
+		}
+	#SignUp .signupframe {
+		border: 1px solid #000000;
+		background: #ffffff;
+		}
+#SignUp .signupframe .required {
+	font-size: 10px;
+	}
+</style>
+<script type="text/javascript" src="http://app.icontact.com/icp/loadsignup.php/form.js?c=1254645&l=7470&f=2197"></script>
+
+
+<div class="row">
+  <img src="img/twitter-bird-light-bgs.png" width="32" height="32" alt="twitter" class="callout_date" />
+  <span class="callout_description">Follow <a href="https://twitter.com/SciPyConf">@SciPyConf</a></span>
+</div>
+
+<div class="row">
+  <img src="img/gplus-32.png" width="32" height="32"  alt="g-plus" class="callout_date" />
+  <span class="callout_description"><a href="https://plus.google.com/u/0/100948873231627513165/posts">ScipyConference google+ page</a></span>
+</div>
+
+  </div>
+
+</div>
+
+
 </section>
 
 
