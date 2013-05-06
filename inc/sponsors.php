@@ -15,10 +15,10 @@
 
 <h3 class="sponsor_level">Platinum Sponsors</h3>
 <div class="sponsor_cell">
-  <a href="http://www.google.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/Google.png" alt="Google" width="180" height="64" class="align_center" /></a>
+  <a href="http://www.lanl.gov/index.php"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/lanl.png" alt="LANL" width="225" height="54" class="align_center" /></a>
 </div>
 <div class="sponsor_cell">
-  <a href="http://www.lanl.gov/index.php"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/lanl.png" alt="LANL" width="225" height="54" class="align_center" /></a>
+  <a href="http://www.google.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/Google.png" alt="Google" width="180" height="64" class="align_center" /></a>
 </div>
 
 <h3 class="sponsor_level">Silver Sponsors</h3>

@@ -213,7 +213,50 @@ $display_sess_paid_sum .="<tr>
 while($row = mysql_fetch_array($total_result_sess_sum));
 
 //===========================
-//  pull tshirts summary
+//  pull tutorial registrations details
+//===========================
+
+$sql_tutorial_sum = "SELECT  ";
+$sql_tutorial_sum .= "`talks`.`title`, ";
+$sql_tutorial_sum .= "`talks`.`track`, ";
+$sql_tutorial_sum .= "`talk_id`, ";
+$sql_tutorial_sum .= "COUNT(talk_id) AS `qty` ";
+$sql_tutorial_sum .= "FROM talks  ";
+$sql_tutorial_sum .= "LEFT JOIN registered_tutorials  ";
+$sql_tutorial_sum .= "ON talk_id = talks.id  ";
+$sql_tutorial_sum .= "WHERE talks.id IN (100,101,102,103,104,105,106,107,108,109,110,111)";
+$sql_tutorial_sum .= "GROUP BY talks.id ";
+$sql_tutorial_sum .= "ORDER BY talks.id ";
+
+
+$total_result_tutorial_sum = @mysql_query($sql_tutorial_sum, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_tutorial_sum = @mysql_num_rows($total_result_tutorial_sum);
+
+while($row = mysql_fetch_array($total_result_tutorial_sum)) {
+
+$title = $row['title'];
+$track = $row['track'];
+$qty = $row['qty'];
+
+if ($track == "Introductory")
+  {
+    $display_intro .= "<tr><td>$title</td><td>$qty</td></tr>";
+  } 
+if ($track == "Intermediate")
+  {
+    $display_inter .= "<tr><td>$title</td><td>$qty</td></tr>";
+  } 
+if ($track == "Advanced")
+  {
+    $display_advanced .= "<tr><td>$title</td><td>$qty</td></tr>";
+  } 
+}
+
+
+
+
+//===========================
+//  pull ladies tshirts summary
 //===========================
 
 $t_shirt_qty = 0;
@@ -225,7 +268,8 @@ $sql_tshirts .= "SUM(IF(tshirt_size_id = 3,1,0)) AS l, ";
 $sql_tshirts .= "SUM(IF(tshirt_size_id = 2,1,0)) AS xl, ";
 $sql_tshirts .= "SUM(IF(tshirt_size_id = 1,1,0)) AS xxl ";
 $sql_tshirts .= "FROM registrations ";
-$sql_tshirts .= "WHERE conference_id = 2";
+$sql_tshirts .= "WHERE conference_id = 2 ";
+$sql_tshirts .= "AND tshirt_type_id = 1";
 
 
 $total_result_tshirts = @mysql_query($sql_tshirts, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -250,7 +294,7 @@ $display_tshirts .="<tr>
 while($row = mysql_fetch_array($total_result_tshirts));
 
 //==================================================
-//   tshirts Pie QUERY
+//   ladies tshirts Pie QUERY
 //==================================================
 
 $row_count=1;
@@ -262,6 +306,7 @@ $sql_tshirts_pie .= "FROM registrations ";
 $sql_tshirts_pie .= "LEFT JOIN tshirt_sizes ";
 $sql_tshirts_pie .= "ON tshirt_size_id = tshirt_sizes.id ";
 $sql_tshirts_pie .= "WHERE conference_id = 2 ";
+$sql_tshirts_pie .= "AND tshirt_type_id = 1 ";
 $sql_tshirts_pie .= "GROUP BY size ";
 $sql_tshirts_pie .= "ORDER BY tshirt_sizes.id DESC";
 
@@ -280,7 +325,81 @@ while ($row = mysql_fetch_array($total_result_pie)) {
     $pie_src_l =implode ("|" ,$text_array );
 }
 
-$chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&chs=434x133&chl=$pie_src_l&chco=2b5da6\" width=\"434\" height=\"133\">";
+$chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&chs=350x106&chl=$pie_src_l&chco=2b5da6\" width=\"350\" height=\"106\">";
+
+
+//===========================
+//  pull unisex tshirts summary
+//===========================
+
+$uni_t_shirt_qty = 0;
+
+$sql_uni_tshirts = "SELECT  ";
+$sql_uni_tshirts .= "SUM(IF(tshirt_size_id = 5,1,0)) AS s, ";
+$sql_uni_tshirts .= "SUM(IF(tshirt_size_id = 4,1,0)) AS m, ";
+$sql_uni_tshirts .= "SUM(IF(tshirt_size_id = 3,1,0)) AS l, ";
+$sql_uni_tshirts .= "SUM(IF(tshirt_size_id = 2,1,0)) AS xl, ";
+$sql_uni_tshirts .= "SUM(IF(tshirt_size_id = 1,1,0)) AS xxl ";
+$sql_uni_tshirts .= "FROM registrations ";
+$sql_uni_tshirts .= "WHERE conference_id = 2 ";
+$sql_uni_tshirts .= "AND tshirt_type_id = 2";
+
+
+$total_result_uni_tshirts = @mysql_query($sql_uni_tshirts, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_uni_tshirts = @mysql_num_rows($total_result_uni_tshirts);
+
+do {
+  if ($row['s'] != '')
+  {
+
+$display_uni_tshirts .="<tr>
+    <td align=\"right\"><span class=\"bold\">" . $row['s'] . "</span></td>
+    <td align=\"right\"><span class=\"bold\">" . $row['m'] . "</span></td>
+    <td align=\"right\"><span class=\"bold\">" . $row['l'] . "</span></td>
+    <td align=\"right\"><span class=\"bold\">" . $row['xl'] . "</span></td>
+    <td align=\"right\"><span class=\"bold\">" . $row['xxl'] . "</span></td>
+  </tr>";
+
+  $uni_t_shirt_qty = $row['s'] + $row['m'] + $row['l'] + $row['xl'] + $row['xxl'];
+  }
+
+}
+while($row = mysql_fetch_array($total_result_uni_tshirts));
+
+//==================================================
+//   unisex tshirts Pie QUERY
+//==================================================
+
+$row_count=1;
+
+$sql_uni_tshirts_pie = "SELECT  ";
+$sql_uni_tshirts_pie .= "size, ";
+$sql_uni_tshirts_pie .= "SUM(IF(tshirt_size_id > 0,1,0)) AS qty ";
+$sql_uni_tshirts_pie .= "FROM registrations ";
+$sql_uni_tshirts_pie .= "LEFT JOIN tshirt_sizes ";
+$sql_uni_tshirts_pie .= "ON tshirt_size_id = tshirt_sizes.id ";
+$sql_uni_tshirts_pie .= "WHERE conference_id = 2 ";
+$sql_uni_tshirts_pie .= "AND tshirt_type_id = 2 ";
+$sql_uni_tshirts_pie .= "GROUP BY size ";
+$sql_uni_tshirts_pie .= "ORDER BY tshirt_sizes.id DESC";
+
+$total_result_uni_pie = @mysql_query($sql_uni_tshirts_pie, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_uni_pie = @mysql_num_rows($total_result_uni_pie);
+
+while ($row = mysql_fetch_array($total_result_uni_pie)) {
+
+    $u_size=$row['size'];
+    $u_qty=$row['qty'];
+    $u_diff_radius=($u_qty/$uni_t_shirt_qty);
+    $u_count_array[] = $u_diff_radius; 
+    $u_pie_src_d =implode ("," ,$u_count_array );
+    $u_text_array[] = $u_size." - ".$u_qty." [" . number_format($u_diff_radius *100,0) . "%]";
+    $u_text_array = str_replace (" " ,"%20" ,$u_text_array );
+    $u_pie_src_l =implode ("|" ,$u_text_array );
+}
+
+$chart_uni= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$u_pie_src_d&chs=350x106&chl=$u_pie_src_l&chco=2b5da6\" width=\"350\" height=\"106\">";
+
 
 ?>
 
@@ -312,7 +431,7 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 <p>Total Registered: <span class="bold"><?php echo $registered_qty ?></span></p>
 <div align="center">
 <?php echo "$daily_reg_chart" ?>
-
+<br />
 <?php echo"$chart_reg" ?>
 
 <table id="registrants_table" width="350">
@@ -344,12 +463,45 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 </div>
 <br />
 <hr />
-<h2>T-Shirts</h2>
-<p>Total T-Shirts: <span class="bold"><?php echo $t_shirt_qty ?></span></p>
+<div class="row">
+<h2>Tutorials</h2>
 
-<div align="center">
+<div class="row">
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
+<tr>
+    <th colspan="2">Introductory</th>
+  </tr>
+<?php echo "$display_intro" ?>
+</table>
+</div>
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
+<tr>
+    <th colspan="2">Intermediate</th>
+  </tr>
+<?php echo "$display_inter" ?>
+</table>
+</div>
+<div class="cell" style="width: 28%;">
+<table id="registrants_table" width="200" style="margin: 0 auto;">
+<tr>
+    <th colspan="2">Advanced</th>
+  </tr>
+<?php echo "$display_advanced" ?>
+</table>
+</div>
+</div>
+
+
+<hr />
+<div class="row">
+<h2>T-Shirts</h2>
+
+<div class="cell">
+<p>Ladies T-Shirts: <span class="bold"><?php echo $t_shirt_qty ?></span></p>
 <?php echo"$chart" ?>
-<table id="registrants_table" width="250">
+<table id="registrants_table" width="250" style="margin: 0 auto;">
 <tr>
   <th width="50"><div align="right">S</th>
   <th width="50"><div align="right">M</div></th>
@@ -359,6 +511,21 @@ $chart= "<img src=\"http://chart.apis.google.com/chart?cht=p&chd=t:$pie_src_d&ch
 </tr>
 <?php echo $display_tshirts ?>
 </table>
+</div>
+<div class="cell">
+<p>Unisex T-Shirts: <span class="bold"><?php echo $uni_t_shirt_qty ?></span></p>
+<?php echo"$chart_uni" ?>
+<table id="registrants_table" width="250" style="margin: 0 auto;">
+<tr>
+  <th width="50"><div align="right">S</th>
+  <th width="50"><div align="right">M</div></th>
+  <th width="50"><div align="right">L</div></th>
+  <th width="50"><div align="right">XL</div></th>
+  <th width="50"><div align="right">XXL</div></th>
+</tr>
+<?php echo $display_uni_tshirts ?>
+</table>
+</div>
 </div>
 <hr />
 </section>

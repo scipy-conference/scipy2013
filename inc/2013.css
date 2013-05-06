@@ -80,7 +80,7 @@ body {
 
 #container {
   width: 80%;
-  min-width: 950px;
+  min-width: 1000px;
   margin: 1% auto;
   padding: 25px;
   text-align: left;
@@ -131,7 +131,7 @@ footer {
 /* Menu CSS
 -------------------------------------------------------------- */
 #nav { /* element containing all the top level nav */
-  margin: 0 0 4em 0;
+  margin: 0 0 2em 0;
   border-bottom: 1px solid #2b5da6;
   }
 
@@ -233,6 +233,15 @@ background: #fff;
   clear: both;
   }
 
+#slim_sidebar {
+  width: 12%;
+  float: left;
+  padding-right: 1em;
+  border-right: 1px dotted #9E9A74;
+  /*border: 1px solid red;*/
+  clear: both;
+  }
+
 #tutorial-content {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -246,6 +255,24 @@ background: #fff;
   border-left: 1px dotted #9E9A74;
   margin-left: -1px;
   /*border: 1px solid green;*/
+  }
+
+#hp-content {
+  width: 83%;
+  float: left;
+  padding-left: 20px;
+  border-left: 1px dotted #9E9A74;
+  margin-left: -1px;
+  /*border: 1px solid green;*/
+  }
+
+.hp_image {
+  display: block; 
+  margin: 0 auto 1em;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 3px #999;
+  -webkit-box-shadow: 1px 1px 3px #999;
+  -moz-box-shadow: 1px 1px 3px #999;
   }
 
 h1, h2, h3, h4, h5, h6 {
@@ -269,6 +296,10 @@ h3 {
 
 h4 {
   font-size: 0.85em;
+  }
+
+h5 {
+  font-size: 0.65em;
   }
 
 p {
@@ -327,6 +358,7 @@ p {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-align: center;
+  font-size: 15px;
   line-height: 1.4em;
   color: #fff;
   width: 3em;
@@ -336,6 +368,7 @@ p {
   }
 
 .icon_date_day {
+  font-size: 15px;
   font-size: 1.4em;
   color: #333;
   }
@@ -412,6 +445,23 @@ img.right {
   padding: 1em;
   }
 
+.free_cell {
+  float: left;
+  padding: 0.25em;
+  }
+
+.hp_cell {
+  width: 28%;
+  min-width: 230px;
+  min-height: 330px;
+  float: left;
+  font-size: 0.80em;
+  line-height: 1.4em;
+  padding: 0.5em;
+  border-top: 1px solid #0054a6;
+  /*background: url('../img/line.png') no-repeat;*/
+  }
+
 input {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25em;
@@ -473,6 +523,21 @@ textarea {
   line-height: 1em;
   text-align: right;
   margin: 3px 0 0 0;
+  }
+
+.track {
+  font-size: 0.8em;
+  font-style: italic;
+  }
+
+.track_atsumaru {
+  background: #dedede;
+  border-bottom: 1px solid #aaa; 
+  }
+
+.track_break {
+  background: url("../img/break.gif");
+  border-bottom: 1px solid #aaa; 
   }
 
 .other_form_tips {
