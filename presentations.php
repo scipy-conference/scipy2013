@@ -34,7 +34,7 @@ $sql_talks .= "ON license_type_id = license_types.id ";
 
 $sql_talks .= "WHERE talks.conference_id = 2 ";
 $sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
-$sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bio-informatics (-f)','Bio-informatics (-s)','GIS - Geospatial Data Analysis','Medical imaging','Meteorology, Climatology and Oceanic Science','poster'), title";
+$sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bioinformatics','GIS - Geospatial Data Analysis','Medical imaging','Meteorology, Climatology and Oceanic Science','Posters'), title";
 
 
 $total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -101,8 +101,8 @@ while ($row = mysql_fetch_array($total_talks));
 <p>Listed below are confirmed presentations for SciPy2013. More details and schedule information coming soon.</p>
 
 <div class="intra_page_nav" style="text-align: center; font-size: 0.75em;"><a href="#Keynotes">Keynotes</a><br /><a href="#General">General</a> | <a href="#Machine Learning">Machine Learning</a> | <a href="#Reproducible Science">Reproducible Science</a> <br />
-<a href="#Astronomy and Astrophysics">Astronomy and Astrophysics</a> | <a href="#Bio-informatics">Bio-informatics</a> | <a href="#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a> | <a href="#Medical Imaging">Medical Imaging</a> | <a href="#Meteorology, Climatology and Oceanic Science">Meteorology, Climatology and Oceanic Science</a><br />
-<a href="#poster">Posters</a></div>
+<a href="#Astronomy and Astrophysics">Astronomy and Astrophysics</a> | <a href="#Bioinformatics">Bio-informatics</a> | <a href="#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a> | <a href="#Medical Imaging">Medical Imaging</a> | <a href="#Meteorology, Climatology and Oceanic Science">Meteorology, Climatology and Oceanic Science</a><br />
+<a href="#Posters">Posters</a></div>
 
 <table id="registrants_table">
 <?php echo $display_talks ?>
