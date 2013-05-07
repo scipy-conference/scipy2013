@@ -1,21 +1,13 @@
 <?php
 
-
 include('inc/db_conn.php');
-
 
 //===========================
 //  pull talks 
 //===========================
 
 $sql_talks = "SELECT ";
-$sql_talks .= "presenters.id AS presenter_id, ";
-$sql_talks .= "talks.id AS talk_id, ";
 $sql_talks .= "authors, ";
-$sql_talks .= "last_name, ";
-$sql_talks .= "first_name, ";
-$sql_talks .= "affiliation, ";
-$sql_talks .= "bio, ";
 $sql_talks .= "title, ";
 $sql_talks .= "track, ";
 
@@ -40,13 +32,12 @@ $sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Rep
 $total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
 $last_track = '';
-$last_schedule_day = '';
 
 do {
 
 if ($row['title'] != '')
   {
-//
+
 if ($row['track'] != $last_track) 
 {
 $display_talks .="
@@ -55,7 +46,7 @@ $display_talks .="
   </tr>
   <tr>
     <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['authors'] . "</td>
+    <td>" . $row['track'] . "</td>
   </tr>";
 $last_track = $row['track'];
 }
@@ -63,7 +54,7 @@ else
 $display_talks .="
   <tr>
     <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['authors'] . "</td>
+    <td>" . $row['track'] . "</td>
   </tr>";
 }
 }
