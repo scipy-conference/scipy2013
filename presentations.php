@@ -46,7 +46,7 @@ $display_talks .="
   </tr>
   <tr>
     <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['track'] . "</td>
+    <td>" . $row['authors'] . "</td>
   </tr>";
 $last_track = $row['track'];
 }
@@ -54,7 +54,7 @@ else
 $display_talks .="
   <tr>
     <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['track'] . "</td>
+    <td>" . $row['authors'] . "</td>
   </tr>";
 }
 }
