@@ -52,8 +52,6 @@ $content = htmlentities($_POST['content']);
 $email = htmlentities($_POST['email']);
 
 
-
-
 $sql ="INSERT INTO open_agendas ";
 $sql .="(subject, ";
 $sql .="coordinator, ";

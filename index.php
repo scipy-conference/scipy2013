@@ -124,6 +124,71 @@ elseif ($row['id'] == 4)
       </div>
   </div>
   <div class="hp_cell">
+    <h2>Specialized Tracks</h2>
+        <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
+    <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
+    <ul>
+      <li><strong>Machine Learning</strong> - Python makes machine learning algorithms more accessible. Learn about machine learning libraries and how they have been used as effective tools. <span class="other_form_tips"><a href="presentations.php#Machine Learning">View the Machine Learning topics</a></span>.</li>
+      <li><strong>Reproducible Science</strong> - The Open Science movement has stoked renewed interest in reproducible research. Hear how python is used to achieve reproducible scientific computing. <span class="other_form_tips"><a href="presentations.php#Reproducible Science">View the Reproducible Science topics</a>.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="hp_cell">
+    <h2>Learn</h2>
+    <img src="img/tutorials.png" width="251" height="84" alt="tutorials"  class="hp_image" />
+    <p>This year we are expanding the tutorial session to include three parallel tracks:</p> 
+    <ul>
+      <li>introductory</li>
+      <li>intermediate</li>
+      <li>advanced</li>
+    </ul>
+    <p>Go to the <a href="tutorials.php">tutorials page</a> to see the schedule and links to descriptions.</p>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>Participate</h2>
+    <img src="img/sprint.png" width="251" height="84" alt="participate"  class="hp_image" />
+    <p>A hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects. The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
+  </div>
+  <div class="hp_cell">
+    <h2>Gather</h2>
+    <img src="img/hall.png" width="251" height="84" alt="BoFs"  class="hp_image" />
+    <p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference. The BOFs sessions cover primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="hp_cell">
+    <h2>Mini-Symposia</h2>
+    <img src="img/bof.png" width="251" height="84" alt="BoFs"  class="hp_image" />
+    <p>Introduced in 2012, mini-symposia are held to discuss scientific computing applied to a specific scientific domain/ industry during a half afternoon after the general conference. Their goal is to promote industry specific libraries and tools, and gather people with similar interests for discussions.</p>
+
+<p>Mini-symposia on the following topics will take place this year:</p>
+
+<ul>
+  <li>Astronomy and astrophysics</li>
+  <li>Bioinformatics</li>
+  <li>GIS - Geospatial Data Analysis</li>
+  <li>Medical imaging</li>
+  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
+</ul>
+  </div>
+  <div class="hp_cell" style="margin: 0 5%;">
+    <h2>Plotting Contest</h2>
+    <p>In memory of John Hunter, we are pleased to announce the first</p>
+    <p>SciPy John Hunter Excellence in Plotting Competition.</p>
+    <p>This open competition aims to highlight the importance of quality plotting to scientific progress and showcase the capabilities of the current generation of plotting software.</p>
+    <p>Winners will be announced during the conference days.</p>
+  </div>
+  <div class="hp_cell">
+    <h2>What's it like?</h2>
+    <p>Watch the video highlighting last years conference.</p>
+    <iframe src="https://docs.google.com/a/enthought.com/file/d/0B60st7W8G6ojNGdGNGNmemc3aEU/preview" width="250" height="150" style="display: block; margin: 0 auto;" ></iframe>
+  </div>
+</div>
+<div class="row">
+  <div class="hp_cell">
     <h2>Announcements</h2>
     <p>Check out the <a href="presentations.php">list of talks, mini-symposia and posters</a> selected for this year. Schedule coming soon.</p>
         <?php echo $display_dates ?>
@@ -160,71 +225,6 @@ elseif ($row['id'] == 4)
             Sprints &amp; BoFs
           </div>
         </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="hp_cell">
-    <h2>Specialized Tracks</h2>
-        <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
-    <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
-    <ul>
-      <li><strong>Machine Learning</strong> - Python makes machine learning algorithms more accessible. Learn about machine learning libraries and how they have been used as effective tools. <span class="other_form_tips"><a href="presentations.php#Machine Learning">View the Machine Learning topics</a></span>.</li>
-      <li><strong>Reproducible Science</strong> - The Open Science movement has stoked renewed interest in reproducible research. Hear how python is used to achieve reproducible scientific computing. <span class="other_form_tips"><a href="presentations.php#Reproducible Science">View the Reproducible Science topics</a>.</span></li>
-    </ul>
-  </div>
-  <div class="hp_cell" style="margin: 0 5%;">
-    <h2>Learn</h2>
-    <img src="img/tutorials.png" width="251" height="84" alt="tutorials"  class="hp_image" />
-    <p>This year we are expanding the tutorial session to include three parallel tracks:</p> 
-    <ul>
-      <li>introductory</li>
-      <li>intermediate</li>
-      <li>advanced</li>
-    </ul>
-    <p>Go to the <a href="tutorials.php">tutorials page</a> to see the schedule and links to descriptions.</p>
-  </div>
-  <div class="hp_cell">
-    <h2>Participate</h2>
-    <img src="img/sprint.png" width="251" height="84" alt="participate"  class="hp_image" />
-    <p>A hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects. The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="hp_cell">
-    <h2>Gather</h2>
-    <img src="img/hall.png" width="251" height="84" alt="BoFs"  class="hp_image" />
-    <p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference. The BOFs sessions cover primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
-  </div>
-  <div class="hp_cell" style="margin: 0 5%;">
-    <h2>Plotting Contest</h2>
-    <p>In memory of John Hunter, we are pleased to announce the first</p>
-    <p>SciPy John Hunter Excellence in Plotting Competition.</p>
-    <p>This open competition aims to highlight the importance of quality plotting to scientific progress and showcase the capabilities of the current generation of plotting software.</p>
-    <p>Winners will be announced during the conference days.</p>
-  </div>
-  <div class="hp_cell">
-    <h2>What's it like?</h2>
-    <p>Watch the video highlighting last years conference.</p>
-    <iframe src="https://docs.google.com/a/enthought.com/file/d/0B60st7W8G6ojNGdGNGNmemc3aEU/preview" width="250" height="150" style="display: block; margin: 0 auto;" ></iframe>
-  </div>
-</div>
-<div class="row">
-  <div class="hp_cell">
-    <h2>Mini-Symposia</h2>
-    <img src="img/bof.png" width="251" height="84" alt="BoFs"  class="hp_image" />
-    <p>Introduced in 2012, mini-symposia are held to discuss scientific computing applied to a specific scientific domain/ industry during a half afternoon after the general conference. Their goal is to promote industry specific libraries and tools, and gather people with similar interests for discussions.</p>
-
-<p>Mini-symposia on the following topics will take place this year:</p>
-
-<ul>
-  <li>Astronomy and astrophysics</li>
-  <li>Bioinformatics</li>
-  <li>GIS - Geospatial Data Analysis</li>
-  <li>Medical imaging</li>
-  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
-</ul>
   </div>
   <div class="hp_cell" style="margin: 0 5%;">
     <h2>More</h2>
