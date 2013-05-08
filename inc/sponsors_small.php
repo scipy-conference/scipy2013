@@ -27,6 +27,12 @@
 <div class="sponsor_cell">
   <a href="http://http://www.python.org/psf/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/psf_logo.png" alt="Python Software Foundation" width="95" height="36" class="align_center" /></a>
 </div>
+<div class="sponsor_cell">
+  <a href="http://www.schrodinger.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/schrodinger_logo.png" alt="Schrodinger" width="90" height="34" class="align_center" /></a>
+</div>
+<div class="sponsor_cell">
+  <a href="http://www.wise.io/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/wise_io.png" alt="wise.io" width="91" height="31" class="align_center" /></a>
+</div>
 
 <h5 class="sponsor_level">Sprint Sponsor</h5>
 <div class="sponsor_cell">
