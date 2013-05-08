@@ -7,6 +7,7 @@ include('inc/db_conn.php');
 //===========================
 
 $sql_talks = "SELECT ";
+$sql_talks .= "id AS talk_id, ";
 $sql_talks .= "authors, ";
 $sql_talks .= "title, ";
 $sql_talks .= "track, ";
