@@ -176,7 +176,7 @@ elseif ($row['id'] == 4)
   <li><a href="mini_symposia.php#Bioinformatics">Bioinformatics</a></li>
   <li><a href="mini_symposia.php#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a></li>
   <li><a href="mini_symposia.php#Medical Imaging">Medical Imaging</a></li>
-  <li><a href="mini_symposia.php#Meteorology, climatology, and atmospheric and oceanic science">Meteorology, climatology, atmospheric and oceanic science</a></li>
+  <li><a href="mini_symposia.php#Meteorology, Climatology, Atmospheric and Oceanic Science">Meteorology, Climatology, Atmospheric and Oceanic Science</a></li>
 </ul>
   </div>
   <div class="hp_cell" style="margin: 0 5%;">
