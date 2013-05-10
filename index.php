@@ -150,6 +150,7 @@ elseif ($row['id'] == 4)
     <h2>Participate</h2>
     <img src="img/sprint.png" width="251" height="84" alt="participate"  class="hp_image" />
     <p>The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
+    <p><strong>Lightning Talks</strong> - Two 45min sessions of short presentations submitted the same day.</p>
     <p><strong>Sprint</strong> - a hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects.</p>
     
   </div>
@@ -157,8 +158,7 @@ elseif ($row['id'] == 4)
     <h2>Gather</h2>
     <img src="img/hall.png" width="251" height="84" alt="BoFs"  class="hp_image" />
     <p>There are many opportunities to gather and discuss topics outside the scheduled conference.</p>
-    <p><strong>Lightning Talks</strong> - short informal presentations to share knowledge/ experience with the community.</p>
-    <p><strong>Birds-of-a-Feather</strong>, or BoFs, - self-organized interactive discussions.</p>
+    <p><strong>Birds-of-a-Feather</strong>, or BoFs, - self-organized interactive discussions around a topic or package.</p>
     <p><strong>Breakout Rooms</strong> - available to continue discussions, hold meetings, etc.</p>
   </div>
 </div>
