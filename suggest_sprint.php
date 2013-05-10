@@ -131,7 +131,7 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 
 
 function display_form($errors) {
-
+  $errors['overall'] = '<< Please see errors below >>';
   $defaults['subject'] = isset($_POST['subject']) ? htmlentities($_POST['subject']) : '';
   $defaults['content'] = isset($_POST['content']) ? htmlentities($_POST['content']) : '';
   $defaults['coordinator'] = isset($_POST['coordinator']) ? htmlentities($_POST['coordinator']) : '';
@@ -282,7 +282,6 @@ function validate_form() {
     // Start out with no errors
     $errors = array();
 
-     $errors['overall'] = '<< Please see errors below >>';
 
     // title is required and must be at least 2 characters
     if (! (isset($_POST['subject']) && (strlen($_POST['subject']) > 1))) {

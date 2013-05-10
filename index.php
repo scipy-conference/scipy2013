@@ -124,7 +124,7 @@ elseif ($row['id'] == 4)
       </div>
   </div>
   <div class="hp_cell">
-    <h2>Specialize</h2>
+    <h2>Focus</h2>
         <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
     <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
     <ul>
@@ -172,11 +172,11 @@ elseif ($row['id'] == 4)
 <p>Mini-symposia on the following topics will take place this year:</p>
 
 <ul>
-  <li>Astronomy and astrophysics</li>
-  <li>Bioinformatics</li>
-  <li>GIS - Geospatial Data Analysis</li>
-  <li>Medical imaging</li>
-  <li>Meteorology, climatology, and atmospheric and oceanic science</li>
+  <li><a href="mini_symposia#Astronomy and astrophysics">Astronomy and astrophysics</a></li>
+  <li><a href="mini_symposia#Bioinformatics">Bioinformatics</a></li>
+  <li><a href="mini_symposia#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a></li>
+  <li><a href="mini_symposia#Medical Imaging">Medical Imaging</a></li>
+  <li><a href="mini_symposia#Meteorology, climatology, and atmospheric and oceanic science">Meteorology, climatology, atmospheric and oceanic science</a></li>
 </ul>
   </div>
   <div class="hp_cell" style="margin: 0 5%;">

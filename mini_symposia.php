@@ -26,8 +26,8 @@ $sql_talks .= "LEFT JOIN license_types ";
 $sql_talks .= "ON license_type_id = license_types.id ";
 
 $sql_talks .= "WHERE talks.conference_id = 2 ";
-$sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
-$sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bioinformatics','GIS - Geospatial Data Analysis','Medical imaging','Meteorology, Climatology, Atmospheric and Oceanic Science','Posters'), title";
+$sql_talks .= "AND track IN ('Astronomy and Astrophysics','Bioinformatics','GIS - Geospatial Data Analysis','Medical Imaging','Meteorology, Climatology, Atmospheric and Oceanic Science') ";
+$sql_talks .= "ORDER BY FIELD(track,'Astronomy and Astrophysics','Bioinformatics','GIS - Geospatial Data Analysis','Medical Imaging','Meteorology, Climatology, Atmospheric and Oceanic Science'), title";
 
 
 $total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -88,13 +88,15 @@ while ($row = mysql_fetch_array($total_talks));
 <section id="main-content">
 <a name="#top"></a>
 
-<h1>Program</h1>
+<h1>Mini Symposia</h1>
 
-<p>Listed below are confirmed presentations for SciPy2013. More details and schedule information coming soon.</p>
+<p>Listed below are Mini Symposia for SciPy2013.</p>
 
-<div class="intra_page_nav" style="text-align: center; font-size: 0.75em;"><a href="#Keynotes">Keynotes</a><br /><a href="#General">General</a> | <a href="#Machine Learning">Machine Learning</a> | <a href="#Reproducible Science">Reproducible Science</a> <br />
-<a href="#Astronomy and Astrophysics">Astronomy and Astrophysics</a> | <a href="#Bioinformatics">Bioinformatics</a> | <a href="#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a> | <a href="#Medical Imaging">Medical Imaging</a> | <a href="#Meteorology, Climatology, Atmospheric and Oceanic Science">Meteorology, Climatology, Atmospheric and Oceanic Science</a><br />
-<a href="#Posters">Posters</a></div>
+<p>More details and schedule information coming soon.</p>
+
+<div class="intra_page_nav" style="text-align: center; font-size: 1em; margin-bottom: 2em;">
+<a href="#Astronomy and Astrophysics">Astronomy and Astrophysics</a> | <a href="#Bioinformatics">Bioinformatics</a> | <a href="#GIS - Geospatial Data Analysis">GIS - Geospatial Data Analysis</a><br /><a href="#Medical Imaging">Medical Imaging</a> | <a href="#Meteorology, Climatology, Atmospheric and Oceanic Science">Meteorology, Climatology, Atmospheric and Oceanic Science</a>
+</div>
 
 <table id="registrants_table">
 <?php echo $display_talks ?>

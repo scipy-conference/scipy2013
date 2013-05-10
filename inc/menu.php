@@ -13,6 +13,7 @@
     <li><a href="keynotes.php">Keynotes</a></li>
     <li><a href="conference_talks.php">Talk List</a></li>
     <li><a href="conference_talks_schedule.php">Talk Schedule</a></li>
+    <li><a href="mini_symposia.php">Mini Symposia</a></li>
     <li><a href="tutorials.php">Tutorial List</a></li>
     <li><a href="tutorials_schedule.php">Tutorial Schedule</a></li>
     <li><a href="posters.php">Poster Session</a></li>
