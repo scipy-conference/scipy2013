@@ -27,25 +27,42 @@ session_start();
 
 <div class="biobox">
   <h2><a id="Perez" name="Perez">Fernando Perez</a></h2>
+  <div class="cell" style="width: 10em;">
   <img src="img/hs_fp.jpg" class="sideslung" width="161" height="154" alt="Fernando Perez" />
+  </div>
+  <div class="cell" style="width: 65%;">
   <p>Fernando Perez is a research scientist at the UC Berkeley Henry H. Wheeler Jr. Brain Imaging Center.  After completing a PhD in particle physics and a postdoc in applied mathematics developing numerical algorithms, today he works at the interface between high-level scientific computing tools and the mathematical questions that arise in the analysis of neuroimaging data.  He created IPython while a graduate student in 2001 and continues to lead the project, now as a collaborative effort with a talented team that does all the hard work.  He regularly lectures about scientific computing in Python, and is a member of the Python Software Foundation as well as a founding board member of the NumFOCUS foundation.</p>
+  
+  <p>Fernando will be presenting <a href="presentation_detail.php?id=191">IPython: from the shell to a book with a single tool; the method behind the madness</a>.</p>
+  </div>
 </div>
 
 <div class="biobox">
   <h2><a id="Schroeder" name="Schroeder">William Schroeder</a></h2>
+  <div class="cell" style="width: 10em;">
   <img src="img/hs_ws.jpg" class="sideslung" width="161" height="154" alt="William Schroeder" />
+    </div>
+  <div class="cell" style="width: 65%;">
   <p>Dr. Schroeder is President, CEO and co-founder of Kitware, Inc. Will's role at Kitware is to identify technology and business opportunities, and to obtain the necessary support for Kitware to meet these opportunities. Dr. Schroeder also provides technical leadership in large open source projects such as the the Visualization Toolkit (www.vtk.org), where he is a lead developer, member of the Architecture Review Board, and first author of the Visualization Toolkit textbook. Dr. Schroeder is also an advocate for open source software and business models.</p>
+  
+  <p>Will is presenting <a href="presentation_detail.php?id=193">The New Scientific Publishers</a>.</p>
+  </div>
 </div>
 
 <div class="biobox">
   <h2><a id="Grisel" name="Grisel">Olivier Grisel</a></h2>
+  <div class="cell" style="width: 10em;">
   <img src="img/hs_og.jpg" class="sideslung" width="161" height="154" alt="Olivier Grisel" />
+    </div>
+  <div class="cell" style="width: 65%;">
   <p>Olivier Grisel is an independent software engineer and expert in
 machine learning specializing in text analytics and natural language
 processing and a regular contributor to the  scikit-learn Machine
 Learning library.</p>
+  
+  <p>Olivier is presenting <a href="presentation_detail.php?id=192">Trends in Machine Learning and the SciPy community</a>.</p>
+  </div>
 </div>
-
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">

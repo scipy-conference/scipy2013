@@ -1,5 +1,15 @@
 <?php
+//===============================================
+//  USER AUTHORIZATION                         //
+//===============================================
 session_start();
+if(!isset($_SESSION['formusername'])){
+header("location:login.php");
+}
+
+//===============================================
+// IF SUCCESSFUL PAGE CONTENT                  //
+//===============================================
 
 // Original PHP code by Chirp Internet: www.chirp.com.au
 // Please acknowledge use of this code by including this header.
@@ -19,9 +29,8 @@ function myTruncate($string, $limit, $break=".", $pad="...")
   return $string;
 }
 
-
-include('inc/db_conn.php');
-include_once "inc/markdown.php";
+include('../inc/db_conn.php');
+include_once "../inc/markdown.php";
 
 $row_1="odd";
 $row_2="even";
@@ -40,7 +49,7 @@ $sql_sprints .= "content, ";
 $sql_sprints .= "DATE_FORMAT(created_at, '%b %d') ";
 $sql_sprints .= "FROM open_agendas ";
 $sql_sprints .= "WHERE type = 'sprint' ";
-$sql_sprints .= "AND accepted = 1 ";
+$sql_sprints .= "AND accepted = 0 ";
 $sql_sprints .= "AND conference_id = 2";
 
 $total_sprints = @mysql_query($sql_sprints, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -62,7 +71,8 @@ $display_open_agenda .="
       $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
       }
     
-$display_open_agenda .="<hr />";
+$display_open_agenda .="<input type=\"checkbox\" name=\"oa_" . $row['id'] . "\" value=1 /> Accept?
+<hr />";
   }
 
 $row_color=($row_count%2)?$row_1:$row_2;
@@ -75,10 +85,10 @@ while($row = mysql_fetch_array($total_sprints));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Sprints"; ?>
+<?php $thisPage="Admin"; ?>
 <head>
 
-<?php include('inc/header.php') ?>
+<?php @ require_once ("../inc/second_level_header.php"); ?>
 
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
 </head>
@@ -87,37 +97,35 @@ while($row = mysql_fetch_array($total_sprints));
 
 <div id="container">
 
-<?php include('inc/page_headers.php') ?>
+<?php include('../inc/admin_page_headers.php') ?>
 
 <section id="sidebar">
-  <?php include("inc/sponsors.php") ?>
+  <?php include("../inc/sponsors.php") ?>
 </section>
 
 <section id="main-content">
 
-<h1>SciPy Sprints</h1>
+<h1>SciPy Sprints Sugestions</h1>
 <h2>Two Days of Awesome Hacking!</h2>
 
-<p>SciPy 2013 will continue the tradition of two days of Code Sprints following the main conference program.  Core developers of many of our favorite tools will be in town, so what better time to get involved with their development? Whether it’s your first time or your fiftieth, there’s nothing quite like sitting down at a table with people you may have only seen on mailing lists and Twitter. The SciPy sprint committee is calling for proposals for hosted sprints following the main sessions of the conference on June 28th-29th.</p>
+<p>The following Sprints have been suggested but have not been approved.</p>
 
-<p>To suggest a Sprint, click the Suggest a Sprint button.</p>
-
-<form method="get" name="form2" action="suggest_sprint.php">
-<div style="display: block; width: 10em; margin: 0 auto;">
-  <input type="submit" name="Submit" value="Suggest a Sprint">
-</div>
-</form>
+<form method="post" name="SprintInfo" action="accept_sprints.php">
 <hr />
 <div id="open_agenda">
 <table id="registrants_table" width="600">
 <?php echo $display_open_agenda ?>
 </table>
 </div>
+<div align="center">
+<input type="submit" name="submit" value="Accept Sprints">
+</div>
+</form>
 
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">
-<?php include('inc/page_footer.php') ?>
+<?php include('../inc/page_footer.php') ?>
 </footer>
 </div>
 </body>

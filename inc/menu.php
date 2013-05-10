@@ -10,8 +10,14 @@
   <li><a href="keynotes.php">Keynotes</a></li>
   <li><a href="presentations.php">Program</a>
   <ul>
-    <li><a href="presentations.php">Presentations</a></li>
-    <li><a href="tutorials.php">Tutorials</a></li>
+    <li><a href="keynotes.php">Keynotes</a></li>
+    <li><a href="conference_talks.php">Talk List</a></li>
+    <li><a href="conference_talks_schedule.php">Talk Schedule</a></li>
+    <li><a href="tutorials.php">Tutorial List</a></li>
+    <li><a href="tutorials_schedule.php">Tutorial Schedule</a></li>
+    <li><a href="posters.php">Poster Session</a></li>
+    <li><a href="sprints.php">Sprints</a></li>
+    <li><a href="bofs.php">BoFs</a></li>
   </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
   <ul>

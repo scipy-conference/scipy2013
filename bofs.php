@@ -39,8 +39,7 @@ $sql_sprints .= "coordinator, ";
 $sql_sprints .= "content, ";
 $sql_sprints .= "DATE_FORMAT(created_at, '%b %d') ";
 $sql_sprints .= "FROM open_agendas ";
-$sql_sprints .= "WHERE type = 'sprint' ";
-$sql_sprints .= "AND accepted = 1 ";
+$sql_sprints .= "WHERE type = 'bof' ";
 $sql_sprints .= "AND conference_id = 2";
 
 $total_sprints = @mysql_query($sql_sprints, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -52,14 +51,14 @@ do {
   {
 
 $display_open_agenda .="
-<h3><a href=\"sprint_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
+<h3>" . $row['subject'] . "</h3>
 
 <p><label>Coordinator:</label> " . $row['coordinator'] . "</p>
 
 " . myTruncate(Markdown($row['content']),300) . "";
     if (strlen(Markdown($row['content'])) > 300 )
       {
-      $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
+      $display_open_agenda .="<br /><br /><a href=\"sprint_detail.php?id=" . $row['id'] . "\"> View complete description</a>";
       }
     
 $display_open_agenda .="<hr />";
@@ -95,18 +94,20 @@ while($row = mysql_fetch_array($total_sprints));
 
 <section id="main-content">
 
-<h1>SciPy Sprints</h1>
-<h2>Two Days of Awesome Hacking!</h2>
+<h1>SciPy BoFs</h1>
 
-<p>SciPy 2013 will continue the tradition of two days of Code Sprints following the main conference program.  Core developers of many of our favorite tools will be in town, so what better time to get involved with their development? Whether it’s your first time or your fiftieth, there’s nothing quite like sitting down at a table with people you may have only seen on mailing lists and Twitter. The SciPy sprint committee is calling for proposals for hosted sprints following the main sessions of the conference on June 28th-29th.</p>
+<p>SciPy 2013 has plenty of opportunities to get together and discuss primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
 
-<p>To suggest a Sprint, click the Suggest a Sprint button.</p>
+<p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference.</p>
 
-<form method="get" name="form2" action="suggest_sprint.php">
+<p>To suggest a Birds-of-a-Feather session click the Suggest a BoF button.</p>
+
+<form method="get" name="form2" action="suggest_bof.php">
 <div style="display: block; width: 10em; margin: 0 auto;">
-  <input type="submit" name="Submit" value="Suggest a Sprint">
+  <input type="submit" name="Submit" value="Suggest a BoF">
 </div>
 </form>
+
 <hr />
 <div id="open_agenda">
 <table id="registrants_table" width="600">

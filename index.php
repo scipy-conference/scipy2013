@@ -88,9 +88,9 @@ elseif ($row['id'] == 4)
 
 <div class="row">
   <div class="hp_cell">
-    <h2>About</h2>
+    <h2>Attend</h2>
       <img src="img/about.png" width="251" height="84" alt="about scipy" class="hp_image" />
-    <p>The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest projects, learn from skilled users and developers, and collaborate on code development.</p>
+    <p>The annual SciPy Conference allows participants from academic, commercial, and governmental organizations to showcase their latest Scientific Python projects, learn from skilled users and developers, and collaborate on code development.</p>
     <p>The conference consists of two days of tutorials followed by two days of presentations, and concludes with two days of developer sprints on projects of interest to the attendees.</p>
     <p>We look forward to a very exciting conference and hope to see you all at the conference.</p>
   </div>
@@ -124,7 +124,7 @@ elseif ($row['id'] == 4)
       </div>
   </div>
   <div class="hp_cell">
-    <h2>Specialized Tracks</h2>
+    <h2>Specialize</h2>
         <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
     <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
     <ul>
@@ -149,18 +149,23 @@ elseif ($row['id'] == 4)
   <div class="hp_cell" style="margin: 0 5%;">
     <h2>Participate</h2>
     <img src="img/sprint.png" width="251" height="84" alt="participate"  class="hp_image" />
-    <p>A hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects. The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
+    <p>The conference is an opportunity for developers that are usually physically separated to come together and engage in highly productive sessions.</p>
+    <p><strong>Sprint</strong> - a hackathon environment is setup for attendees to work on the core SciPy packages or their own personal projects.</p>
+    
   </div>
   <div class="hp_cell">
     <h2>Gather</h2>
     <img src="img/hall.png" width="251" height="84" alt="BoFs"  class="hp_image" />
-    <p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference. The BOFs sessions cover primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
+    <p>There are many opportunities to gather and discuss topics outside the scheduled conference.</p>
+    <p><strong>Lightning Talks</strong> - short informal presentations to share knowledge/ experience with the community.</p>
+    <p><strong>Birds-of-a-Feather</strong>, or BoFs, - self-organized interactive discussions.</p>
+    <p><strong>Breakout Rooms</strong> - available to continue discussions, hold meetings, etc.</p>
   </div>
 </div>
 
 <div class="row">
   <div class="hp_cell">
-    <h2>Mini-Symposia</h2>
+    <h2>Explore</h2>
     <img src="img/bof.png" width="251" height="84" alt="BoFs"  class="hp_image" />
     <p>Introduced in 2012, mini-symposia are held to discuss scientific computing applied to a specific scientific domain/ industry during a half afternoon after the general conference. Their goal is to promote industry specific libraries and tools, and gather people with similar interests for discussions.</p>
 
@@ -176,8 +181,9 @@ elseif ($row['id'] == 4)
   </div>
   <div class="hp_cell" style="margin: 0 5%;">
     <h2>Plotting Contest</h2>
+    <img src="img/plot_contest.png" width="251" height="84" alt="plot contest"  class="hp_image" />
     <p>In memory of John Hunter, we are pleased to announce the first</p>
-    <p>SciPy John Hunter Excellence in Plotting Competition.</p>
+    <p style="text-align: center; font-weight: bold;"><a href="john_hunter_plotting_contest.php">SciPy John Hunter Excellence in Plotting Competition</a>.</p>
     <p>This open competition aims to highlight the importance of quality plotting to scientific progress and showcase the capabilities of the current generation of plotting software.</p>
     <p>Winners will be announced during the conference days.</p>
   </div>

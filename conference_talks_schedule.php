@@ -3,7 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Events"; ?>
+<?php $thisPage="Schedule :: SciPy2013"; ?>
 <head>
 
 <?php include('inc/header.php') ?>
@@ -23,8 +23,9 @@ session_start();
 
 <section id="main-content">
 
-<h1>Keynote Speakers</h1>
+<h1>Conference Talks Schedule</h1>
 
+<p>Coming soon...</p>
 
 </section>
 <div style="clear:both;"></div>

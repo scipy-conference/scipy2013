@@ -223,12 +223,17 @@ while ($row = mysql_fetch_array($total_tutorials_2));
 
 <section id="main-content">
 
-<h1>SciPy 2013 Tutorials</h1>
+<h1>SciPy 2013 Tutorials Schedule</h1>
 
 <p>The conference always kicks off with two days of tutorials. These sessions provide extremely affordable access to expert training, and consistently receive fantastic feedback from participants. This year we are expanding the tutorial session to include three parallel tracks: introductory, intermediate and advanced.</p>
 
-<hr />
-<?php echo $display_detail_2 ?>
+<p>The Tutorials Schedule (June 24th & 25th) is in its final stages of confirmation. There may be changes made to the schedule between now and the conference.</p>
+
+
+<table id="registrants_table">
+<?php echo $display_block ?>
+</table>
+
 
 </section>
 

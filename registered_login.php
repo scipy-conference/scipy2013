@@ -29,8 +29,17 @@ $requested_page = $_SESSION['requested_page'];
 
 <h1>Login</h1>
 
+<?php if($requested_page != "")
+  {
+?>
+
 <p>The page you are trying to access, <?php echo $requested_page ?>, is password restricted.</p>
-<p>Logins are restricted to SciPy 2013 registered users. If you have registered and have not set a password, got to <a href="create_account.php">create an account</a>.</p>
+<?php
+  }
+?>
+<p>Logins are restricted to SciPy 2013 registered users.</p>
+
+<p>If you have registered and have not set a password, go to <a href="create_account.php">create an account</a>. After your account is created you will be able to suggest Sprints and BoFs.</p>
 
     <form name="form1" method="post" action="admin/registered_auth.php">
         <table width="300" border="0" id="login">

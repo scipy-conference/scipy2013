@@ -23,12 +23,13 @@ function myTruncate($string, $limit, $break=".", $pad="...")
 include('inc/db_conn.php');
 include_once "inc/markdown.php";
 
+$id = $_GET['id'];
 $row_1="odd";
 $row_2="even";
 $row_count=1;
 
 //===========================
-//  pull sponsorship requests
+//  pull open agenda item
 //===========================
 
 $sql_sprints = "SELECT ";
@@ -39,30 +40,22 @@ $sql_sprints .= "coordinator, ";
 $sql_sprints .= "content, ";
 $sql_sprints .= "DATE_FORMAT(created_at, '%b %d') ";
 $sql_sprints .= "FROM open_agendas ";
-$sql_sprints .= "WHERE type = 'sprint' ";
-$sql_sprints .= "AND accepted = 1 ";
-$sql_sprints .= "AND conference_id = 2";
+$sql_sprints .= "WHERE id = $id";
 
 $total_sprints = @mysql_query($sql_sprints, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
-$total_found_sprints = @mysql_num_rows($sql_sprints);
-$row_color=($row_count%2)?$row_1:$row_2;
 
 do {
   if ($row['subject'] != '')
   {
 
-$display_open_agenda .="
-<h3><a href=\"sprint_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
+$display_sprints .="
 
-<p><label>Coordinator:</label> " . $row['coordinator'] . "</p>
+<h1>" . $row['subject'] . "</h1>
 
-" . myTruncate(Markdown($row['content']),300) . "";
-    if (strlen(Markdown($row['content'])) > 300 )
-      {
-      $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
-      }
-    
-$display_open_agenda .="<hr />";
+<p>Date Time:</label> " . $row['date'] . "<label><br />
+Coordinator:</label> " . $row['coordinator'] . "</p>
+
+" . Markdown($row['content']) . "";
   }
 
 $row_color=($row_count%2)?$row_1:$row_2;
@@ -70,8 +63,8 @@ $row_count++;
 
 }
 while($row = mysql_fetch_array($total_sprints));
-
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -95,24 +88,9 @@ while($row = mysql_fetch_array($total_sprints));
 
 <section id="main-content">
 
-<h1>SciPy Sprints</h1>
-<h2>Two Days of Awesome Hacking!</h2>
 
-<p>SciPy 2013 will continue the tradition of two days of Code Sprints following the main conference program.  Core developers of many of our favorite tools will be in town, so what better time to get involved with their development? Whether it’s your first time or your fiftieth, there’s nothing quite like sitting down at a table with people you may have only seen on mailing lists and Twitter. The SciPy sprint committee is calling for proposals for hosted sprints following the main sessions of the conference on June 28th-29th.</p>
+<?php echo $display_sprints ?>
 
-<p>To suggest a Sprint, click the Suggest a Sprint button.</p>
-
-<form method="get" name="form2" action="suggest_sprint.php">
-<div style="display: block; width: 10em; margin: 0 auto;">
-  <input type="submit" name="Submit" value="Suggest a Sprint">
-</div>
-</form>
-<hr />
-<div id="open_agenda">
-<table id="registrants_table" width="600">
-<?php echo $display_open_agenda ?>
-</table>
-</div>
 
 </section>
 <div style="clear:both;"></div>

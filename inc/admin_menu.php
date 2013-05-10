@@ -12,5 +12,10 @@
       <li><a href="talk_submissions.php">Talks/Posters</a></li>
       <li><a href="tutorial_submissions.php">Tutorials</a></li>
     </ul></li>
+  <li><a href="#">Moderate</a>
+    <ul>
+      <li><a href="suggested_sprints.php">Sprints</a></li>
+      <li><a href="suggested_bofs.php">BOFs</a></li>
+    </ul></li>
   <li><a href="logout.php">Admin Logout</a></li>
 </ul>

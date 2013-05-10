@@ -70,7 +70,7 @@ $sql .="\"$coordinator\", ";
 $sql .="\"$content\", ";
 $sql .="\"$email\", ";
 $sql .="2, ";
-$sql .="\"sprint\", ";
+$sql .="\"bof\", ";
 $sql .="0, ";
 $sql .="\"$id\", ";
 $sql .="\"$id\", ";
@@ -102,11 +102,11 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 </section>
 
 <section id="main-content">
-<h1>Sprint Submission Form</h1>
+<h1>BoF Submission Form</h1>
 
 <p>Thank you for your submission. The following information has been recorded.</p>
 
-<p>The suggestions are moderated and once approved will appear on the Sprints list page.</p>
+<p>The suggestions are moderated and once approved will appear on the BoFs list page.</p>
 
 <p><span class="data_field">Subject:</span> <?php echo $subject ?></p>
 <p><span class="data_field">Coordinator:</span> <?php echo $coordinator ?></p>
@@ -202,21 +202,21 @@ $(document).ready(function()
 
 
 <section id="main-content">
-<h1>Sprint Suggestion</h1>
+<h1>BoF Suggestion</h1>
 
 <form method="post" name="SprintInfo" action="<?php echo $SERVER['SCRIPT_NAME'] ?>">
 
 <div id="instructions">
-<p>You just have to let us know a title and brief description of the sprint.</p>
+<p>You just have to let us know a title and brief description of the BoF.</p>
 
-<p>Program chairs: Peter Wang &amp; Corran Webster</p>
+<p>Program chairs: Kyle Mandli &amp; Matthew Turk</p>
 </div>
 
 <?php print_error('overall', $errors) ?>
 
 <div class="row">
   <div class="cell" style="width: 20%;">
-    <label for="subject">Sprint Subject:<?php print_error('subject', $errors) ?></label> 
+    <label for="subject">BoF Subject:<?php print_error('subject', $errors) ?></label> 
   </div>
   <div class="cell" style="width: 65%;">
     <input type="text" name="subject" id="subject" value="<?php echo $defaults['subject'] ?>" style="width: 100%;"/>
@@ -227,7 +227,7 @@ $(document).ready(function()
 
 <div class="row">
   <div class="cell" style="width: 20%;">
-    <span class="form_tips"><label for="content">Sprint Summary:<?php print_error('content', $errors) ?><br /><span class="other_form_tips">~150 words</span></label></span> 
+    <span class="form_tips"><label for="content">BoF Summary:<?php print_error('content', $errors) ?><br /><span class="other_form_tips">~150 words</span></label></span> 
   </div>
   <div class="cell" style="width: 65%;">
     <textarea id="content" name="content" rows="5"><?php echo $defaults['content'] ?></textarea>
@@ -254,7 +254,7 @@ $(document).ready(function()
 </div>
 
 <div align="center">
-<input type="submit" name="submit" value="Suggest Sprint">
+<input type="submit" name="submit" value="Suggest BoF">
 </div>
 </form>
 </section>
