@@ -37,15 +37,17 @@ $row_2="even";
 $row_count=1;
 
 //===========================
-//  pull sponsorship requests
+//  pull bof requests
 //===========================
 
 $sql_sprints = "SELECT ";
 $sql_sprints .= "id, ";
 $sql_sprints .= "subject, ";
 $sql_sprints .= "DATE_FORMAT(open_agendas.when, '%b %D - %I:%i %p') AS date, ";
-$sql_sprints .= "coordinator, ";
+$sql_sprints .= "moderator, ";
+$sql_sprints .= "will_moderate, ";
 $sql_sprints .= "content, ";
+$sql_sprints .= "panelists, ";
 $sql_sprints .= "DATE_FORMAT(created_at, '%b %d') ";
 $sql_sprints .= "FROM open_agendas ";
 $sql_sprints .= "WHERE type = 'bof' ";
@@ -63,7 +65,14 @@ do {
 $display_open_agenda .="
 <h3><a href=\"sprint_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
 
-<p><label>Coordinator:</label> " . $row['coordinator'] . "</p>
+<p><label>";
+
+if ($row['will_moderate'] == 0)
+  {
+    $display_open_agenda .="Suggested ";
+  }
+
+$display_open_agenda .="Moderator:</label> " . $row['moderator'] . "</p>
 
 " . myTruncate(Markdown($row['content']),300) . "";
     if (strlen(Markdown($row['content'])) > 300 )
@@ -71,7 +80,8 @@ $display_open_agenda .="
       $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
       }
     
-$display_open_agenda .="<input type=\"checkbox\" name=\"oa_" . $row['id'] . "\" value=1 /> Accept?
+$display_open_agenda .="<p><label>Panelists:</label> " . $row['panelists'] . "</p>
+<input type=\"checkbox\" name=\"oa_" . $row['id'] . "\" value=1 /> Accept?
 <hr />";
   }
 

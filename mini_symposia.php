@@ -67,7 +67,7 @@ while ($row = mysql_fetch_array($total_talks));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Talks"; ?>
+<?php $thisPage="Talks :: Mini Symposia"; ?>
 <head>
 
 <?php @ require_once ("inc/header.php"); ?>

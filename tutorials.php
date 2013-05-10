@@ -192,7 +192,7 @@ while ($row = mysql_fetch_array($total_tutorials_2));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Speaking"; ?>
+<?php $thisPage="Tutorials"; ?>
 <head>
 
 <?php include('inc/header.php') ?>

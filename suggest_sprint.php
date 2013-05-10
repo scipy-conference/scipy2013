@@ -145,7 +145,7 @@ function display_form($errors) {
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Talks"; ?>
+<?php $thisPage="Sprints"; ?>
 <head>
 
 <?php

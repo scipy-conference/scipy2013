@@ -32,7 +32,7 @@ while($row = mysql_fetch_array($total_dates));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Venue"; ?>
+<?php $thisPage="About"; ?>
 <head>
 
 <?php include('inc/header.php') ?>

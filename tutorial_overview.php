@@ -33,7 +33,7 @@ while($row = mysql_fetch_array($total_dates));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Speaking"; ?>
+<?php $thisPage="Tutorials"; ?>
 <head>
 
 <?php include('inc/header.php') ?>

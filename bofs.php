@@ -98,7 +98,18 @@ while($row = mysql_fetch_array($total_sprints));
 
 <p>SciPy 2013 has plenty of opportunities to get together and discuss primary, tangential, or unrelated topics in an interactive, discussion setting.</p>
 
-<p>Birds-of-a-Feather sessions are self-organized discussions that run parallel to the main conference.</p>
+<p>In an effort to increase the opportunities for community building,
+this year at SciPy the organizers would like to emphasize the use of
+birds of a feather (BoFs) sessions.  Our current vision for these
+sessions include short presentations by a panel and a moderator with
+the bulk of the time spent opening up the discussion to everyone in attendance.  We
+will organize a number of BoFs that are of general interest such as
+state-of-the-project and BoFs based on the themes of the conference
+and the mini-symposia topics.</p>
+
+<p>We would like to solicit the community for ideas and organizers for
+other BoF topics.  Please include a small description of the BoF,
+possible panelists, and whether you would be willing to moderate.</p>
 
 <p>To suggest a Birds-of-a-Feather session click the Suggest a BoF button.</p>
 

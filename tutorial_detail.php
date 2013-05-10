@@ -127,7 +127,7 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="tutorials"; ?>
+<?php $thisPage="Tutorials"; ?>
 <head>
 
 <?php @ require_once ("inc/header.php"); ?>

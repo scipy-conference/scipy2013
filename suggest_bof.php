@@ -16,6 +16,8 @@ header("location:registered_login.php");
 //===============================================
 
 
+$yes_nos = array('1' => 'Yes','0' => 'No');
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Just display the form if the request is a GET
     display_form(array());
@@ -34,8 +36,12 @@ include('inc/db_conn.php');
 
 $username = $_SESSION['formregusername'];
 
-$sql = "SELECT clients.id ";
+$sql = "SELECT clients.id, ";
+$sql .= "first_name, "; 
+$sql .= "last_name "; 
 $sql .= "FROM clients "; 
+$sql .= "LEFT JOIN participants ";
+$sql .= "ON clients.id = client_id ";
 $sql .= "WHERE username= \"$username\"";
 //$sql .= "AND conference_id = 2";
 
@@ -44,19 +50,25 @@ $result = mysql_query($sql);
 while ($row = mysql_fetch_array($result)) {
 
 $id=$row['id'];
+$name = $row['first_name'] . " " . $row['last_name'];
 }
 
 $subject = htmlentities($_POST['subject']);
-$coordinator = htmlentities($_POST['coordinator']);
 $content = htmlentities($_POST['content']);
-$email = htmlentities($_POST['email']);
+$panelists = htmlentities($_POST['panelists']);
+$will_moderate = htmlentities($_POST['will_moderate']);
+$moderator = htmlentities($_POST['moderator']);
+
+if ($will_moderate == 1)
+  {$moderator = $name;}
 
 
 $sql ="INSERT INTO open_agendas ";
 $sql .="(subject, ";
-$sql .="coordinator, ";
 $sql .="content, ";
-$sql .="email, ";
+$sql .="panelists, ";
+$sql .="will_moderate, ";
+$sql .="moderator, ";
 $sql .="conference_id, ";
 $sql .="type, ";
 $sql .="accepted, ";
@@ -66,9 +78,10 @@ $sql .="created_at, ";
 $sql .="updated_at) ";
 $sql .="VALUES ";
 $sql .="(\"$subject\", ";
-$sql .="\"$coordinator\", ";
 $sql .="\"$content\", ";
-$sql .="\"$email\", ";
+$sql .="\"$panelists\", ";
+$sql .="\"$will_moderate\", ";
+$sql .="\"$moderator\", ";
 $sql .="2, ";
 $sql .="\"bof\", ";
 $sql .="0, ";
@@ -83,7 +96,7 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Sprints"; ?>
+<?php $thisPage="BoFs"; ?>
 <head>
 <?php include_once "inc/markdown.php"; ?>
 <?php include('inc/header.php') ?>
@@ -109,9 +122,9 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 <p>The suggestions are moderated and once approved will appear on the BoFs list page.</p>
 
 <p><span class="data_field">Subject:</span> <?php echo $subject ?></p>
-<p><span class="data_field">Coordinator:</span> <?php echo $coordinator ?></p>
 <p><span class="data_field">Description:</span> <?php echo Markdown($content) ?></p>
-<p><span class="data_field">Contact email:</span> <?php echo $email ?></p>
+<p><span class="data_field">Panelists:</span> <?php echo $panelists ?></p>
+<p><span class="data_field">Moderator:</span> <?php echo $moderator ?></p>
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">
@@ -131,19 +144,30 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 
 
 function display_form($errors) {
+
+  global $yes_nos;
+    
   $defaults['subject'] = isset($_POST['subject']) ? htmlentities($_POST['subject']) : '';
   $defaults['content'] = isset($_POST['content']) ? htmlentities($_POST['content']) : '';
-  $defaults['coordinator'] = isset($_POST['coordinator']) ? htmlentities($_POST['coordinator']) : '';
-  $defaults['email'] = isset($_POST['email']) ? htmlentities($_POST['email']) : '';
+  $defaults['moderator'] = isset($_POST['moderator']) ? htmlentities($_POST['moderator']) : '';
   if (!empty($errors)) {
                         $errors['overall'] = '<< Please see errors below >>';
                        }
+
+    foreach ($yes_nos as $key => $yes_no) {
+         if (isset($_POST['will_moderate']) && ($_POST['will_moderate'] == $key)) {
+         $defaults['will_moderate'][$key] = "checked";
+        } else {
+            $defaults['will_moderate'][$key] = "unchecked";
+        }
+    } 
+
 
 ?>
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Talks"; ?>
+<?php $thisPage="BoFs"; ?>
 <head>
 
 <?php
@@ -239,21 +263,24 @@ $(document).ready(function()
 
 <div class="row">
   <div class="cell" style="width: 20%;">
-    <label for="coordinator">Suggested by(s):<?php print_error('coordinator', $errors) ?></label>
+    <span class="form_tips"><label for="panelists">Panelist Suggestions:<?php print_error('panelists', $errors) ?></label></span> 
   </div>
   <div class="cell" style="width: 65%;">
-    <input type="text" name="coordinator" id="coordinator" value="<?php echo $defaults['coordinator'] ?>" style="width: 100%;"/>
+    <textarea id="panelists" name="panelists" rows="3"><?php echo $defaults['panelists'] ?></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="cell" style="width: 20%;">
+    <span class="form_tips"><label for="panelists">Are you willing to moderate:<?php print_error('will_moderate', $errors) ?></label></span> 
+  </div>
+  <div class="cell" style="width: 65%;">
+            <?php foreach ($yes_nos as $key => $yes_no) {
+            echo "<input type='radio' name='will_moderate' value='$key' {$defaults['will_moderate'][$key]} /> $yes_no \n";
+            } ?>
+    <br /><label for="moderator">if no, Suggested Moderator:<?php print_error('moderator', $errors) ?></label> <input type="text" name="moderator" id="moderator" value="<?php echo $defaults['moderator'] ?>" style="width: 50%;"/>
   </div>
 </div>
 
-<div class="row">
-  <div class="cell" style="width: 20%;">
-    <label for="author">Contact Email(s):<?php print_error('email', $errors) ?></label>
-  </div>
-  <div class="cell" style="width: 65%;">
-    <input type="text" name="email" id="email" value="<?php echo $defaults['email'] ?>" style="width: 100%;"/>
-  </div>
-</div>
 
 <div align="center">
 <input type="submit" name="submit" value="Suggest BoF">
@@ -280,6 +307,8 @@ function print_error($key, $errors) {
 }
 
 function validate_form() {
+
+    global $yes_nos;
     
     // Start out with no errors
     $errors = array();
@@ -290,11 +319,6 @@ function validate_form() {
         $errors['subject'] = '<< Enter Subject >>';
     }
 
-    // author is required and must be at least 2 characters
-    if (! (isset($_POST['coordinator']) && (strlen($_POST['coordinator']) > 1))) {
-        $errors['coordinator'] = '<< Enter Name >>';
-    }
-
 
     // description is required and must be at least 2 characters
     if (! (isset($_POST['content']) && (strlen($_POST['content']) > 1))) {
@@ -303,8 +327,8 @@ function validate_form() {
 
 
     // email is required and must be at least 2 characters
-    if (! (isset($_POST['email']) && (strlen($_POST['email']) > 1))) {
-        $errors['email'] = '<< Enter email >>';
+    if (! (isset($_POST['panelists']) && (strlen($_POST['panelists']) > 1))) {
+        $errors['panelists'] = '<< Enter panelists >>';
     }
 
 

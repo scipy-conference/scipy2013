@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Talks"; ?>
+<?php $thisPage="Tutorials"; ?>
 <head>
 
 <?php include('inc/header.php') ?>
