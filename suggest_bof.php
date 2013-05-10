@@ -131,11 +131,13 @@ $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": "
 
 
 function display_form($errors) {
-  $errors['overall'] = '<< Please see errors below >>';
   $defaults['subject'] = isset($_POST['subject']) ? htmlentities($_POST['subject']) : '';
   $defaults['content'] = isset($_POST['content']) ? htmlentities($_POST['content']) : '';
   $defaults['coordinator'] = isset($_POST['coordinator']) ? htmlentities($_POST['coordinator']) : '';
   $defaults['email'] = isset($_POST['email']) ? htmlentities($_POST['email']) : '';
+  if (!empty($errors)) {
+                        $errors['overall'] = '<< Please see errors below >>';
+                       }
 
 ?>
 
