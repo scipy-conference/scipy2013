@@ -190,7 +190,7 @@ elseif ($row['id'] == 4)
   <div class="hp_cell">
     <h2>What's it like?</h2>
     <p>Watch the video highlighting last years conference.</p>
-    <iframe src="https://docs.google.com/a/enthought.com/file/d/0B60st7W8G6ojNGdGNGNmemc3aEU/preview" width="250" height="150" style="display: block; margin: 0 auto;" ></iframe>
+    <a href="video_highlights.php"><img src="img/video_palceholder.png" width="" height="" alt="video highlights" /></a>
   </div>
 </div>
 <div class="row">
