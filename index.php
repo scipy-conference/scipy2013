@@ -166,7 +166,7 @@ elseif ($row['id'] == 4)
 <div class="row">
   <div class="hp_cell">
     <h2>Explore</h2>
-    <img src="img/bof.png" width="251" height="84" alt="BoFs"  class="hp_image" />
+    <img src="img/ms.png" width="251" height="84" alt="Mini Symposia"  class="hp_image" />
     <p>Introduced in 2012, mini-symposia are held to discuss scientific computing applied to a specific scientific domain/ industry during a half afternoon after the general conference. Their goal is to promote industry specific libraries and tools, and gather people with similar interests for discussions.</p>
 
 <p>Mini-symposia on the following topics will take place this year:</p>

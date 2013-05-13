@@ -95,21 +95,21 @@ $last_schedule_day = $row['schedule_day'];
   if ($row['location_id'] == '1')
     { 
       $display_block .="
-    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
   elseif ($row['location_id'] == '2')
     { 
       $display_block .="
-    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
   elseif ($row['location_id'] == '3')
     { 
       $display_block .="
-    <td><strong><a href=\"#ti-" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
