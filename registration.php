@@ -245,9 +245,8 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <form id="formID" class="formular" method="post" action="reg_p2.php">
 
 <div class="form_row">
-<h2> Session Selection (Early-Bird pricing)</h2>
-<p class="indent">Early-Bird registration has been extended one week - now closing <span class="highlight">Monday, May 13th</span>.<br />
-Pricing for each item will increase $50 after Early-Bird registration, so REGISTER NOW!!.</p>
+<h2> Session Selection</h2>
+
 <?php 
   if ($promotion_name != "" && $promotion_id != "")
     {
