@@ -32,7 +32,7 @@ $sql_posters .= "LEFT JOIN license_types ";
 $sql_posters .= "ON license_type_id = license_types.id ";
 
 $sql_posters .= "WHERE talks.conference_id = 2 ";
-$sql_posters .= "AND track = 'poster' ";
+$sql_posters .= "AND track = 'Posters' ";
 $sql_posters .= "ORDER BY title";
 
 
