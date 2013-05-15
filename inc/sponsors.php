@@ -53,3 +53,6 @@
 <div class="sponsor_cell">
   <a href="http://www.pyladies.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/pyladies_logo.png" alt="pyladies" width="185" height="79" class="align_center" /></a>
 </div>
+<div class="sponsor_cell">
+  <a href="http://www.pythonweekly.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/python_weekly.png" alt="python weekly" width="191" height="35" class="align_center" /></a>
+</div>
