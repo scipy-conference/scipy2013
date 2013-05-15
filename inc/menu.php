@@ -28,7 +28,7 @@
   <li><a href="location.php">Venue</a>
   <ul>
     <li><a href="location.php">Venue</a>
-    <li><a href="location_details.php">Venue Details</a></li>
+    <li><a href="location_details.php">Lodging</a></li>
     <li><a href="location_directions_.php">Directions</a></li>
     <li><a href="location_food.php">Restaurants</a></li>
     <li><a href="location_entertain_.php">Entertainment</a></li>

@@ -56,7 +56,21 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
 <p>Your order number is  <span class="bold"><?php echo $_GET['OrderNumber']; ?></span>. You will receive an email shortly that can serve as your receipt.</p>
 
 <h2>Lodging</h2>
-<p>AT&amp;T Executive Conference Center Hotel rooms are available at a conference rate of $115 a night plus tax, which is 30% less than other downtown Austin hotels at that time. Use this link - <a href="https://resweb.passkey.com/go/SCIPYM0613">AT&amp;T Executive Conference Center Hotel</a> - for SciPy 2013 lodging reservations. </p>
+<p>AT&amp;T Executive Conference Center Hotel rooms are sold out. </p>
+
+<p>Other lodging options:</p>
+
+<p><a href="http://doubletree3.hilton.com/en/hotels/texas/doubletree-by-hilton-hotel-austin-university-area-AUSIMDT/index.html">DoubleTree by Hilton Hotel Austin - University Area</a><br />
+1617 IH-35 North<br />
+Austin, TX 78702</p>
+
+<p><a href="http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=3079">Sheraton Austin Hotel at the Capitol</a><br />
+701 East 11th Street<br />
+Austin, TX 78701</p>
+
+<p><a href="http://www.extendedstayamerica.com/property/extended-stay-america-austin-downtown-6th-st-hotel.html">Extended Stay America - Austin - Downtown - 6th St.</a><br />
+600 Guadalupe St.<br />
+Austin, TX 78701</p>
 
 </section>
 <div style="clear:both;"></div>

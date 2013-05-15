@@ -23,17 +23,26 @@ session_start();
 
 <section id="main-content">
 
-<h1>Venue Details</h1>
+<h1>Venue Lodging Details</h1>
 
 <img src="img/attHotel.jpg" alt="AT&amp;T Executive Conference Center Hotel" height="233" width="350" class="right" />
 
-<p>On-site lodging for SciPy 2013 is available at the <a href="https://resweb.passkey.com/go/SCIPYM0613">AT&amp;T Executive Conference Center Hotel</a>. Hotel rooms are available at a conference rate of $115 a night plus tax, which is 30% less than other downtown Austin hotels at that time.  Make your reservations soon because at this rate, availability won't last long!</p>
+<p class="highlight">On-site lodging for SciPy 2013 at the AT&amp;T Executive Conference Center Hotel is sold out.</p>
 
-<p>All rooms are equipped with widescreen HD flat-panel TVs, high-speed Internet, and a range of other amenities. Hotel guests also have access to the fitness center and outdoor pool.</p>
+<p>Other lodging options:</p>
 
-<h2>Reservations</h2>
+<p><a href="http://doubletree3.hilton.com/en/hotels/texas/doubletree-by-hilton-hotel-austin-university-area-AUSIMDT/index.html">DoubleTree by Hilton Hotel Austin - University Area</a><br />
+1617 IH-35 North<br />
+Austin, TX 78702</p>
 
-<p>Use this link - <a href="https://resweb.passkey.com/go/SCIPYM0613">AT&amp;T Executive Conference Center Hotel</a> - for SciPy 2013 lodging reservations.</p>
+<p><a href="http://www.starwoodhotels.com/sheraton/property/overview/index.html?propertyID=3079">Sheraton Austin Hotel at the Capitol</a><br />
+701 East 11th Street<br />
+Austin, TX 78701</p>
+
+<p><a href="http://www.extendedstayamerica.com/property/extended-stay-america-austin-downtown-6th-st-hotel.html">Extended Stay America - Austin - Downtown - 6th St.</a><br />
+600 Guadalupe St.<br />
+Austin, TX 78701</p>
+
 
 </section>
 <div style="clear:both;"></div>
