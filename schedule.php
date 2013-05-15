@@ -54,10 +54,14 @@ $total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #".
 
 $last_start_time = '';
 
+// first bracket
 do {
 
+// second bracket
 if ($row['title'] != '')
   {
+
+// third bracket
   if ($row['start_time'] != $last_start_time) 
    {
 // if a new start time display new row and the time cell
@@ -68,138 +72,77 @@ $display_block .="
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary')
     {
-      $display_block .="<td colspan=\"2\" class=\"track_atsumaru\"><span class=\"bold\">"  . $row['title'] . "</span>";
+      $display_block .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"bold\">"  . $row['title'] . "</span>";
       if ($row['last_name'] != '')
         {
       $display_block .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td></tr>";
       }
       $last_start_time = $row['start_time'];
     }
-//  else
-//    {
-
-
 
 // if the time resource is for room 1
-  if ($row['location_id'] == '4' && $row['track'] != '---' && $row['track'] != 'Plenary' || $row['location_id'] == '2' && $row['track'] != '---' && $row['track'] != 'Plenary')
+  if ($row['location_id'] == '4' && $row['track'] != '' && $row['track'] != 'Plenary')
    { 
 
-// pick the appropriate color background by track
-  if ($row['track'] == "Machine Learning")
-     {
-       $display_block .="<td class=\"track_hpc\">";
-     }
-  elseif ($row['track'] == "Reproducible Science")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
        $display_block .="<td>";
-     }   
+
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
+$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
+
+$display_block .= "<br />" . $row['authors'] . "</td>";
+
 
    $last_start_time = $row['start_time'];
    }
 // if the time resource is for room 2, show dashes for room 1 if no resource for it
-  elseif ($row['location'] == '5' && $row['track'] != '---') 
+  elseif ($row['location'] == '4' && $row['track'] == '') 
    {
 $display_block .="
 <td>---a</td>";
-
-// if the time resource is for room 2
-    if ($row['location_id'] == '5' && $row['track'] != '---' && $row['track'] != 'Plenary' || $row['location_id'] == '3' && $row['track'] != '---' && $row['track'] != 'Plenary')
+}
+// third bracket
+}
+  if ($row['location_id'] == '5' && $row['track'] != '---' && $row['track'] != 'Plenary')
    { 
-// pick the appropriate color background by track
-  if ($row['track'] == "Machine Learning")
-     {
-       $display_block .="<td class=\"track_hpc\">";
-     }
-  elseif ($row['track'] == "Reproducible Science")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
+
        $display_block .="<td>";
-     } 
+
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
-      $display_block .= "</tr>";
-$last_start_time = $row['start_time'];
-  }
-   }
+$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
 
-    }
-  else
-    {
-  if ($row['location'] == '6')
-   { 
-  if ($row['track'] == "Machine Learning")
-     {
-       $display_block .="<td class=\"track_hpc\">";
-     }
-  elseif ($row['track'] == "Reproducible Science")
-     {
-       $display_block .="<td class=\"track_viz\">";
-     }
-  elseif ($row['track'] == "Computational Bioinformatics")
-     {
-       $display_block .="<td class=\"track_bio\">";
-     }
-  else
-     {
-       $display_block .="<td>";
-     }   
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
-  if ($row['pi'] > 0)
-    {
-      $display_block .= "<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td>";
-    }
-    else
-    {
-      $display_block .= "<br />" . $row['authors'] . "</td>";
-    }
-      $display_block .= "</tr>";
-$last_start_time = $row['start_time'];
-  }
-  elseif ($row['location'] == '2' && $row['track'] != '---')
+$display_block .= "<br />" . $row['authors'] . "</td>";
+
+
+   $last_start_time = $row['start_time'];
+   }
+// if the time resource is for room 2, show dashes for room 1 if no resource for it
+  elseif ($row['location'] == '6' && $row['track'] != '') 
    {
 $display_block .="
-<td>---</td>";
-   }
-
-/////////////
-//    }
-
-  }
+<td>---a</td>";
 }
+  if ($row['location_id'] == '6' && $row['track'] != '---' && $row['track'] != 'Plenary')
+   { 
 
+       $display_block .="<td>";
+
+// display the resource (talk) information
+$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
+
+$display_block .= "<br />" . $row['authors'] . "</td>";
+
+
+   $last_start_time = $row['start_time'];
+   }
+// if the time resource is for room 2, show dashes for room 1 if no resource for it
+  elseif ($row['location'] == '6' && $row['track'] != '') 
+   {
+$display_block .="
+<td>---a</td>";
+}
+// second bracket
+}
+// first bracket
 }
 while ($row = mysql_fetch_array($total_presenters));
 
@@ -437,6 +380,7 @@ while ($row = mysql_fetch_array($total_presenters_2));
     <th width="80">Time</th>
     <th>Room 1</th>
     <th>Room 2</th>
+    <th>Room 3</th>
   </tr>
 <?php echo $display_block ?>
 </table>
