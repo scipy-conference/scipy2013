@@ -26,6 +26,7 @@ $sql_talks = "SELECT ";
 $sql_talks .= "id, ";
 $sql_talks .= "track ";
 $sql_talks .= "title, ";
+$sql_talks .= "authors, ";
 $sql_talks .= "abstract, ";
 $sql_talks .= "description, ";
 $sql_talks .= "outline, ";
@@ -44,6 +45,7 @@ while($row = mysql_fetch_array($total_result_talks))
 $id = $row['id'];
 $track = $row['track'];
 $title = $row['title'];
+$authors = $row['authors'];
 $abstract = $row['abstract'];
 $description = $row['description'];
 $outline = $row['outline'];
@@ -87,6 +89,7 @@ $tags = $row['tags'];
 id: <?php echo $id ?><br />
 track: <?php echo $track ?><br />
 title: <?php echo $title ?><br />
+authors: <?php echo $authors ?><br />
 abstract: <?php echo $abstract ?><br />
 description: <?php echo $description ?><br />
 outline: <?php echo $outline ?><br />

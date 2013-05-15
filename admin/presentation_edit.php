@@ -240,7 +240,20 @@ $location = $row['name'];
 <div align="center">
   <input type="hidden" name="presenter_id" value="<?php echo $presenter_id ?>" />
   <input type="hidden" name="talk_id" value="<?php echo $talk_id ?>" />
-  <input type="submit" name="submit" value="Update"/>
+  <input type="hidden" name="conference_id" value="2" />
+<?php if($talk_id != '')
+  {
+?>
+  <input type="submit" name="submit" value="Update" />
+<?php
+  }
+  else
+  {
+?>
+  <input type="submit" name="submit" value="Enter" />
+<?php
+  }
+?>
 </div>
 
 

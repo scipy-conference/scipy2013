@@ -58,8 +58,10 @@ elseif ($submit == "Enter")
 
 $action = "entered";
 
+$conference_id = $_POST['conference_id'];
 $track = $_POST['track'];
 $title = $_POST['title'];
+$authors = $_POST['authors'];
 $abstract = $_POST['abstract'];
 $description = $_POST['description'];
 $outline = $_POST['outline'];
@@ -78,8 +80,10 @@ include('../inc/db_conn.php');
 
 $sql_1 ="INSERT INTO talks ";
 $sql_1 .="(";
+$sql_1 .="conference_id, ";
 $sql_1 .="track, ";
 $sql_1 .="title, ";
+$sql_1 .="authors, ";
 $sql_1 .="abstract, ";
 $sql_1 .="description, ";
 $sql_1 .="outline, ";
@@ -94,8 +98,10 @@ $sql_1 .="updated_at ";
 $sql_1 .=") ";
 $sql_1 .="VALUES ";
 $sql_1 .="(";
+$sql_1 .="\"$conference_id\", ";
 $sql_1 .="\"$track\", ";
 $sql_1 .="\"$title\", ";
+$sql_1 .="\"$authors\", ";
 $sql_1 .="\"$abstract\", ";
 $sql_1 .="\"$description\", ";
 $sql_1 .="\"$outline\", ";
