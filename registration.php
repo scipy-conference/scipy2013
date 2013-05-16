@@ -97,6 +97,7 @@ $sql_participants = "SELECT ";
 $sql_participants .= "id, ";
 $sql_participants .= "type ";
 $sql_participants .= "FROM participant_types ";
+$sql_participants .= "WHERE id IN (1,3,2) ";
 $sql_participants .= "ORDER BY Field(id,1,3,2)";
 
 $total_result_participants = @mysql_query($sql_participants, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -198,7 +199,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
