@@ -51,6 +51,7 @@ $sql_presenters .= "bio, ";
 $sql_presenters .= "presenters.id AS presenter_id, ";
 
 $sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
 $sql_presenters .= "title, ";
 $sql_presenters .= "abstract, ";
 $sql_presenters .= "talks.description, ";
@@ -104,6 +105,7 @@ $email = $row['email'];
 $bio = $row['bio'];
 $presenter_id = $row['presenter_id'];
 $talk_id = $row['talk_id'];
+$schedule_id = $row['schedule_id'];
 $title = $row['title'];
 $abstract = $row['abstract'];
 $track = $row['track'];
@@ -202,7 +204,6 @@ $location = $row['name'];
   <tr>
     <td colspan="4"><label for="">Scheduled</label><br />
     <div class="icon_date"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>&nbsp;&nbsp;&nbsp; <?php echo "$start_time" ?> - <?php echo "$end_time" ?> @ <?php echo $location ?>
-    
     </td>
   </tr>
 
