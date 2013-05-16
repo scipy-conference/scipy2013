@@ -43,8 +43,7 @@ $sql_presenters .= "ON license_type_id = license_types.id ";
 $sql_presenters .= "LEFT JOIN locations ";
 $sql_presenters .= "ON location_id = locations.id ";
 
-$sql_presenters .= "WHERE talks.conference_id = 2 ";
-$sql_presenters .= "AND schedules.start_time < '2013-06-27 00:00:00' ";
+$sql_presenters .= "WHERE schedules.start_time < '2013-06-27 00:00:00' ";
 $sql_presenters .= "AND schedules.start_time > '2013-06-26 00:00:00' ";
 $sql_presenters .= "ORDER BY start_time, location_id";
 
@@ -58,8 +57,8 @@ $last_start_time = '';
 do {
 
 // second bracket
-if ($row['title'] != '')
-  {
+//if ($row['title'] != '')
+//  {
 
 // third bracket
   if ($row['start_time'] != $last_start_time) 
@@ -81,13 +80,13 @@ $display_block .="
     }
 
 // if the time resource is for room 1
-  if ($row['location_id'] == '4' && $row['track'] != '' && $row['track'] != 'Plenary')
+  if ($row['location_id'] == '4' && $row['track'] != '---' && $row['track'] != 'Plenary')
    { 
 
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
+$display_block .= "<span class=\"track\">". $row['track'] . "1</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
 
 $display_block .= "<br />" . $row['authors'] . "</td>";
 
@@ -95,10 +94,11 @@ $display_block .= "<br />" . $row['authors'] . "</td>";
    $last_start_time = $row['start_time'];
    }
 // if the time resource is for room 2, show dashes for room 1 if no resource for it
-  elseif ($row['location'] == '4' && $row['track'] == '') 
+  else 
    {
 $display_block .="
-<td>---a</td>";
+<td>---1</td>";
+   $last_start_time = $row['start_time'];
 }
 // third bracket
 }
@@ -108,7 +108,7 @@ $display_block .="
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
+$display_block .= "<span class=\"track\">". $row['track'] . "2</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
 
 $display_block .= "<br />" . $row['authors'] . "</td>";
 
@@ -119,7 +119,7 @@ $display_block .= "<br />" . $row['authors'] . "</td>";
   elseif ($row['location'] == '6' && $row['track'] != '') 
    {
 $display_block .="
-<td>---a</td>";
+<td>---2</td>";
 }
   if ($row['location_id'] == '6' && $row['track'] != '---' && $row['track'] != 'Plenary')
    { 
@@ -127,9 +127,9 @@ $display_block .="
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "!</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
+$display_block .= "<span class=\"track\">". $row['track'] . "3</span><br /><span class=\"bold\">" . $row['title'] . "</span>";
 
-$display_block .= "<br />" . $row['authors'] . "</td>";
+$display_block .= "<br />" . $row['authors'] . "</td></tr>";
 
 
    $last_start_time = $row['start_time'];
@@ -138,10 +138,10 @@ $display_block .= "<br />" . $row['authors'] . "</td>";
   elseif ($row['location'] == '6' && $row['track'] != '') 
    {
 $display_block .="
-<td>---a</td>";
+<td>---3</td></tr>";
 }
 // second bracket
-}
+//}
 // first bracket
 }
 while ($row = mysql_fetch_array($total_presenters));
