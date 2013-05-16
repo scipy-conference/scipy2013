@@ -522,6 +522,13 @@ textarea {
   margin: 0.5em 0;
   }
 
+.authors {
+  font-size: .85em;
+  line-height: 1em;
+  font-style: italic;
+  margin: 0.5em 0;
+  }
+
 .affiliation {
   font-size: .85em;
   line-height: 1em;
