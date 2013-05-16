@@ -31,6 +31,10 @@ session_start();
 
 <p>Other lodging options:</p>
 
+<p><a href="http://doubletree3.hilton.com/en/hotels/texas/doubletree-suites-by-hilton-hotel-austin-AUSFLDT/index.html">DoubleTree by Hilton Hotel Austin</a><br />
+303 W. 15th Street<br />
+Austin, TX 78701</p>
+
 <p><a href="http://doubletree3.hilton.com/en/hotels/texas/doubletree-by-hilton-hotel-austin-university-area-AUSIMDT/index.html">DoubleTree by Hilton Hotel Austin - University Area</a><br />
 1617 IH-35 North<br />
 Austin, TX 78702</p>
