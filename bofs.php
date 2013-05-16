@@ -74,7 +74,7 @@ while($row = mysql_fetch_array($total_sprints));
 
 <!DOCTYPE html>
 <html>
-<?php $thisPage="Sprints"; ?>
+<?php $thisPage="Birds of Feather"; ?>
 <head>
 
 <?php include('inc/header.php') ?>
