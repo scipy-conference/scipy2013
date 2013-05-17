@@ -71,7 +71,7 @@ $display_block .="
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary')
     {
-      $display_block .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"bold\">"  . $row['title'] . "</span>";
+      $display_block .="<td colspan=\"3\" class=\"track_atsumaru\"><strong>"  . $row['title'] . "</strong>";
       if ($row['last_name'] != '')
         {
       $display_block .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td></tr>";
@@ -86,7 +86,7 @@ $display_block .="
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td>";
 
@@ -108,7 +108,7 @@ $display_block .="
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td>";
 
@@ -127,7 +127,7 @@ $display_block .="
        $display_block .="<td>";
 
 // display the resource (talk) information
-$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td></tr>";
 
@@ -212,7 +212,7 @@ $display_block_2 .="
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary')
     {
-      $display_block_2 .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"bold\">"  . $row['title'] . "</span>";
+      $display_block_2 .="<td colspan=\"3\" class=\"track_atsumaru\"><strong>"  . $row['title'] . "</strong>";
       if ($row['last_name'] != '')
         {
       $display_block_2 .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td></tr>";
@@ -227,7 +227,7 @@ $display_block_2 .="
        $display_block_2 .="<td>";
 
 // display the resource (talk) information
-$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block_2 .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td>";
 
@@ -249,7 +249,7 @@ $display_block_2 .="
        $display_block_2 .="<td>";
 
 // display the resource (talk) information
-$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block_2 .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td>";
 
@@ -268,7 +268,7 @@ $display_block_2 .="
        $display_block_2 .="<td>";
 
 // display the resource (talk) information
-$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>";
+$display_block_2 .= "<span class=\"track\">". $row['track'] . "</span><br /><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
 
 $display_block_2 .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td></tr>";
 
