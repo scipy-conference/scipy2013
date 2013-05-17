@@ -66,16 +66,24 @@ do {
 // if a new start time display new row and the time cell
 $display_block .="
 <tr>
-  <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+  <td>" . $row['start_time_f'] . " -<br />" . $row['end_time_f'] . "</td>";
 
 /////////////////
-  if ($row['track'] == '---' || $row['track'] == 'Plenary')
+  if ($row['track'] == '---' || $row['track'] == 'Plenary'  || $row['track'] == 'Keynotes')
     {
-      $display_block .="<td colspan=\"3\" class=\"track_atsumaru\"><strong>"  . $row['title'] . "</strong>";
-      if ($row['last_name'] != '')
+      $display_block .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"track\">". $row['track'] . "</span><br />";
+            if ($row['track'] == 'Keynotes')
+               {
+                  $display_block .="<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>"  . $row['title'] . "</strong></a>";
+                }
+                else
+                {
+                  $display_block .="<strong>"  . $row['title'] . "</strong>";
+                }
+      if ($row['authors'] != '')
         {
-      $display_block .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td></tr>";
-      }
+         $display_block .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td></tr>";
+        }
       $last_start_time = $row['start_time'];
     }
 
@@ -207,16 +215,24 @@ do {
 // if a new start time display new row and the time cell
 $display_block_2 .="
 <tr>
-  <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+  <td>" . $row['start_time_f'] . " -<br />" . $row['end_time_f'] . "</td>";
 
 /////////////////
-  if ($row['track'] == '---' || $row['track'] == 'Plenary')
+  if ($row['track'] == '---' || $row['track'] == 'Plenary'  || $row['track'] == 'Keynotes')
     {
-      $display_block_2 .="<td colspan=\"3\" class=\"track_atsumaru\"><strong>"  . $row['title'] . "</strong>";
-      if ($row['last_name'] != '')
+      $display_block_2 .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"track\">". $row['track'] . "</span><br />";
+            if ($row['track'] == 'Keynotes')
+               {
+                  $display_block_2 .="<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>"  . $row['title'] . "</strong></a>";
+                }
+                else
+                {
+                  $display_block_2 .="<strong>"  . $row['title'] . "</strong>";
+                }
+      if ($row['authors'] != '')
         {
-      $display_block_2 .="<br /> - " . $row['last_name'] . ", " . $row['first_name'] . "</td></tr>";
-      }
+         $display_block_2 .= "<br /><span class=\"authors\">" . $row['authors'] . "</span></td></tr>";
+        }
       $last_start_time = $row['start_time'];
     }
 
@@ -317,29 +333,29 @@ while ($row = mysql_fetch_array($total_presenters_2));
 
 <p>The Conference Talks Schedule (June 26th &amp; 27th) is in its final stages of confirmation. There may be changes made to the schedule between now and the conference.</p>
 
-<table id="registrants_table" width="600">
+<table id="registrants_table">
   <tr>
     <th colspan="4">Day 1 - June 26th</th>
   </tr>
   <tr>
-    <th width="80">Time</th>
-    <th>Room 1</th>
-    <th>Room 2</th>
-    <th>Room 3</th>
+    <th width="15%">Time</th>
+    <th width="28%">Room 1</th>
+    <th width="28%">Room 2</th>
+    <th width="28%">Room 3</th>
   </tr>
 <?php echo $display_block ?>
 </table>
 <br />
 <br />
-<table id="registrants_table" width="600">
+<table id="registrants_table">
   <tr>
     <th colspan="4">Day 2 - June 27th</th>
   </tr>
   <tr>
-    <th width="80">Time</th>
-    <th>Room 1</th>
-    <th>Room 2</th>
-    <th>Room 3</th>
+    <th width="15%">Time</th>
+    <th width="28%">Room 1</th>
+    <th width="28%">Room 2</th>
+    <th width="28%">Room 3</th>
   </tr>
 <?php echo $display_block_2 ?>
 </table>
