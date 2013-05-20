@@ -33,7 +33,7 @@ session_start();
 <div class="cell">
 
 <div class="chairs">Conference Co-chairs:</div>
-<span class="person">Andy Terrel</span>, <span class="affiliation">TACC, University of Texas</span><br />
+<span class="person">Andy Terrel</span>, <span class="affiliation">University of Texas</span><br />
 <span class="person">Jonathan Rocher</span>, <span class="affiliation">Enthought, Inc.</span>
 
 <div class="chairs">Program Committee Co-chairs:</div>

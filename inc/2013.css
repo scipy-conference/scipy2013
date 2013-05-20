@@ -596,3 +596,39 @@ img.sideslung {
 .clearer {
   clear: both;
   }
+
+/*ms styles*/
+
+.astro {
+  background-color: #999; 
+  color: #fff;
+  border: 1px solid #666;
+   padding: 0 4px    
+  }
+
+.gis {
+  background-color: #eee;
+  border: 1px solid #666;
+  padding: 0 4px;    
+  }
+
+.meteorology {
+  background-color: #cadbeb;
+  border: 1px solid #666;
+  padding: 0 4px; 
+  }
+
+.medical-imaging {
+  background-color: #eaffc7;
+  border: 1px solid #666;
+  padding: 0 4px;  
+  }
+
+.bioinformatics {
+  background-color: #fcf6da;
+  border: 1px solid #666;
+  padding: 0 4px;
+  }    
+
+
+
