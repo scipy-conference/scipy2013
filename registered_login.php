@@ -37,7 +37,7 @@ $requested_page = $_SESSION['requested_page'];
 <?php
   }
 ?>
-<p>Logins are restricted to SciPy 2013 registered users.</p>
+<p>Logins are restricted to SciPy 2013 registered attendees.</p>
 
 <p>If you wish to create an account prior to registering, or require assistance - please contact us at <a href="mailto:scipyorganizers@scipy.org">scipyorganizers@scipy.org</a>. (This helps us keep spam down!)</p>
 
