@@ -40,7 +40,7 @@ $sql_bofs .= "content, ";
 $sql_bofs .= "DATE_FORMAT(created_at, '%b %d') ";
 $sql_bofs .= "FROM open_agendas ";
 $sql_bofs .= "WHERE type = 'bof' ";
-$sql_sprints .= "AND accepted = 1 ";
+$sql_bofs .= "AND accepted = 1 ";
 $sql_bofs .= "AND conference_id = 2";
 
 $total_bofs = @mysql_query($sql_bofs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
