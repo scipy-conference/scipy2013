@@ -31,19 +31,20 @@ $row_count=1;
 //  pull sponsorship requests
 //===========================
 
-$sql_sprints = "SELECT ";
-$sql_sprints .= "id, ";
-$sql_sprints .= "subject, ";
-$sql_sprints .= "DATE_FORMAT(open_agendas.when, '%b %D - %I:%i %p') AS date, ";
-$sql_sprints .= "coordinator, ";
-$sql_sprints .= "content, ";
-$sql_sprints .= "DATE_FORMAT(created_at, '%b %d') ";
-$sql_sprints .= "FROM open_agendas ";
-$sql_sprints .= "WHERE type = 'bof' ";
-$sql_sprints .= "AND conference_id = 2";
+$sql_bofs = "SELECT ";
+$sql_bofs .= "id, ";
+$sql_bofs .= "subject, ";
+$sql_bofs .= "DATE_FORMAT(open_agendas.when, '%b %D - %I:%i %p') AS date, ";
+$sql_bofs .= "moderator, ";
+$sql_bofs .= "content, ";
+$sql_bofs .= "DATE_FORMAT(created_at, '%b %d') ";
+$sql_bofs .= "FROM open_agendas ";
+$sql_bofs .= "WHERE type = 'bof' ";
+$sql_sprints .= "AND accepted = 1 ";
+$sql_bofs .= "AND conference_id = 2";
 
-$total_sprints = @mysql_query($sql_sprints, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
-$total_found_sprints = @mysql_num_rows($sql_sprints);
+$total_bofs = @mysql_query($sql_bofs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_found_bofs = @mysql_num_rows($sql_bofs);
 $row_color=($row_count%2)?$row_1:$row_2;
 
 do {
@@ -51,14 +52,14 @@ do {
   {
 
 $display_open_agenda .="
-<h3>" . $row['subject'] . "</h3>
+<h3><a href=\"bof_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
 
-<p><label>Coordinator:</label> " . $row['coordinator'] . "</p>
+<p><label>Moderator:</label> " . $row['moderator'] . "</p>
 
-" . myTruncate(Markdown($row['content']),300) . "";
-    if (strlen(Markdown($row['content'])) > 300 )
+" . myTruncate(Markdown($row['content']),350) . "";
+    if (strlen(Markdown($row['content'])) > 350 )
       {
-      $display_open_agenda .="<br /><br /><a href=\"sprint_detail.php?id=" . $row['id'] . "\"> View complete description</a>";
+      $display_open_agenda .="<a href=\"bof_detail.php?id=" . $row['id'] . "\"> View complete description</a>";
       }
     
 $display_open_agenda .="<hr />";
@@ -68,7 +69,7 @@ $row_color=($row_count%2)?$row_1:$row_2;
 $row_count++;
 
 }
-while($row = mysql_fetch_array($total_sprints));
+while($row = mysql_fetch_array($total_bofs));
 
 ?>
 
@@ -121,9 +122,9 @@ possible panelists, and whether you would be willing to moderate.</p>
 
 <hr />
 <div id="open_agenda">
-<table id="registrants_table" width="600">
+
 <?php echo $display_open_agenda ?>
-</table>
+
 </div>
 
 </section>

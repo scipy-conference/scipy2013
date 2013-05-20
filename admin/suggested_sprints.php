@@ -61,15 +61,11 @@ do {
   {
 
 $display_open_agenda .="
-<h3><a href=\"sprint_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
+<h3><a href=\"sprint_edit.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
 
 <p><label>Coordinator:</label> " . $row['coordinator'] . "</p>
 
-" . myTruncate(Markdown($row['content']),300) . "";
-    if (strlen(Markdown($row['content'])) > 300 )
-      {
-      $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
-      }
+" . Markdown($row['content']) . "";
     
 $display_open_agenda .="<input type=\"checkbox\" name=\"oa_" . $row['id'] . "\" value=1 /> Accept?
 <hr />";

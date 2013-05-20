@@ -63,7 +63,7 @@ do {
   {
 
 $display_open_agenda .="
-<h3><a href=\"sprint_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
+<h3><a href=\"bof_edit.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
 
 <p><label>";
 
@@ -74,11 +74,7 @@ if ($row['will_moderate'] == 0)
 
 $display_open_agenda .="Moderator:</label> " . $row['moderator'] . "</p>
 
-" . myTruncate(Markdown($row['content']),300) . "";
-    if (strlen(Markdown($row['content'])) > 300 )
-      {
-      $display_open_agenda .="  <a href=\"sprint_detail.php?id=" . $row['id'] . "\"> more</a>";
-      }
+" . Markdown($row['content']) . "";
     
 $display_open_agenda .="<p><label>Panelists:</label> " . $row['panelists'] . "</p>
 <input type=\"checkbox\" name=\"oa_" . $row['id'] . "\" value=1 /> Accept?
