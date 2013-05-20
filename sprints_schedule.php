@@ -72,8 +72,8 @@ $display_sprints_1 .="
   <tr>
     <th width=\"13%\">Time</th>
     <th width=\"22%\">Room 1</th>
-    <th width=\"22%\">Room 1</th>
-    <th width=\"22%\">Room 1</th>
+    <th width=\"22%\">Room 2</th>
+    <th width=\"22%\">Room 3</th>
     <th width=\"22%\">Room 4</th>
   </tr>";
 $last_schedule_day = $row['schedule_day'];
