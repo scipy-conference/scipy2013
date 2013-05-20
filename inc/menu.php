@@ -16,6 +16,7 @@
     <li><a href="tutorials_schedule.php">Tutorial Schedule</a></li>
     <li><a href="posters.php">Poster Session</a></li>
     <li><a href="sprints.php">Sprints</a></li>
+    <li><a href="sprints_schedule.php">Sprints Schedule</a></li>
     <li><a href="bofs.php">BoFs</a></li>
   </ul></li>  
   <li><a href="sponsor_overview.php">Sponsors</a>
