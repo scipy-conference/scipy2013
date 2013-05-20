@@ -88,7 +88,9 @@ while ($row = mysql_fetch_array($total_talks));
 
 <h1>Posters</h1>
 
-<p>Listed below are confirmed posters for SciPy2013. More details and schedule information coming soon.</p>
+<p>Listed below are confirmed posters for SciPy2013.</p>
+
+<p>Poster session is scheduled for 10:35 AM - 11:35 AM on June 27th.</p>
 
 <table id="registrants_table">
 <?php echo $display_talks ?>

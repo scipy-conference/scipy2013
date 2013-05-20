@@ -7,6 +7,140 @@
 include('inc/db_conn.php');
 
 //===========================
+//  pull tutorials 
+//===========================
+
+$sql_presenters = "SELECT ";
+$sql_presenters .= "presenters.id AS presenter_id, ";
+$sql_presenters .= "talks.id AS talk_id, ";
+$sql_presenters .= "schedules.id AS schedule_id, ";
+$sql_presenters .= "talks.presenter_id AS pi, ";
+$sql_presenters .= "last_name, ";
+$sql_presenters .= "first_name, ";
+$sql_presenters .= "affiliation, ";
+$sql_presenters .= "bio, ";
+$sql_presenters .= "title, ";
+$sql_presenters .= "track, ";
+$sql_presenters .= "authors, ";
+$sql_presenters .= "talks.description, ";
+$sql_presenters .= "location_id, ";
+$sql_presenters .= "start_time, ";
+$sql_presenters .= "name, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%h:%i %p') AS start_time_f, ";
+$sql_presenters .= "DATE_FORMAT(end_time, '%h:%i %p') AS end_time_f, ";
+$sql_presenters .= "DATE_FORMAT(start_time, '%W - %b %D') AS schedule_day ";
+
+
+$sql_presenters .= "FROM schedules ";
+
+$sql_presenters .= "LEFT JOIN talks ";
+$sql_presenters .= "ON schedules.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN locations ";
+$sql_presenters .= "ON schedules.location_id = locations.id ";
+
+$sql_presenters .= "LEFT JOIN presenters_talks ";
+$sql_presenters .= "ON presenters_talks.talk_id = talks.id ";
+
+$sql_presenters .= "LEFT JOIN presenters ";
+$sql_presenters .= "ON presenters_talks.presenter_id = presenters.id ";
+
+$sql_presenters .= "LEFT JOIN license_types ";
+$sql_presenters .= "ON license_type_id = license_types.id ";
+
+$sql_presenters .= "WHERE talks.conference_id = 2 ";
+$sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
+$sql_presenters .= "ORDER BY start_time, location_id";
+
+
+$total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$total_presenters_2 = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$last_start_time = '';
+$last_schedule_day = '';
+$last_talk = '';
+$counter = 0;
+
+do {
+
+if ($row['title'] != '')
+  {
+
+if ($row['talk_id'] != $last_talk)
+  {
+if ($row['schedule_day'] != $last_schedule_day) 
+{
+
+$display_tutorials .="
+  <tr>
+    <th colspan=\"4\">" . $row['schedule_day'] . "</th>
+  </tr>
+  <tr>
+    <th width=\"13%\">Time</th>
+    <th width=\"29%\">Introductory</th>
+    <th width=\"29%\">Intermediate</th>
+    <th width=\"29%\">Advanced</th>
+  </tr>";
+$last_schedule_day = $row['schedule_day'];
+}
+
+
+  if ($row['start_time'] != $last_start_time) 
+     {
+       $display_tutorials .="
+  <tr>
+    <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
+     }
+
+  if ($row['location_id'] == '1')
+    { 
+      $display_tutorials .="
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
+  elseif ($row['location_id'] == '2')
+    { 
+      $display_tutorials .="
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
+  elseif ($row['location_id'] == '3')
+    { 
+      $display_tutorials .="
+    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+      $last_start_time = $row['start_time'];
+      $last_talk = $row['talk_id'];
+    }
+  else 
+   {
+     $display_tutorials .="
+    <td>---</td>";
+   }
+  }
+  else
+  {
+    $display_tutorials .=", " . $row['first_name'] . " " . $row['last_name'] . "";
+    $last_talk = $row['talk_id'];
+  }
+}
+$counter = $counter + 1;
+}
+
+//if ($counter > 4)
+//  {
+//  $display_tutorials .="
+//  </tr>";
+//  }
+
+while ($row = mysql_fetch_array($total_presenters));
+
+
+
+
+
+
+//===========================
 //  pull presenters DAY 1
 //===========================
 
@@ -688,7 +822,7 @@ while ($row = mysql_fetch_array($total_ms_2));
 <body>
 
 <div id="container">
-
+<a name="top"></a>
 <?php include('inc/page_headers.php') ?>
 
 <section id="sidebar">
@@ -697,26 +831,10 @@ while ($row = mysql_fetch_array($total_ms_2));
 
 <section id="main-content">
 
-<h1>Conference Talks Schedule:</h1>
 
-<p>The Conference Talks Schedule (June 26th &amp; 27th) is in its final stages of confirmation. There may be changes made to the schedule between now and the conference.</p>
+<h1>Mini Symposia Schedule</h1>
 
-<table id="registrants_table">
-  <tr>
-    <th colspan="4">Day 1 - June 26th</th>
-  </tr>
-  <tr>
-    <th width="15%">Time</th>
-    <th width="28%">Room 1</th>
-    <th width="28%">Room 2</th>
-    <th width="28%">Room 3</th>
-  </tr>
-<?php echo $display_block ?>
-</table>
-<br />
-<br />
-
-<h2>Mini-Symposia Schedule: </h2>
+<h2>Day 1 - June 26th </h2>
 <p>Note: start times are not always con-current across tracks.</p>
 <table id="registrants_table">
   <tr>
@@ -736,23 +854,8 @@ while ($row = mysql_fetch_array($total_ms_2));
 <br />
 <br />
 
-<table id="registrants_table">
-  <tr>
-    <th colspan="4">Day 2 - June 27th</th>
-  </tr>
-  <tr>
-    <th width="15%">Time</th>
-    <th width="28%">Room 1</th>
-    <th width="28%">Room 2</th>
-    <th width="28%">Room 3</th>
-  </tr>
-<?php echo $display_block_2 ?>
-</table>
-
-<br />
-<br />
-
-<h2>Mini-Symposia Schedule: </h2>
+<p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
+<h2>Day 2 - June 27th </h2>
 <p>Note: start times are not always con-current across tracks.</p>
 <table id="registrants_table">
   <tr>
@@ -769,7 +872,7 @@ while ($row = mysql_fetch_array($total_ms_2));
     </td>
   </tr>
 </table>
-
+<p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">

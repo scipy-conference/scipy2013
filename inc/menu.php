@@ -8,11 +8,11 @@
      <li><a href="code_of_conduct.php">Code of Conduct</a></li>
   </ul></li>
   <li><a href="keynotes.php">Keynotes</a></li>
-  <li><a href="conference_talks_schedule.php">Program</a>
+  <li><a href="program_schedule.php">Program</a>
   <ul>
     <li><a href="keynotes.php">Keynotes</a></li>
     <li><a href="conference_talks_schedule.php">Talk Schedule</a></li>
-    <li><a href="mini_symposia.php">Mini Symposia</a></li>
+    <li><a href="mini_symposia_schedule.php">Mini Symposia</a></li>
     <li><a href="tutorials_schedule.php">Tutorial Schedule</a></li>
     <li><a href="posters.php">Poster Session</a></li>
     <li><a href="sprints.php">Sprints</a></li>
