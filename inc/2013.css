@@ -37,7 +37,7 @@ body {
 
 ol, ul {
   list-style-position: inside;
-  text-indent: -1em;
+  text-indent: -2em;
   padding-left: 2em;
   margin: 0 0 1em 0;
   }

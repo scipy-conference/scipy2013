@@ -26,40 +26,32 @@ $sql_talks .= "LEFT JOIN license_types ";
 $sql_talks .= "ON license_type_id = license_types.id ";
 
 $sql_talks .= "WHERE talks.conference_id = 2 ";
-$sql_talks .= "AND track IN ('Posters')";
+$sql_talks .= "AND track IN ('Posters') ";
+$sql_talks .= "ORDER BY title ASC";
 
 $total_talks = @mysql_query($sql_talks, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
 $last_track = '';
-
+$display_posters .="<ol>
+";
 do {
 
 if ($row['title'] != '')
   {
 
-if ($row['track'] != $last_track) 
-{
-$display_talks .="
-  <tr>
-    <th width=\"29%\" colspan=\"2\"><span class=\"intra_page_nav\" style=\"font-weight: normal;\"><a href=\"#top\" style=\"color: #fff;\">Back to top</a></span><a name=\"" . $row['track'] . "\"></a><br />" . $row['track'] . "</th>
-  </tr>
-  <tr>
-    <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['authors'] . "</td>
-  </tr>";
-$last_track = $row['track'];
-}
-else
-$display_talks .="
-  <tr>
-    <td><a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></td>
-    <td>" . $row['authors'] . "</td>
-  </tr>";
+
+$display_posters .="  <li> <a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a>
+  <ul>
+    <li>" . $row['authors'] . "</li>
+  </ul>
+  </li>";
 }
 }
 
 while ($row = mysql_fetch_array($total_talks));
 
+$display_posters .="</ol>
+";
 
 ?>
 
@@ -86,15 +78,20 @@ while ($row = mysql_fetch_array($total_talks));
 <section id="main-content">
 <a name="#top"></a>
 
+<table style="float: right; clear: both;">
+<tr>
+<td style="border: none; clear: both; text-align: center;">
+<div class="icon_date">Jun<br /><span class="icon_date_day">27</span></div>10:35 AM<br />11:35 AM<br /></td>
+</tr>
+</table>
+
 <h1>Posters</h1>
 
 <p>Listed below are confirmed posters for SciPy2013.</p>
 
 <p>Poster session is scheduled for 10:35 AM - 11:35 AM on June 27th.</p>
 
-<table id="registrants_table">
-<?php echo $display_talks ?>
-</table>
+<?php echo $display_posters ?>
 
 </section>
 
