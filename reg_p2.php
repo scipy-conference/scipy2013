@@ -324,9 +324,18 @@ $last_schedule_day = $row['schedule_day'];
 
     if ($row['location_id'] == '1')
       { 
-       $display_block .="
+       if($row['talk_id'] == '109')
+        {
+        $display_block .="
+        <td>" . $row['title'] . " <span class=\"highlight\"><strong><em>- SOLD OUT&nbsp;</em></strong></span></td>";
+        $last_start_time = $row['start_time'];
+        }
+        else
+        {
+        $display_block .="
         <td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
         $last_start_time = $row['start_time'];
+        }
       }
    elseif ($row['location_id'] == '2')
      { 
