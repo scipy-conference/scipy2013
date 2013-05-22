@@ -5,10 +5,15 @@
 //  USER AUTHORIZATION                         //
 //===============================================
 session_start();
-if(!isset($_SESSION['formregusername'])){
+if(!isset($_SESSION['formregusername'])) 
+  {
+    if(!isset($_SESSION['formusername']))
+
+{
 
 $_SESSION['requested_page'] = $_SERVER[REQUEST_URI];
 header("location:registered_login.php");
+}
 }
 
 //===============================================
