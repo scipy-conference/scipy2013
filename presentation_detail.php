@@ -30,20 +30,16 @@ $sql_presenters .= "released, ";
 $sql_presenters .= "license_type_id, ";
 $sql_presenters .= "video_link, ";
 $sql_presenters .= "tags, ";
-$sql_presenters .= "start_time, ";
 
 $sql_presenters .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
 $sql_presenters .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_presenters .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
 $sql_presenters .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
 
-$sql_presenters .= "end_time, ";
-
 $sql_presenters .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
 $sql_presenters .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
 $sql_presenters .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
 $sql_presenters .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time, ";
-
 
 $sql_presenters .= "name ";
 
@@ -126,13 +122,12 @@ $location = $row['name'];
 <?php if($start_month_set != '')
   {
 ?>
-<table style="float: right; clear: both;">
-<tr>
-<td style="border: none; clear: both; text-align: center;">
-<div class="icon_date"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div><?php echo "$start_time" ?><br /><?php echo "$end_time" ?><br /><?php echo $location ?>
-</td>
-</tr>
-</table>
+<div class="cell, schedule_info">
+<div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
+<?php echo "$start_time" ?><br />
+<?php echo "$end_time" ?><br />
+Room: <?php echo $location ?>
+</div>
 <?php } ?>
 <h1><?php echo $title ?></h1>
 

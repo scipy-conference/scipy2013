@@ -50,7 +50,7 @@ $sql_presenters .= "ON license_type_id = license_types.id ";
 
 $sql_presenters .= "WHERE talks.conference_id = 2 ";
 $sql_presenters .= "AND track IN ('Introductory','Intermediate','Advanced') ";
-$sql_presenters .= "ORDER BY start_time, location_id";
+$sql_presenters .= "ORDER BY start_time, FIELD(track,'Introductory','Intermediate','Advanced')";
 
 
 $total_presenters = @mysql_query($sql_presenters, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -91,21 +91,21 @@ $last_schedule_day = $row['schedule_day'];
     <td>" . $row['start_time_f'] . " - " . $row['end_time_f'] . "</td>";
      }
 
-  if ($row['location_id'] == '1')
+  if ($row['track'] == 'Introductory')
     { 
       $display_tutorials .="
     <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
-  elseif ($row['location_id'] == '2')
+  elseif ($row['track'] == 'Intermediate')
     { 
       $display_tutorials .="
     <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
-  elseif ($row['location_id'] == '3')
+  elseif ($row['track'] == 'Advanced')
     { 
       $display_tutorials .="
     <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";

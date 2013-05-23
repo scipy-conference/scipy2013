@@ -78,12 +78,11 @@ $display_posters .="</ol>
 <section id="main-content">
 <a name="#top"></a>
 
-<table style="float: right; clear: both;">
-<tr>
-<td style="border: none; clear: both; text-align: center;">
-<div class="icon_date">Jun<br /><span class="icon_date_day">27</span></div>10:35 AM<br />11:35 AM<br /></td>
-</tr>
-</table>
+<div class="cell, schedule_info">
+<div class="icon_date" style="margin: 0 auto;">Jun<br /><span class="icon_date_day">27</span></div>
+10:35 AM<br />
+11:35 AM
+</div>
 
 <h1>Posters</h1>
 

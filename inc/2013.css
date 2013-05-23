@@ -252,9 +252,7 @@ background: #fff;
   }
 
 #tutorial-content {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  line-height: 2em;
+  /*font-family: Helvetica, Arial, sans-serif;*/
   }
 
 #main-content {
@@ -373,13 +371,29 @@ p {
   width: 3em;
   height: 3em;
   /*margin: 0.25em;*/
-  background: url('../img/cal_icon.gif') no-repeat;
+  background: url('../img/cal_icon.png') no-repeat;
   }
 
 .icon_date_day {
   font-size: 15px;
   font-size: 1.4em;
   color: #333;
+  }
+
+.schedule_info {
+  float: right; 
+  width: 6em;
+  padding: 0.75em;
+  margin-left: 1em;
+  text-align: center; 
+  border: 1px solid #ddd;
+  background: #fff7e6;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0px 0px 15px 0px rgba(202, 219, 232, .75);
+  -webkit-box-shadow: 5px 5px 10px #ccc;
+  -moz-box-shadow: 0px 0px 15px 5px rgba(202, 219, 232, .75);
   }
 
 .callout_description {

@@ -17,7 +17,7 @@ $sql_tutorial .= "presenters.id AS presenter_id, ";
 $sql_tutorial .= "talks.id AS talk_id, ";
 $sql_tutorial .= "title, ";
 $sql_tutorial .= "abstract, ";
-$sql_tutorial .= "description, ";
+$sql_tutorial .= "talks.description, ";
 $sql_tutorial .= "outline, ";
 $sql_tutorial .= "packages, ";
 $sql_tutorial .= "documentation, ";
@@ -26,23 +26,17 @@ $sql_tutorial .= "released, ";
 $sql_tutorial .= "license_type_id, ";
 $sql_tutorial .= "video_link, ";
 $sql_tutorial .= "tags, ";
-$sql_tutorial .= "start_time, ";
-
-$sql_tutorial .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
-$sql_tutorial .= "DATE_FORMAT(start_time, '%c') AS start_month, ";
+$sql_tutorial .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_tutorial .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
-$sql_tutorial .= "DATE_FORMAT(start_time, '%H') AS start_hour, ";
-$sql_tutorial .= "DATE_FORMAT(start_time, '%i') AS start_minute, ";
-
-$sql_tutorial .= "end_time, ";
+$sql_tutorial .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
 
 $sql_tutorial .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
 $sql_tutorial .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
 $sql_tutorial .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
-$sql_tutorial .= "DATE_FORMAT(end_time, '%H') AS end_hour, ";
-$sql_tutorial .= "DATE_FORMAT(end_time, '%i') AS end_minute, ";
+$sql_tutorial .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time, ";
 
-$sql_tutorial .= "location_id ";
+$sql_tutorial .= "location_id, ";
+$sql_tutorial .= "name ";
 
 $sql_tutorial .= "FROM talks ";
 $sql_tutorial .= "LEFT JOIN presenters_talks ";
@@ -52,6 +46,8 @@ $sql_tutorial .= "LEFT JOIN presenters ";
 $sql_tutorial .= "ON presenters_talks.presenter_id = presenters.id ";
 $sql_tutorial .= "LEFT JOIN schedules ";
 $sql_tutorial .= "ON schedules.talk_id = talks.id ";
+$sql_tutorial .= "LEFT JOIN locations ";
+$sql_tutorial .= "ON location_id = locations.id ";
 $sql_tutorial .= "WHERE talks.id = \"$talk_id\"";
 
 
@@ -92,6 +88,7 @@ $end_hour = $row['end_hour'];
 $end_minute = $row['end_minute'];
 $location = $row['location'];
 $author_list[] = $row['presenter_id'];
+$location = $row['name'];
 }
 
 
@@ -146,6 +143,13 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 </section>
 
 <section id="main-content">
+
+<div class="cell, schedule_info">
+<div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
+<?php echo "$start_time" ?><br />
+<?php echo "$end_time" ?><br />
+Room: <?php echo $location ?>
+</div>
 
 <h1><?php echo $title ?></h1>
 
