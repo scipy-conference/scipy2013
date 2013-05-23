@@ -327,7 +327,7 @@ $last_schedule_day = $row['schedule_day'];
        if($row['talk_id'] == '109')
         {
         $display_block .="
-        <td>" . $row['title'] . " <span class=\"highlight\"><strong><em>- SOLD OUT&nbsp;</em></strong></span></td>";
+        <td>" . $row['title'] . " <span class=\"highlight\"><strong><em>- FULL&nbsp;</em></strong></span></td>";
         $last_start_time = $row['start_time'];
         }
         else
