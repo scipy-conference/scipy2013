@@ -199,7 +199,7 @@ while($row = mysql_fetch_array($total_result_sizes));
 
 <?php
 //force redirect to secure page
-if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+//if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
 ?>
 
         <link rel="stylesheet" href="inc/validationEngine.jquery.css" type="text/css"/>
@@ -269,7 +269,9 @@ if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTT
     <th><div align="right">Student<br />Price</div></th>
   </tr><?php echo $display_sessions ?>
   <tr>
-    <td colspan="6"><span class="asterisk_text">*SciPy 2013 Sprints will be free of cost to everyone. However, for catering purposes, we would like to know whether you plan on attending.</span></td>
+    <td colspan="6"><p class="asterisk_text">*SciPy 2013 Sprints will be free of cost to everyone. However, for catering purposes, we would like to know whether you plan on attending.</p>
+    <p class="asterisk_text">Refund Policy: 100% refund until Sunday, June 9th.  Effective Monday, June 10th we provide 50% and after Friday, June 21st there are no refunds.</p>
+    </td>
 </table>
 </div>
 

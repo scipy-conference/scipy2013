@@ -576,9 +576,12 @@ textarea {
   }
 
 .asterisk_text {
-  font-size: .9em;
-  line-height: 1em;
+  font-family: Arial, sans-serif;
+  font-size: .8em;
+  line-height: 1.2em;
   margin: .75em;
+  text-indent: -1em;
+  margin-left: 1em;
   }
 
 .error {
