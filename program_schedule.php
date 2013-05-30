@@ -4,6 +4,8 @@
 // IF SUCCESSFUL PAGE CONTENT                  //
 //===============================================
 
+
+
 include('inc/db_conn.php');
 
 //===========================
@@ -294,6 +296,25 @@ while ($row = mysql_fetch_array($total_presenters));
 //  pull mini symposia DAY 1
 //===========================
 
+// Original PHP code by Chirp Internet: www.chirp.com.au
+// Please acknowledge use of this code by including this header.
+
+function myTruncate($string, $limit, $break=".", $pad="...")
+{
+  // return with no change if string is shorter than $limit
+  if(strlen($string) <= $limit) return $string;
+
+  // is $break present between $limit and the end of the string?
+  if(false !== ($breakpoint = strpos($string, $break, $limit))) {
+    if($breakpoint < strlen($string) - 1) {
+      $string = substr($string, 0, $breakpoint) . $pad;
+    }
+  }
+
+  return $string;
+}
+
+
 $sql_ms = "SELECT ";
 $sql_ms .= "presenters.id AS presenter_id, ";
 $sql_ms .= "talks.id AS talk_id, ";
@@ -387,8 +408,18 @@ $display_block_ms .= "
 
 $display_block_ms .= "
         <div align=\"right\">". $row['start_time_f'] . " - " . $row['end_time_f'] . "</div>
-          <span class=\"track\">". $row['track'] . "</span><br />
-            <a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
+          <span class=\"track\">". $row['track'] . "</span><br />";
+            if ($row['talk_id'] == "204")
+            {
+            $display_block_ms .= "<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>Best-practice variant calling pipeline...</strong></a>";
+            }
+            else
+            {
+            $display_block_ms .= "<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
+            }
+
+
+
 
   if ($row['video_link'] != '')
     {
@@ -440,9 +471,15 @@ $display_block_ms .= "
 
 $display_block_ms .= "
         <div align=\"right\">". $row['start_time_f'] . " - " . $row['end_time_f'] . "</div>
-          <span class=\"track\">". $row['track'] . "</span><br />
-            <a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
-
+          <span class=\"track\">". $row['track'] . "</span><br />";
+            if ($row['talk_id'] == "204")
+            {
+            $display_block_ms .= "<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>Best-practice variant calling pipeline...</strong></a>";
+            }
+            else
+            {
+            $display_block_ms .= "<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>" . $row['title'] . "</strong></a>";
+            }
   if ($row['video_link'] != '')
     {
       $display_block_ms .= "<br /> <img src=\"../img/video_play.gif\" /> <a href=\"" . $row['video_link'] . "\">Video</a>";
@@ -455,7 +492,11 @@ $display_block_ms .= "
     }
     else
     {
-      $display_block_ms .= "<br /><span class=\"authors\">" . $row['authors'] . "</span>";
+//      $display_block_ms .= "<br /><span class=\"authors\">" . $row['authors'] . "</span>";
+            if ($row['talk_id'] != "204")
+            {
+            $display_block_ms .= "<br /><span class=\"authors\">" . $row['authors'] . "</span>";
+            }
     }
 $display_block_ms .= "
       </div>";
