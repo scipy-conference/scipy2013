@@ -345,9 +345,18 @@ $last_start_time = $row['start_time'];
    }
  elseif ($row['location_id'] == '3')
    { 
-$display_block .="
-<td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
-$last_start_time = $row['start_time'];
+      if($row['talk_id'] == '102')
+        {
+        $display_block .="
+        <td>" . $row['title'] . " <span class=\"highlight\"><strong><em>- FULL&nbsp;</em></strong></span></td>";
+        $last_start_time = $row['start_time'];
+        }
+        else
+        {
+        $display_block .="
+        <td><input class=\"validate[required] radio\" name=\"tutorial_" . $row['radio_attribute'] . "\" id=\"tutorial_" . $row['radio_attribute'] . "\" type=\"radio\" value=\"" . $row['talk_id'] . "\" />" . $row['title'] . "</td>";
+        $last_start_time = $row['start_time'];
+        }
    }
   else 
    {
