@@ -121,7 +121,7 @@ $sql_0 .= "ON clients.id = client_id ";
 $sql_0 .= "LEFT JOIN registrations ";
 $sql_0 .= "ON participants.id = participant_id ";
 $sql_0 .= "WHERE username='$formusername' ";
-$sql_0 .= "AND conference_id = 2";
+$sql_0 .= "AND conference_id = 2 LIMIT 1";
 
 $result_0 = mysql_query($sql_0);
 while ($row = mysql_fetch_array($result_0)) {

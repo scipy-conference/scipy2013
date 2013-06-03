@@ -39,7 +39,7 @@ $requested_page = $_SESSION['requested_page'];
 ?>
 <p>Logins are restricted to SciPy 2013 registered attendees.</p>
 
-<p>If you wish to create an account prior to registering, or require assistance - please contact us at <a href="mailto:scipyorganizers@scipy.org">scipyorganizers@scipy.org</a>. (This helps us keep spam down!)</p>
+<p>If you wish to create an account prior to registering, or require assistance - please contact us at <a href="mailto:scipy-organizers@scipy.org">scipy-organizers@scipy.org</a>. (This helps us keep spam down!)</p>
 
 <p>If you have registered and have not set a password, go to <a href="create_account.php">create an account</a>. After your account is created you will be able to suggest Sprints and BoFs.</p>
 

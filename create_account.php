@@ -30,7 +30,7 @@ $error = $_SESSION['errormessage'];
 
 <p>Logins are restricted to SciPy 2013 registered attendees. Your username is the email used to register.</p>
 
-<p>If you wish to create an account prior to registering, or require assistance - please contact us at <a href="mailto:scipyorganizers@scipy.org">scipyorganizers@scipy.org</a>. (This helps us keep spam down!)</p>
+<p>If you wish to create an account prior to registering, or require assistance - please contact us at <a href="mailto:scipy-organizers@scipy.org">scipy-organizers@scipy.org</a>. (This helps us keep spam down!)</p>
 
     <form name="form1" method="post" action="admin/registered_auth.php">
         <table width="300" border="0" id="login">
