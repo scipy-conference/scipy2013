@@ -35,16 +35,20 @@ include('inc/ms_2.php');
 <section id="main-content">
 
 
-<h2>Mini-Symposia, Day 1 - June 26th </h2>
+<p class="intra_page_nav" style="text-align: center; font-size: 0.85em;">Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 27th</a></p>
+
+<a name="day_one_ms"></a>
+<p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
+<h2>Mini-Symposia, Day 1 - Wed., June 26th </h2>
 <p>Note: start times are not always con-current across tracks.</p>
 <table id="registrants_table">
   <tr>
     <th colspan="4"><?php echo $mon_day ?></th>
   </tr>
   <tr>
-    <th width="32%">Bioinformatics</th>
-    <th width="32%">Astronomy and Astrophysics</th>
-    <th width="32%">GIS - Geospatial Data Analysis</th>
+    <th width="32%">Bioinformatics<br />Rm 204</th>
+    <th width="32%">Astronomy and Astrophysics<br />Rm 203</th>
+    <th width="32%">GIS - Geospatial Data Analysis<br />Rm 102</th>
   </tr>
   <tr>
     <td>
@@ -52,20 +56,21 @@ include('inc/ms_2.php');
     </td>
   </tr>
 </table>
-<br />
-<br />
 
+<br />
+<br />
+<a name="day_two_ms"></a>
 <p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
-<h2>Mini-Symposia, Day 2 - June 27th </h2>
+<h2><h2>Mini-Symposia, Day 2 - Thurs., June 27th </h2></h2>
 <p>Note: start times are not always con-current across tracks.</p>
 <table id="registrants_table">
   <tr>
     <th colspan="4"><?php echo $mon_day ?></th>
   </tr>
   <tr>
-    <th width="32%">Medical Imaging</th>
-    <th width="32%">Meteorology, Climatology, Atmospheric and Oceanic Science</th>
-    <th width="32%">Bioinformatics</th>
+    <th width="32%">Medical Imaging<br />Rm 204</th>
+    <th width="32%">Bioinformatics<br />Rm 203</th>
+    <th width="32%">Meteorology, Climatology, Atmospheric and Oceanic Science<br />Rm 106</th>
   </tr>
   <tr>
     <td>
@@ -73,6 +78,7 @@ include('inc/ms_2.php');
     </td>
   </tr>
 </table>
+
 <p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
 </section>
 <div style="clear:both;"></div>

@@ -44,7 +44,7 @@ $sql_ms_2 .= "WHERE talks.conference_id = 2 ";
 $sql_ms_2 .= "AND schedules.start_time < '2013-06-28 00:00:00' ";
 $sql_ms_2 .= "AND schedules.start_time > '2013-06-27 00:00:00' ";
 $sql_ms_2 .= "AND track IN ('Medical Imaging','Meteorology, Climatology, Atmospheric and Oceanic Science','Bioinformatics') ";
-$sql_ms_2 .= "ORDER BY FIELD(track,'Medical Imaging','Meteorology, Climatology, Atmospheric and Oceanic Science','Bioinformatics'), start_time";
+$sql_ms_2 .= "ORDER BY FIELD(track,'Medical Imaging','Bioinformatics','Meteorology, Climatology, Atmospheric and Oceanic Science'), start_time";
 
 
 

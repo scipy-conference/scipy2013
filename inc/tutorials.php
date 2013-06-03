@@ -84,21 +84,21 @@ $last_schedule_day = $row['schedule_day'];
   if ($row['track'] == 'Introductory')
     { 
       $display_tutorials .="
-    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><span class=\"track\">Rm ". $row['name'] . "</span><br /><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
   elseif ($row['track'] == 'Intermediate')
     { 
       $display_tutorials .="
-    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><span class=\"track\">Rm ". $row['name'] . "</span><br /><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
   elseif ($row['track'] == 'Advanced')
     { 
       $display_tutorials .="
-    <td><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
+    <td><span class=\"track\">Rm ". $row['name'] . "</span><br /><strong><a href=\"tutorial_detail.php?id=" . $row['talk_id'] . "\">" . $row['title'] . "</a></strong><br /> - " . $row['first_name'] . " " . $row['last_name'] . "";
       $last_start_time = $row['start_time'];
       $last_talk = $row['talk_id'];
     }
