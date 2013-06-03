@@ -92,9 +92,9 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
 <table id="registrants_table">
   <tr>
     <th width="15%">Time</th>
-    <th width="28%">Room 1</th>
-    <th width="28%">Room 2</th>
-    <th width="28%">Room 3</th>
+    <th width="28%">General</th>
+    <th width="28%">Reproducible Science</th>
+    <th width="28%">Machine Learning</th>
   </tr>
 <?php echo $display_block ?>
 </table>
@@ -109,9 +109,9 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
     <th colspan="4"><?php echo $mon_day ?></th>
   </tr>
   <tr>
-    <th width="32%">Room: 1</th>
-    <th width="32%">Room: 2</th>
-    <th width="32%">Room: 3</th>
+    <th width="32%">Bioinformatics</th>
+    <th width="32%">Astronomy and Astrophysics</th>
+    <th width="32%">GIS - Geospatial Data Analysis</th>
   </tr>
   <tr>
     <td>
@@ -127,9 +127,9 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
 <table id="registrants_table">
   <tr>
     <th width="15%">Time</th>
-    <th width="28%">Room 1</th>
-    <th width="28%">Room 2</th>
-    <th width="28%">Room 3</th>
+    <th width="28%">General</th>
+    <th width="28%">Reproducible Science</th>
+    <th width="28%">General</th>
   </tr>
 <?php echo $display_block_2 ?>
 </table>
@@ -145,9 +145,9 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
     <th colspan="4"><?php echo $mon_day ?></th>
   </tr>
   <tr>
-    <th width="32%">Room: 1</th>
-    <th width="32%">Room: 2</th>
-    <th width="32%">Room: 3</th>
+    <th width="32%">Medical Imaging</th>
+    <th width="32%">Meteorology, Climatology, Atmospheric and Oceanic Science</th>
+    <th width="32%">Bioinformatics</th>
   </tr>
   <tr>
     <td>

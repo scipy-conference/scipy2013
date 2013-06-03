@@ -4,8 +4,6 @@
 //  pull mini symposia DAY 1
 //===========================
 
-
-
 $sql_ms = "SELECT ";
 $sql_ms .= "presenters.id AS presenter_id, ";
 $sql_ms .= "talks.id AS talk_id, ";
@@ -47,8 +45,6 @@ $sql_ms .= "AND schedules.start_time < '2013-06-27 00:00:00' ";
 $sql_ms .= "AND schedules.start_time > '2013-06-26 00:00:00' ";
 $sql_ms .= "AND track IN ('Bioinformatics','Astronomy and Astrophysics','GIS - Geospatial Data Analysis') ";
 $sql_ms .= "ORDER BY FIELD(track,'Bioinformatics','Astronomy and Astrophysics','GIS - Geospatial Data Analysis'), start_time";
-
-
 
 $total_ms = @mysql_query($sql_ms, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
