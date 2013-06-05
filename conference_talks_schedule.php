@@ -95,6 +95,24 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
 </table>
 <br />
 <br />
+<p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
+<h2>Reception, Day 1 - Wed., June 26th</h2>
+<table id="registrants_table" width="100%">
+  <tr>
+    <th width="15%">Time</th>
+    <th width="28%">&nbsp;</th>
+    <th width="28%">&nbsp;</th>
+    <th width="28%">&nbsp;</th>
+  </tr>
+  <tr>
+    <td>07:00 PM -<br />08:00 PM</td>
+    <td colspan="3" class="track_atsumaru"><span class="track">Reception- Tejas Dining Room</span><br /><strong>Reception</strong><br /><span class="authors">appetizers, cash bar and a book signing during the first half hour</span></td>
+  </tr>
+</table>
+
+<br />
+<br />
+
 <a name="day_two"></a>
 <p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
 <h2>Talks Schedule, Day 2 - Thurs., June 27th</h2>

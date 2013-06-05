@@ -122,7 +122,7 @@ Mini Symposia <a href="#day_one_ms">June 26th</a> & <a href="#day_two_ms">June 2
 <br />
 <br />
 <p class="intra_page_nav"><a href="#top">[ back to top ]</a></p>
-<h2>Reception</h2>
+<h2>Reception, Day 1 - Wed., June 26th</h2>
 <table id="registrants_table" width="100%">
   <tr>
     <th width="15%">Time</th>
