@@ -19,6 +19,9 @@
   <a href="http://github.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/github.gif" alt="github" width="180" height="79" class="align_center" /></a>
 </div>
 <div class="sponsor_cell">
+  <a href="http://www.indeed.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/indeed_logo.jpg" alt="github" width="183" height="66" class="align_center" /></a>
+</div>
+<div class="sponsor_cell">
   <a href="http://www.kitware.com/"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/kitware.png" alt="Kitware" width="189" height="49" class="align_center" /></a>
 </div>
 <div class="sponsor_cell">
