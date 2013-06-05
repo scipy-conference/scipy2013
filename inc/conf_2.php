@@ -65,7 +65,7 @@ $display_block_2 .="
       $display_block_2 .="<td colspan=\"3\" class=\"track_atsumaru\"><span class=\"track\">". $row['track'] . "";
       if ($row['track'] == 'Plenary'  || $row['track'] == 'Keynotes')
         {
-         $display_block_2 .="- Rm ". $row['name'] . "";
+         $display_block_2 .=" - Rm ". $row['name'] . "";
         }
         $display_block_2 .="</span><br />";
             if ($row['track'] == 'Keynotes')

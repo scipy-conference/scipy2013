@@ -79,7 +79,12 @@ $display_sprints_1 .="
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary'  || $row['track'] == 'Keynotes')
     {
-      $display_sprints_1 .="<td colspan=\"4\" class=\"track_atsumaru\"><span class=\"track\">". $row['track'] . "</span><br />";
+      $display_sprints_1 .="<td colspan=\"4\" class=\"track_atsumaru\"><span class=\"track\">". $row['track'] . "";
+     if ($row['title'] == 'Sprint Social Event')
+        {
+         $display_sprints_1 .=" ". $row['name'] . "";
+        }
+            $display_sprints_1 .="</span><br />";
             if ($row['track'] == 'Keynotes')
                {
                   $display_sprints_1 .="<a href=\"presentation_detail.php?id=" . $row['talk_id'] . "\"><strong>"  . $row['title'] . "</strong></a>";
