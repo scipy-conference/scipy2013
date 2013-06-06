@@ -28,7 +28,8 @@ echo "<div id=\"account_nav\">
   </div>
 
   <div class="header_tagline">
-    Scientific Computing with Python <br /> Austin, Texas • June 24-29
+    Scientific Computing with Python <br /> Austin, Texas &#8226; June 24-29<br />
+    <span class="highlight" style="font-family: Arial, non-serif; font-size: 0.75em;">Registration - 95 % Full</span>
   </div>
 </header>
 
