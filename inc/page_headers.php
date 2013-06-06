@@ -31,7 +31,7 @@ include('registered_qty.php');
 
   <div class="header_tagline">
     Scientific Computing with Python <br /> Austin, Texas &#8226; June 24-29<br />
-    <span class="highlight" style="font-family: Arial, non-serif; padding: 0 4em 0 4em;">Registration - <?php echo $perc_full ?>% Full</span>
+    <span class="highlight" style="font-family: Arial, non-serif; padding: 0 4em 0 4em;">Registration - <?php echo $conf_perc_full ?>% Full</span>
   </div>
 </header>
 
