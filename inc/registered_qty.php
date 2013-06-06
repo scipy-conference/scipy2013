@@ -4,6 +4,8 @@
 //  pull sessions detail
 //===========================
 
+include('db_conn.php');
+
 $sql_sessions = "SELECT  ";
 $sql_sessions .= "SUM(IF(session_id = 4,1,0)) AS Tutorials,  ";
 $sql_sessions .= "SUM(IF(session_id = 5,1,0)) AS Conference,  ";
