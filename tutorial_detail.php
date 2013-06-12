@@ -151,6 +151,10 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 Room: <?php echo $location ?>
 </div>
 
+<div style="background: #eee; border: 1px solid #ccc; font-size: 0.75em; width: 40em; padding: 0.25em 0.75em; margin: 0 0 1em 0;">
+<img src="img/note.png" align="left" /><p>To get the most out of the tutorials, you will need to have the correct software installed and running. Specific requirements for each tutorial are specified in the detailed description for each tutorial. But it's best to start with one of the <a href="http://www.scipy.org/install.html" style="text-decoration: underline;">scientific Python distributions</a> to ensure an environment that includes most of the packages you'll need.</p>
+</div>
+
 <h1><?php echo $title ?></h1>
 
 <p><?php echo $display_authors ?></p>
