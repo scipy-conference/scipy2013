@@ -54,6 +54,8 @@ include('inc/tutorials.php');
 
 <p>The Tutorials Schedule (June 24th & 25th) is in its final stages of confirmation. There may be changes made to the schedule between now and the conference.</p>
 
+<p>To get the most out of the tutorials, you will need to have the correct software installed and running. Specific requirements for each tutorial are specified in the detailed description for each tutorial. But it's best to start with one of the <a href="http://www.scipy.org/install.html">scientific Python distributions</a> to ensure an environment that includes most of the packages you'll need.</p>
+
 
 <table id="registrants_table">
 <?php echo $display_tutorials ?>

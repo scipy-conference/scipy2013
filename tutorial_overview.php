@@ -102,6 +102,12 @@ academic, commercial, and governmental organizations to showcase their
 latest projects, learn from skilled users and developers, and
 collaborate on code development.
 
+To get the most out of the tutorials, you will need to have the correct 
+software installed and running. Specific requirements for each tutorial 
+are specified in the detailed description for each tutorial. But it's 
+best to start with one of the [scientific Python distributions]  
+to ensure an environment that includes most of the packages you'll need.
+
 The conference always kicks off with two days of tutorials. These
 sessions provide extremely affordable access to expert training, and
 consistently receive fantastic feedback from participants. This year
@@ -212,6 +218,7 @@ The SciPy 2013 Tutorial Chairs
 * Francesc Alted, Software Architect at Continuum Analytics Inc.
 * Dharhas Pothina, Water Informatics Lead at the Texas Water Development Board
 
+[scientific Python distributions]: http://www.scipy.org/install.html
 [SciPy2012]: http://conference.scipy.org/scipy2012/tutorials.php
 [SciPy2011]: http://conference.scipy.org/scipy2011/tutorials.php
 [SciPy2010]: http://conference.scipy.org/scipy2010/tutorials.html
