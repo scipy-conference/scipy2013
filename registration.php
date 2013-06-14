@@ -54,6 +54,9 @@ session_start();
 
 <p>We're very sorry if you've missed out. We will expand our venue for 2014 and would love to see you there.</p>
 
+<p class="asterisk_text">Refund Policy: 100% refund until Sunday, June 9th.  Effective Monday, June 10th we provide 50% and after Friday, June 21st there are no refunds.</p>
+
+<hr />
 
 </section>
 <div style="clear:both;"></div>
