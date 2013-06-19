@@ -29,6 +29,14 @@ session_start();
 <p>SciPy 2013 will be held at the AT&amp;T Executive Education and Conference Center at the University of Texas campus in Austin, Texas. The newly-constructed complex provides first class meeting facilities, cutting-edge multimedia technology, and outstanding dining and accommodation options on-site. The conference center is located in the heart of Austin, allowing easy access to the city's renowned 
 <a href="http://www.ci.austin.tx.us/zilker/">parks</a>, <a href="http://www.austintexas.org/musicians/music_attractions/">music venues</a>, and <a href="http://www.yelp.com/c/austin/restaurants">restaurants</a>.</p>
 
+<h2>Venue Floor Maps</h2>
+
+<p>Level M-1</p>
+<img src="img/att_level_1.png" alt="AT&amp;T Executive Education and Conference Center Level 1" width="100%">
+
+<p>Level M-2</p>
+<img src="img/att_level_2.png" alt="AT&amp;T Executive Education and Conference Center Level 1" width="100%">
+
 </section>
 <div style="clear:both;"></div>
 <footer id="page_footer">
