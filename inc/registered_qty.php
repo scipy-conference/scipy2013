@@ -31,5 +31,6 @@ $sprints_qty = $row['Sprints'];
 $conf_perc_full = number_format(($conference_qty/300)*100,0);
 }
 
+if ($conf_perc_full > 100) {$conf_perc_full = 100;}
 
 ?>
