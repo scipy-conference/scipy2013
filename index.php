@@ -196,7 +196,7 @@ elseif ($row['id'] == 4)
 <div class="row">
   <div class="hp_cell">
     <h2>Announcements</h2>
-    <p>Check out the <a href="presentations.php">list of talks, mini-symposia and posters</a> selected for this year. Schedule coming soon.</p>
+    <p>Check out the <a href="program.php">scheduled list of talks, mini-symposia and posters</a> selected for this year.</p>
         <?php echo $display_dates ?>
         <div class="row" style="margin: 0;">
           <div class="free_cell">

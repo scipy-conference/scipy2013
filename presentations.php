@@ -26,7 +26,7 @@ $sql_talks .= "LEFT JOIN license_types ";
 $sql_talks .= "ON license_type_id = license_types.id ";
 
 $sql_talks .= "WHERE talks.conference_id = 2 ";
-$sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced') ";
+$sql_talks .= "AND track NOT IN ('Introductory','Intermediate','Advanced','Sprint','---','Plenary') ";
 $sql_talks .= "ORDER BY FIELD(track,'Keynotes','General','Machine Learning','Reproducible Science','Astronomy and Astrophysics','Bioinformatics','GIS - Geospatial Data Analysis','Medical imaging','Meteorology, Climatology, Atmospheric and Oceanic Science','Posters'), title";
 
 
