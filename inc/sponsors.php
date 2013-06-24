@@ -1,3 +1,12 @@
+<div class="callout" style="width: 100%;">
+<h1>Share your SciPy2013 experiences:</h1>
+<p>Use these tags for your Twitter and g+ posts</p>
+<ul style="margin: 0 1em;">
+  <li>#scipy2013</li>
+  <li>+ScipyConference</li>
+</ul>
+</div>
+
 <h3 class="sponsor_level">Institutional Sponsor</h3>
 <div class="sponsor_cell">
   <a href="http://www.enthought.com"><img src="<?php if ($thisPage == 'Admin') {echo "../";} ?>img/sponsor_logos/enthought.png" alt="Enthought, Inc." width="251" height="56" class="align_center" /></a>
