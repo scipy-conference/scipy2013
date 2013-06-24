@@ -65,7 +65,7 @@ include('../inc/db_conn.php');
 
 $oa_id = $_POST['id'];
 $subject = $_POST['subject'];
-$content = $_POST['content'];
+$content = addslashes($_POST['content']);
 $panelists = $_POST['panelists'];
 $will_moderate = $_POST['will_moderate'];
 $moderator = $_POST['moderator'];
