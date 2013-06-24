@@ -72,6 +72,7 @@ elseif ($row['id'] == 4)
 <?php include('inc/header.php') ?>
 
 <link rel="shortcut icon" href="http://conference.scipy.org/scipy2013/favicon.ico" />
+
 </head>
 
 <body>
@@ -124,14 +125,14 @@ elseif ($row['id'] == 4)
       </div>
   </div>
   <div class="hp_cell">
-    <h2>Focus</h2>
-        <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
-    <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
-    <ul>
-      <li><strong>Machine Learning</strong> - Python makes machine learning algorithms more accessible. Learn about machine learning libraries and how they have been used as effective tools. <span class="other_form_tips"><a href="presentations.php#Machine Learning">View the Machine Learning topics</a></span>.</li>
-      <li><strong>Reproducible Science</strong> - The Open Science movement has stoked renewed interest in reproducible research. Hear how python is used to achieve reproducible scientific computing. <span class="other_form_tips"><a href="presentations.php#Reproducible Science">View the Reproducible Science topics</a>.</span></li>
-    </ul>
-  </div>
+<div class="twitter" id="jstweets">
+<h2>Follow</h2>
+<a class="twitter-timeline" href="https://twitter.com/search?q=%23scipy2013" data-widget-id="349249937747345410">Tweets about "#scipy2013"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+</div>
+
+
 </div>
 
 <div class="row">
@@ -188,10 +189,16 @@ elseif ($row['id'] == 4)
     <p>Winners will be announced during the conference days.</p>
   </div>
   <div class="hp_cell">
-    <h2>What's it like?</h2>
-    <p>Watch the video highlighting last years conference.</p>
-    <a href="video_highlights.php"><img src="img/video_placeholder.png" width="" height="" alt="video highlights" /></a>
+    <h2>Focus</h2>
+        <img src="img/specialized.png" width="251" height="84" alt="specialized"  class="hp_image" />
+    <p>This year we have two specialized tracks that run in parallel in the general conference:</p>
+    <ul>
+      <li><strong>Machine Learning</strong> - Python makes machine learning algorithms more accessible. Learn about machine learning libraries and how they have been used as effective tools. <span class="other_form_tips"><a href="presentations.php#Machine Learning">View the Machine Learning topics</a></span>.</li>
+      <li><strong>Reproducible Science</strong> - The Open Science movement has stoked renewed interest in reproducible research. Hear how python is used to achieve reproducible scientific computing. <span class="other_form_tips"><a href="presentations.php#Reproducible Science">View the Reproducible Science topics</a>.</span></li>
+    </ul>
   </div>
+
+
 </div>
 <div class="row">
   <div class="hp_cell">
@@ -272,6 +279,15 @@ elseif ($row['id'] == 4)
 </div>
 
   </div>
+
+  <div class="hp_cell">
+    <h2>What's it like?</h2>
+    <p>Watch the video highlighting last years conference.</p>
+    <a href="video_highlights.php"><img src="img/video_placeholder.png" width="" height="" alt="video highlights" /></a>
+  </div>
+</div>
+
+
 
 </div>
 
