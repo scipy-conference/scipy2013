@@ -126,7 +126,7 @@ $location = $row['name'];
 <div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
 <?php echo "$start_time" ?><br />
 <?php echo "$end_time" ?><br />
-Room: <?php echo $location ?>
+Room: <a href="location_floor_map.php"><?php echo $location ?></a>
 </div>
 <?php } ?>
 <h1><?php echo $title ?></h1>

@@ -148,7 +148,7 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 <div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
 <?php echo "$start_time" ?><br />
 <?php echo "$end_time" ?><br />
-Room: <?php echo $location ?>
+Room: <a href="location_floor_map.php"><?php echo $location ?></a>
 </div>
 
 <div style="background: #eee; border: 1px solid #ccc; font-size: 0.75em; width: 40em; padding: 0.25em 0.75em; margin: 0 0 1em 0;">
