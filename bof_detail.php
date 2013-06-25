@@ -33,14 +33,31 @@ $row_count=1;
 //===========================
 
 $sql_bofs = "SELECT ";
-$sql_bofs .= "id, ";
+$sql_bofs .= "open_agendas.id, ";
 $sql_bofs .= "subject, ";
 $sql_bofs .= "DATE_FORMAT(open_agendas.when, '%b %D - %I:%i %p') AS date, ";
 $sql_bofs .= "moderator, ";
 $sql_bofs .= "content, ";
-$sql_bofs .= "DATE_FORMAT(created_at, '%b %d') ";
+$sql_bofs .= "DATE_FORMAT(open_agendas.created_at, '%b %d'), ";
+$sql_bofs .= "name, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%W') AS start_dow, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
+
+$sql_bofs .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time ";
+
+
 $sql_bofs .= "FROM open_agendas ";
-$sql_bofs .= "WHERE id = $id";
+$sql_bofs .= "LEFT JOIN schedules ";
+$sql_bofs .= "ON schedules.open_agenda_id = open_agendas.id ";
+$sql_bofs .= "LEFT JOIN locations ";
+$sql_bofs .= "ON location_id = locations.id ";
+$sql_bofs .= "WHERE open_agendas.id = $id";
 
 $total_bofs = @mysql_query($sql_bofs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
@@ -52,14 +69,27 @@ $display_bofs .="
 
 <h1>" . $row['subject'] . "</h1>
 
-<p>Date Time:</label> " . $row['date'] . "<label><br />
 Moderator:</label> " . $row['moderator'] . "</p>
 
 " . Markdown($row['content']) . "";
   }
 
-$row_color=($row_count%2)?$row_1:$row_2;
-$row_count++;
+$start_time = $row['start_time'];
+$end_time = $row['end_time'];
+$start_year_set = $row['start_year'];
+$start_month_set = $row['start_month'];
+$start_day_set = $row['start_day'];
+$start_dow = $row['start_dow'];
+$start_hour = $row['start_hour'];
+$start_minute = $row['start_minute'];
+$end_year_set = $row['end_year'];
+$end_month_set = $row['end_month'];
+$end_day_set = $row['end_day'];
+$end_hour = $row['end_hour'];
+$end_minute = $row['end_minute'];
+$location = $row['name'];
+
+
 
 }
 while($row = mysql_fetch_array($total_bofs));
@@ -87,7 +117,17 @@ while($row = mysql_fetch_array($total_bofs));
 </section>
 
 <section id="main-content">
-
+<?php if($start_month_set != '')
+  {
+?>
+<div class="cell, schedule_info">
+<?php echo "$start_dow" ?><br />
+<div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
+<?php echo "$start_time" ?><br />
+<?php echo "$end_time" ?><br />
+Room: <a href="location_floor_map.php"><?php echo $location ?></a>
+</div>
+<?php } ?>
 
 <?php echo $display_bofs ?>
 

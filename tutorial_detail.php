@@ -28,6 +28,7 @@ $sql_tutorial .= "video_link, ";
 $sql_tutorial .= "tags, ";
 $sql_tutorial .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_tutorial .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
+$sql_tutorial .= "DATE_FORMAT(start_time, '%W') AS start_dow, ";
 $sql_tutorial .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
 
 $sql_tutorial .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
@@ -79,6 +80,7 @@ $end_time = $row['end_time'];
 $start_year_set = $row['start_year'];
 $start_month_set = $row['start_month'];
 $start_day_set = $row['start_day'];
+$start_dow = $row['start_dow'];
 $start_hour = $row['start_hour'];
 $start_minute = $row['start_minute'];
 $end_year_set = $row['end_year'];
@@ -145,6 +147,7 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 <section id="main-content">
 
 <div class="cell, schedule_info">
+<?php echo "$start_dow" ?><br />
 <div class="icon_date" style="margin: 0 auto;"><?php echo $start_month_set ?><br /><span class="icon_date_day"><?php echo $start_day_set ?></span></div>
 <?php echo "$start_time" ?><br />
 <?php echo "$end_time" ?><br />
