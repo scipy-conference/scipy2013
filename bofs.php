@@ -32,13 +32,30 @@ $row_count=1;
 //===========================
 
 $sql_bofs = "SELECT ";
-$sql_bofs .= "id, ";
+$sql_bofs .= "open_agendas.id, ";
 $sql_bofs .= "subject, ";
 $sql_bofs .= "DATE_FORMAT(open_agendas.when, '%b %D - %I:%i %p') AS date, ";
 $sql_bofs .= "moderator, ";
 $sql_bofs .= "content, ";
-$sql_bofs .= "DATE_FORMAT(created_at, '%b %d') ";
+$sql_bofs .= "DATE_FORMAT(open_agendas.created_at, '%b %d'), ";
+
+$sql_bofs .= "locations.name, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%W') AS start_dow, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
+
+$sql_bofs .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time ";
+
 $sql_bofs .= "FROM open_agendas ";
+$sql_bofs .= "LEFT JOIN schedules ";
+$sql_bofs .= "ON schedules.open_agenda_id = open_agendas.id ";
+$sql_bofs .= "LEFT JOIN locations ";
+$sql_bofs .= "ON location_id = locations.id ";
 $sql_bofs .= "WHERE type = 'bof' ";
 $sql_bofs .= "AND accepted = 1 ";
 $sql_bofs .= "AND conference_id = 2";
@@ -52,9 +69,19 @@ do {
   {
 
 $display_open_agenda .="
-<h3><a href=\"bof_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>
+<h3><a href=\"bof_detail.php?id=" . $row['id'] . "\">" . $row['subject'] . "</a></h3>";
 
-<p><label>Moderator:</label> " . $row['moderator'] . "</p>
+if($row['start_month'] != '')
+  {
+$display_open_agenda .="<div class=\"cell, schedule_info\">" . $row['start_dow'] . "<br />
+<div class=\"icon_date\" style=\"margin: 0 auto;\">" . $row['start_month'] . "<br /><span class=\"icon_date_day\">" . $row['start_day'] . "</span></div>
+" . $row['start_time'] . "<br />
+" . $row['end_time'] . "<br />
+Room: <a href=\"location_floor_map.php\">" . $row['name'] . "</a>
+</div>";
+}
+
+$display_open_agenda .="<p><label>Moderator:</label> " . $row['moderator'] . "</p>
 
 " . myTruncate(Markdown($row['content']),350) . "";
     if (strlen(Markdown($row['content'])) > 350 )
@@ -62,7 +89,7 @@ $display_open_agenda .="
       $display_open_agenda .="<a href=\"bof_detail.php?id=" . $row['id'] . "\"> View complete description</a>";
       }
     
-$display_open_agenda .="<hr />";
+$display_open_agenda .="<div style=\"clear: both;\"></div><hr />";
   }
 
 $row_color=($row_count%2)?$row_1:$row_2;
