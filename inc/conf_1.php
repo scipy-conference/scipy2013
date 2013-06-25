@@ -74,7 +74,8 @@ $display_block .="
                 }
                 elseif ($row['title'] == 'Lunch')
                 {
-                  $display_block .="<strong>"  . $row['title'] . " / BoFs</strong>";
+                  $display_block .="<strong>"  . $row['title'] . " / BoFs</strong></td></tr>
+                                    <tr><td>&nbsp;</td><td><span class=\"track\">BoF - Rm 204</span><br /><strong><a href=\"bof_detail.php?id=42\">Fut. of Array Oriented Program.</a><strong></td><td><span class=\"track\">BoF - Rm 203</span><br /><strong><a href=\"bof_detail.php?id=38\">Reproducibility</a></strong></td><td><span class=\"track\">BoF - Rm 102</span><br /><strong><a href=\"bof_detail.php?id=31\">NumFOCUS</a></strong>";
                 }
                 else
                 {

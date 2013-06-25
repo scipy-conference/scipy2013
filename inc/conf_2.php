@@ -74,7 +74,8 @@ $display_block_2 .="
                 }
                 elseif ($row['title'] == 'Lunch')
                 {
-                  $display_block_2 .="<strong>"  . $row['title'] . " / BoFs</strong>";
+                  $display_block_2 .="<strong>"  . $row['title'] . " / BoFs</strong></td></tr>
+                                    <tr><td>&nbsp;</td><td><span class=\"track\">BoF - Rm 204</span><br /><strong><a href=\"bof_detail.php?id=26\">SciPy 2014</a><strong></td><td><span class=\"track\">BoF - Rm 203</span><br /><strong><a href=\"bof_detail.php?id=23\">Matplotlib enhancement proposal discussion</a></strong></td><td><span class=\"track\">BoF - Rm 106</span><br /><strong><a href=\"bof_detail.php?id=41\">Python in Astronomy</a></strong>";
                 }
                 else
                 {
