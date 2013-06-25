@@ -55,10 +55,19 @@ do {
   if ($row['start_time'] != $last_start_time) 
    {
 // if a new start time display new row and the time cell
+
+if ($row['title'] == 'Lunch') 
+  {
+$display_block .="
+<tr>
+  <td rowspan=2>" . $row['start_time_f'] . " -<br />" . $row['end_time_f'] . "</td>";
+  }
+  else
+  {
 $display_block .="
 <tr>
   <td>" . $row['start_time_f'] . " -<br />" . $row['end_time_f'] . "</td>";
-
+}
 /////////////////
   if ($row['track'] == '---' || $row['track'] == 'Plenary'  || $row['track'] == 'Keynotes')
     {
@@ -75,7 +84,7 @@ $display_block .="
                 elseif ($row['title'] == 'Lunch')
                 {
                   $display_block .="<strong>"  . $row['title'] . " / BoFs</strong></td></tr>
-                                    <tr><td>&nbsp;</td><td><span class=\"track\">BoF - Rm 204</span><br /><strong><a href=\"bof_detail.php?id=42\">Fut. of Array Oriented Program.</a><strong></td><td><span class=\"track\">BoF - Rm 203</span><br /><strong><a href=\"bof_detail.php?id=38\">Reproducibility</a></strong></td><td><span class=\"track\">BoF - Rm 102</span><br /><strong><a href=\"bof_detail.php?id=31\">NumFOCUS</a></strong>";
+                                    <tr><td class=\"track_atsumaru\"><span class=\"track\">BoF - Rm 204</span><br /><strong><a href=\"bof_detail.php?id=42\">Fut. of Array Oriented Program.</a><strong></td><td class=\"track_atsumaru\"><span class=\"track\">BoF - Rm 203</span><br /><strong><a href=\"bof_detail.php?id=38\">Reproducibility</a></strong></td><td class=\"track_atsumaru\"><span class=\"track\">BoF - Rm 102</span><br /><strong><a href=\"bof_detail.php?id=31\">NumFOCUS</a></strong>";
                 }
                 else
                 {
