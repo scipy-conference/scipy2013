@@ -58,7 +58,8 @@ $sql_bofs .= "LEFT JOIN locations ";
 $sql_bofs .= "ON location_id = locations.id ";
 $sql_bofs .= "WHERE type = 'bof' ";
 $sql_bofs .= "AND accepted = 1 ";
-$sql_bofs .= "AND conference_id = 2";
+$sql_bofs .= "AND conference_id = 2 ";
+$sql_bofs .= "ORDER BY start_time, subject";
 
 $total_bofs = @mysql_query($sql_bofs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_bofs = @mysql_num_rows($sql_bofs);
