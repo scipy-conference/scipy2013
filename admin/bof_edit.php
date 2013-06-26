@@ -44,6 +44,9 @@ $sql .="first_name, ";
 $sql .="last_name, ";
 $sql .="content, ";
 $sql .="panelists, ";
+$sql .="start_time, ";
+$sql .="end_time, ";
+$sql .="location_id, ";
 $sql .="will_moderate, ";
 $sql .="moderator, ";
 $sql .="conference_id, ";
@@ -58,6 +61,10 @@ $sql .="LEFT JOIN clients ";
 $sql .="ON created_by = clients.id ";
 $sql .="LEFT JOIN participants ";
 $sql .="ON client_id = clients.id ";
+$sql.= "LEFT JOIN schedules ";
+$sql .= "ON schedules.open_agenda_id = open_agendas.id ";
+$sql .= "LEFT JOIN locations ";
+$sql .= "ON location_id = locations.id ";
 $sql .="WHERE open_agendas.id = \"$oa_id\"";
 
 $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
@@ -68,6 +75,9 @@ $subject = $row['subject'];
 $first_name = $row['first_name'];
 $last_name = $row['last_name'];
 $content = $row['content'];
+$start_time = $row['start_time'];
+$end_time = $row['end_time'];
+$location_id = $row['location_id'];
 $panelists = $row['panelists'];
 $will_moderate = $row['will_moderate'];
 $moderator = $row['moderator'];
@@ -77,6 +87,23 @@ $created_by = $row['created_by'];
 $updated_by = $row['updated_by'];
 
 }
+
+function loclist($x){
+                  $sql_2 = mysql_query("SELECT name, id FROM locations WHERE id > 3 ORDER BY name ASC");
+                  echo "<select name=\"location_id\">";
+                  while(list($name, $id)=mysql_fetch_array($sql_2)){
+		if ($id == $x) 
+		{ 
+		echo "<option value=$id SELECTED>$name</option>";
+		}
+		else
+		{
+		echo "<option value=$id>$name</option>";
+		}
+	}
+                  echo "</select>";
+                  
+                  }
 
 
 ?>
@@ -129,6 +156,27 @@ $updated_by = $row['updated_by'];
   <div class="cell" style="width: 65%;">
     <?php echo $created_by ?> - <?php echo $first_name ?> <?php echo $last_name ?>
     <input type="hidden" name="created_by" value="<?php echo $created_by ?>" />
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell" style="width: 20%;">
+    <span class="form_tips"><label for="time">Time:</label></span> 
+  </div>
+  <div class="cell" style="width: 65%;">
+    <input type="text" name="start_time" id="start_time" value="<?php echo $start_time ?>"/>
+    <input type="text" name="end_time" id="end_time" value="<?php echo $end_time ?>"/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell" style="width: 20%;">
+    <span class="form_tips"><label for="location">Location:</label></span> 
+  </div>
+  <div class="cell" style="width: 65%;">
+<?php
+loclist($location_id);
+?>
   </div>
 </div>
 

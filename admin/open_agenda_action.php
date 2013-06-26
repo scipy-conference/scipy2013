@@ -91,6 +91,20 @@ $sql_talk .= "WHERE id = \"$oa_id\" LIMIT 1";
 
 $result_talk = @mysql_query($sql_talk, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
+$start_time =  $_POST['start_time'];
+$end_time =  $_POST['end_time'];
+$location_id =  $_POST['location_id'];
+
+$sql_schedule = "UPDATE schedules ";
+$sql_schedule .= "SET ";
+$sql_schedule .= "start_time = \"$start_time\", ";
+$sql_schedule .= "end_time = \"$end_time\", ";
+$sql_schedule .= "location_id = \"$location_id\" ";
+$sql_schedule .= "WHERE open_agenda_id = \"$oa_id\" LIMIT 1";
+
+$result_schedule = @mysql_query($sql_schedule, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+
 include("open_agenda_action_result.php");
 
 } 

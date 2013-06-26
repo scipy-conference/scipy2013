@@ -44,12 +44,12 @@ $sql_bofs .= "DATE_FORMAT(start_time, '%Y') AS start_year, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%W') AS start_dow, ";
-$sql_bofs .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
+$sql_bofs .= "DATE_FORMAT(start_time, '%l:%i %p') AS start_time, ";
 
 $sql_bofs .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
 $sql_bofs .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
 $sql_bofs .= "DATE_FORMAT(end_time, '%d') AS end_day, ";
-$sql_bofs .= "DATE_FORMAT(end_time, '%H:%i %p') AS end_time ";
+$sql_bofs .= "DATE_FORMAT(end_time, '%l:%i %p') AS end_time ";
 
 
 $sql_bofs .= "FROM open_agendas ";
