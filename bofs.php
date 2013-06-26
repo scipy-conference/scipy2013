@@ -45,6 +45,7 @@ $sql_bofs .= "DATE_FORMAT(start_time, '%b') AS start_month, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%d') AS start_day, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%W') AS start_dow, ";
 $sql_bofs .= "DATE_FORMAT(start_time, '%H:%i %p') AS start_time, ";
+$sql_bofs .= "start_time AS start_order, ";
 
 $sql_bofs .= "DATE_FORMAT(end_time, '%Y') AS end_year, ";
 $sql_bofs .= "DATE_FORMAT(end_time, '%c') AS end_month, ";
@@ -59,7 +60,7 @@ $sql_bofs .= "ON location_id = locations.id ";
 $sql_bofs .= "WHERE type = 'bof' ";
 $sql_bofs .= "AND accepted = 1 ";
 $sql_bofs .= "AND conference_id = 2 ";
-$sql_bofs .= "ORDER BY start_time, subject";
+$sql_bofs .= "ORDER BY start_order, subject";
 
 $total_bofs = @mysql_query($sql_bofs, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 $total_found_bofs = @mysql_num_rows($sql_bofs);
