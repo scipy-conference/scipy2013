@@ -161,11 +161,11 @@ function loclist($x){
 
 <div class="row">
   <div class="cell" style="width: 20%;">
-    <span class="form_tips"><label for="time">Time:</label></span> 
+    <span class="form_tips"><label for="time">Time:<br /></label></span> 
   </div>
   <div class="cell" style="width: 65%;">
-    <input type="text" name="start_time" id="start_time" value="<?php echo $start_time ?>"/>
-    <input type="text" name="end_time" id="end_time" value="<?php echo $end_time ?>"/>
+    <input type="text" name="start_time" id="start_time" value="<?php echo $start_time ?>" placeholder="yyyy-mm-dd hh:mm:ss" />
+    <input type="text" name="end_time" id="end_time" value="<?php echo $end_time ?>" placeholder="yyyy-mm-dd hh:mm:ss"/>
   </div>
 </div>
 
