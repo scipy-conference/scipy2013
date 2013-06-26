@@ -1,7 +1,7 @@
 <div class="callout" style="width: 100%;">
 <h1>Share your SciPy2013 experiences:</h1>
 <p style="line-height: 1.5em;">Use these tags for your Twitter and g+ posts</p>
-<ul  style="margin: 0 0.5em;">
+<ul  style="margin: 0 0 0 0.5em;">
   <li>#scipy2013</li>
   <li>+ScipyConference</li>
 </ul>
