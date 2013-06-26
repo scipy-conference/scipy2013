@@ -48,6 +48,33 @@ $sql .="NOW())";
 
 $result = @mysql_query($sql, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
 
+$sql_select = "SELECT id FROM open_agendas ORDER BY id DESC LIMIT 1";
+
+$result_select = mysql_query($sql_select);
+
+while ($row = mysql_fetch_array($result_select)) {
+$open_agenda_id = $row['id'];
+}
+
+
+$start_time =  $_POST['start_time'];
+$end_time =  $_POST['end_time'];
+$location_id =  $_POST['location_id'];
+
+$sql_schedule = "INSERT INTO schedules ";
+$sql_schedule .= "(open_agenda_id, start_time, end_time, location_id, created_at, updated_at) ";
+$sql_schedule .= "VALUES ";
+$sql_schedule .= "(";
+$sql_schedule .="\"$open_agenda_id\", ";
+$sql_schedule .="\"$start_time\", ";
+$sql_schedule .="\"$end_time\", ";
+$sql_schedule .="\"$location_id\", ";
+$sql_schedule .="NOW(), ";
+$sql_schedule .="NOW())";
+
+$result_schedule = @mysql_query($sql_schedule, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+
+
 include("open_agenda_action_result.php");
 
 }
