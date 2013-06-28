@@ -144,11 +144,9 @@ do {
 if ($row['title'] != '')
   {
 
-
 $display_videos .="
-  <div class=\"free_cell\" style=\"text-align: center;\"><iframe width=\"150\" height=\"84\" src=\"//www.youtube.com/embed/DXPwSiRTxYY\" frameborder=\"0\" allowfullscreen></iframe><br />Part " . $row['part']. "<br />[" . $row['length']. "]</div>";
+  <div class=\"free_cell\" style=\"text-align: center; border-top: 1px solid #ccc; margin: 0 0.25em;\"><iframe width=\"100%\"  src=\"//www.youtube.com/embed/" . $row['link'] . "\" frameborder=\"0\" allowfullscreen></iframe><br /><a href=\"http://www.youtube.com/watch?v=" . $row['link'] . "\">Part " . $row['part']. "</a><br />[" . $row['length']. "]</div>";
 
-//<iframe width="560" height="315" src="//www.youtube.com/embed/DXPwSiRTxYY" frameborder="0" allowfullscreen></iframe>
 
 }
 $count = $count + 1;
