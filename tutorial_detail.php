@@ -122,6 +122,42 @@ $display_bios .= "<p>$first_name $last_name<br />$bio</p>";
 }
 }
 
+
+//===========================
+//  pull videos
+//===========================
+
+$sql_video = "SELECT ";
+$sql_video .= "part, ";
+$sql_video .= "length, ";
+$sql_video .= "title, ";
+$sql_video .= "link ";
+$sql_video .= "FROM videos ";
+$sql_video .= "WHERE talk_id = \"$talk_id\" ";
+$sql_video .= "ORDER BY part ASC";
+
+$total_video = @mysql_query($sql_video, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$count = 0;
+
+do {
+
+if ($row['title'] != '')
+  {
+
+
+$display_videos .="
+  <div class=\"free_cell\" style=\"text-align: center;\"><iframe width=\"150\" height=\"84\" src=\"//www.youtube.com/embed/DXPwSiRTxYY\" frameborder=\"0\" allowfullscreen></iframe><br />Part " . $row['part']. "<br />[" . $row['length']. "]</div>";
+
+//<iframe width="560" height="315" src="//www.youtube.com/embed/DXPwSiRTxYY" frameborder="0" allowfullscreen></iframe>
+
+}
+$count = $count + 1;
+}
+while ($row = mysql_fetch_array($total_video));
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -163,6 +199,22 @@ Room: <a href="location_floor_map.php"><?php echo $location ?></a>
 <p><?php echo $display_authors ?></p>
 <hr />
 <section id="tutorial-content">
+<?php
+if ($display_videos != "")
+  {
+  if ($count > 1) 
+    {
+      echo "<h3>Videos</h3> <div class=\"row\">";
+    }
+    else 
+    {
+      echo "<h3>Video</h3> <div class=\"row\">";
+    }
+  echo $display_videos;
+  echo "</div>";
+  }
+?>
+
 <h3>Bio(s)</h3>
 <?php echo $display_bios ?>
 <hr />
