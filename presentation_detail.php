@@ -97,6 +97,37 @@ $location = $row['name'];
 }
 
 
+//===========================
+//  pull videos
+//===========================
+
+$sql_video = "SELECT ";
+$sql_video .= "part, ";
+$sql_video .= "length, ";
+$sql_video .= "title, ";
+$sql_video .= "link ";
+$sql_video .= "FROM videos ";
+$sql_video .= "WHERE talk_id = \"$talk_id\" ";
+$sql_video .= "ORDER BY part ASC";
+
+$total_video = @mysql_query($sql_video, $connection) or die("Error #". mysql_errno() . ": " . mysql_error());
+$count = 0;
+
+do {
+
+if ($row['title'] != '')
+  {
+
+$display_videos .="
+  <div class=\"free_cell\" style=\"text-align: center; margin: 0 0.25em;\"><iframe width=\"100%\"  src=\"//www.youtube.com/embed/" . $row['link'] . "\" frameborder=\"0\" allowfullscreen></iframe><br />[" . $row['length']. "]</div>";
+
+$count = $count + 1;
+}
+
+}
+while ($row = mysql_fetch_array($total_video));
+
+
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +169,24 @@ Room: <a href="location_floor_map.php"><?php echo $location ?></a>
 
 <h3>Track: <?php echo $track ?></h3>
 
+<hr />
 
+<?php
+if ($display_videos != "")
+  {
+  if ($count > 1) 
+    {
+      echo "<h3>Videos</h3> <div class=\"row\">";
+    }
+    else 
+    {
+      echo "<div class=\"callout\" style=\"width: 300px;\">
+<h1>Video</h1> <div class=\"row\">";
+    }
+  echo $display_videos;
+  echo "</div></div>";
+  }
+?>
 
 <?php echo Markdown($abstract) ?>
 
